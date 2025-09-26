@@ -1,0 +1,19 @@
+# Bytecode ve cache dosyaları
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyCharm ayarları
+.idea/
+
+# Virtual environment (sanallaştırılmış Python ortamı)
+venv/
+env/
+
+# OS dosyaları
+.DS_Store
+Thumbs.db
+
+# Log ve temp dosyaları
+*.log
+*.tmp
