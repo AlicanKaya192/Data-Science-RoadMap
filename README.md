@@ -1,1 +1,3 @@
 # PythonTopics
+
+BENİ OKU
