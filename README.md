@@ -4,6 +4,9 @@
 
 ---
 
+<img src="https://github.com/user-attachments/assets/7c5aefab-2a2d-4d28-afb6-fb2863392e6f" width="640" />
+
+
 ## 📌 Repository Hakkında
 
 Bu repository, Python programlama dili öğrenim sürecimde notlarımı, örnek kodlarımı ve temel konuları derlediğim bir kaynak olarak oluşturulmuştur. Amacım; **veri yapıları, paket yönetimi, sanal ortamlar, Python temelleri ve ileri seviye konular** hakkında organize bir çalışma rehberi hazırlamaktır.
