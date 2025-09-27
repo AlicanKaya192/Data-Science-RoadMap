@@ -71,7 +71,7 @@ a / 7
 a * b / 10
 a ** 2
 
-# İşlemlerin aralarına boşluk bırakma sebebimiz PEP8 kanunları. Python geliştiriclerinin uygun gördüğü formatta kod
+# İşlemlerin aralarına boşluk bırakma sebebimiz PEP8 kanunları. Python geliştiricilerinin uygun gördüğü formatta kod
 # yazma tarzıdır.
 
 ########################
@@ -241,7 +241,7 @@ not_nam[0] # Değişken içerisinde ki ilk elemana erişmiş oluruz.
 not_nam[5]
 not_nam[6] # Liste içerisinde ki listeye erişir ama hepsini döner
 
-not_nam[6][1] # Liste içerisinde ki listenin istediğimizi elemanına erişmek için kullanılan yöntem.
+not_nam[6][1] # Liste içerisinde ki listenin istediğimiz elemanına erişmek için kullanılan yöntem.
 
 type(not_nam[6])
 type(not_nam[6][1])
@@ -300,7 +300,7 @@ dictionary = {"REG": "Regression",
 # Alt alta aralarına virgül koyarak key-value şeklinde girebiliriz.
 # Okunabilirlik açısından virgülden sonra alta geçilmesi önerilir.
 
-dictionary["REG"] # Burada REG i çağırdığımızda valuesu gelir.
+dictionary["REG"] # Burada REG i çağırdığımızda values u gelir.
 
 dictionary = {"REG": ["RMSE", 10],
               "Log": ["MSE", 20],
@@ -394,7 +394,7 @@ t = list(t)
 t[0] = 99
 t = tuple(t) # Önce list'e dönüştürüp istediğimiz elemanı değiştirip daha sonra tuple yaparak değişiklik yapabiliriz.
 
-# Tuple, listelere benzer ama daha güvenli bir şekilde çalışma imkanı sağlar. Dolayısıyla Üzerinde çalıştığımız
+# Tuple, listelere benzer ama daha güvenli bir şekilde çalışma imkanı sağlar. Dolayısıyla üzerinde çalıştığımız
 # bazı senaryolarda belirli bir çıktının tuple formatında olmasını ve değiştirilemiyor olmasını gözlemlemek istiyebiliriz.
 # Tuple'ların kullanım sıklığı çok çok azdır.
 
@@ -418,7 +418,7 @@ set2 = set([1, 2, 3])
 
 # set1'de olup set2'de olmayanlar
 set1.difference(set2) # 5 dönecek.
-set1 - set2 # Buradaki kesişimi ifade etmenin bir diğer yolu matematiksel öperatördür. - işareti ile set1'de olup set2'de olmayan gelir.
+set1 - set2 # Buradaki kesişimi ifade etmenin bir diğer yolu matematiksel operatördür. - işareti ile set1'de olup set2'de olmayan gelir.
 
 # set2'de olup set1'de olmayanlar
 set2.difference(set1) # 2 dönecek.
@@ -440,7 +440,7 @@ set2 = set([1, 2, 3])
 
 set1.intersection(set2)
 
-set1 & set2 # Buradaki kesişimi ifade etmenin bir diğer yolu matematiksel öperatördür. Ve işareti ile 2 kümenin kesişimi gelir.
+set1 & set2 # Buradaki kesişimi ifade etmenin bir diğer yolu matematiksel operatördür. Ve işareti ile 2 kümenin kesişimi gelir.
 
 
 ############################
