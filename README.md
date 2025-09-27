@@ -51,6 +51,28 @@ Bu repository sürekli **geliştirilmekte ve güncellenmektedir**. İlerleyen d�
 
 ---
 
+## 💡 Önerilen Çalışma Yöntemleri ve Veri Seti Pratiği
+
+Öğrenim sürecinde algoritma ve kod pratiği yapmak çok önemlidir. AI araçları (ChatGPT, Gemini, Claude vb.) yaygın olsa da, algoritma mantığını oturtmak ilerisi için kritik öneme sahiptir.  
+
+### Algoritma ve Kod Pratiği Siteleri:
+
+1. **Hackerrank**: Başlangıç ve orta seviye sorular için.  
+2. **Codewars**: Küçük, pratik odaklı görevler.  
+3. **Leetcode**: Orta ve ileri seviye kullanıcılar için (önce Hackerrank/Codewars yapılmalı).  
+4. **Spoj**: Sadece sorular içerir, kod editörü yok. Diğer sitelerden sonra kullanılabilir.  
+
+> Not: Bu sitelere istediğiniz zaman girip ufak pratikler yapabilirsiniz. Veri seti pratiğine daha fazla vakit ayırmanız önerilir.
+
+### Veri Seti Pratiği:
+
+- **Seaborn veri setleri**: Temiz ve başlangıç için uygundur.  
+  ```python
+  import seaborn as sns
+  df = sns.load_dataset('iris')  # Örnek: Iris veri seti
+
+---
+
 ## 🤝 Katkıda Bulunma
 
 Python öğrenimi sürecinde bu kaynakların geliştirilmesine katkıda bulunmak isteyenler için PR (Pull Request) ve issue'lar açmak tamamen açıktır.
