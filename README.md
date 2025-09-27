@@ -6,7 +6,6 @@
 
 <img src="https://github.com/user-attachments/assets/7c5aefab-2a2d-4d28-afb6-fb2863392e6f" width="640" />
 
-
 ## 📌 Repository Hakkında
 
 Bu repository, Python programlama dili öğrenim sürecimde notlarımı, örnek kodlarımı ve temel konuları derlediğim bir kaynak olarak oluşturulmuştur. Amacım; **veri yapıları, paket yönetimi, sanal ortamlar, Python temelleri ve ileri seviye konular** hakkında organize bir çalışma rehberi hazırlamaktır.
@@ -27,6 +26,7 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 | 1    | `setting_up_working_environment.py` | Python ortamınızı hazırlamak ve temel kurulumları yapmak için başlangıç noktası.                                                         |
 | 2    | `What_is_a_virtual_environment`     | **Not:** Bu kısım, 1. kısım çalışırken gerekli yere geldiğinde okunmalı ve uygulanmalı. Sanal ortamların önemini ve kullanımını açıklar. |
 | 3    | `Package_Management`                | Paketlerin kurulumu, yönetimi ve bağımlılıkların yönetimi hakkında bilgiler içerir. Conda ve pip kullanımına değinilmektedir.            |
+| 4    | `Data_Structures`                   | Python’da string, list, dictionary, tuple ve set gibi temel veri yapılarının kullanımını içerir.                                        |
 
 ---
 
@@ -35,7 +35,7 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 1. Öncelikle Python ve Conda/Pip ortamınızı kurun. (`setting_up_working_environment.py` dosyasını çalıştırın)
 2. Sanal ortamlarla çalışmayı öğrenmek için `What_is_a_virtual_environment` kısmını inceleyin.
 3. Paket yönetimi ve bağımlılıkları yönetmek için `Package_Management` kısmına göz atın.
-4. Daha sonra veri yapıları, string işlemleri, listeler, dictionary, tuple ve set gibi temel konulara geçiş yapabilirsiniz.
+4. Veri yapıları (`Data_Structures`) ile Python’un temel veri tiplerini öğrenin.
 
 ---
 
