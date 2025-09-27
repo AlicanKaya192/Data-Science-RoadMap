@@ -10,6 +10,11 @@ Bu repository, Python programlama dili öğrenim sürecimde notlarımı, örnek 
 
 Repo sürekli olarak **güncellenmekte ve geliştirilmekte** olup, Python öğrenen diğer kişiler için de faydalı bir başvuru kaynağı olmayı hedeflemektedir.
 
+Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
+
+* [C# Notlarım](https://github.com/AlicanKaya192/CSharpNotes)
+* [Advanced SQL Queries](https://github.com/AlicanKaya192/AdvancedSQLQueries)
+
 ---
 
 ## 📚 Sırayla Çalışılması Gereken Kısımlar
@@ -31,7 +36,7 @@ Repo sürekli olarak **güncellenmekte ve geliştirilmekte** olup, Python öğre
 
 ---
 
-## 📚 İçerik ve Güncellemeler
+## 📖 İçerik ve Güncellemeler
 
 Bu repository sürekli **geliştirilmekte ve güncellenmektedir**. İlerleyen dönemlerde şunlar eklenmesi planlanmaktadır:
 
@@ -53,3 +58,4 @@ Python öğrenimi sürecinde bu kaynakların geliştirilmesine katkıda bulunmak
 
 * Portfolio: [https://alican-kaya.com/](https://alican-kaya.com/)
 * LinkedIn: [https://www.linkedin.com/in/alican-kaya-881650234/](https://www.linkedin.com/in/alican-kaya-881650234/)
+* Diğer Notlar: [C# Notlarım](https://github.com/AlicanKaya192/CSharpNotes) | [Advanced SQL Queries](https://github.com/AlicanKaya192/AdvancedSQLQueries)
