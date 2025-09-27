@@ -460,9 +460,6 @@ set2.union(set1) # Bir önceki ile aynı işlevi görür.
 set1 = set([7, 8, 9])
 set2 = set([5, 6, 7, 8, 9, 10])
 
-set1.issubset(set2) # True döner
-set2.issubset(set1)
-
 
 ############################
 # issubset(): Alt küme olup olmadığını sorgular
