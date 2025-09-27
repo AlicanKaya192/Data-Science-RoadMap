@@ -478,18 +478,3 @@ set2.issubset(set1) # False döner.
 
 set2.issuperset(set1) # True döner
 set1.issuperset(set2) # False döner.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
