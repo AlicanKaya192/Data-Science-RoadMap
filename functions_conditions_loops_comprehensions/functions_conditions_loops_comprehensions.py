@@ -572,7 +572,7 @@ summer(1, 3) * 9
 new_sun = lambda a, b: a + b # hatalı kullanım
 
 # Lambda da bir fonksiyon tanımlama şeklidir.
-# def'ten farkı bunlar kullan at şeklinde çalışır. apply gibi, map gibi diğer bazı araçlarda kullanıldığında asıl
+# def'ten farkı olarak bunlar kullan at şeklinde çalışır. apply gibi, map gibi diğer bazı araçlarda kullanıldığında asıl
 # kullanılma amacını yerine getirmektedir. Yani yukarıda ki yazım şekli ile kullan at özelliğini taşımamaktadır.
 
 # Kullan-at demek değişkenler bölümünde yer tutmadan ihtiyaç duyulan bir noktada kullanılıp atılması anlamına gelmektedir.
