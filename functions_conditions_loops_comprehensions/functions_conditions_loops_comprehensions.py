@@ -622,7 +622,7 @@ list(filter(lambda x: x % 2 == 0, list_store))
 
 from functools import reduce
 
-# Bu yapıyı kullanbilmek için functool içerisinden reduce metodunu, fonksiyonunu import ediyoruz.
+# Bu yapıyı kullanabilmek için functool içerisinden reduce metodunu, fonksiyonunu import ediyoruz.
 
 list_store = [1, 2, 3, 4]
 
