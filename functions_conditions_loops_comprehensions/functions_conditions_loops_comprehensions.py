@@ -41,7 +41,7 @@ def sum(arg1, arg2):
 sum(7,8)
 sum(8,7) # Sıralamanında bir önemi vardır. İlk girilen değer ilk parametreye eş değer olur.
 
-sum(arg2=8, arg1=7) # Para metre adlarını biliyor isek bu şekilde sırası önemli olmadan atama yapabiliriz.
+sum(arg2=8, arg1=7) # Parametre adlarını biliyor isek bu şekilde sırası önemli olmadan atama yapabiliriz.
 
 
 ################
@@ -78,13 +78,13 @@ def summer(arg1, arg2):
 # Bu fonksiyonun bir şeyi return edecek ise çıktı değil bunun bilgisini de verebiliriz.
 # Help menüsünden fonksiyonumuzu incelediğimiz de hazırlanan bilgi notu gelecektir.
 
-# 1 - Fonksiyonun ne yapar ? yazılır.
+# 1 - Fonksiyon ne yapar ? yazılır.
 # 2 - Argümanlar ne yapar ? yazılır.
 # 3 - Çıktısı ne olacak ? yazılır.
 
 
 #########################
-# Fonksiyonlarin Statement/Body Bölümü
+# Fonksiyonların Statement/Body Bölümü
 #########################
 
 # def function_name(parameters/arguments): Bir fonksiyon parametre veya argümansız da olabilir.
@@ -137,7 +137,7 @@ def divide(a, b=1):
 
 divide(1)
 
-# Varsayalım ki bir fonksiyonda çok fazla argüman var ya da fonksiyonun özelinde de düşünebiliriz. ,
+# Varsayalım ki bir fonksiyonda çok fazla argüman var ya da fonksiyonun özelinde de düşünebiliriz.
 # Bir şekilde kullanıcıyla etkileşim sağlayacak olan bu fonksiyonu kullanıcı daha rahat kullanabilsin diye
 # varsaydığımızı düşünelim. Bu durumda bazı argümanlara ön tanımlı değerler ekleyerek, kullanıcılar her argümanı
 # girmemiş olsa dahi fonksiyonların çalışmasını sürdürmesini sağlayabiliriz.
@@ -166,7 +166,7 @@ say_hi()
 # Örneğin ikisini toplayıp diğerine bölmek gibi, bu bize bir skor verecek. Buna göre çeşitli aksiyonlar alınacak
 # diye düşünelim.
 
-# Örneğin birinci sokak lambası için bunu hesaplıyalım.
+# Örneğin birinci sokak lambası için bunu hesaplayalım.
 # Örnek; (56 + 15) / 80'i hesapladı. Değer geldi.
 (56 + 15) / 80
 
@@ -194,7 +194,7 @@ def calculate(varm, moisture, charge):
     print((varm + moisture) / charge)
 
 # calculate(98,12,78) * 10
-# Hata verecektir. Çünkü fonksiyon parametreleri biz int atasak dahi NoneType'dır. Ve NoneType ile int veya diğer
+# Hata verecektir. Çünkü fonksiyon parametreleri biz int atasak dahi NoneType'dır. NoneType ile int veya diğer
 # değişken türleri ile işlem yapılamaz. Bunun için bize return gerekir.
 
 
@@ -218,7 +218,7 @@ calculate(98,12,78)
 
 varm, moisture, charge, output = calculate(98,12,78)
 # Bu şekilde çıktıları saklayabiliriz. Verdiğimiz değerler fonksiyon içerisinde işlem görür ve return yeni değerleri gönderir.
-# Burada verdiğimiz değiken adları return ile farklı olabilir. Return sırasına göre değer alırlar.
+# Burada verdiğimiz değişken adları return ile farklı olabilir. Return sırasına göre değer alırlar.
 
 
 ###########################################
@@ -254,7 +254,7 @@ all_calculation(1,3,5, 12)
 list_store = [1, 2] # Bu değişkene her yerden ulaşabileceğimiz için Global Scope aralığında olan bir değişkendir.
 
 def add_element(a, b):
-    c = a * b # Burada ki c değişkeni dışarıdan erişilemez çünkü Local aralıkdadır. Sadece add_elemet fonksiyonunda bulunur.
+    c = a * b # Burada ki c değişkeni dışarıdan erişilemez çünkü Local aralıkdadır. Sadece add_element fonksiyonunda bulunur.
     list_store.append(c)
     print(list_store)
 
@@ -298,7 +298,7 @@ def number_check(number):
 
 number_check(12)
 
-# E[er if False geldi o zaman ne olacak burada Else & Elif devreye giriyor.
+# Eğer if False gelirse o zaman ne olacak burada Else & Elif devreye girer.
 
 
 ##########
@@ -449,19 +449,19 @@ while number < 5: # sayı 5 olana kadar devam et
 ######################
 
 # Otomatik index üretici ya da otomatik counter diye geçen ve for loop ile birlikte kullanılabilen bir yapıdır.
-# Bir iteratif nesne içinde gezip elemanlarına bir şey yaparken aynı zamanda o elemanların indeks bilgilerini de takip
-# etmek istediğimizde kullanılır. Genellikle, derinlemesine bir projenin içierisinde bu problemle karşılaşıp nasıl
+# Bir iteratif nesne içinde gezip elemanlarına bir şey yaparken aynı zamanda o elemanların index bilgilerini de takip
+# etmek istediğimizde kullanılır. Genellikle, derinlemesine bir projenin içerisinde bu problemle karşılaşıp nasıl
 # çözülebileceği bile anlaşılamadan uzun zamanlar harcanmasına sebep olabilecek bir problemdir.
 
 # Örneğin; bir liste içerisinde gezerken bu elemanlara belirli bir işlem uygularken aynı zamanda işlem uygulanan
-# elemanların indeks bilgisini de tutup gerekirse bu indeks bilgisine göre de bir işlem yapmak istediğimizde kullanılan
+# elemanların index bilgisini de tutup gerekirse bu index bilgisine göre de bir işlem yapmak istediğimizde kullanılan
 # bir yapıdır.
 
-students = ["John", "Mark", "Venesar", "Mariam"]
+students = ["John", "Mark", "Vanessa", "Mariam"]
 
 # Index'i çift olanlara bir işlem, tek olanlara başka bir işlem yapmak istediğimizi düşünelim.
-# Bunu, örneğin; range ve len gibi ifadeler kullanarak indeks üretebileceğim gibi, buradaki her bir elemanla eşleşmiş
-# indeksler kullanarak da bu takip etme işlemini gerçekleştirebiliriz.
+# Bunu, örneğin; range ve len gibi ifadeler kullanarak index üretebileceğim gibi, buradaki her bir elemanla eşleşmiş
+# index'ler kullanarak da bu takip etme işlemini gerçekleştirebiliriz.
 
 for student in students:
     print(student)
@@ -487,6 +487,7 @@ for index, student in enumerate(students):
 ######################
 # Uygulama - Mülakat Sorusu
 ######################
+
 # divide_students fonksiyonu yazınız
 # çift indexte yer alan öğrencileri bir listeye alınız
 # Tek indexte yer alan öğrencileri başka bir listeye alınız.
@@ -508,3 +509,124 @@ def divide_students(students):
 st = divide_students(students)
 st[0] # 1.grubun elemanlarını döner
 st[1] # 2.grubun elemanlarını döner
+
+
+######################
+# alternating fonksiyonunun enumerate ile yazılması
+######################
+
+# Öyle bir fonksiyon yazmalıyız ki kendisine girilen string ifadelerin çift index'lerinde yer alan karakterleri
+# büyültsün, tek index'lerinde yer alan karakterlerini küçültsün.
+
+# Dolayısıyla yapılması gereken şey girilen string'lerin içerisinde gezmemiz gerektiğidir.
+
+def alternating_with_enumerate(string):
+    new_string = ""
+    for i, letter in enumerate(string):
+        if i % 2 == 0:
+            new_string += letter.upper()
+        else:
+            new_string += letter.lower()
+    print(new_string)
+
+
+alternating_with_enumerate("hi my name is john and i am learning python")
+
+# enumerate yerine alternatif olarak range ve len kullanabiliriz fakat kod okunabilirliği ve takibi açısından daha kolay
+# takip etme imkanı sağlamaktadır.
+
+
+######################
+# Zip
+######################
+
+students = ["John", "Mark", "Vanessa", "Mariam"]
+
+departments = ["Computer Science", "Science", "statistics", "astronomy"]
+
+ages = [25, 35, 45, 50]
+
+# Elimizde 3 farklı liste olsun. Biri öğrencileri, biri departmanları, bir diğeri de yaşları tutsun.
+# Diyelim ki şöyle bir amacımız var; burada ki 3 farklı listenin elemanlarını birlikte kullanmak istiyoruz.
+# Zip, birbirinden farkı şekilde olan listeleri bir arada değerlendirme imkanı sağlar.
+
+
+list(zip(students, departments, ages))
+
+# 3 listeyi birleştirerek getirdi. Zipleme şekli ise her elemana denk gelen index numarasına göre.
+
+
+######################
+# Lambda, Map, Filter & Reduce (azaltmak)
+######################
+
+# Python'ın fonksiyonel programlama yönüne hitap eden vektörel seviyede işlemler yapma yönüne hitap eden bazı araçlardır.
+
+def summer(a, b):
+    return a + b
+
+summer(1, 3) * 9
+
+# Lambda nedir ? Lambda kullan-at fonksiyondur. Yani bir tanımlama atama işlemi yapılmaksızın kullanılabilir.
+
+new_sun = lambda a, b: a + b # hatalı kullanım
+
+# Lambda da bir fonksyion tanımlama şeklidir.
+# def'ten farkı bunlar kullan at şeklinde çalışır. apply gibi, map gibi diğer bazı araçlarda kullanıldığında asıl
+# kullanılma amacını yerine getirmektedir. Yani yukarıda ki yazım şekli ile kullan at özelliğini taşımamaktadır.
+
+# Kullan-at demek değişkenler bölümünde yer tutmadan ihtiyaç duyulan bir noktada kullanılıp atılması anlamına gelmektedir.
+
+
+# map
+
+# map nedir ? map fonksiyonu bizi döngü yazmaktan kurtarır. İçerisinde gezebileceğimiz, iteratif bir nesne veririz ve
+# bu nesneye uygulamak istediğimiz fonksiyonu veririz. Bize bu işlemi otomatik olarak yapar.
+
+salaries = [1000, 2000, 3000, 4000, 5000]
+
+# diyelim ki burada ki maaşlara bir zam uygulamak istiyoruz
+
+def new_salary(x):
+    return x * 30 / 100 + x
+
+new_salary(1000)
+
+for salary in salaries:
+    print(new_salary(salary))
+
+
+# şimdi map'in işlevselliğini göreceğiz. Öncelikle fonksiyonları map e veriyoruz.
+
+list(map(new_salary, salaries))
+
+# Döngü yazmadan for yazmadan bütün elemanlara gitti ve bir map işlemi yaptı.
+# Şimdi lambda ile map ilişkisine gelelim.
+
+list(map(lambda x: x * 20 / 100 + x, salaries))
+# map, salaries listesindeki her elemanı tek tek lambda fonksiyonuna gönderir;
+# lambda ise gelen elemanın %20 fazlasını hesaplayıp geri döndürür.
+
+
+# FILTER -----> Filtreleme işlemlerinde kullanılır.
+
+list_store = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Örneğin; elimizde böyle bir liste var. Bu listede belirli bir koşulu sağlayanları seçmek istediğimizi, belirli bir
+# koşulu sağlamayanları seçmek istemediğimizi düşünelim.
+
+list(filter(lambda x: x % 2 == 0, list_store))
+
+
+# REDUCE ( İNDİRGEMEK )
+
+from functools import reduce
+
+# Bu yapıyı kullanbilmek için functool içerisinden reduce metodunu, fonksiyonunu import ediyoruz.
+
+list_store = [1, 2, 3, 4]
+
+# Diyelim ki elimizde böyle bir liste var. Bu sefer yapmak istediğimiz şey iteratif bir şekilde ilgili elemanlara
+# tek tek belirli bir işlemi uygulamak.
+
+reduce(lambda a, b: a + b, list_store)
