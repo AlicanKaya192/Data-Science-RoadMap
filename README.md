@@ -21,13 +21,14 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 
 ## 📚 Sırayla Çalışılması Gereken Kısımlar
 
-| Sıra | Konu / Dosya                                | Notlar                                                                                                                                   |
-| ---- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| 1    | `setting_up_working_environment.py`         | Python ortamınızı hazırlamak ve temel kurulumları yapmak için başlangıç noktası.                                                         |
-| 2    | `What_is_a_virtual_environment`             | **Not:** Bu kısım, 1. kısım çalışırken gerekli yere geldiğinde okunmalı ve uygulanmalı. Sanal ortamların önemini ve kullanımını açıklar. |
-| 3    | `Package_Management`                        | Paketlerin kurulumu, yönetimi ve bağımlılıkların yönetimi hakkında bilgiler içerir. Conda ve pip kullanımına değinilmektedir.            |
-| 4    | `Data_Structures`                           | Python’da string, list, dictionary, tuple ve set gibi temel veri yapılarının kullanımını içerir.                                        |
-| 5    | `functions_conditions_loops_comprehensions` | Fonksiyonlar, koşullar, döngüler ve comprehensions konularını kapsar. Temel Python akış kontrolleri ve fonksiyon yazımı için önemli bir bölümdür. |
+| Sıra | Konu / Dosya                                | Notlar                                                                                                                                                                                                 |
+| ---- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1    | `setting_up_working_environment.py`         | Python ortamınızı hazırlamak ve temel kurulumları yapmak için başlangıç noktası.                                                                                                                       |
+| 2    | `What_is_a_virtual_environment`             | **Not:** Bu kısım, 1. kısım çalışırken gerekli yere geldiğinde okunmalı ve uygulanmalı. Sanal ortamların önemini ve kullanımını açıklar.                                                              |
+| 3    | `Package_Management`                        | Paketlerin kurulumu, yönetimi ve bağımlılıkların yönetimi hakkında bilgiler içerir. Conda ve pip kullanımına değinilmektedir.                                                                          |
+| 4    | `Data_Structures`                           | Python’da string, list, dictionary, tuple ve set gibi temel veri yapılarının kullanımını içerir.                                                                                                      |
+| 5    | `functions_conditions_loops_comprehensions` | Fonksiyonlar, koşullar, döngüler ve comprehensions konularını kapsar. Ayrıca `zip`, `lambda`, `map`, `filter` ve `reduce` gibi fonksiyonel programlama araçlarına dair ayrıntılı açıklamalar ve örnekler içerir. |
+
 
 ---
 
