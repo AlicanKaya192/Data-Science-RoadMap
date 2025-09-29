@@ -27,7 +27,9 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 | 2    | `What_is_a_virtual_environment`             | **Not:** Bu kısım, 1. kısım çalışırken gerekli yere geldiğinde okunmalı ve uygulanmalı. Sanal ortamların önemini ve kullanımını açıklar.                                                                                                             |
 | 3    | `Package_Management`                        | Paketlerin kurulumu, yönetimi ve bağımlılıkların yönetimi hakkında bilgiler içerir. Conda ve pip kullanımına değinilmektedir.                                                                                                                         |
 | 4    | `Data_Structures`                           | Python’da string, list, dictionary, tuple ve set gibi temel veri yapılarının kullanımını içerir.                                                                                                                                                     |
-| 5    | `functions_conditions_loops_comprehensions` | Fonksiyonlar, koşullar, döngüler ve comprehensions konularını kapsar. `zip`, `lambda`, `map`, `filter`, `reduce`, list ve dictionary comprehensions gibi fonksiyonel programlama araçlarına dair ayrıntılı açıklamalar, veri seti uygulamaları ve pratik örnekler içerir. |
+| 5    | `functions_conditions_loops_comprehensions` | Fonksiyonlar, koşullar, döngüler ve comprehensions konularını kapsar. `zip`, `lambda`, `map`, `filter`, `reduce`, list ve dictionary comprehensions gibi fonksiyonel programlama araçlarına dair ayrıntılı açıklamalar, veri seti uygulamaları ve pratik örnekler içerir. Ayrıca temel veri tipleri ve set, tuple, string, dictionary işlemleri için alıştırmalar içerir. |
+| 6    | `python_Exercises` / `list_comprehension_exercises` | BURADA Kİ EGZERSİZLER İÇİN ÖNCELİKLE `Çalışma_Ortamı_Ayarları` içerikleri, daha sonra `Data_Structures` içeriğini çalışınız. Car_crashes ve_
+
 
 
 
