@@ -630,3 +630,218 @@ list_store = [1, 2, 3, 4]
 # tek tek belirli bir işlemi uygulamak.
 
 reduce(lambda a, b: a + b, list_store)
+
+
+######################
+# COMPREHENSIONS
+######################
+
+
+######################
+# List Comprehensions (Liste Kavramları)
+######################
+
+# Birden fazla satır ve kod ile yapılabilecek işlemleri kolayca istediğimiz çıktı, veri yapısına göre tek bir satırda
+# gerçekleştirme imkanı sağlayan yapılardır.
+
+salaries = [1000, 2000, 3000, 4000, 5000]
+
+def new_salary(x):
+    return x * 20 / 100 + x
+
+for salary in salaries:
+    print(new_salary(salary))
+
+null_list = []
+
+for salary in salaries:
+    null_list.append(new_salary(salary))
+
+null_list = []
+
+for salary in salaries:
+    if salary < 3000:
+        null_list.append(new_salary(salary))
+    else:
+        null_list.append(new_salary(salary))
+
+# Şuana kadar bildiğimiz yapı ile yaptık. Şimdi List Comprehensions ile yapacağız.
+
+
+[new_salary(salary * 2) if salary < 3000 else new_salary(salary) for salary in salaries]
+
+# List comprehension nasıl oluşturulur ?
+
+# Bildiğimiz bir liste oluşturma işlemiyle başlar. Bunun içerisine döngü, if, else yapıları, fonksiyonlar ve benzeri
+# matematiksel işlemler yerleştirilerek buradan çıkacak olan sonucun tek bir liste halinde çıkması beklenir.
+
+# [ <ifade> for <öğe> in <liste> if <koşul> ]
+
+[salary * 2 for salary in salaries]
+
+[salary * 2 for salary in salaries if salary < 3000]
+
+# EĞER IF BLOĞU TEK BAŞINA KULLANILIYORSA SAĞ TARAFTA, ELSE İLE BİRLİKTE KULLANILIYOR İSE SOL FOR'UN SOLUNDA OLMALIDIR.
+
+# [ <ifade_if_true> if <koşul> else <ifade_if_false> for <öğe> in <liste> ]
+
+[salary * 2 if salary < 3000 else salary * 0 for salary in salaries]
+
+# Diyelim ki elimizde bir fonksiyon var ve bu yapının içerisinde kullanacağız.
+
+[new_salary(salary * 2) if salary < 3000 else new_salary(salary * 0.2) for salary in salaries]
+
+students = ["John", "Mark", "Vanessa", "Mariam"]
+students_no = ["John", "Vanessa"]
+
+[student.lower() if student in students_no else student.upper() for student in students]
+
+# Python’un list comprehension yapısında doğrudan elif anahtar kelimesi bulunmaz.
+# Ancak, if … else ifadesi ifade kısmında kullanılabildiği için, iç içe (nested) if–else yazarak elif mantığını taklit edebilirsiniz.
+
+# [ ifade1 if koşul1 else ( ifade2 if koşul2 else ifade3 ) for öğe in liste ]
+
+
+######################
+# Dictionary Comprehensions (Sözlük Kavramları)
+######################
+
+# Listelere benzer şekilde tek bir satırda görece karmaşık olarak kabul edilebilecek ve birden fazla satırda ifade
+# edilmesi gerekecek işlemleri ifade etme imkanı sağlar.
+
+dictionary = {'a': 1,
+              'b': 2,
+              'c': 3,
+              'd': 4}
+
+dictionary.keys()
+dictionary.values()
+dictionary.items() # Tuple olarak döner.
+
+# Diyelim ki sözlükte ki her bir value'nun karesini almak istiyoruz.
+
+{k: v ** 2 for (k, v) in dictionary.items()}
+
+# k key'leri temsil etsin. v value'ları temsil ediyor.
+
+# Eğer key'lere işlem yapmak istersek.
+
+{k.upper(): v ** 2 for (k, v) in dictionary.items()}
+
+
+######################
+# Uygulama - Mülakat Sorusu
+######################
+
+# Amaç: çift sayıların karesi alınarak bir sözlüğe eklenmek istenmektedir.
+# Key'ler orjinal değerler value'lar ise değiştirilmiş değerler olacak.
+
+numbers = range(10)
+new_dict = {}
+
+for number in numbers:
+    if number % 2 == 0:
+        new_dict[number] = number ** 2
+
+{n: n ** 2 for n in numbers if number % 2 == 0}
+
+
+######################
+# List & Dict Comprehension Uygulamalar
+######################
+
+######################
+# Bir Veri Setinde ki Değişken İsimlerini Değiştirmek
+######################
+
+# before:
+# ['total', 'speeding', 'alcohol', 'not_distracted', 'not_previous', 'ins_premium', 'ins_losses', 'abbrev']
+
+# after:
+# ['TOTAL', 'SPEEDING', 'ALCOHOL', 'NOT_DISTRACTED', 'NOT_PREVIOUS', 'INS_PREMIUM', 'INS_LOSSES', 'ABBREV']
+
+# Bunlar bir dataframe in değişkenlerinin isimleri.
+# Dataframe nedir ?
+# Dataframe pandas modülünün, paketinin, kütüphanesinin bir veri yapısıdır. Birbirinden farklı tiplerdeki verileri
+# tutma imkanı sağlar.
+
+import seaborn as sns
+df = sns.load_dataset("car_crashes")
+df.columns
+
+for col in df.columns:
+    col.upper()
+
+A = []
+
+for col in df.columns:
+    A.append(col.upper())
+
+df.columns = A
+
+# List Comprehension ile nasıl yaparız.
+
+df = sns.load_dataset("car_crashes")
+df.columns = [col.upper() for col in df.columns]
+
+
+###########################################
+# İsminde "INS" olan değişkenlerin başına FLAG diğerlerine NO_FLAG eklemek istiyoruz.
+###########################################
+
+# before:
+# ['TOTAL', 'SPEEDING', 'ALCOHOL', 'NOT_DISTRACTED', 'NOT_PREVIOUS', 'INS_PREMIUM', 'INS_LOSSES', 'ABBREV']
+
+# after:
+# ['NO_FLAG_TOTAL', 'NO_FLAG_SPEEDING',
+# 'NO_FLAG_ALCOHOL', 'NO_FLAG_NOT_DISTRACTED',
+# 'NO_FLAG_NOT_PREVIOUS', 'FLAG_INS_PREMIUM',
+# 'FLAG_INS_LOSSES', 'NO_FLAG_ABBREV']
+
+[col for col in df.columns if "INS" in col] # INS olanlarını getirdik şimdi INS içerenlere FLAG_ EKLEYECEĞİZ olmayanlara NOT_FLAG_
+
+["FLAG_" + col for col in df.columns if "INS" in col] # INS içerenlerin başına FLAG_
+
+["FLAG_" + col if "INS" in col else "NO_FLAG_" + col for col in df.columns] # INS içerenlerin başına FLAG_ içermeyenlerin ise NOT_FLAG_ ekledik.
+
+
+###########################################
+# Amaç key'i string, value'su aşağıdaki gibi bir liste olan sözlük oluşturmak.
+# Sadece sayısal değişkenler için yapmak istiyoruz.
+###########################################
+
+# Output:
+# {'total': ['mean', 'min', 'max', 'var'],
+#  'speeding': ['mean', 'min', 'max', 'var'],
+#  'alcohol': ['mean', 'min', 'max', 'var'],
+#  'not_distracted': ['mean', 'min', 'max', 'var'],
+#  'not_previous': ['mean', 'min', 'max', 'var'],
+#  'ins_premium': ['mean', 'min', 'max', 'var'],
+#  'ins_losses': ['mean', 'min', 'max', 'var']}
+
+import seaborn as sns
+df = sns.load_dataset("car_crashes")
+df.columns
+
+num_cols = [col for col in df.columns if df[col].dtype != "O"]
+# Burada O object'i, yani kategorik değişkenleri temsil eder. Biz kategorik değişkenleri değil de kategorik olmayanları
+# ifade etmek, yakalamak istiyoruz.
+
+soz = {}
+agg_list = ["mean", "min", "max", "sum"]
+
+for col in num_cols:
+    soz[col] = agg_list
+
+# kısa yol
+new_dict = {col: agg_list for col in num_cols}
+
+df[num_cols].head()
+
+df[num_cols].agg(new_dict)
+
+
+
+
+
+
