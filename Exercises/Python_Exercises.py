@@ -63,7 +63,7 @@ sub_list = lst[0:4]
 print(sub_list)
 
 # ADIM 4
-removed = lst.pop(8)
+lst.pop(8)
 print(lst)
 
 # ADIM 5
