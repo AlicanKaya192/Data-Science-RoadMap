@@ -19,26 +19,44 @@ import seaborn as sns
 
 df = sns.load_dataset("car_crashes")
 
-new_columns = ["NUM_" + col.upper() if df[col].dtype != "object" else col for col in df.columns]
+new_columns = ["NUM_" + col.upper() if df[col].dtype != "O" else col.upper() for col in df.columns]
 
 df.columns = new_columns
 
 print(df.columns)
 
+# DÖNGÜ HALİ
+
+l = []
+for col in df.columns:
+    if df[col].dtype != "object":
+        l.append("NUM_" + col.upper())
+    else:
+        l.append(col.upper())
+print(l)
 
 # GÖREV 2: List Comprehension yapısı kullanarak car_crashes verisinde isminde "no" barındırmayan değişkenlerin
-# isimlerinin sonuna "FLAG" yazınız.
+# isimlerinin sonuna "_FLAG" yazınız.
 
 import seaborn as sns
 
 df = sns.load_dataset("car_crashes")
 
-new_columns = [col.upper() + "_FLAG" if "no" not in col.lower() else col for col in df.columns]
+new_columns = [col.upper() + "_FLAG" if "no" not in col.lower() else col.upper() for col in df.columns]
 
 df.columns = new_columns
 
 print(df.columns)
 
+# DÖNGÜ HALİ
+
+l = []
+for col in df.columns:
+    if "no" not in col.lower():  # df.columns artık büyük harflerle
+        l.append(col.upper() + "_FLAG")
+    else:
+        l.append(col.upper())
+print(l)
 
 # GÖREV 3: List Comprehension yapısı kullanarak aşağıda verilen değişken isimlerinden FARKLI olan değişkenlerin isimlerini
 # seçiniz ve yeni bir data frame oluşturunuz.
