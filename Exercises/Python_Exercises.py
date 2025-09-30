@@ -17,6 +17,9 @@ s = {"Python", "Machine Learning", "Data Science"}
 print(type(x), type(y), type(z), type(a), type(b), type(c), type(l), type(d), type(t), type(s))
 
 # x = int, y = float, z = complex, a = string, b = bool, c = bool, l = list, d = dictionary, t = tuple, s = set
+# l = Sıraladır.
+#     Kapsayıcıdır.
+#     Değiştirilebilir.
 
 
 # GÖREV 2 : Verilen string ifadenin tüm harflerini büyük harfe çeviriniz. Virgül ve nokta yerine space koyunuz, kelime kelime ayırınız.
