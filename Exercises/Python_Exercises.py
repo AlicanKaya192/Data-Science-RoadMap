@@ -69,8 +69,13 @@ print(lst)
 # ADIM 5
 lst.append("X")
 
+# EK BİLGİ
+lst.append(["a", "b", "c"]) # append otomatik listeyi günceller. Eklenen veri ne olursa olsun tek bir öğe olarak eklenir.
+
+lst.extend(["a", "b", "c"]) # extend otomatik listeyi günceller. Ancak fark: extend() iterable içindeki elemanları ayrı ayrı ekler.
+
 # ADIM 6
-lst.insert(8, "N")
+lst.insert(8, "N") # Verilen index'e göre ekler.
 
 
 # GÖREV 4:  Verilen sözlük yapısına aşağıdaki adımları uygulayınız.
