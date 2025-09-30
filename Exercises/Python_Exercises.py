@@ -37,6 +37,9 @@ words = text.replace(',', ' ').replace('.', ' ').split()
 words = [w.upper() for w in words]
 print(words)
 
+# YÖNTEM 2:
+text.upper().replace(',', ' ').replace('.', ' ').split()
+
 
 # GÖREV 3:  Verilen listeye aşağıdaki adımları uygulayınız.
 
