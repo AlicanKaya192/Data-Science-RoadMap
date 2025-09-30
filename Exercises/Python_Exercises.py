@@ -21,6 +21,10 @@ print(type(x), type(y), type(z), type(a), type(b), type(c), type(l), type(d), ty
 #     Kapsayıcıdır.
 #     Değiştirilebilir.
 
+# s = Sırasız + eşsiz
+# #   Kapsayıcıdır.
+# #   Değiştirilebilir.
+
 
 # GÖREV 2 : Verilen string ifadenin tüm harflerini büyük harfe çeviriniz. Virgül ve nokta yerine space koyunuz, kelime kelime ayırınız.
 
