@@ -28,7 +28,9 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 | 3    | `Package_Management`                        | Paketlerin kurulumu, yönetimi ve bağımlılıkların yönetimi hakkında bilgiler içerir. Conda ve pip kullanımına değinilmektedir.                                                                                                                         |
 | 4    | `Data_Structures`                           | Python’da string, list, dictionary, tuple ve set gibi temel veri yapılarının kullanımını içerir.                                                                                                                                                     |
 | 5    | `functions_conditions_loops_comprehensions` | Fonksiyonlar, koşullar, döngüler ve comprehensions konularını kapsar. `zip`, `lambda`, `map`, `filter`, `reduce`, list ve dictionary comprehensions gibi fonksiyonel programlama araçlarına dair ayrıntılı açıklamalar, veri seti uygulamaları ve pratik örnekler içerir. Ayrıca temel veri tipleri ve set, tuple, string, dictionary işlemleri için alıştırmalar içerir. |
-| 6    | `python_Exercises` / `list_comprehension_exercises` | BURADA Kİ EGZERSİZLER İÇİN ÖNCELİKLE `Çalışma_Ortamı_Ayarları` içerikleri, daha sonra `Data_Structures` içeriğini çalışınız.
+| 6    | `python_Exercises` / `list_comprehension_exercises` | BURADA Kİ EGZERSİZLER İÇİN ÖNCELİKLE `Çalışma_Ortamı_Ayarları` içerikleri, daha sonra `Data_Structures` içeriğini çalışınız. Car_crashes veri seti üzerinde list comprehension uygulamaları ve filtreleme/yeniden adlandırma işlemleri yapılmaktadır. |
+| 7    | `NumPy`                                     | Nümerik Python işlemleri için kullanılan temel kütüphane. Array yapıları, veri saklama verimliliği, hız avantajı, yüksek seviyeden (vektörel) işlemler, yeniden şekillendirme, indeksleme, fancy index, koşullu seçimler ve matematiksel işlemler üzerinde yoğunlaşır. Ayrıca NumPy ile iki bilinmeyenli denklem çözümü gibi uygulamalar da yer almaktadır. |
+
 
 
 
@@ -51,7 +53,7 @@ Bu repository sürekli **geliştirilmekte ve güncellenmektedir**. İlerleyen d�
 
 * Dosya işlemleri  
 * Python OOP (Object Oriented Programming)  
-* NumPy, Pandas ve Matplotlib örnekleri
+* Pandas ve Matplotlib örnekleri
 
 ---
 
