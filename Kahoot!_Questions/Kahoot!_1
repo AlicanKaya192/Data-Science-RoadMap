@@ -1,0 +1,90 @@
+📘 Kahoot!_1 Konular:
+- setting_up_working_environment
+- data_structures
+- List_Comprehension
+- functions
+- conditions
+- loops
+
+─────────────────────────────
+1 - Bir veri yapısının tipini öğrenebileceğimiz fonksiyon hangisidir?
+
+A - type()
+B - len()
+C - int()
+D - upper()
+
+Cevap: A - type()
+
+─────────────────────────────
+2 - Hangisi listelerin özelliklerinden değildir?
+
+A - Kapsayıcıdır.
+B - Sıralıdır.
+C - Eşsizdir.
+D - Değiştirilebilir.
+
+Cevap: C - Eşsizdir.
+
+─────────────────────────────
+3 - Elimizde bir deniz feneri koordinatları olsun. Bu koordinatları hangi veri yapısıyla saklamak en uygunu olacaktır?
+
+A - list
+B - tuple
+C - set
+D - dictionary
+
+Cevap: B - tuple
+
+─────────────────────────────
+4 - Hangisi bir liste içindeki elemanı silmek için kullanabileceğimiz fonksiyonlardan değildir?
+
+A - pop
+B - del
+C - append
+D - remove
+
+Cevap: C - append
+
+─────────────────────────────
+5 - Birden fazla satır ile yapılabilecek liste işlemlerini kısa ve tek satırda oluşturmamızı sağlayan yapı hangisidir?
+
+A - List Coding
+B - List Discussion
+C - List Comprehension
+D - List Haters
+
+Cevap: C - List Comprehension
+
+─────────────────────────────
+6 - Otomatik counter/index eklemeye yarayan fonksiyon hangisidir?
+
+A - zip
+B - for
+C - break
+D - enumerate
+
+Cevap: D - enumerate
+
+─────────────────────────────
+7 - İçerisinde gezebileceğimiz iterable bir nesneyle (list, dict vs.) döngü yazmaktan bizi kurtaran fonksiyon hangisidir?
+
+A - reduce
+B - filter
+C - map
+D - lambda
+
+Cevap: C - map
+
+─────────────────────────────
+8 -
+a = [1, 2]
+b = [3, 4]
+zip(a, b) kodunun çıktısı nedir?
+
+A - [(1, 3), (2, 4)]
+B - {1: 3, 2: 4}
+C - zip object
+D - Error
+
+Cevap: A - [(1, 3), (2, 4)]
