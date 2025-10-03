@@ -138,11 +138,123 @@ ar.reshape(3, 3) # Aynı işlem atama yapılarak da olur.
 # eleman olması gerekiyor.
 
 
+###############################
+# Index Seçimi (Index Selection)
+###############################
+import numpy as np
+a = np.random.randint(10, size=10)
+a[0]
+a[0:5]
+a[0] = 999
+
+m = np.random.randint(10, size=(3, 5)) # Çok boyutlu da index seçme
+m[0, 0] # İlk verilen değer satır, ikinci verilen ise sütunu temsil eder.
+m[1, 1]
+m[2, 3]
+
+m[2, 3] = 999
+m[2, 3] = 2.9 # Float ifade girdiğiniz de 2.9 olarak değil 2 olarak aktarılır. Çünkü Numpy fix type array'dir. Yani sabit tipli array'dir.
+
+m[:, 0] # Bütün satıları seç, 0. sütunu seç
+
+m[1, :] # 1. satır bütün sütunları seç
+
+m[0:2, 0:3] # Satırlar'da 0'dan 2'ye kadar git, Sütunlar'da 0'dan 3'e kadar git.
+
+
+##################
+# Fancy Index
+##################
+import numpy as np
+
+v = np.arange(0, 30, 3) # arange ifadesi; 0'dan 30'a kadar üçer üçer artacak şekilde array oluştur. 30 HARİÇ!!!
+# Yani belirli bir adım boyunca array oluşturmak için kullanılan bir metottur.
+
+v[1]
+v[4]
+
+# Fancy Index bir numpy array'ine bir liste girdiğinizde ki bu liste index numarası ya da True-False ifadelerini de tutuyor olabilir.
+# Bize kolay bir şekilde seçim işlemi sağlar.
+
+catch = [1, 2, 3]
+
+v[catch] # Bu indexlere karşılık gelen değerleri bu array içerisinden getirmiş olacak.
 
 
 
+##################
+# NumPy'da Koşullu İşlemler (Conditions on Numpy)
+##################
+import numpy as np
+
+v = np.array([1, 2, 3, 4, 5])
+
+# KLASİK DÖNGÜ İLE
+
+ab = []
+
+for i in v:
+    if i < 3:
+        ab.append(i)
+
+# NUMPY İLE
+
+v[v < 3] # Kolay yoldan seçim işlemini yaptık.
+v[v > 3]
+v[v != 3]
+v[v == 3]
+v[v >= 3]
+v[v <= 3]
 
 
+#############################################
+# Matematiksel İşlemler (Mathematical Operations)
+#############################################
+import numpy as np
+
+v = np.array([1, 2, 3, 4, 5])
+
+v / 5
+v * 5 / 10
+v ** 2 # Bunları bütün elemanlara yapar.
+v - 1
+
+# Bunları metotlar ile de yapabiliriz.
+
+np.subtract(v, 1)
+np.add(v, 1)
+np.mean(v) # Ortalama
+np.sum(v) # Toplama
+np.min(v) # En düşük değer
+np.max(v) # En yüksek değer
+np.var(v) # Varyasyon
+
+
+#############################################
+# NumPy ile İki Bilinmeyenli Denklem Çözümü
+#############################################
+import numpy as np
+
+# 5*x0 + x1 = 12
+# x0 + 3*x1 = 10
+
+a = np.array([[5, 1], [1, 3]])
+b = np.array([[12, 10]])
+
+np.linalg.solve(a, b)
+
+# Bizim ele aldığımız konular kapsamında numpy'ın sadece python'daki numerik işlemlerin temelini oluşturuyor olduğu
+# bilgisi bizim için oldukça yeterlidir. Genelde veri analitiği, veri analizi gibi işlemlerde pandas kütüphanesi kullanılır.
+# Çok yaygın bir şekilde. Fakat pandas'da numpy'ın üzerine kurulu olduğu için ve bu dünyanın girişi numpy olduğu için buradaki
+# konuları bir kulak aşinalığı olması, bir bilgi olması açısından ele almak gerekmektedir. Bu sebeple ele aldığınız konuları bu
+# açıdan değerlendirerek takip işlemlerinizi gerçekleştirebilirsiniz.
+
+# Yani özetle karşınıza bir veri yapısı geldiğinde bunu çok iyi tanıyabiliyor olmalısınız.
+
+# Hızlı bir toparlama yapalım;
+# Öncelikle "Neden Numpy ?" sorusunun yanıtı;
+#  1 - Hız. Hızın sebebi verimli veri saklamadır. "Nasıl yani?" Sabipt tipte veri saklar ve bundan dolayı da hızlı bir şekilde çalışır.
+#  2 - Fonksiyonel düzeyde vektörel düzeyde yüksek seviyede, hepsi kullanım açısından aynı anlamlara gelmektedir. Bize çeşitli kolaylıklar sağlamasıdır.
 
 
 
