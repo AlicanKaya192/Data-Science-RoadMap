@@ -347,7 +347,7 @@ dictionary["REG"] = ["YSA", 10] # REG key'in value değerini değiştirdik.
 # Tüm Key'lere Erişmek
 #########################
 
-dictionary.key() # Bütün keylere erişebiliriz.
+dictionary.keys() # Bütün keylere erişebiliriz.
 dictionary.values() # Bütün value lara erişebiliriz.
 
 
