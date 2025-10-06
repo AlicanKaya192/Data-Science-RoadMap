@@ -229,6 +229,8 @@ df.head()
 
 # loc & iloc yapısı dataframe'lerde seçim işlemleri için kullanılan özel yapılardır.
 # Özetle iloc numpy'dan, listelerden alışık olduğumuz klasik, integer based yani index bilgisi vererek seçim yapma işlemlerini ifade eder.
+# iloc - integer based selection
+# loc - mutlak olarak index'lerdeki label'lara göre seçim yapar.
 
 
 

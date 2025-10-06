@@ -44,13 +44,23 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 
 ---
 
-## 📖 İçerik ve Güncellemeler
+## 📖 İçerik ve Güncellemeler  
 
-Bu repository sürekli **geliştirilmekte ve güncellenmektedir**. İlerleyen dönemlerde şunlar eklenmesi planlanmaktadır:
+Bu repository sürekli **geliştirilmekte ve güncellenmektedir**.  
 
-* Dosya işlemleri  
-* Python OOP (Object Oriented Programming)  
-* Matplotlib örnekleri
+| Konu / Bölüm                               | Durum |
+| ------------------------------------------- | ------ |
+| Çalışma Ortamının Hazırlanması              | ✅ |
+| Sanal Ortamların Kullanımı                  | ✅ |
+| Paket Yönetimi                              | ✅ |
+| Veri Yapıları                               | ✅ |
+| Fonksiyonlar, Koşullar ve Döngüler          | ✅ |
+| Python Egzersizleri ve List Comprehension   | ✅ |
+| NumPy                                       | ✅ |
+| Pandas                                      | ✅ |
+| Dosya İşlemleri                             | ❌ |
+| Nesne Tabanlı Programlama (OOP)             | ❌ |
+| Matplotlib Görselleştirme                   | ❌ |
 
 ---
 
