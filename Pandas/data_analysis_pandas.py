@@ -230,7 +230,80 @@ df.head()
 # loc & iloc yapısı dataframe'lerde seçim işlemleri için kullanılan özel yapılardır.
 # Özetle iloc numpy'dan, listelerden alışık olduğumuz klasik, integer based yani index bilgisi vererek seçim yapma işlemlerini ifade eder.
 # iloc - integer based selection
-# loc - mutlak olarak index'lerdeki label'lara göre seçim yapar.
+# loc - mutlak olarak index'lerdeki label'lara göre seçim yapar. label based selection.
+
+
+# iloc: integer based selection
+df.iloc[0:3] # satır
+# 0'dan 3'e kadar
+
+df.iloc[0, 0]
+# 0. satır 0. sütundaki elemanı seç getir.
+
+
+# loc: label based selection
+df.loc[0:3] # satır
+# Index'te label, yani etiket nasılsa onu mutlak olarak seçer. Yani burada 3 de gelecektir.
+
+df.iloc[0:3, "age"] # Hata verir.
+df.iloc[0:3, 0:3] # Doğru kullanımı. 3.satır 3.sutuna kadar.
+
+df.loc[0:3, "age"] # Sadece yaş sütununu getirir 3 dahil
+
+col_names = ["age", "embarked", "alive"]
+df.loc[0:3, col_names] # 3 dahil birden fazla değişkeni verir.
+
+
+############################
+# Koşullu Seçim (Conditional Selection)
+############################
+
+import pandas as pd
+import seaborn as sns
+pd.set_option('display.max_columns', None)
+df = sns.load_dataset("titanic")
+df.head()
+
+
+df[df["age"] > 50].head() # Yaşı 50'den büyük olan kişiler geldi.
+df[df["age"] > 50]["age"].count() # Yaşı 50'den büyük olan kişi sayısını döner.
+
+df.loc[df["age"] > 50, "class"].head() # Yaşı 50'den büyük olanların sınıf bilgisi gelir.
+df.loc[df["age"] > 50, ["age", "class"]].head()
+
+# Peki 2 koşul nasıl gireceğiz
+
+df.loc[(df["age"] > 50) & (df["sex"] == "male"), ["age", "class"]].head()
+
+# DİKKAT!!! - Eğer birden fazla koşul giriyorsak bunları parantez içlerine almamız gerekir. Aksi takdirde hata verecektir.
+
+df.loc[(df["age"] > 50)
+       & (df["sex"] == "male")
+       & (df["embark_town"] == "Cherbourg"),
+       ["age", "class", "embark_town"]].head()  # Okunabirlik için bu şekilde yapılması daha iyi olur.
+
+df_new = df.loc[(df["age"] > 50)
+       & (df["sex"] == "male")
+       & ((df["embark_town"] == "Cherbourg") | (df["embark_town"] == "Southampton")),
+       ["age", "class", "embark_town"]].head()
+
+# Veya operatörünü kullanak istersek eğer kullanmak istediğimiz kısmı parantezler içerisine almamız gerekir.
+
+df_new["embark_town"].value_counts()
+
+
+############################
+# Toplulaştırma ve Gruplama (Aggretion & Grouping)
+############################
+
+# - count()
+# - first()
+# - last()
+# - mean()
+# - median()
+# - min()
+# - nax()
+# - std()
 
 
 
