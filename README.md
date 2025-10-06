@@ -21,19 +21,16 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 
 ## 📚 Sırayla Çalışılması Gereken Kısımlar
 
-| Sıra | Konu / Dosya                                | Notlar                                                                                                                                                                                                                                                |
-| ---- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1    | `setting_up_working_environment.py`         | Python ortamınızı hazırlamak ve temel kurulumları yapmak için başlangıç noktası.                                                                                                                                                                      |
-| 2    | `What_is_a_virtual_environment`             | **Not:** Bu kısım, 1. kısım çalışırken gerekli yere geldiğinde okunmalı ve uygulanmalı. Sanal ortamların önemini ve kullanımını açıklar.                                                                                                             |
-| 3    | `Package_Management`                        | Paketlerin kurulumu, yönetimi ve bağımlılıkların yönetimi hakkında bilgiler içerir. Conda ve pip kullanımına değinilmektedir.                                                                                                                         |
-| 4    | `Data_Structures`                           | Python’da string, list, dictionary, tuple ve set gibi temel veri yapılarının kullanımını içerir.                                                                                                                                                     |
-| 5    | `functions_conditions_loops_comprehensions` | Fonksiyonlar, koşullar, döngüler ve comprehensions konularını kapsar. `zip`, `lambda`, `map`, `filter`, `reduce`, list ve dictionary comprehensions gibi fonksiyonel programlama araçlarına dair ayrıntılı açıklamalar, veri seti uygulamaları ve pratik örnekler içerir. Ayrıca temel veri tipleri ve set, tuple, string, dictionary işlemleri için alıştırmalar içerir. |
+| Sıra | Konu / Dosya                                        | Notlar                                                                                                                                                                                                                                                |
+|------|-----------------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | `setting_up_working_environment.py`                 | Python ortamınızı hazırlamak ve temel kurulumları yapmak için başlangıç noktası.                                                                                                                                                                      |
+| 2    | `What_is_a_virtual_environment`                     | **Not:** Bu kısım, 1. kısım çalışırken gerekli yere geldiğinde okunmalı ve uygulanmalı. Sanal ortamların önemini ve kullanımını açıklar.                                                                                                             |
+| 3    | `Package_Management`                                | Paketlerin kurulumu, yönetimi ve bağımlılıkların yönetimi hakkında bilgiler içerir. Conda ve pip kullanımına değinilmektedir.                                                                                                                         |
+| 4    | `Data_Structures`                                   | Python’da string, list, dictionary, tuple ve set gibi temel veri yapılarının kullanımını içerir.                                                                                                                                                     |
+| 5    | `functions_conditions_loops_comprehensions`         | Fonksiyonlar, koşullar, döngüler ve comprehensions konularını kapsar. `zip`, `lambda`, `map`, `filter`, `reduce`, list ve dictionary comprehensions gibi fonksiyonel programlama araçlarına dair ayrıntılı açıklamalar, veri seti uygulamaları ve pratik örnekler içerir. Ayrıca temel veri tipleri ve set, tuple, string, dictionary işlemleri için alıştırmalar içerir. |
 | 6    | `python_Exercises` / `list_comprehension_exercises` | BURADA Kİ EGZERSİZLER İÇİN ÖNCELİKLE `Çalışma_Ortamı_Ayarları` içerikleri, daha sonra `Data_Structures` içeriğini çalışınız. Car_crashes veri seti üzerinde list comprehension uygulamaları ve filtreleme/yeniden adlandırma işlemleri yapılmaktadır. |
-| 7    | `NumPy`                                     | Nümerik Python işlemleri için kullanılan temel kütüphane. Array yapıları, veri saklama verimliliği, hız avantajı, yüksek seviyeden (vektörel) işlemler, yeniden şekillendirme, indeksleme, fancy index, koşullu seçimler ve matematiksel işlemler üzerinde yoğunlaşır. Ayrıca NumPy ile iki bilinmeyenli denklem çözümü gibi uygulamalar da yer almaktadır. |
-
-
-
-
+| 7    | `NumPy`                                             | Nümerik Python işlemleri için kullanılan temel kütüphane. Array yapıları, veri saklama verimliliği, hız avantajı, yüksek seviyeden (vektörel) işlemler, yeniden şekillendirme, indeksleme, fancy index, koşullu seçimler ve matematiksel işlemler üzerinde yoğunlaşır. Ayrıca NumPy ile iki bilinmeyenli denklem çözümü gibi uygulamalar da yer almaktadır. |
+| 8    | `Pandas`                                            | Veri analizi ve manipülasyonu kütüphanesi. Series ve DataFrame yapıları, veri okuma/yazma, seçim, filtreleme, indeksleme, eksik veri işlemleri ve temel istatistiksel özetleme konularını içerir. |
 
 ---
 
@@ -53,7 +50,7 @@ Bu repository sürekli **geliştirilmekte ve güncellenmektedir**. İlerleyen d�
 
 * Dosya işlemleri  
 * Python OOP (Object Oriented Programming)  
-* Pandas ve Matplotlib örnekleri
+* Matplotlib örnekleri
 
 ---
 
