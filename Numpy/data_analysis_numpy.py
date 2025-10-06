@@ -255,11 +255,3 @@ np.linalg.solve(a, b)
 # Öncelikle "Neden Numpy ?" sorusunun yanıtı;
 #  1 - Hız. Hızın sebebi verimli veri saklamadır. "Nasıl yani?" Sabipt tipte veri saklar ve bundan dolayı da hızlı bir şekilde çalışır.
 #  2 - Fonksiyonel düzeyde vektörel düzeyde yüksek seviyede, hepsi kullanım açısından aynı anlamlara gelmektedir. Bize çeşitli kolaylıklar sağlamasıdır.
-
-
-
-
-
-
-
-
