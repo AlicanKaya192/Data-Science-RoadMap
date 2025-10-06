@@ -529,7 +529,7 @@ df4 = pd.DataFrame({
 # Bu dataframe'de müdür bilgisi var fakat çalışan bilgisi yok, grup bilgisi var.
 # Ben eğer diğer tabloya bu tabloyu getirmek istiyorsam 2 tabloyu gruba göre birleştirmeliyim.
 
-pd.merge(df3, df4
+pd.merge(df3, df4)
 
 
 
