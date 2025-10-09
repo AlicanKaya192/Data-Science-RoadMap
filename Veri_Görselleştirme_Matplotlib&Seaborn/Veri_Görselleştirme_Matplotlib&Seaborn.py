@@ -57,6 +57,26 @@ plt.boxplot(df["fare"])
 plt.show()
 
 
+################################
+# Matplotlib'in Özellikleri
+################################
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+pd.set_option('display.max_columns', None)
+pd.set_option("display.width", 500)
+df =sns.load_dataset("titanic")
+
+# Matplotlib yapısı itibariyle katmanlı şekilde veri görselleştirme imkanı sağlar. Bu şu anlama gelir; bir katmanda bir görsel,
+# diğer katmanda ayrı bir görsel, diğer katmanda bit title, bir isimlendirme, örneğin diğer bir katmanda ise eksenlere bilgi vermek gibi
+# diğer çeşitli bazı başlıklarda çalışma imkanı sağlar. Bu yapısını kullanarak bazı ihtiyaçlarımızı giderebiliriz.
+
+
+
+
+
+
+
 
 
 
