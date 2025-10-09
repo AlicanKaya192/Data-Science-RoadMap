@@ -59,9 +59,9 @@ Bu repository sürekli **geliştirilmekte ve güncellenmektedir**.
 | Python Egzersizleri ve List Comprehension   | ✅ |
 | NumPy                                       | ✅ |
 | Pandas                                      | ✅ |
+| Matplotlib Görselleştirme                   | ✅ |
 | Dosya İşlemleri                             | ❌ |
 | Nesne Tabanlı Programlama (OOP)             | ❌ |
-| Matplotlib Görselleştirme                   | ✅ |
 
 ---
 
