@@ -31,6 +31,7 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 | 6    | `python_Exercises` / `list_comprehension_exercises` | BURADA Kİ EGZERSİZLER İÇİN ÖNCELİKLE `Çalışma_Ortamı_Ayarları` içerikleri, daha sonra `Data_Structures` içeriğini çalışınız. Car_crashes veri seti üzerinde list comprehension uygulamaları ve filtreleme/yeniden adlandırma işlemleri yapılmaktadır. |
 | 7    | `NumPy`                                             | Nümerik Python işlemleri için kullanılan temel kütüphane. Array yapıları, veri saklama verimliliği, hız avantajı, yüksek seviyeden (vektörel) işlemler, yeniden şekillendirme, indeksleme, fancy index, koşullu seçimler ve matematiksel işlemler üzerinde yoğunlaşır. Ayrıca NumPy ile iki bilinmeyenli denklem çözümü gibi uygulamalar da yer almaktadır. |
 | 8    | `Pandas`                                            | Veri analizi ve manipülümü kütüphanesi. Series ve DataFrame yapıları, veri okuma/yazma, seçim, filtreleme, indeksleme, koşullu seçim, iloc & loc, pivot table, cut/qcut, apply & lambda, toplulaştırma ve gruplama, join/merge işlemleri, eksik veri işlemleri ve temel istatistiksel özetleme konularını içerir. |
+| 9    | `Matplotlib ve Seaborn`                           | Veri görselleştirme kütüphaneleri. Kategorik ve sayısal değişken görselleştirme, grafik biçimlendirme, marker ve line stilleri, birden fazla çizim (subplots), eksen etiketleme, grid yapısı, Seaborn ile yüksek seviyeli veri görselleştirme örnekleri ve temel grafik türlerini içerir. |
 
 ---
 
@@ -60,7 +61,7 @@ Bu repository sürekli **geliştirilmekte ve güncellenmektedir**.
 | Pandas                                      | ✅ |
 | Dosya İşlemleri                             | ❌ |
 | Nesne Tabanlı Programlama (OOP)             | ❌ |
-| Matplotlib Görselleştirme                   | ❌ |
+| Matplotlib Görselleştirme                   | ✅ |
 
 ---
 
