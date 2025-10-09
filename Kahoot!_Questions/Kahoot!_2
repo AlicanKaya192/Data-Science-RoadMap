@@ -1,0 +1,102 @@
+📘 Kahoot!_2 Konular:
+
+- pandas
+- dataframe
+- groupby
+- pivot_table
+- visualization
+- correlation
+
+─────────────────────────────
+1 - Veri setindeki bir sütundaki eşsiz değerler için, değerin kaç satırda geçtiğini gösteren fonksiyon hangisidir?
+
+A - unique()
+B - dtype()
+C - value_counts()
+D - drop()
+
+Cevap: C - value_counts()
+
+─────────────────────────────
+2 - Hangisi kullanım yanlıştır?
+
+A - df.loc[0:3]
+B - df.iloc[0, 0]
+C - df.loc[df["age"] > 50]
+D - df.iloc[0:3, "age"]
+
+Cevap: D - df.iloc[0:3, "age"]
+
+─────────────────────────────
+3 - groupby() ve pivot_table() arasındaki fark nedir?
+
+A - Hiçbir fark yoktur.
+B - pivot_table() kullanmak daha havalıdır.
+C - İkisi kavgalıdır.
+D - pivot_table() eksik değer doldurmamıza yardım eder.
+
+Cevap: D - pivot_table() eksik değer doldurmamıza yardım eder.
+
+─────────────────────────────
+4 - groupby(), grupladığımız sütunu index’e çeker.
+
+A - Doğru
+B - Yanlış
+
+Cevap: A - Doğru
+
+─────────────────────────────
+5 - Sayısal bir değişkeni çeyreklik değerlerine göre bölmek için cut() kullanılır.
+
+A - Doğru
+B - Yanlış
+
+Cevap: A - Doğru
+
+─────────────────────────────
+6 - sort_values() kullanırken ascending=False tanımlamak büyükten küçüğe sıralama yapmamızı sağlar.
+
+A - Doğru
+B - Yanlış
+
+Cevap: A - Doğru
+
+─────────────────────────────
+7 - Veri görselleştirme kütüphanelerinin atası hangisidir?
+
+A - Kara kalem A4'e çizmek
+B - AutoCAD
+C - seaborn
+D - matplotlib
+
+Cevap: D - matplotlib
+
+─────────────────────────────
+8 - Bir görselleştirme grafiğini görüntülemek için yazmamız gereken kod nedir?
+
+A - plt.show()
+B - plt.figure()
+C - plt.plot()
+D - plt.xlabel()
+
+Cevap: A - plt.show()
+
+─────────────────────────────
+9 - Değişkenler arasındaki ilişkinin yönünü ve gücünü belirten terim nedir?
+
+A - Korelasyon
+B - Hedef değişken
+C - Bağımsız değişken
+D - Kategorik değişken
+
+Cevap: A - Korelasyon
+
+─────────────────────────────
+10 - Hangisi yanlıştır?
+
+A - Pandas, NumPy temellidir.
+B - NumPy, tek tipte veri tutar.
+C - Satır veya sütunlarda fonksiyon çalıştırmak için .apply() kullanılır.
+D - .drop(), NumPy ile de kullanılabilir.
+
+Cevap: D - .drop(), NumPy ile de kullanılabilir.
