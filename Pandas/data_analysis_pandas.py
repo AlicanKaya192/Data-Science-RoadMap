@@ -3,7 +3,7 @@
 ##############
 
 # "Nedir Pandas ?" Veri manipülasyonu ya da veri analizi denildiğinde akla gelen ilk python kütüphanelerinden biridir.
-# Öncelikle ekonometrik ve finansal çalışmalar için doğmuş, daha sonra veri analitiği denildiğinde en sık kullanılan kütüphahen
+# Öncelikle ekonometrik ve finansal çalışmalar için doğmuş, daha sonra veri analitiği denildiğinde en sık kullanılan kütüphane
 # haline gelmiştir. Temeli 2008 yılında atılmıştır. Birçok farklı veri yapısıyla çalışma imkanı sağlamaktadır.
 # Birçok farklı kaynaktan veriyi okuma imkanına sahiptir. Veri analitiği genel başlığı altında, makine öğrenmesinden
 # veri bilimine, veri analizinden derin öğrenmeye, veri varsa ve python varsa bir şekilde mutlaka elimizin dokunacağı
@@ -530,12 +530,3 @@ df4 = pd.DataFrame({
 # Ben eğer diğer tabloya bu tabloyu getirmek istiyorsam 2 tabloyu gruba göre birleştirmeliyim.
 
 pd.merge(df3, df4)
-
-
-
-
-
-
-
-
-
