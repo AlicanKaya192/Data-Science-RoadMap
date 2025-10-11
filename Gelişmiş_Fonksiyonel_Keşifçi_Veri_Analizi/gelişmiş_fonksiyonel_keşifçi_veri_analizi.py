@@ -50,7 +50,7 @@ df.index
 df.describe().T
 
 # Veri setinde eksik değer olup olmadığını kontrol eder (True/False döner)
-df.isnull().value.any()  # <- Bu satırda küçük bir hata var; doğrusu aşağıda
+df.isnull().values.any()  # <- Bu satırda küçük bir hata var; doğrusu aşağıda
 
 # Her sütunda kaç adet eksik değer olduğunu gösterir
 df.isnull().sum()
@@ -351,24 +351,285 @@ for col in num_cols:
 
 
 
+###############################################
+# Değişkenlerin Yakalanması ve İşlemlerin Genelleştirilmesi
+###############################################
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 500)
+df = sns.load_dataset("titanic")
+df.head()
+df.info()
+
+
+def grab_col_names(dataframe, cat_th=10, car_th=20):
+    """
+    Veri setindeki kategorik, numerik ve kategorik fakat kardinal değişkenlerin isimlerini döndürür.
+    Not: Kategorik değişkenlerin içerisine numerik görünümlü kategorik değişkenler de dahildir.
+
+    Args
+    -----
+        dataframe : dataframe
+            Değişken isimleri alınmak istenilen dataframe.
+        cat_th : int, optional
+            Numerik fakat kategorik olan değişkenler için sınıf eşik değeri.
+        car_th : int, optional
+            Kategorik fakat kardinal değişkenler için sınıf eşik değeri.
+
+    Returns
+    -------
+        cat_cols : list
+            Kategorik değişken listesi.
+        num_cols : list
+            Numerik değişken listesi.
+        cat_but_car : list
+            Kategorik görünümlü kardinal değişken listesi.
+    """
+
+    # 1️⃣ Kategorik değişkenleri seç: object, category ve bool tipindeki sütunlar
+    cat_cols = [col for col in dataframe.columns if str(dataframe[col].dtypes) in ["object", "category", "bool"]]
+
+    # 2️⃣ Numerik görünümlü fakat az sayıda farklı değere sahip sütunları seç (numerik ama kategorik)
+    num_but_cat = [col for col in dataframe.columns if dataframe[col].nunique() < cat_th and str(dataframe[col].dtypes) in ["int64", "float64"]]
+
+    # 3️⃣ Kategorik ama çok fazla farklı değere sahip sütunları seç (kardinal)
+    cat_but_car = [col for col in dataframe.columns if dataframe[col].nunique() > car_th and str(dataframe[col].dtypes) in ["object", "category"]]
+
+    # 4️⃣ Asıl kategorik değişken listesine numerik ama kategorik olanları ekle
+    cat_cols = cat_cols + num_but_cat
+
+    # 5️⃣ Kategorik listeden kardinal değişkenleri çıkar
+    cat_cols = [col for col in cat_cols if col not in cat_but_car]
+
+    # 6️⃣ Numerik değişkenleri seç (int ve float tipinde olanlar)
+    num_cols = [col for col in dataframe.columns if str(dataframe[col].dtypes) in ["int64", "float64"]]
+
+    # 7️⃣ Numerik listeden kategorik olanları çıkar
+    num_cols = [col for col in num_cols if col not in cat_cols]
+
+    # 8️⃣ Özet bilgileri yazdır
+    print(f"Observations: {dataframe.shape[0]}")  # Satır sayısı
+    print(f"Variables: {dataframe.shape[1]}")     # Sütun sayısı
+    print(f"cat_cols: {len(cat_cols)}")           # Kategorik değişken sayısı
+    print(f"num_cols: {len(num_cols)}")           # Numerik değişken sayısı
+    print(f"cat_but_car: {len(cat_but_car)}")     # Kardinal değişken sayısı
+    print(f"num_but_cat: {len(num_but_cat)}")     # Numerik ama kategorik değişken sayısı
+
+    # Değişken listelerini döndür
+    return cat_cols, num_cols, cat_but_car
+
+
+help(grab_col_names)
+
+# Fonksiyon: Veri setindeki kategorik, numerik ve kardinal değişken isimlerini döndürür
+cat_cols, num_cols, cat_but_car = grab_col_names(df)  # Fonksiyonu çağır ve listeleri al
+
+for col in cat_cols:
+    cat_summary(df, col)
+
+
+def num_summary(dataframe, numerical_col, plot=False):
+    # 1️⃣ İncelenecek özel yüzdelikler
+    quantiles = [0.05, 0.10, 0.15, 0.20, 0.30, 0.40,
+                 0.50, 0.60, 0.70, 0.80, 0.90, 0.95, 0.99]
+
+    # 2️⃣ Temel istatistikler ve belirlenen yüzdelikleri hesapla ve yazdır
+    print(dataframe[numerical_col].describe(quantiles).T)
+
+    # 3️⃣ Eğer plot=True ise, histogram grafiği çiz
+    if plot:
+        dataframe[numerical_col].hist()
+        plt.xlabel(numerical_col)  # x ekseni etiketi
+        plt.title(numerical_col)  # grafiğe başlık
+        plt.show(block=True)  # grafiğin hemen görünmesini sağlar
+
+
+for col in num_cols:
+    num_summary(df, col, plot=True)
 
 
 
+# BONUS
+df = sns.load_dataset("titanic")
+
+for col in df.columns:
+    if df[col].dtypes == "bool":
+        df[col] = df[col].astype(int)
+
+cat_cols, num_cols, cat_but_car = grab_col_names(df)
+
+def cat_summary(dataframe, col_name, plot=False):
+    # 1️⃣ Eğer sütun boolean tipindeyse
+    if dataframe[col_name].dtypes == "bool":
+        # Boolean -> int (True=1, False=0) dönüşümü
+        dataframe[col_name] = dataframe[col_name].astype(int)
+
+        # Kategori frekans tablosu ve yüzdeleri
+        print(pd.DataFrame({
+            col_name: dataframe[col_name].value_counts(),
+            "Ratio": 100 * dataframe[col_name].value_counts() / len(dataframe)
+        }))
+
+        print("################################")
+
+        # Eğer plot=True verilmişse, countplot grafiği oluştur
+        if plot:
+            sns.countplot(x=dataframe[col_name], data=dataframe)
+            plt.show(block=True)
+
+    # 2️⃣ Boolean olmayan sütunlar için
+    else:
+        # Burada da sütunu int yapıyorsun; bu genellikle sayısal kodlama amaçlı
+        dataframe[col_name] = dataframe[col_name].astype(int)
+
+        # Frekans tablosu ve yüzdeleri
+        print(pd.DataFrame({
+            col_name: dataframe[col_name].value_counts(),
+            "Ratio": 100 * dataframe[col_name].value_counts() / len(dataframe)
+        }))
+
+        print("################################")
+
+        # Grafiği göster
+        if plot:
+            sns.countplot(x=dataframe[col_name], data=dataframe)
+            plt.show(block=True)
+
+
+for col in cat_cols:
+    cat_summary(df, col, plot=True)
+
+
+###############################################
+# 4. Hedef Değişken Analizi (Analysis of Target Variable)
+###############################################
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 500)
+df = sns.load_dataset("titanic")
+
+
+for col in df.columns:
+    if df[col].dtypes == "bool":
+        df[col] = df[col].astype(int)
+
+
+def grab_col_names(dataframe, cat_th=10, car_th=20):
+    """
+    Veri setindeki kategorik, numerik ve kategorik fakat kardinal değişkenlerin isimlerini döndürür.
+    Not: Kategorik değişkenlerin içerisine numerik görünümlü kategorik değişkenler de dahildir.
+
+    Args
+    -----
+        dataframe : dataframe
+            Değişken isimleri alınmak istenilen dataframe.
+        cat_th : int, optional
+            Numerik fakat kategorik olan değişkenler için sınıf eşik değeri.
+        car_th : int, optional
+            Kategorik fakat kardinal değişkenler için sınıf eşik değeri.
+
+    Returns
+    -------
+        cat_cols : list
+            Kategorik değişken listesi.
+        num_cols : list
+            Numerik değişken listesi.
+        cat_but_car : list
+            Kategorik görünümlü kardinal değişken listesi.
+    """
+
+    # 1️⃣ Kategorik değişkenleri seç: object, category ve bool tipindeki sütunlar
+    cat_cols = [col for col in dataframe.columns if str(dataframe[col].dtypes) in ["object", "category", "bool"]]
+
+    # 2️⃣ Numerik görünümlü fakat az sayıda farklı değere sahip sütunları seç (numerik ama kategorik)
+    num_but_cat = [col for col in dataframe.columns if dataframe[col].nunique() < cat_th and str(dataframe[col].dtypes) in ["int64", "float64"]]
+
+    # 3️⃣ Kategorik ama çok fazla farklı değere sahip sütunları seç (kardinal)
+    cat_but_car = [col for col in dataframe.columns if dataframe[col].nunique() > car_th and str(dataframe[col].dtypes) in ["object", "category"]]
+
+    # 4️⃣ Asıl kategorik değişken listesine numerik ama kategorik olanları ekle
+    cat_cols = cat_cols + num_but_cat
+
+    # 5️⃣ Kategorik listeden kardinal değişkenleri çıkar
+    cat_cols = [col for col in cat_cols if col not in cat_but_car]
+
+    # 6️⃣ Numerik değişkenleri seç (int ve float tipinde olanlar)
+    num_cols = [col for col in dataframe.columns if str(dataframe[col].dtypes) in ["int64", "float64"]]
+
+    # 7️⃣ Numerik listeden kategorik olanları çıkar
+    num_cols = [col for col in num_cols if col not in cat_cols]
+
+    # 8️⃣ Özet bilgileri yazdır
+    print(f"Observations: {dataframe.shape[0]}")  # Satır sayısı
+    print(f"Variables: {dataframe.shape[1]}")     # Sütun sayısı
+    print(f"cat_cols: {len(cat_cols)}")           # Kategorik değişken sayısı
+    print(f"num_cols: {len(num_cols)}")           # Numerik değişken sayısı
+    print(f"cat_but_car: {len(cat_but_car)}")     # Kardinal değişken sayısı
+    print(f"num_but_cat: {len(num_but_cat)}")     # Numerik ama kategorik değişken sayısı
+
+    # Değişken listelerini döndür
+    return cat_cols, num_cols, cat_but_car
+
+
+cat_cols, num_cols, cat_but_car = grab_col_names(df)
+
+df["survived"].value_counts()
+cat_summary(df, "survived")
+
+###############################################
+# Hedef Değişkenin Kategorik Değişkenler ile Analizi
+###############################################
+
+
+df.groupby("sex")["survived"].mean()
+
+
+def target_summary_with_cat(dataframe, target, categorical_col):
+    print(pd.DataFrame({"TARGET_MEAN": dataframe.groupby(categorical_col)[target].mean()}))
+
+
+target_summary_with_cat(df, "survived", "sex")
+
+
+for col in cat_cols:
+    target_summary_with_cat(df, "survived", col)
 
 
 
+###############################################
+# Hedef Değişkenin Sayısal Değişkenler ile Analizi
+###############################################
+
+df.groupby("survived")["age"].mean()
+
+df.groupby("survived").agg({"age": "mean"})
+
+def target_summary_with_num(dataframe, target, numerical_col):
+    print(dataframe.groupby(target).agg({numerical_col: "mean"}), end="\n\n\n")
+
+
+target_summary_with_num(df, "survived", "age")
+
+for col in num_cols:
+    target_summary_with_num(df, "survived", col)
 
 
 
-
-
-
-
-
-
-
-
-
-
+###############################################
+# 5. Korelasyon Analizi (Analysis of Correlation)
+###############################################
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 500)
+df = sns.load_dataset("titanic")
 
 
