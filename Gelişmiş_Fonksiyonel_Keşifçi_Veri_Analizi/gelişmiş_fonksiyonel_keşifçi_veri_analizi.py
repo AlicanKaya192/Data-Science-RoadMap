@@ -733,7 +733,3 @@ df = df.drop(drop_list, axis=1)
 # Kalan sütunlarla yüksek korelasyonlu sütunları tekrar kontrol et ve heatmap ile görselleştir
 high_correlated_cols(df, plot=True)
 
-
-
-
-
