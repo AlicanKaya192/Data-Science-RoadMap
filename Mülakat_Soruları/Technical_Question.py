@@ -17,3 +17,8 @@ def alternating(string):
       print(new_string)
 
 
+# 4 - Elinize bir veri geldiğinde ilk analiz aşamasında neler yaparsınız? Keşifçi veri analizi basamaklarını anlatır mısınız?
+
+  # Veri elimize ulaştığında öncelikle veri yapısını, veri tiplerini ve eksik/hatalı değerleri incelerim. Ardından sayısal ve kategorik
+  # değişkenler için özet istatistikler ve dağılımları analiz eder, değişkenler arası ilişkiler ve korelasyonları değerlendiririm.
+  # Gerektiğinde veri dönüşümleri ve temizliği yaparak veriyi modelleme veya ileri analizler için hazır hâle getiririm.
