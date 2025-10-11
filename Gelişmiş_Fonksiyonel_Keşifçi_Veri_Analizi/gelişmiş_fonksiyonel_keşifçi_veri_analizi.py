@@ -630,6 +630,110 @@ import seaborn as sns
 from matplotlib import pyplot as plt
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 500)
-df = sns.load_dataset("titanic")
+df = pd.read_csv("DataSets/breast-cancer.csv")
+df = df.iloc[:, 1:-1]
+df.head()
+
+# Korelasyon: Numerik değişkenler arasındaki ilişkinin yönünü ve gücünü gösterir
+# Değer aralığı: -1 ile +1 arasında
+#   +1 → Pozitif korelasyon (bir değişken artınca diğeri de artar)
+#   -1 → Negatif korelasyon (bir değişken artınca diğeri azalır)
+#    0 → İlişki yok (değişkenler birbirine bağlı değil)
+# Bu örnekte, df[num_cols].corr() ile seçilen sayısal değişkenler arasındaki doğrusal korelasyon hesaplanır
+
+
+# Numerik değişkenleri seç: int veya float tipindeki sütunlar
+num_cols = [col for col in df.columns if df[col].dtype in [int, float]]
+
+# Seçilen numerik değişkenler arasındaki korelasyon matrisini oluştur
+corr = df[num_cols].corr()
+
+sns.set(rc={'figure.figsize':(12,12)})
+sns.heatmap(corr, cmap="RdBu")
+plt.show()
+
+
+###############################################
+# Yüksek Korelasyonlu Değişkenlerin Silinmesi
+###############################################
+
+# Numerik değişkenler arasındaki korelasyon matrisini al ve mutlak değerini kullan
+# Böylece negatif korelasyonları da pozitifmiş gibi değerlendirebiliriz
+cor_matrix = df.corr().abs()
+
+# Örnek çıktı (4 değişkenli bir veri seti için):
+#           0         1         2         3
+# 0  1.000000  0.117570  0.871754  0.817941
+# 1  0.117570  1.000000  0.428440  0.366126
+# 2  0.871754  0.428440  1.000000  0.962865
+# 3  0.817941  0.366126  0.962865  1.000000
+# Burada diagonal 1 (kendisiyle tam korelasyon), diğer değerler değişkenler arası korelasyonu gösterir
+
+# Örnek çıktı:
+#      0        1         2         3
+# 0  NaN  0.11757  0.871754  0.817941
+# 1  NaN  NaN      0.428440  0.366126
+# 2  NaN  NaN           NaN  0.962865
+# 3  NaN  NaN           NaN       NaN
+# NaN olanlar, alt üçgen değerleri ve diagonal değerlerdir, yani tekrar eden veya gereksiz bilgiler.
+
+# Üst üçgen matrisini al: Böylece simetrik matrisin tekrar eden alt üçgen değerlerini göz ardı edebiliriz
+# np.triu ile üst üçgen (diagonal üstü) seçilir, k=1 ile diagonal dışlanır
+upper_triangle_matrix = cor_matrix.where(np.triu(np.ones(cor_matrix.shape), k=1).astype(bool))
+
+# Üst üçgen matrisinde herhangi bir değeri %90'dan (0.90) büyük olan sütunları belirle
+# Yani çok yüksek korelasyona sahip değişkenleri tespit et
+drop_list = [col for col in upper_triangle_matrix.columns if any(upper_triangle_matrix[col] > 0.90)]
+
+# Yüksek korelasyonlu sütunları görüntüle
+cor_matrix[drop_list]
+
+# Daha önce tespit edilen yüksek korelasyonlu değişkenleri veri setinden kaldır
+# drop_list içindeki sütunlar düşürülür, axis=1 ile sütun bazında işlem yapılır
+df = df.drop(drop_list, axis=1)
+
+import numpy as np
+
+
+def high_correlated_cols(dataframe, plot=False, corr_th=0.90):
+    # Korelasyon matrisini hesapla
+    corr = dataframe.corr()
+
+    # Mutlak değerini al, böylece negatif korelasyonlar da pozitifmiş gibi değerlendirilir
+    cor_matrix = corr.abs()
+
+    # Üst üçgen matrisini oluştur, alt üçgen ve diagonal değerleri NaN olacak
+    upper_triangle_matrix = cor_matrix.where(np.triu(np.ones(cor_matrix.shape), k=1).astype(bool))
+
+    # Eşik değerinden yüksek korelasyona sahip sütunları tespit et
+    drop_list = [col for col in upper_triangle_matrix.columns if any(upper_triangle_matrix[col] > corr_th)]
+
+    # Eğer plot=True ise korelasyon matrisini heatmap ile görselleştir
+    if plot:
+        import seaborn as sns
+        import matplotlib.pyplot as plt
+
+        sns.set(rc={'figure.figsize': (15, 15)})
+        sns.heatmap(corr, cmap="RdBu", annot=True, fmt=".2f")
+        plt.show()
+
+    # Yüksek korelasyonlu sütunları döndür
+    return drop_list
+
+
+# df içindeki yüksek korelasyonlu sütunları tespit et
+high_correlated_cols(df)
+
+# Yüksek korelasyonlu sütunları liste olarak al
+drop_list = high_correlated_cols(df)
+
+# drop_list'teki sütunları df'den kaldır
+df = df.drop(drop_list, axis=1)
+
+# Kalan sütunlarla yüksek korelasyonlu sütunları tekrar kontrol et ve heatmap ile görselleştir
+high_correlated_cols(df, plot=True)
+
+
+
 
 
