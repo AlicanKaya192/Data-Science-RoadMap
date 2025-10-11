@@ -200,6 +200,169 @@ for col in cat_cols:
         cat_summary(df, col, plot=True)
 
 
+# 'adult_male' sütununu boolean (True/False) tipinden integer (0/1) tipine çevirir
+# Bu, görselleştirme veya modelleme öncesi sayısal işlem yapılabilmesi için gerekebilir
+df["adult_male"].astype(int)
+
+# Tüm kategorik değişkenler üzerinde döngü
+for col in cat_cols:
+    # Eğer sütun boolean ise
+    if df[col].dtypes == "bool":
+        # Boolean değerleri integer'a dönüştür (True->1, False->0)
+        df[col] = df[col].astype(int)
+        # Dönüştürülen sütun için kategorik özet ve grafiği göster
+        cat_summary(df, col, plot=True)
+    else:
+        # Boolean olmayan kategorik sütunlar için sadece özet ve grafiği göster
+        cat_summary(df, col, plot=True)
+
+
+def cat_summary(dataframe, col_name, plot=False):
+    # 1️⃣ Eğer sütun boolean tipindeyse
+    if dataframe[col_name].dtypes == "bool":
+        # Boolean -> int (True=1, False=0) dönüşümü
+        dataframe[col_name] = dataframe[col_name].astype(int)
+
+        # Kategori frekans tablosu ve yüzdeleri
+        print(pd.DataFrame({
+            col_name: dataframe[col_name].value_counts(),
+            "Ratio": 100 * dataframe[col_name].value_counts() / len(dataframe)
+        }))
+
+        print("################################")
+
+        # Eğer plot=True verilmişse, countplot grafiği oluştur
+        if plot:
+            sns.countplot(x=dataframe[col_name], data=dataframe)
+            plt.show(block=True)
+
+    # 2️⃣ Boolean olmayan sütunlar için
+    else:
+        # Burada da sütunu int yapıyorsun; bu genellikle sayısal kodlama amaçlı
+        dataframe[col_name] = dataframe[col_name].astype(int)
+
+        # Frekans tablosu ve yüzdeleri
+        print(pd.DataFrame({
+            col_name: dataframe[col_name].value_counts(),
+            "Ratio": 100 * dataframe[col_name].value_counts() / len(dataframe)
+        }))
+
+        print("################################")
+
+        # Grafiği göster
+        if plot:
+            sns.countplot(x=dataframe[col_name], data=dataframe)
+            plt.show(block=True)
+
+cat_summary(df, "adult_male", plot=True)
+
+
+###############################################
+# 3. Sayısal Değişken Analizi (Analysis of Numerical Variables)
+###############################################
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 500)
+df = sns.load_dataset("titanic")
+df.head()
+
+
+# Kategorik değişkenleri seç:
+# Türü object, category veya bool olan sütunları listele
+cat_cols = [col for col in df.columns if str(df[col].dtypes) in ["object", "category", "bool"]]
+
+# Sayısal görünümlü ama kategorik olan değişkenleri seç:
+# (örnek: 0-1 veya 1-2-3 gibi az sayıda farklı değer alan sayısal sütunlar)
+num_but_cat = [col for col in df.columns if df[col].nunique() < 10 and df[col].dtypes in ["int", "float"]]
+
+# Kategorik görünümlü ama kardinal (çok fazla sınıfa sahip) değişkenleri seç:
+# (örnek: isim, ID, benzersiz kod gibi değişkenler)
+cat_but_car = [col for col in df.columns if df[col].nunique() > 20 and str(df[col].dtypes) in ["object", "category"]]
+
+# Kategorik değişken listesine (cat_cols),
+# sayısal görünümlü ama aslında kategorik olan değişkenleri (num_but_cat) de ekle.
+# Böylece tüm kategorik özellikler tek listede toplanmış olur.
+cat_cols = cat_cols + num_but_cat
+
+# Kategorik değişken listesinden (cat_cols),
+# 'kardinal' yani çok fazla sınıfa sahip olan değişkenleri (cat_but_car) çıkar.
+# Böylece cat_cols listesi yalnızca analizde anlamlı olan "gerçek" kategorik değişkenleri içerir.
+cat_cols = [col for col in cat_cols if col not in cat_but_car]
+
+# Sayısal değişkenler 'age' ve 'fare' için temel istatistikleri hesapla
+# .describe() → count, mean, std, min, 25%, 50%, 75%, max değerlerini verir
+# .T → transpoze ederek sütunları satır, istatistikleri sütun yapar (daha okunabilir)
+df[["age", "fare"]].describe().T
+
+# Veri setindeki sayısal değişkenlerin listesini oluştur
+# int veya float veri tipinde olan sütunlar seçilir
+num_cols = [col for col in df.columns if str(df[col].dtypes) in ["int", "float"]]
+
+# Sayısal değişkenleri belirleme
+# cat_cols listesinde yer almayan tüm sütunlar sayısal değişken olarak kabul edilir
+num_cols = [col for col in df.columns if col not in cat_cols]
+
+
+# Sayısal değişkenler için detaylı özet fonksiyonu
+def num_summary(dataframe, numerical_col):
+    # Belirlenen yüzdelik değerler (quantiles)
+    quantiles = [0.05, 0.10, 0.15, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 0.95, 0.99]
+
+    # describe() fonksiyonuyla temel istatistikleri ve belirlenen yüzdelikleri hesapla
+    print(dataframe[numerical_col].describe(quantiles).T)
+
+
+# Örnek kullanım: 'age' sütunu için sayısal özet
+num_summary(df, "age")
+
+# Sayısal sütunlar listesindeki (num_cols) her bir sütun için
+# num_summary fonksiyonunu çalıştır.
+# Böylece tüm sayısal sütunların istatistiksel özetlerini hızlıca görebiliriz.
+for col in num_cols:
+    num_summary(df, col)
+
+
+def num_summary(dataframe, numerical_col, plot=False):
+    # 1️⃣ İncelenecek özel yüzdelikler
+    quantiles = [0.05, 0.10, 0.15, 0.20, 0.30, 0.40,
+                 0.50, 0.60, 0.70, 0.80, 0.90, 0.95, 0.99]
+
+    # 2️⃣ Temel istatistikler ve belirlenen yüzdelikleri hesapla ve yazdır
+    print(dataframe[numerical_col].describe(quantiles).T)
+
+    # 3️⃣ Eğer plot=True ise, histogram grafiği çiz
+    if plot:
+        dataframe[numerical_col].hist()
+        plt.xlabel(numerical_col)  # x ekseni etiketi
+        plt.title(numerical_col)  # grafiğe başlık
+        plt.show(block=True)  # grafiğin hemen görünmesini sağlar
+
+
+num_summary(df, "age", plot=True)
+
+
+# Sayısal sütunlar listesindeki (num_cols) her bir sütun için
+# num_summary fonksiyonunu çalıştır, hem tablo hem histogram grafiği göster
+for col in num_cols:
+    num_summary(df, col, plot=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
