@@ -29,7 +29,8 @@ Bu, mevcut müşterilerin %87,5’inin elde tutulduğunu gösterir.
 
 3. Customer Churn Rate (Müşteri Terk Oranı)
 Tanım:
-Belirli bir zaman aralığında işletmeden ayrılan müşterilerin oranıdır. Elde tutma oranının tersidir ve müşteri kaybını ölçmek için kullanılır.
+Belirli bir zaman aralığında işletmeden ayrılan müşterilerin oranıdır. Elde tutma oranının tersidir ve müşteri kaybını
+ölçmek için kullanılır.
 Formül:
 Müşteri Terk Oranı = (Kaybedilen Müşteri Sayısı / Dönem Başındaki Müşteri Sayısı) × 100
 Örnek:
@@ -40,7 +41,8 @@ Not: Düşük churn oranı, müşteri memnuniyetinin yüksek olduğuna işaret e
 
 4. Conversion Rate (Dönüşüm Oranı)
 Tanım:
-Bir pazarlama veya satış kampanyasının hedeflenen aksiyonu (örneğin, ürün satın alma, form doldurma, kayıt olma) gerçekleştiren kişi oranını ölçer.
+Bir pazarlama veya satış kampanyasının hedeflenen aksiyonu (örneğin, ürün satın alma, form doldurma, kayıt olma)
+gerçekleştiren kişi oranını ölçer.
 Formül:
 Dönüşüm Oranı = (Hedeflenen Aksiyonu Gerçekleştiren Kişi Sayısı / Toplam Ziyaretçi Sayısı) × 100
 Örnek:
@@ -61,7 +63,8 @@ Bu, şirketin yıllık gelirinin %30 oranında arttığını gösterir.
 Bu metrik genellikle “Bu yıl şirket %30 büyüme hedefini aştı” gibi ifadelerle haberlerde veya finansal raporlarda yer alır.
 
 Genel Özet: KPI Nedir ve Neden Önemlidir?
-KPI (Key Performance Indicator), bir işletmenin stratejik hedeflerine ulaşma sürecinde performansını ölçmek için kullanılan temel bir metriktir.
+KPI (Key Performance Indicator), bir işletmenin stratejik hedeflerine ulaşma sürecinde performansını ölçmek için kullanılan
+temel bir metriktir.
 Amaç: Hedeflere ulaşma düzeyini ölçmek, performansı izlemek ve iyileştirme fırsatlarını belirlemek.
 Türleri:
 - Finansal KPI’lar: Gelir, kâr marjı, yatırım getirisi (ROI)
