@@ -51,19 +51,21 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 
 Bu repository sürekli **geliştirilmekte ve güncellenmektedir**.  
 
-| Konu / Bölüm                               | Durum |
-| ------------------------------------------- | ------ |
-| Çalışma Ortamının Hazırlanması              | ✅ |
-| Sanal Ortamların Kullanımı                  | ✅ |
-| Paket Yönetimi                              | ✅ |
-| Veri Yapıları                               | ✅ |
-| Fonksiyonlar, Koşullar ve Döngüler          | ✅ |
-| Python Egzersizleri ve List Comprehension   | ✅ |
-| NumPy                                       | ✅ |
-| Pandas                                      | ✅ |
-| Matplotlib Görselleştirme                   | ✅ |
-| Dosya İşlemleri                             | ❌ |
-| Nesne Tabanlı Programlama (OOP)             | ❌ |
+| Konu / Bölüm                              | Durum |
+|-------------------------------------------| ------ |
+| Çalışma Ortamının Hazırlanması            | ✅ |
+| Sanal Ortamların Kullanımı                | ✅ |
+| Paket Yönetimi                            | ✅ |
+| Veri Yapıları                             | ✅ |
+| Fonksiyonlar, Koşullar ve Döngüler        | ✅ |
+| Python Egzersizleri ve List Comprehension | ✅ |
+| NumPy                                     | ✅ |
+| Pandas                                    | ✅ |
+| Matplotlib Görselleştirme                 | ✅ |
+| Gelişmiş Fonksiyonel Keşifçi Veri Analizi | ✅ |
+| CRM                                       | 🚧 |
+| Dosya İşlemleri                           | ❌ |
+| Nesne Tabanlı Programlama (OOP)           | ❌ |
 
 ---
 
