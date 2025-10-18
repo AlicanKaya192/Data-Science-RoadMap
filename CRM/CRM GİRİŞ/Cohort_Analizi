@@ -9,7 +9,8 @@ Cohort analizi, ortak özelliklere sahip bir grup insanın davranışlarının z
 Bu analiz, müşteri davranışlarını segmentlere ayırarak her grubun (cohort’un) zaman içindeki performansını karşılaştırmayı sağlar.
 
 Ortak Özelliğe Sahip İnsan Davranışı Ne Demek?
-Bu, belirli bir kritere göre (örneğin kayıt tarihi, ilk satın alma tarihi, ürün kullanımı, abonelik başlangıcı gibi) ortak bir özelliğe sahip kişilerin davranışlarını ifade eder.
+Bu, belirli bir kritere göre (örneğin kayıt tarihi, ilk satın alma tarihi, ürün kullanımı, abonelik başlangıcı gibi)
+ortak bir özelliğe sahip kişilerin davranışlarını ifade eder.
 Yani, aynı dönemde benzer bir eylemi gerçekleştiren kullanıcıların daha sonraki dönemlerde nasıl davrandığını ölçmek anlamına gelir.
 
 Örnek:
@@ -31,5 +32,7 @@ Cohort Analizinin Önemi:
 - Yeni kullanıcı kazanımı ile mevcut kullanıcıların davranış farklarını ortaya çıkarır.
 
 Genel Özet:
-Cohort analizi, kullanıcı veya müşteri tabanını sadece genel toplamlar üzerinden değil, zaman ve ortak özellikler bazında anlamayı sağlar.
-Bu yöntemle, hangi dönemlerde müşteri kaybı yaşandığını, hangi grupların daha sadık olduğunu ve stratejik iyileştirmelerin nerede gerekli olduğunu veriye dayalı biçimde tespit etmek mümkün olur.
+Cohort analizi, kullanıcı veya müşteri tabanını sadece genel toplamlar üzerinden değil, zaman ve ortak özellikler
+bazında anlamayı sağlar.
+Bu yöntemle, hangi dönemlerde müşteri kaybı yaşandığını, hangi grupların daha sadık olduğunu ve stratejik
+iyileştirmelerin nerede gerekli olduğunu veriye dayalı biçimde tespit etmek mümkün olur.
