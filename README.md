@@ -44,6 +44,12 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 3. Paket yönetimi ve bağımlılıkları yönetmek için `Package_Management` kısmına göz atın.
 4. Veri yapıları (`Data_Structures`) ile Python’un temel veri tiplerini öğrenin.
 5. Fonksiyonlar, koşullar ve döngüler için `functions_conditions_loops_comprehensions` dosyasına geçin.
+6. Liste üreteçleri ve alıştırmalar için `python_Exercises` ve `list_comprehension_exercises` dosyalarını inceleyin.
+7. Dosya işlemleri, modüller ve hata yönetimi konularını `File_Operations_and_Error_Handling` kısmında bulabilirsiniz.
+8. Veri analizi ve manipülasyonu için `Pandas` notlarını okuyun. (Series, DataFrame, seçim, filtreleme, gruplama, toplulaştırma vb.)
+9. `NumPy` kısmında sayısal hesaplama ve çok boyutlu dizi işlemlerini öğrenin.
+10. Gelişmiş Fonksiyonel Keşifçi Veri Analizi (`Exploratory_Data_Analysis`) kısmında elinize gelen bir veriyi nasıl analiz etmeniz gerektiğini öğrenin.
+11. `CRM / CRM Giriş` kısmında CRM kavramını, CRM PDF içeriğini, KPI’ların ne olduğunu ve Cohort Analizini sırasıyla inceleyin.
 
 ---
 
