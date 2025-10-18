@@ -1,0 +1,35 @@
+Cohort: Ortak Özelliklere Sahip Bir Grup İnsan
+
+Tanım:
+Cohort, belirli bir zaman diliminde veya belirli bir özelliğe göre ortak davranış gösteren bir grup insanı ifade eder.
+Bu kavram, kullanıcı veya müşteri davranışlarını anlamak ve zaman içindeki eğilimleri analiz etmek için kullanılır.
+
+Cohort Analizi Ne Demek?
+Cohort analizi, ortak özelliklere sahip bir grup insanın davranışlarının zaman içindeki değişimini inceleyen analiz yöntemidir.
+Bu analiz, müşteri davranışlarını segmentlere ayırarak her grubun (cohort’un) zaman içindeki performansını karşılaştırmayı sağlar.
+
+Ortak Özelliğe Sahip İnsan Davranışı Ne Demek?
+Bu, belirli bir kritere göre (örneğin kayıt tarihi, ilk satın alma tarihi, ürün kullanımı, abonelik başlangıcı gibi) ortak bir özelliğe sahip kişilerin davranışlarını ifade eder.
+Yani, aynı dönemde benzer bir eylemi gerçekleştiren kullanıcıların daha sonraki dönemlerde nasıl davrandığını ölçmek anlamına gelir.
+
+Örnek:
+Churn Rate (Müşteri Terk Oranı) açısından düşünelim.
+Ortak özellik: “Müşterinin markayı terk etmiş olması” durumudur.
+Analiz: Bu ortak özelliğe sahip kullanıcıların zamana göre nasıl bir dağılım gösterdiğini incelemektir.
+Yani, belirli aylarda veya dönemlerde markayı terk eden müşteri oranlarının zaman içindeki eğilimi analiz edilir.
+
+Pratik Bir Örnek:
+Bir uygulama, Ocak ayında 1000 yeni kullanıcı kazanmış olsun. Bu kullanıcılar bir cohort oluşturur.
+Şubat ayında bu kullanıcıların %20’si uygulamayı bırakmış, Mart ayında ise %10’u daha terk etmişse;
+Ocak cohort’unun 3 aylık churn eğilimi ölçülmüş olur.
+Benzer şekilde Şubat’ta kaydolan kullanıcılar da ayrı bir cohort olarak incelenir ve sonuçlar karşılaştırılır.
+
+Cohort Analizinin Önemi:
+- Kullanıcı davranışlarını zamana bağlı olarak anlamayı sağlar.
+- Müşteri sadakati, elde tutma oranı ve terk oranı gibi metrikleri daha net analiz etmeye yardımcı olur.
+- Pazarlama ve ürün stratejilerinin hangi dönemde etkili olduğunu gösterebilir.
+- Yeni kullanıcı kazanımı ile mevcut kullanıcıların davranış farklarını ortaya çıkarır.
+
+Genel Özet:
+Cohort analizi, kullanıcı veya müşteri tabanını sadece genel toplamlar üzerinden değil, zaman ve ortak özellikler bazında anlamayı sağlar.
+Bu yöntemle, hangi dönemlerde müşteri kaybı yaşandığını, hangi grupların daha sadık olduğunu ve stratejik iyileştirmelerin nerede gerekli olduğunu veriye dayalı biçimde tespit etmek mümkün olur.

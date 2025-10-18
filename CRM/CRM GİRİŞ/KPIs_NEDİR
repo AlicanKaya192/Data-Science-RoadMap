@@ -1,0 +1,71 @@
+KPIs – Key Performance Indicators (Temel Performans Göstergeleri)
+
+Tanım:
+KPI’lar, bir şirketin, departmanın veya bireyin belirlenen hedeflere ulaşma düzeyini ölçmek için kullanılan nicel (sayısal)
+performans göstergeleridir.
+Bu göstergeler, işletmelerin stratejik hedeflerine ne kadar yaklaştığını nesnel verilerle değerlendirmeyi sağlar.
+
+1. Customer Acquisition Rate (Müşteri Kazanma Oranı)
+Tanım:
+Belirli bir zaman dilimi içerisinde işletmenin kazandığı yeni müşteri oranını ifade eder. Bu oran, pazarlama ve satış
+stratejilerinin etkinliğini ölçmek için kullanılır.
+Formül:
+Müşteri Kazanma Oranı = (Yeni Kazanılan Müşteri Sayısı / Toplam Müşteri Sayısı) × 100
+Örnek:
+Bir ay içinde 1000 mevcut müşterisi olan bir şirket 200 yeni müşteri kazandıysa:
+(200 / 1000) × 100 = %20
+Bu, şirketin müşteri tabanını %20 oranında büyüttüğünü gösterir.
+
+2. Customer Retention Rate (Müşteri Elde Tutma Oranı)
+Tanım:
+Belirli bir dönemde mevcut müşterilerin ne kadarının işletme ile ilişkisini sürdürdüğünü gösterir. Müşteri sadakati ve
+hizmet kalitesinin önemli bir göstergesidir.
+Formül:
+Müşteri Elde Tutma Oranı = ((Dönem Sonundaki Müşteri Sayısı - Yeni Müşteri Sayısı) / Dönem Başındaki Müşteri Sayısı) × 100
+Örnek:
+Yıl başında 800 müşterisi olan bir şirket yıl sonunda 950 müşteriye sahipse ve bu dönemde 250 yeni müşteri kazanmışsa:
+(950 - 250) / 800 × 100 = %87,5
+Bu, mevcut müşterilerin %87,5’inin elde tutulduğunu gösterir.
+
+3. Customer Churn Rate (Müşteri Terk Oranı)
+Tanım:
+Belirli bir zaman aralığında işletmeden ayrılan müşterilerin oranıdır. Elde tutma oranının tersidir ve müşteri kaybını ölçmek için kullanılır.
+Formül:
+Müşteri Terk Oranı = (Kaybedilen Müşteri Sayısı / Dönem Başındaki Müşteri Sayısı) × 100
+Örnek:
+Yıl başında 500 müşterisi olan bir şirket yıl sonunda 450 müşteriye sahipse:
+(50 / 500) × 100 = %10
+Bu, müşteri tabanının %10’unun kaybedildiğini gösterir.
+Not: Düşük churn oranı, müşteri memnuniyetinin yüksek olduğuna işaret eder.
+
+4. Conversion Rate (Dönüşüm Oranı)
+Tanım:
+Bir pazarlama veya satış kampanyasının hedeflenen aksiyonu (örneğin, ürün satın alma, form doldurma, kayıt olma) gerçekleştiren kişi oranını ölçer.
+Formül:
+Dönüşüm Oranı = (Hedeflenen Aksiyonu Gerçekleştiren Kişi Sayısı / Toplam Ziyaretçi Sayısı) × 100
+Örnek:
+Bir web sitesine 10.000 kişi girmiş ve 500’ü ürün satın almışsa:
+(500 / 10.000) × 100 = %5
+Bu durumda dönüşüm oranı %5’tir.
+
+5. Growth Rate (Büyüme Oranı)
+Tanım:
+Bir şirketin belirli bir dönemdeki gelir, kâr veya müşteri sayısı artışını ölçen genel bir performans göstergesidir.
+Stratejik hedeflerin gerçekleşme düzeyini gösterir.
+Formül:
+Büyüme Oranı = ((Dönem Sonu Değeri - Dönem Başı Değeri) / Dönem Başı Değeri) × 100
+Örnek:
+Bir şirketin geçen yılki geliri 2 milyon TL, bu yılki geliri 2,6 milyon TL ise:
+(2,6 - 2) / 2 × 100 = %30
+Bu, şirketin yıllık gelirinin %30 oranında arttığını gösterir.
+Bu metrik genellikle “Bu yıl şirket %30 büyüme hedefini aştı” gibi ifadelerle haberlerde veya finansal raporlarda yer alır.
+
+Genel Özet: KPI Nedir ve Neden Önemlidir?
+KPI (Key Performance Indicator), bir işletmenin stratejik hedeflerine ulaşma sürecinde performansını ölçmek için kullanılan temel bir metriktir.
+Amaç: Hedeflere ulaşma düzeyini ölçmek, performansı izlemek ve iyileştirme fırsatlarını belirlemek.
+Türleri:
+- Finansal KPI’lar: Gelir, kâr marjı, yatırım getirisi (ROI)
+- Operasyonel KPI’lar: Üretim hızı, hata oranı, teslim süresi
+- Müşteri Odaklı KPI’lar: Müşteri memnuniyeti, elde tutma oranı, dönüşüm oranı
+KPI’lar, veriye dayalı karar alma süreçlerinin temelini oluşturur. Doğru seçilmiş ve düzenli takip edilen KPI’lar,
+işletmenin güçlü ve zayıf yönlerini objektif biçimde görmesini sağlar.
