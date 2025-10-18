@@ -34,6 +34,7 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 | 9    | `Matplotlib ve Seaborn`                           | Veri görselleştirme kütüphaneleri. Kategorik ve sayısal değişken görselleştirme, grafik biçimlendirme, marker ve line stilleri, birden fazla çizim (subplots), eksen etiketleme, grid yapısı, Seaborn ile yüksek seviyeli veri görselleştirme örnekleri ve temel grafik türlerini içerir. |
 | 10   | `Gelişmiş Fonksiyonel Keşifçi Veri Analizi`        | Elimize gelen bir veriyi sistematik biçimde analiz etme sürecidir. Veri yapısının anlaşılması, eksik ve aykırı değerlerin tespiti, değişken tiplerinin belirlenmesi, dağılım analizleri ve istatistiksel özetler gibi veri keşif aşamalarını içerir. |
 | 11   | `CRM / CRM Giriş`                                  | CRM Nedir? > CRM PDF > KPI’lar (Key Performance Indicators) Nedir? > Cohort Analizi sırasıyla ele alınmıştır. CRM kavramı, müşteri ilişkileri yönetimi, performans göstergeleri ve zaman bazlı müşteri davranış analizi konularını içerir. |
+| 12   | `CRM / RFM`                                     | Veri hazırlama > RFM metriklerinin hesaplanması > RFM skorlarının belirlenmesi > Müşteri segmentlerinin oluşturulması > Tüm sürecin fonksiyonlaştırılması |
 
 ---
 
@@ -50,6 +51,7 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 9. `NumPy` kısmında sayısal hesaplama ve çok boyutlu dizi işlemlerini öğrenin.
 10. Gelişmiş Fonksiyonel Keşifçi Veri Analizi (`Exploratory_Data_Analysis`) kısmında elinize gelen bir veriyi nasıl analiz etmeniz gerektiğini öğrenin.
 11. `CRM / CRM Giriş` kısmında CRM kavramını, CRM PDF içeriğini, KPI’ların ne olduğunu ve Cohort Analizini sırasıyla inceleyin.
+12. `CRM / RFM` kısmında veri hazırlama > RFM metriklerinin hesaplanması > RFM skorlarının belirlenmesi > Müşteri segmentlerinin oluşturulması > Tüm sürecin fonksiyonlaştırılmasını öğrenin.
 
 ---
 
@@ -69,7 +71,7 @@ Bu repository sürekli **geliştirilmekte ve güncellenmektedir**.
 | Pandas                                    | ✅ |
 | Matplotlib Görselleştirme                 | ✅ |
 | Gelişmiş Fonksiyonel Keşifçi Veri Analizi | ✅ |
-| CRM                                       | 🚧 |
+| CRM Analitik                              | 🚧 |
 | Dosya İşlemleri                           | ❌ |
 | Nesne Tabanlı Programlama (OOP)           | ❌ |
 
