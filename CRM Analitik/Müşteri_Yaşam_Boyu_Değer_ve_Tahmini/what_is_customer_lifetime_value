@@ -1,0 +1,58 @@
+📊 Customer Lifetime Value (CLTV) — Müşteri Yaşam Boyu Değeri
+
+Customer Lifetime Value (CLTV), bir müşterinin bir şirketle kurduğu ilişki süresi boyunca şirkete kazandırdığı toplam
+parasal değeri ifade eder.
+
+Yani, bir müşteriyle kurulan ilişkinin ömrü boyunca bu müşteriden elde edilecek gelirlerin, o müşteriyi elde tutma
+maliyetleri düşüldükten sonra kalan net kazancı temsil eder.
+
+------------------------------------------------------------
+🔹 CLTV Neden Önemlidir?
+------------------------------------------------------------
+
+Müşterilerin yaşam boyu değerini hesapladığımızda, onların bizimle kuracakları ilişki süresince şirkete bırakacakları
+toplam değeri tahmin etmiş oluruz.
+
+Bu bilgi işletmeler için kritiktir çünkü:
+
+1. Müşteri ilişkilerini daha etkili şekilde yönetmemizi sağlar.
+2. Orta ve uzun vadeli stratejilerde müşteri odaklı ve katma değerli bir yaklaşım sunar.
+3. Pazarlama bütçelerinin daha doğru şekilde planlanmasına yardımcı olur.
+
+------------------------------------------------------------
+🔹 CLTV Hesaplama ve Tahmin Farkı
+------------------------------------------------------------
+
+Dikkat edilmesi gereken önemli bir nokta vardır:
+CLTV’nin hesaplanması ve CLTV’nin tahmin edilmesi farklı kavramlardır.
+
+- **Hesaplama**, geçmiş verilere dayanarak mevcut müşterilerin yaşam boyu değerini bulmaktır.
+- **Tahmin (Prediction)** ise gelecekteki müşteri davranışlarını modelleyerek potansiyel CLTV değerlerini öngörmektir.
+
+------------------------------------------------------------
+🔹 CLTV Hesaplama Formülleri
+------------------------------------------------------------
+
+Customer Value = Average Order Value × Purchase Frequency
+
+Average Order Value (AOV) = Total Price / Total Transaction
+Purchase Frequency = Total Transaction / Total Number of Customers
+
+Churn Rate = 1 - Repeat Rate
+Profit Margin = Total Price × 0.10
+
+CLTV = (Customer Value / Churn Rate) × Profit Margin
+
+------------------------------------------------------------
+🔹 CLTV ile Müşteri Segmentasyonu
+------------------------------------------------------------
+
+Her müşteri için hesaplanan CLTV değerleri sıralanarak, belirli eşik değerlerinden bölünür.
+Bu sayede müşteriler:
+- Yüksek değerli,
+- Orta değerli,
+- Düşük değerli
+gibi segmentlere ayrılabilir.
+
+Bu segmentasyon, pazarlama ve satış stratejilerini özelleştirmede, müşteri sadakati programlarını geliştirmede
+ve bütçe yönetiminde büyük avantaj sağlar.
