@@ -31,10 +31,11 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 | 6    | `python_Exercises` / `list_comprehension_exercises` | BURADA Kİ EGZERSİZLER İÇİN ÖNCELİKLE `Çalışma_Ortamı_Ayarları` içerikleri, daha sonra `Data_Structures` içeriğini çalışınız. Car_crashes veri seti üzerinde list comprehension uygulamaları ve filtreleme/yeniden adlandırma işlemleri yapılmaktadır. |
 | 7    | `NumPy`                                             | Nümerik Python işlemleri için kullanılan temel kütüphane. Array yapıları, veri saklama verimliliği, hız avantajı, yüksek seviyeden (vektörel) işlemler, yeniden şekillendirme, indeksleme, fancy index, koşullu seçimler ve matematiksel işlemler üzerinde yoğunlaşır. Ayrıca NumPy ile iki bilinmeyenli denklem çözümü gibi uygulamalar da yer almaktadır. |
 | 8    | `Pandas`                                            | Veri analizi ve manipülümü kütüphanesi. Series ve DataFrame yapıları, veri okuma/yazma, seçim, filtreleme, indeksleme, koşullu seçim, iloc & loc, pivot table, cut/qcut, apply & lambda, toplulaştırma ve gruplama, join/merge işlemleri, eksik veri işlemleri ve temel istatistiksel özetleme konularını içerir. |
-| 9    | `Matplotlib ve Seaborn`                           | Veri görselleştirme kütüphaneleri. Kategorik ve sayısal değişken görselleştirme, grafik biçimlendirme, marker ve line stilleri, birden fazla çizim (subplots), eksen etiketleme, grid yapısı, Seaborn ile yüksek seviyeli veri görselleştirme örnekleri ve temel grafik türlerini içerir. |
-| 10   | `Gelişmiş Fonksiyonel Keşifçi Veri Analizi`        | Elimize gelen bir veriyi sistematik biçimde analiz etme sürecidir. Veri yapısının anlaşılması, eksik ve aykırı değerlerin tespiti, değişken tiplerinin belirlenmesi, dağılım analizleri ve istatistiksel özetler gibi veri keşif aşamalarını içerir. |
-| 11   | `CRM / CRM Giriş`                                  | CRM Nedir? > CRM PDF > KPI’lar (Key Performance Indicators) Nedir? > Cohort Analizi sırasıyla ele alınmıştır. CRM kavramı, müşteri ilişkileri yönetimi, performans göstergeleri ve zaman bazlı müşteri davranış analizi konularını içerir. |
-| 12   | `CRM / RFM`                                     | Veri hazırlama > RFM metriklerinin hesaplanması > RFM skorlarının belirlenmesi > Müşteri segmentlerinin oluşturulması > Tüm sürecin fonksiyonlaştırılması |
+| 9    | `Matplotlib ve Seaborn`                             | Veri görselleştirme kütüphaneleri. Kategorik ve sayısal değişken görselleştirme, grafik biçimlendirme, marker ve line stilleri, birden fazla çizim (subplots), eksen etiketleme, grid yapısı, Seaborn ile yüksek seviyeli veri görselleştirme örnekleri ve temel grafik türlerini içerir. |
+| 10   | `Gelişmiş Fonksiyonel Keşifçi Veri Analizi`         | Elimize gelen bir veriyi sistematik biçimde analiz etme sürecidir. Veri yapısının anlaşılması, eksik ve aykırı değerlerin tespiti, değişken tiplerinin belirlenmesi, dağılım analizleri ve istatistiksel özetler gibi veri keşif aşamalarını içerir. |
+| 11   | `CRM / CRM Giriş`                                   | CRM Nedir? > CRM PDF > KPI’lar (Key Performance Indicators) Nedir? > Cohort Analizi sırasıyla ele alınmıştır. CRM kavramı, müşteri ilişkileri yönetimi, performans göstergeleri ve zaman bazlı müşteri davranış analizi konularını içerir. |
+| 12   | `CRM / RFM`                                         | Veri hazırlama > RFM metriklerinin hesaplanması > RFM skorlarının belirlenmesi > Müşteri segmentlerinin oluşturulması > Tüm sürecin fonksiyonlaştırılması |
+| 13   | `CRM / Müşteri Yaşam Boyu Değeri (CLTV) ve Tahmini` | Müşteri yaşam boyu değerinin (CLTV) hesaplanması > Geçmiş satış verilerinden tahmin modeli oluşturulması > CLTV’ye göre müşteri segmentasyonu > Stratejik aksiyon planlaması |
 
 ---
 
@@ -52,6 +53,7 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 10. Gelişmiş Fonksiyonel Keşifçi Veri Analizi (`Exploratory_Data_Analysis`) kısmında elinize gelen bir veriyi nasıl analiz etmeniz gerektiğini öğrenin.
 11. `CRM / CRM Giriş` kısmında CRM kavramını, CRM PDF içeriğini, KPI’ların ne olduğunu ve Cohort Analizini sırasıyla inceleyin.
 12. `CRM / RFM` kısmında veri hazırlama > RFM metriklerinin hesaplanması > RFM skorlarının belirlenmesi > Müşteri segmentlerinin oluşturulması > Tüm sürecin fonksiyonlaştırılmasını öğrenin.
+13. `CRM / Müşteri Yaşam Boyu Değeri (CLTV) ve Tahmini` kısmında müşteri yaşam boyu değerinin hesaplanması > Geçmiş satış verilerinden tahmin modeli oluşturulması > CLTV’ye göre müşteri segmentasyonu > Stratejik aksiyon planlamasını öğrenin.
 
 ---
 
@@ -72,6 +74,8 @@ Bu repository sürekli **geliştirilmekte ve güncellenmektedir**.
 | Matplotlib Görselleştirme                 | ✅ |
 | Gelişmiş Fonksiyonel Keşifçi Veri Analizi | ✅ |
 | CRM Analitik                              | 🚧 |
+| Ölçümleme Problemleri                     | ❌ |
+| Tavsiye Sistemleri                        | ❌ |
 | Dosya İşlemleri                           | ❌ |
 | Nesne Tabanlı Programlama (OOP)           | ❌ |
 
