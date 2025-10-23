@@ -630,7 +630,7 @@ import seaborn as sns
 from matplotlib import pyplot as plt
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 500)
-df = pd.read_csv("DataSets/breast-cancer.csv")
+df = pd.read_csv("Datasets/breast-cancer.csv")
 df = df.iloc[:, 1:-1]
 df.head()
 
