@@ -33,15 +33,31 @@
 # CustomerID: Eşsiz müşteri numarası
 # Country: Ülke ismi. Müşterinin yaşadığı ülke.
 
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
+pd.set_option('display.float_format', lambda x: '%.5f' % x)
 
+df_ = pd.read_excel("Datasets/Müşteri_Yaşam_Boyu_Değeri_Dataset/online_retail_II.xlsx", sheet_name='Year 2009-2010')
+df = df_.copy()
+df.head()
+df.isnull().sum()
 
+df = df[~df["Invoice"].str.contains("C", na=False)]
+df.describe().T
 
+df = df[df["Quantity"] > 0]
 
+df.dropna(inplace=True)
 
+df["Total_Price"] = df["Quantity"] * df["Price"]
 
+cltv_c = df.groupby("Customer ID").agg({"Invoice": lambda x: x.nunique(),
+                                        "Quantity": lambda x: x.sum(),
+                                        "TotalPrice": lambda x: x.sum()})
 
-
-
+cltv_c.columns = ["total_transaction", "total_unit", "total_price"]
 
 
 
