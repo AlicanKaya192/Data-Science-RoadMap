@@ -76,8 +76,9 @@ Bu repository sürekli **geliştirilmekte ve güncellenmektedir**.
 | CRM Analitik                              | 🚧 |
 | Ölçümleme Problemleri                     | ❌ |
 | Tavsiye Sistemleri                        | ❌ |
-| Dosya İşlemleri                           | ❌ |
-| Nesne Tabanlı Programlama (OOP)           | ❌ |
+| Özellik Mühendisliği                      | ❌ |
+| Makine Öğrenimi                           | ❌ |
+| MS SQL'e Sorgu Gönderme                   | ❌ |
 
 ---
 
