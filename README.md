@@ -74,9 +74,9 @@ Bu repository sürekli **geliştirilmekte ve güncellenmektedir**.
 | Matplotlib Görselleştirme                 | ✅ |
 | Gelişmiş Fonksiyonel Keşifçi Veri Analizi | ✅ |
 | CRM Analitik                              | 🚧 |
-| Ölçümleme Problemleri                     | ❌ |
+| Ölçümleme Problemleri                     | 🚧 |
 | Tavsiye Sistemleri                        | ❌ |
-| Özellik Mühendisliği                      | ❌ |
+| Özellik Mühendisliği                      | 🚧 |
 | Makine Öğrenimi                           | ❌ |
 | MS SQL'e Sorgu Gönderme                   | ❌ |
 
