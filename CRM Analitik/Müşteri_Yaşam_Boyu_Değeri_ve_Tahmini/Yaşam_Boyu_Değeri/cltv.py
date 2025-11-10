@@ -40,7 +40,7 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.float_format', lambda x: '%.5f' % x)
 
 # Veri setinin okunması
-df_ = pd.read_excel("Datasets/Müşteri_Yaşam_Boyu_Değeri_Dataset/online_retail_II.xlsx", sheet_name='Year 2009-2010')
+df_ = pd.read_excel("Datasets/Müşteri_Yaşam_Boyu_Değeri_ve_Tahmini_Dataset/online_retail_II.xlsx", sheet_name='Year 2009-2010')
 df = df_.copy()
 df.head()
 df.isnull().sum()
