@@ -73,7 +73,7 @@ Bu repository sürekli **geliştirilmekte ve güncellenmektedir**.
 | Pandas                                    | ✅ |
 | Matplotlib Görselleştirme                 | ✅ |
 | Gelişmiş Fonksiyonel Keşifçi Veri Analizi | ✅ |
-| CRM Analitik                              | 🚧 |
+| CRM Analitik                              | ✅ |
 | Ölçümleme Problemleri                     | 🚧 |
 | Tavsiye Sistemleri                        | ❌ |
 | Özellik Mühendisliği                      | 🚧 |
