@@ -1,0 +1,69 @@
+Aykırı Değer (Outlier) Nedir ?
+
+Verideki genel eğilimin belirgin şekilde dışına çıkan gözlemler aykırı değer olarak tanımlanır. Bu değerler
+ölçüm hatası, veri giriş yanlışı, beklenmedik olaylar veya gerçekten uç davranışları temsil eden gerçek gözlemler olabilir.
+Bu nedenle mutlaka analiz edilmeleri gerekir.
+
+Aykırı Değerler Ne Gibi Problemlere Yol Açar ?
+
+Aykırı değerler istatistiksel analizlerde ve makine öğrenimi modellerinde çeşitli problemlere neden olabilir:
+- Ortalama, varyans, standart sapma gibi istatistikleri bozar ve veriyi olduğundan daha dağınık gösterir.
+- Özellikle doğrusal regresyon gibi doğrusal modellere ciddi biçimde zarar verir; katsayıları uçurabilir.
+- Kümelere dayalı yöntemlerde (k-means gibi) merkez hesaplamasını yanıltır.
+- Mesafe-temelli modellerde (kNN gibi) yanlış sınıflandırmalara yol açabilir.
+- Eğitim süresini ve hesaplama maliyetini artırabilir.
+- Modelin genelleme performansını düşürür.
+
+Ağaç yöntemlerinde (decision tree, random forest, XGBoost) bu etkinin daha düşük olmasının sebebi, bölünme
+kurallarının medyan ve eşik temelli çalışmasıdır. Ancak tamamen etkisiz oldukları söylenemez.
+
+Aykırı Değerleri Neye Göre Belirliyoruz ?
+Aykırı değer belirleme sürecinde kullanılan temel yaklaşımlar şunlardır:
+1 - Sektör Bilgisi
+2 - Standart Sapma Yaklaşımı
+3 - Z-Skoru Yaklaşımı
+4 - Boxplot (Interquartile Range - IQR) Yöntemi
+
+Tek değişkenli aykırı değer analizinde en yaygın yöntem IQR yöntemidir. Çok değişkenli aykırı değer yakalamada ise
+LOF (Local Outlier Factor) gibi yöntemler tercih edilir.
+
+###############################
+Standart Sapma Yaklaşımı
+###############################
+
+Bu yöntemde değişkenin ortalaması ve standart sapması kullanılır. Örneğin:
+Ortalama = 10, Standart Sapma = 5 ise;
+Bu değerin 5’in altı ve 15’in üstü aykırı olarak kabul edilebilir.
+
+Benzer şekilde ortalaması 100, standart sapması 10 olan bir değişkende “2 standart sapma üzeri aykırıdır” denirse
+eşik değer 120 olur. Kritik nokta, kabul edilebilir son sınırın (threshold) belirlenmesidir.
+
+###############################
+Z-Skoru Yaklaşımı
+###############################
+
+Bu yöntemde değişken standart normal dağılıma dönüştürülür. Z-skoru hesaplandığında veri ortalaması 0, standart sapması 1 olur.
+
+Genellikle -2.5 ile +2.5 arasındaki değerler normal kabul edilir. Bunun altındaki veya üstündeki değerler aykırı olarak
+etiketlenir.
+
+###############################
+Boxplot (Interquartile Range - IQR) Yöntemi
+###############################
+
+Bu yöntem en yaygın kullanılan aykırı değer yakalama yaklaşımıdır.
+
+Çalışma mantığı şöyledir:
+1. Veri küçükten büyüğe sıralanır.
+2. Alt çeyrek (Q1 - %25'lik dilim) ve üst çeyrek (Q3 - %75'lik dilim) hesaplanır.
+3. IQR = Q3 - Q1 olarak tanımlanır.
+4. Aşağıdaki eşik değerler belirlenir:
+   - Alt eşik: Q1 - 1.5 * IQR
+   - Üst eşik: Q3 + 1.5 * IQR
+5. Bu aralığın dışındaki gözlemler aykırı değer olarak kabul edilir.
+
+Boxplot grafiğinde görünen “uç noktalar” tam olarak bu hesaplamanın sonucudur. Yöntemin tercih edilme sebebi ortalamaya
+dayanmadığı için uç değerlerden daha az etkilenmesidir.
+
+Bu yöntem tek değişkenli aykırı değer analizinde standarttır. Çok değişkenli durumda LOF (Local Outlier Factor) gibi
+yöntemler kullanılarak verinin çok boyutlu uzaydaki davranışı dikkate alınır.
