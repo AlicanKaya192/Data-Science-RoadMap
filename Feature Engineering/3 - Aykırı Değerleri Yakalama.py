@@ -75,14 +75,14 @@ low = q1 - 1.5 * iqr # Alt Sınır
 # UYARI!!! Burada Alt sınır değerimiz eksi geliyor. Eksik yaş değeri olamayacağı ve yaş değişkenimizde eksik değer
 # olmadığı için birazdan yapılacak işlemlerde bunu görmezden gelecek. Bir eylemde bulunmayacak.
 
-df[(df["Age"] < low) | (df["Age"] > up)] # Low değerden küçük ve Up değerden yüksek olanları getirir. Bunlar aykırı değerlerdir.
+df[((df["Age"] < low) | (df["Age"] > up))] # Low değerden küçük ve Up değerden yüksek olanları getirir. Bunlar aykırı değerlerdir.
 # Low değerimiz eksilerde olduğu için herhangi küçük yaş grubu gelmeyecek çünkü - yaş yok.
 
 # Diyelim ki gelen sonuçlara bir şey yapmak istiyoruz şuan veya daha sonra bir şey yapmak istersek bize indexleri lazım.
 # Peki bunun için ne yapabiliriz. "Nasıl bu index'leri seçebilirim ?"
 # Az önce yaptığımız seçim işleminin sonuna .index der isem;
 
-df[(df["Age"] < low) | (df["Age"] > up)].index # Bu şekilde aykırı değerlerin index'lerini eğer istersek tutabiliriz.
+df[((df["Age"] < low) | (df["Age"] > up))].index # Bu şekilde aykırı değerlerin index'lerini eğer istersek tutabiliriz.
 
 ###############################
 # Aykırı Değer Var Mı, Yok Mu ?
@@ -124,7 +124,7 @@ outlier_thresholds(df, "Fare")
 low, up = outlier_thresholds(df, "Age")
 
 # Age değişkenindeki alt veya üst eşik dışına çıkan aykırı gözlemleri gösterme
-df[(df["Age"] < low) | (df["Age"] > up)].head()
+df[((df["Age"] < low) | (df["Age"] > up))].head()
 
 # Bir değişkende aykırı değer olup olmadığını kontrol eden fonksiyon
 def outlier_checker(dataframe, col_name):
@@ -208,7 +208,8 @@ def grab_col_names(dataframe, cat_th=10, car_th=20):
 
 cat_cols, num_cols, cat_but_car = grab_col_names(df)
 
-num_cols = [col for col in num_cols if col not in "PassengerId"] # PassengerId bir istisna olduğu için ondan kurtuluyoruz.
+num_cols = [col for col in num_cols if col not in "PassengerId"]
+# PassengerId bir istisna olduğu için ondan kurtuluyoruz.
 
 for col in num_cols:
     print(col, outlier_checker(dff, col))
@@ -219,4 +220,87 @@ num_cols = [col for col in num_cols if col not in "SK_ID_CURR"]
 
 for col in num_cols:
     print(col, outlier_checker(dff, col))
+
+
+###############################
+# Aykırı Değerlerin Kendilerine Erişmek
+###############################
+
+# Bu kısımda aykırı değerlere erişmek istediğimiz de ne yapmamız gerekiyor onu göreceğiz.
+# Yukarıda manuel şekilde index değerlerine erişmiştik ve değerleri de görmüştük. Şimdi bu işlemi fonksiyonlaştıracağız.
+
+def grap_outliers(dataframe, col_name, index=False):
+    # Belirtilen değişken için alt ve üst eşikleri hesapla
+    low, up = outlier_checker(dataframe, col_name)
+
+    # Aykırı değerleri filtrele
+    outliers = dataframe[(dataframe[col_name] < low) | (dataframe[col_name] > up)]
+
+    # Eğer aykırı değer sayısı 10'dan büyükse ilk 5 tanesini yazdır
+    if outliers.shape[0] > 10:
+        print(outliers.head())
+    # Değilse tamamını yazdır
+    else:
+        print(outliers)
+
+    # Kullanıcı index=True derse aykırı değerlerin index'lerini döndür
+    if index:
+        return outliers.index
+
+grap_outliers(df, "Age")
+
+age_index = grap_outliers(df, "Age", True)
+
+
+###############################
+# Aykırı Değer Problemini Çözme
+###############################
+
+############
+# Silme
+############
+
+# Aykırı değerleri tanımlamak için öncelikle alt ve üst değer gerekiyor.
+
+low, up = outlier_checker(df, "Fare")
+df.shape
+
+df[~((df["Fare"] < low) | (df["Fare"] > up))].shape
+
+def remove_outliers(dataframe, col_name):
+    low_limit, up_limit = outlier_thresholds(dataframe, col_name)
+    df_without_outliers = df[~((dataframe[col_name] < low_limit) | (dataframe[col_name] > up_limit))]
+    return df_without_outliers
+
+
+cat_cols, num_cols, cat_but_car = grab_col_names(df)
+
+num_cols = [col for col in num_cols if col not in "PassengerId"]
+df.shape
+
+for col in num_cols:
+    new_df = remove_outliers(df, col)
+
+df.shape[0] - new_df.shape[0]
+
+
+############
+# Baskılama Yöntemi (re-assignment with thresholds)
+############
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
