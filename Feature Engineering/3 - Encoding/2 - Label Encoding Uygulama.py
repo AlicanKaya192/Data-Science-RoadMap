@@ -151,4 +151,16 @@ for col in binary_cols:
 # Eksik değerleri önce doldur -> sonra LabelEncode et.
 
 
+###################################
+# ÖZET
+###################################
+
+# LabelEncoder sadece 2 sınıflı (binary) kategorik değişkenlerde kullanılmalıdır.
+# Çünkü çok sınıflı (örneğin 10, 50, 100 sınıf) değişkenlerde LabelEncoder sıralı bir ilişki yaratır
+# (örn: A=0, B=1, C=2...), bu da modelin yanlış öğrenmesine ve performansın düşmesine neden olur.
+# 2'den fazla sınıf varsa LabelEncoder yerine:
+# - One-Hot Encoding (get_dummies)
+# - Target Encoding
+# - Frequency Encoding
+# gibi yöntemler tercih edilmelidir.
 
