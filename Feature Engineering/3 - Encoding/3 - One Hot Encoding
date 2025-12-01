@@ -1,0 +1,72 @@
+One Hot Encoding, kategorik değişkenlerin birbirleri arasında herhangi bir sıralama veya büyüklük ilişkisi
+olmadığı durumlarda kullanılan bir dönüştürme yöntemidir. Nominal kategorik değişkenler, sınıflar arasında bir
+hiyerarşi barındırmaz. Bu nedenle bu tip değişkenleri sayısal forma dönüştürürken sınıflar arasında sıralı bir anlam
+oluşturmak hatalı sonuçlara yol açar. One Hot Encoding yöntemi, her bir kategoriyi ayrı bir sütun olarak temsil ederek
+bu sorunu ortadan kaldırır.
+
+Bir kategorik değişkenin sahip olduğu her sınıf için yeni bir özellik sütunu oluşturulur ve gözlem ilgili sınıfa aitse 1,
+değilse 0 atanır. Böylece herhangi bir sınıfın diğerinden daha büyük ya da küçük olduğu yönünde bir yanlış anlam
+oluşturulmamış olur. Bu yöntem sayesinde model, kategoriler arasında var olmayan bir büyüklük ilişkisini öğrenmek zorunda kalmaz.
+
+Örneğin futbol takımlarını içeren bir TEAM değişkeni düşünelim. Bu değişkende GS, FB, BJK, TS, BC ve RM sınıfları bulunsun.
+Bu değişken Label Encoding ile 0, 1, 2, 3, 4, 5 gibi değerlere dönüştürülürse, modeller bu değerler arasında aslında var
+olmayan bir sıralama ilişkisi olduğunu zannedebilir. Oysa takımlar arasında bir büyüklük-küçüklük ilişkisi yoktur.
+Bu nedenle One Hot Encoding kullanmak doğru bir yaklaşımdır.
+
+One Hot Encoding uygulandığında TEAM değişkeni altı yeni sütuna dönüşür: TEAM_GS, TEAM_FB, TEAM_BJK, TEAM_TS, TEAM_BC ve
+TEAM_RM. Bir gözlem örneğin FB sınıfına aitse TEAM_FB sütunu 1 olur, diğer tüm takım sütunları 0 olarak kalır.
+Bu temsil hem doğru hem de bilgi kaybı yaratmayan bir sayısal dönüşüm sağlar.
+
+One Hot Encoding özellikle lineer modeller, lojistik regresyon, Naive Bayes, ağaç tabanlı modeller ve sinir ağları için
+güvenli bir dönüştürme yöntemidir. Nominal değişkenlerde sıralı anlam yaratmadığı için algoritmaların yanlış ilişkiler
+öğrenmesini engeller. Model performansını da genellikle Label Encoding’e göre daha sağlıklı etkiler.
+
+Sonuç olarak, bir kategorik değişkende sınıflar arasında doğal bir sıralama yoksa, yani değişken nominal ise,
+One Hot Encoding kullanılması en doğru yaklaşımdır. Bu yöntem her sınıfı ayrı bir sütun şeklinde temsil ederek
+yanlış büyüklük ilişkilerini ortadan kaldırır ve modelin veriyi doğru biçimde yorumlamasını sağlar.
+
+###################################
+# Dummy Trap
+###################################
+
+Dummy Variable Trap, One Hot Encoding sonrasında oluşan değişkenler arasında tam bir doğrusal bağımlılık (multicollinearity)
+oluşması durumudur. One Hot Encoding her kategori için bir sütun ürettiğinde bu sütunlar toplamda birbirlerini tamamen
+açıklayabilir hale gelir. Örneğin dört kategorili bir değişkende dört sütun oluşturulduğunda, bu sütunlardan birini diğer
+üçünün kombinasyonu ile elde etmek mümkündür. Bu durum özellikle lineer regresyon gibi doğrusal modellerde problemlere yol
+açar, çünkü model katsayıları kararsız hale gelir ve hesaplanan sonuçlar güvenilirliğini kaybedebilir.
+
+Dummy Variable Trap’in oluşma sebebi, tüm kategorilerin ayrı sütunlar şeklinde modele dahil edilmesidir. Sütunlar
+birbirleriyle tam ilişki içerisindedir ve bu da modelin matematiksel olarak tekil (singular) bir matrisle karşılaşmasına
+neden olur. Böyle bir durumda regresyon katsayıları doğru şekilde hesaplanamaz.
+
+Bu tuzağı engellemenin en bilinen yöntemi, One Hot Encoding uygulandıktan sonra oluşan kategorik sütunlardan bir tanesini
+modelden çıkarmaktır. Kategorilerden biri referans (baseline) sınıf olarak bırakılır ve diğer tüm kategoriler bu referansa
+göre yorumlanır. Bu işlem multicollinearity sorununu ortadan kaldırır.
+
+Aynı zamanda bazı One Hot Encoding fonksiyonları, örneğin belirli Python kütüphanelerindeki “drop_first” benzeri parametreler,
+ilk sütunun otomatik olarak düşürülmesini sağlayarak bu problemi önler. Sonuç olarak Dummy Variable Trap, kategorik
+değişkenlerin gereksiz biçimde tüm sınıflarının bağımsız özellikler haline getirilmesinden kaynaklanır ve bir sütunun
+elenmesiyle kolayca önlenebilir.
+
+###################################
+# ÖZET
+###################################
+
+Nominal kategorik değişkenlerin sınıfları arasında herhangi bir sıralama ya da büyüklük ilişkisi bulunmadığından,
+bu tür değişkenleri sayısal forma dönüştürürken sınıflar arasında yapay bir hiyerarşi oluşturmamak gerekir.
+One Hot Encoding bu nedenle en doğru yöntemlerden biridir. Bu yöntemde her kategori için ayrı bir sütun oluşturulur ve
+gözlem yalnızca kendi kategorisini temsil eden sütunda 1 değerini alırken diğer sütunlarda 0 değeri alır. Böylece model,
+kategoriler arasında var olmayan bir büyüklük ilişkisi kurmaz ve veri hiçbir anlam bozulmasına uğramadan temsil edilmiş olur.
+
+One Hot Encoding her ne kadar doğru bir yaklaşım olsa da, uygulandığında dikkat edilmesi gereken önemli bir konu vardır:
+Dummy Variable Trap. Bu durum, One Hot Encoding ile oluşturulan tüm kategorik sütunların modele dahil edilmesi sonucunda
+sütunlar arasında tam doğrusal bağımlılık oluşmasıdır. Örneğin dört kategori için dört ayrı sütun oluşturulduğunda,
+bu sütunlardan birinin diğer üç sütunun birleşimiyle tamamen açıklanabilmesi mümkündür. Bu tam bağımlılık, özellikle
+lineer modellerde matematiksel problemlere yol açar, katsayıların güvenilirliğini bozar ve modelin kararsız çalışmasına
+neden olur.
+
+Dummy Variable Trap’i engellemek oldukça basittir. One Hot Encoding sonrasında oluşan sütunlardan bir tanesi modele dahil edilmez. Bu dışarıda bırakılan kategori referans sınıfı olarak kabul edilir ve diğer tüm kategoriler ona göre değerlendirilir. Böylece sütunlar arasındaki tam doğrusal bağımlılık ortadan kalkar ve model daha stabil, daha doğru bir şekilde çalışır.
+
+Sonuç olarak nominal kategorik değişkenlerin doğru biçimde dönüştürülmesi için One Hot Encoding tercih edilmelidir ve
+bu dönüşüm yapılırken Dummy Variable Trap'in oluşmaması için kategorilerden birinin referans sınıfı olarak bırakılması
+gerektiği unutulmamalıdır.
