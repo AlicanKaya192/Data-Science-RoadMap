@@ -17,3 +17,4 @@ Thumbs.db
 # Log ve temp dosyaları
 *.log
 *.tmp
+.git/hooks/*
