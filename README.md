@@ -58,6 +58,12 @@ Ayrıca, ilgilenenler için diğer repolarım da mevcuttur:
 11. `CRM / CRM Giriş` kısmında CRM kavramını, CRM PDF içeriğini, KPI’ların ne olduğunu ve Cohort Analizini sırasıyla inceleyin.
 12. `CRM / RFM` kısmında veri hazırlama > RFM metriklerinin hesaplanması > RFM skorlarının belirlenmesi > Müşteri segmentlerinin oluşturulması > Tüm sürecin fonksiyonlaştırılmasını öğrenin.
 13. `CRM / Müşteri Yaşam Boyu Değeri (CLTV) ve Tahmini` kısmında müşteri yaşam boyu değerinin hesaplanması > Geçmiş satış verilerinden tahmin modeli oluşturulması > CLTV’ye göre müşteri segmentasyonu > Stratejik aksiyon planlamasını öğrenin.
+14. `Ölçümleme Problemleri` 🚧
+15. `Tavsiye Sistemleri` ❌
+16. `Özellik Mühendisliği` 🚧
+17. `Makine Öğrenimi` ❌
+18. `SQL` ❌
+19. `Time Series` ❌
 
 ---
 
@@ -83,6 +89,7 @@ Bu repository sürekli **geliştirilmekte ve güncellenmektedir**.
 | Özellik Mühendisliği                      | 🚧 |
 | Makine Öğrenimi                           | ❌ |
 | MS SQL'e Sorgu Gönderme                   | ❌ |
+| Time Series                               | ❌ |
 
 ---
 
