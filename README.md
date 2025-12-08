@@ -4,6 +4,10 @@
 
 ---
 
+![License](https://img.shields.io/badge/license-Unlicense-green) ![Version](https://img.shields.io/badge/version-3.14.2-blue) ![Language](https://img.shields.io/badge/language-Python-yellow) ![GitHub](https://img.shields.io/badge/GitHub-AlicanKaya192/PythonTopics.git-black?logo=github)
+
+---
+
 <img src="https://github.com/user-attachments/assets/7c5aefab-2a2d-4d28-afb6-fb2863392e6f" width="640" />
 
 ## 📌 Repository Hakkında
