@@ -1,0 +1,19 @@
+# Proje İçin Gerekliler
+# pip install -r requirements.txt
+pandas
+numpy
+matplotlib
+seaborn
+missingno
+mlxtend
+lifetimes
+scikit-learn
+statsmodels
+# catboost
+lightgbm
+xgboost
+openpyxl
+python-dateutil
+pytz
+six
+tzdata

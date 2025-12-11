@@ -181,23 +181,48 @@ rare_analyser(df, "TARGET", cat_cols)
 # 3. Rare encoder'ın yazılması
 ###################################
 
+def rare_encoder(dataframe, rare_perc):
+    """
+    Belirtilen oran (rare_perc) altında frekansa sahip kategorik değişkenlerdeki
+    nadir (rare) kategorileri tespit ederek bunları 'Rare' etiketi ile birleştirir.
+
+    Parametreler
+    ------------
+    dataframe : pandas.DataFrame
+        Üzerinde işlem yapılacak veri seti.
+    rare_perc : float
+        Bir kategorinin nadir olarak kabul edilmesi için eşik oran.
+        Örn: 0.01 -> %1'in altında görülen kategoriler 'Rare' yapılır.
+
+    Dönüş
+    ------
+    pandas.DataFrame
+        Nadir kategorileri birleştirilmiş yeni DataFrame.
+    """
+
+    temp_df = dataframe.copy()  # Orijinal veri setini bozmamak için kopya oluşturulur.
+
+    # Kategorik değişkenlerden içinde rare kategorisi bulunan sütunları tespit et.
+    rare_columns = [
+        col for col in temp_df.columns
+        if temp_df[col].dtypes == "O"  # Sadece kategorik/object değişkenler
+        and (temp_df[col].value_counts() / len(temp_df) < rare_perc).any(axis=None)
+    ]
+    
+    # Rare kolonlar için: rare oranının altında kalan kategorileri 'Rare' ile değiştir.
+    for var in rare_columns:
+        tmp = temp_df[var].value_counts() / len(temp_df)  # Kategori frekans oranları
+        rare_labels = tmp[tmp < rare_perc].index         # Rare olarak işaretlenecek etiketler
+        temp_df[var] = np.where(temp_df[var].isin(rare_labels), 'Rare', temp_df[var])
+
+    return temp_df
 
 
+# Rare encoding işlemi
+new_df = rare_encoder(df, 0.01)
 
+# Rare analiz fonksiyonu (dışarıda tanımlı olduğu varsayılıyor)
+rare_analyser(new_df, "TARGET", cat_cols)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# OCCUPATION_TYPE değişkeninin dağılımını inceleme
+df["OCCUPATION_TYPE"].value_counts()

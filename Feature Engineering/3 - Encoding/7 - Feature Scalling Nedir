@@ -1,0 +1,55 @@
+# Feature Scaling (Özellik Ölçeklendirme) Nedir?
+
+Feature Scaling, veri setindeki bağımsız değişkenlerin (özelliklerin) değer aralıklarını (scale) belirli bir standarta getirme işlemidir. Farklı birimlere (örneğin biri kg, diğeri metre) veya farklı büyüklüklere (biri 0-1 arası, diğeri 1000-10000 arası) sahip değişkenleri, modelin daha adil ve doğru bir şekilde değerlendirebilmesi için ortak bir zemine taşımaktır.
+
+En yaygın kullanılan yöntemler:
+1.  **Standardization (Standartlaştırma - Z-Score):** Değişkenin ortalamasını 0, standart sapmasını 1 yapacak şekilde dönüştürür.
+2.  **Normalization (Normalleştirme - Min-Max Scaling):** Değişkenleri genellikle 0 ile 1 arasında belirli bir aralığa sıkıştırır.
+
+---
+
+# Neden Buna İhtiyaç Duyarız?
+
+Makine öğrenmesi algoritmalarının çoğu, verilerin sayısal büyüklüklerine duyarlıdır. Eğer değişkenler arasında büyük ölçek farkları varsa, şu sorunlar ortaya çıkar:
+
+### 1. Uzaklık Hesabı Yanılgısı (Distance Bias)
+Özellikle Öklid mesafesi (Euclidean distance) kullanan algoritmalar, büyük sayısal değerlere sahip değişkenlerin domine etkisi altında kalır.
+
+**Örnek:**
+*   **Değişken A (Yaş):** 20 ile 60 arasında değişiyor.
+*   **Değişken B (Maaş):** 5.000 ile 50.000 arasında değişiyor.
+
+İki kişi arasındaki benzerliği ölçerken; yaşları arasındaki 10 birimlik fark (biri 30, diğeri 40 yaşında) matematiksel olarak küçük görünürken, maaşları arasındaki 1000 birimlik fark (biri 5000, diğeri 6000 alıyor) çok büyük görünecektir. Algoritma, "Maaş" değişkenini "Yaş" değişkeninden 100 kat daha önemli zannedecektir. Halbuki gerçek hayatta yaş farkı daha belirleyici olabilir. Scaling, bu haksız üstünlüğü ortadan kaldırır.
+
+### 2. Optimizasyon Hızı (Gradient Descent Convergence)
+Gradient Descent (Gradyan İnişi) kullanan algoritmalar, değişkenlerin ölçekleri farklı olduğunda minimum hata noktasına ulaşmakta çok zorlanır.
+*   **Ölçeklendirilmemiş veri:** Hata yüzeyi çok dar ve uzun bir vadi gibidir. Algoritma hedefe ulaşmak için çok fazla zikzak çizer ve eğitim süresi uzar.
+*   **Ölçeklendirilmiş veri:** Hata yüzeyi daha dairesel ve simetrik olur. Algoritma doğrudan hedefe (minimum noktaya) hızlıca ilerler.
+
+---
+
+# Ne Durumlarda Kullanılmalı?
+
+Feature Scaling her model için zorunlu değildir. Hangi algoritmayı kullandığınıza göre karar vermelisiniz.
+
+### Kesinlikle Kullanılması Gereken Durumlar:
+1.  **Uzaklık Temelli Algoritmalar (Distance-Based Algorithms):**
+    *   **KNN (K-Nearest Neighbors):** En yakın komşuyu bulmak için mesafe hesaplar.
+    *   **K-Means Clustering:** Merkezlere olan uzaklığı hesaplar.
+    *   **SVM (Support Vector Machines):** Veri noktaları arasındaki marjini (boşluğu) maksimize etmeye çalışır, uzaklık kritiktir.
+    
+2.  **Gradient Descent Kullanan Algoritmalar:**
+    *   **Linear Regression & Logistic Regression:** Katsayıları optimize ederken ölçek farkı eğitimi yavaşlatır.
+    *   **Neural Networks (Yapay Sinir Ağları):** Girdilerin ölçekli olması, ağırlıkların güncellenmesi ve aktivasyon fonksiyonlarının (sigmoid, tanh vb.) düzgün çalışması için hayati önem taşır.
+
+3.  **Değişken Varyansına Duyarlı Algoritmalar:**
+    *   **PCA (Principal Component Analysis):** Varyansı (değişimi) maksimize eden bileşenleri bulmaya çalışır. Büyük ölçekli değişkenler yapay olarak yüksek varyansa sahip görüneceği için PCA sonuçlarını bozar.
+
+### Kullanılmasına Gerek Olmayan Durumlar:
+*   **Ağaç Tabanlı Modeller (Tree-Based Models):**
+    *   Decision Trees (Karar Ağaçları)
+    *   Random Forest
+    *   Gradient Boosting Machines (XGBoost, LightGBM, CatBoost)
+    
+    Bu algoritmalar, veriyi belirli eşik değerlerine göre bölerek (splitting) çalışır (Örn: "Yaş > 25 ise sağa git"). Sayıların mutlak büyüklüğü veya birbirine göre oranı önemli değildir, sadece sıralaması önemlidir. Bu yüzden ölçeklendirme yapıp yapmamanız modelin başarısını etkilemez.
+
