@@ -270,7 +270,7 @@ cltv_df.sort_values("expected_average_profit", ascending=False).head(10)
 # Burada BG-NBD modeli ile satın alma sayısını, Gamma-Gamma modeli ile ortalama kazancı
 # kullanarak her müşteri için gelecekteki 3 aylık CLTV tahminini yapıyoruz.
 
-cltv_df = ggf.customer_lifetime_value(
+cltv = ggf.customer_lifetime_value(
     bgf,  # BG-NBD modeli
     cltv_df["frequency"],  # Geçmişteki satın alma sayısı
     cltv_df["recency"],    # Son satın alma üzerinden geçen süre (haftalık)
@@ -403,7 +403,7 @@ def create_cltv_p(dataframe, month=3):
     )
 
     # 4. CLTV'nin hesaplanması
-    cltv_df = ggf.customer_lifetime_value(
+    cltv = ggf.customer_lifetime_value(
         bgf,  # BG-NBD modeli
         cltv_df["frequency"],
         cltv_df["recency"],
