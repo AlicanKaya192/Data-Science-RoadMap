@@ -85,6 +85,14 @@ def grab_col_names(dataframe, cat_th=10, car_th=20):
     # Değişken listelerini döndür
     return cat_cols, num_cols, cat_but_car
 
+def outlier_thresholds(dataframe, col_name, q1=0.25, q3=0.75):
+    q1 = dataframe[col_name].quantile(q1)  # 1. çeyreklik değer
+    q3 = dataframe[col_name].quantile(q3)  # 3. çeyreklik değer
+    iqr = q3 - q1  # Interquartile range (çeyrekler arası genişlik)
+    up = q3 + 1.5 * iqr  # Üst sınır
+    low = q1 - 1.5 * iqr  # Alt sınır
+    return low, up
+
 def outlier_checker(dataframe, col_name):
     low, up = outlier_thresholds(dataframe, col_name)  # Eşik değerleri al
 
