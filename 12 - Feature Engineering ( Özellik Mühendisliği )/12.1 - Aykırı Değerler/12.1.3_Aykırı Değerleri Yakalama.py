@@ -18,21 +18,21 @@ pd.set_option('display.float_format', lambda x: "%.3f" % x)
 pd.set_option('display.width', 500)
 
 def load_application_train():
-    data = pd.read_csv("Datasets/Feature Engineering/Outliers/application_train.csv")
+    data = pd.read_csv("Datasets ( Genel )/application_train.csv")
     return data
 
 df = load_application_train()
 df.head()
 
 def load():
-    data = pd.read_csv("Datasets/Feature Engineering/Outliers/titanic.csv")
+    data = pd.read_csv("Datasets ( Genel )/titanic.csv")
     return data
 
 df = load()
 df.head()
 
 def load():
-    data = pd.read_csv("Datasets/Feature Engineering/Outliers/course_reviews.csv")
+    data = pd.read_csv("Datasets ( Genel )/course_reviews.csv")
     return data
 
 df = load()

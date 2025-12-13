@@ -20,56 +20,51 @@
 # Sayısal değişken: histogram, boxplot
 
 
-################################
-# Kategorik Değişken Görselleştirme
-################################
+#########################################
+# CATEGORICAL VARIABLE VISUALIZATION
+#########################################
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 pd.set_option('display.max_columns', None)
-pd.set_option("display.width", 500)
-df = sns.load_dataset("titanic")
+pd.set_option('display.width', 500)
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
 df.head()
 
-df["sex"].value_counts().plot(kind="bar")
-# Kategorik değişkenlerde sınıf (kategori) frekanslarını görmek için value_counts() kullanılır.
-# plot(kind="bar") ifadesi bu frekansları çubuk grafik (bar chart) olarak görselleştirir.
-
-plt.show()
-# Grafiği ekranda görüntüler.
+df["sex"].value_counts()
 
 
-################################
-# Sayısal Değişken Görselleştirme
-################################
+#########################################
+# NUMERICAL VARIABLE VISUALIZATION
+#########################################
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 pd.set_option('display.max_columns', None)
-pd.set_option("display.width", 500)
-df = sns.load_dataset("titanic")
+pd.set_option('display.width', 500)
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
 df.head()
 
 plt.hist(df["age"])
-plt.show()
 
 plt.boxplot(df["fare"])
 plt.show()
 
 
 ################################
-# Matplotlib'in Özellikleri
-################################
+#########################################
+# MATPLOTLIB'IN OZELLIKLERI
+#########################################
+import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 pd.set_option('display.max_columns', None)
-pd.set_option("display.width", 500)
-df =sns.load_dataset("titanic")
+pd.set_option('display.width', 500)
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
+df.head()
 
-# Matplotlib yapısı itibariyle katmanlı şekilde veri görselleştirme imkanı sağlar. Bu şu anlama gelir; bir katmanda bir görsel,
-# diğer katmanda ayrı bir görsel, diğer katmanda bit title, bir isimlendirme, örneğin diğer bir katmanda ise eksenlere bilgi vermek gibi
-# diğer çeşitli bazı başlıklarda çalışma imkanı sağlar. Bu yapısını kullanarak bazı ihtiyaçlarımızı giderebiliriz.
+#######################
 
 
 ################################

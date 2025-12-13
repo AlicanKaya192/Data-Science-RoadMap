@@ -81,7 +81,7 @@ df.head()
 import pandas as pd
 import seaborn as sns
 
-df = sns.load_dataset("titanic")
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
 df.head()
 df.tail()
 df.shape # Dataframe'in boyut bilgisini alırız.
@@ -111,7 +111,7 @@ df["sex"].value_counts() # Erkek ve kadın bilgisi herbirinden kaçar tane oldu�
 import pandas as pd
 import seaborn as sns
 
-df = sns.load_dataset("titanic")
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
 df.head()
 
 df.index
@@ -176,7 +176,7 @@ import pandas as pd
 import seaborn as sns
 
 pd.set_option('display.max_columns', None) # Gelecek max sütun limitini kaldırarak çıktıdaki 3 noktalardan kurtuluyoruz.
-df = sns.load_dataset("titanic")
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
 df.head()
 
 "age" in df # Değişken veri seti içerisinde var mı onu sorgularız.
@@ -225,7 +225,7 @@ import pandas as pd
 import seaborn as sns
 
 pd.set_option('display.max_columns', None)
-df = sns.load_dataset("titanic")
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
 df.head()
 
 # loc & iloc yapısı dataframe'lerde seçim işlemleri için kullanılan özel yapılardır.
@@ -262,7 +262,7 @@ df.loc[0:3, col_names] # 3 dahil birden fazla değişkeni verir.
 import pandas as pd
 import seaborn as sns
 pd.set_option('display.max_columns', None)
-df = sns.load_dataset("titanic")
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
 df.head()
 
 
@@ -314,7 +314,7 @@ df_new["embark_town"].value_counts()
 import pandas as pd
 import seaborn as sns
 pd.set_option('display.max_columns', None)
-df = sns.load_dataset("titanic")
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
 df.head()
 
 df["age"].mean() # Bu şekilde yaş ortalaması alırız. Fakat eğer cinsiyete göre istersek...
@@ -347,7 +347,7 @@ df.groupby(["sex", "embark_town", "class"]).agg({"age": "mean",
 import pandas as pd
 import seaborn as sns
 pd.set_option('display.max_columns', None)
-df = sns.load_dataset("titanic")
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
 df.head()
 
 # Pivot table groupby işlemlerine benzer şekilde veri setini kırılımlar açısından değerlendirmek ve ilgilendiğimiz özet
@@ -397,7 +397,7 @@ import pandas as pd
 import seaborn as sns
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 500)
-df = sns.load_dataset("titanic")
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
 df.head()
 
 # apply() satır ya da sütunlar'da otomatik olarak fonksiyon çalıştırma imkanı sağlar. Yani bir dataframe'e apply ile istediğimiz bir fonksiyonu uygulayabiliriz.

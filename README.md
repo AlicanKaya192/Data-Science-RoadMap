@@ -22,6 +22,7 @@
   * [7️⃣ Veri Görselleştirme (Matplotlib & Seaborn)](#7️⃣-veri-görselleştirme-matplotlib--seaborn)
   * [8️⃣ Gelişmiş Fonksiyonel Keşifçi Veri Analizi (EDA)](#8️⃣-gelişmiş-fonksiyonel-keşifçi-veri-analizi-eda)
   * [9️⃣ CRM Analitik](#9️⃣-crm-analitik)
+  * [1️⃣0️⃣ Ölçümleme Problemleri](#1️⃣0️⃣-ölçümleme-problemleri)
   * [1️⃣2️⃣ Feature Engineering (Özellik Mühendisliği)](#1️⃣2️⃣-feature-engineering-özellik-mühendisliği)
   * [1️⃣3️⃣ Machine Learning (Makine Öğrenimi)](#1️⃣3️⃣-machine-learning-makine-öğrenimi)
 * [📂 Ekstra Projeler ve Kaynaklar](#-ekstra-projeler-ve-kaynaklar)
@@ -97,6 +98,13 @@ Müşteri İlişkileri Yönetimi ve veri odaklı pazarlama stratejileri.
 - **9.4 Projeler:**
     - `FLO_RFM.py`: FLO verisi ile uçtan uca RFM analizi ve segmentasyon projesi.
     - `FLO_CLTV_Prediction.py`: FLO verisi ile BG-NBD ve Gamma-Gamma modelleri kullanılarak CLTV tahmini projesi.
+
+### 1️⃣0️⃣ Ölçümleme Problemleri
+Ürünlerin ve kullanıcı geri bildirimlerinin doğru bir şekilde değerlendirilmesi ve sıralanması için kullanılan istatistiksel yöntemler.
+- **10.2 - Ürünleri Puanlama (Rating Products):**
+    - **10.2.1_rating_products.py:** Ortalama puan, zamana dayalı ağırlıklı ortalama (Time-Based Weighted Average) ve kullanıcı temelli ağırlıklı ortalama (User-Based Weighted Average) hesaplamaları.
+- **10.3 - Ürünleri Sıralama (Sorting Products):**
+    - **10.3.1_sorting_products.py:** Derecelendirme, yorum ve satın alma sayılarına göre sıralama, Bayesian Average Rating (BAR) Score ve Hibrit Sıralama yöntemleri. IMDB film veri seti üzerinde uygulama.
 
 ### 1️⃣2️⃣ Feature Engineering (Özellik Mühendisliği)
 Ham veriden makine öğrenimi modelleri için anlamlı özellikler türetme sanatı.

@@ -58,7 +58,7 @@ import numpy as np
 import pandas as pd
 pd.set_option("display.max_rows", None)
 
-df = pd.read_csv('Kural_Tabanli_Siniflandirma/persona.csv')
+df = pd.read_csv('Datasets ( Genel )/persona.csv')
 df.shape
 df.head()
 df.info()

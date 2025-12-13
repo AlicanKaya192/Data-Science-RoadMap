@@ -49,8 +49,8 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
 # Excel dosyasını oku, Year 2009-2010 sayfasını al
-df_ = pd.read_excel("C:/Users/ONI/PycharmProjects/PythonTopics/Datasets/RFM_VeriSeti/online_retail_II.xlsx",
-                    sheet_name='Year 2009-2010')
+df_ = pd.read_excel("Datasets ( Genel )/online_retail_II.xlsx",
+                     sheet_name="Year 2009-2010")
 df = df_.copy()  # Orijinal dataframe'i korumak için kopya oluştur
 
 df.head()  # İlk 5 satırı görüntüle

@@ -81,7 +81,7 @@ pd.set_option('display.width', 300)
 pd.set_option('display.max_rows', None)
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
-df = pd.read_csv("Telco-Customer-Churn.csv")
+df = pd.read_csv("Datasets ( Genel )/Telco-Customer-Churn.csv")
 df.head()
 df.shape
 df.info()
@@ -624,7 +624,7 @@ lr.predict(sample)
 
 
 
-df = pd.read_csv("Telco-Customer-Churn.csv")
+df = pd.read_csv("Datasets ( Genel )/Telco-Customer-Churn.csv")
 use_cols = df.select_dtypes(include="number").columns.to_list()
 use_cols.append("Churn")
 df = df[use_cols]

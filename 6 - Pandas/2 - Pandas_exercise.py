@@ -9,7 +9,7 @@ pd.set_option('display.width', 1000)
 # Görev 1: Seaborn kütüphanesi içerisinden Titanic veri setini tanımlayınız.
 #########################################
 
-df = sns.load_dataset("titanic")
+df = pd.read_csv("Datasets ( Genel )/titanic.csv")
 df.head()
 df.shape
 
