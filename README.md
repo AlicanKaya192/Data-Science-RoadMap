@@ -105,6 +105,8 @@ Müşteri İlişkileri Yönetimi ve veri odaklı pazarlama stratejileri.
     - **10.2.1_rating_products.py:** Ortalama puan, zamana dayalı ağırlıklı ortalama (Time-Based Weighted Average) ve kullanıcı temelli ağırlıklı ortalama (User-Based Weighted Average) hesaplamaları.
 - **10.3 - Ürünleri Sıralama (Sorting Products):**
     - **10.3.1_sorting_products.py:** Derecelendirme, yorum ve satın alma sayılarına göre sıralama, Bayesian Average Rating (BAR) Score ve Hibrit Sıralama yöntemleri. IMDB film veri seti üzerinde uygulama.
+- **10.4 - Değerlendirmeleri Sıralama (Sorting Reviews):**
+    - **10.4.1_sorting_reviews.py:** Kullanıcı yorumlarını sıralama yöntemleri. Up-Down Diff Score, Average Rating Score ve Wilson Lower Bound Score ile güven aralığına dayalı sıralama.
 
 ### 1️⃣2️⃣ Feature Engineering (Özellik Mühendisliği)
 Ham veriden makine öğrenimi modelleri için anlamlı özellikler türetme sanatı.
