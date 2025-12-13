@@ -2,3 +2,7 @@
 Datasets filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
 Datasets/* filter=lfs diff=lfs merge=lfs -text
+Datasets[[:space:]]([[:space:]]Genel[[:space:]])/ratings.csv filter=lfs diff=lfs merge=lfs -text
+Datasets[[:space:]]([[:space:]]Genel[[:space:]])/credits.csv filter=lfs diff=lfs merge=lfs -text
+Datasets[[:space:]]([[:space:]]Genel[[:space:]])/genome_scores.csv filter=lfs diff=lfs merge=lfs -text
+Datasets[[:space:]]([[:space:]]Genel[[:space:]])/rating.csv filter=lfs diff=lfs merge=lfs -text
