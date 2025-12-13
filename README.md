@@ -23,6 +23,7 @@
   * [8️⃣ Gelişmiş Fonksiyonel Keşifçi Veri Analizi (EDA)](#8️⃣-gelişmiş-fonksiyonel-keşifçi-veri-analizi-eda)
   * [9️⃣ CRM Analitik](#9️⃣-crm-analitik)
   * [1️⃣0️⃣ Ölçümleme Problemleri](#1️⃣0️⃣-ölçümleme-problemleri)
+  * [1️⃣1️⃣ Tavsiye Sistemleri (Recommendation Systems)](#1️⃣1️⃣-tavsiye-sistemleri-recommendation-systems)
   * [1️⃣2️⃣ Feature Engineering (Özellik Mühendisliği)](#1️⃣2️⃣-feature-engineering-özellik-mühendisliği)
   * [1️⃣3️⃣ Machine Learning (Makine Öğrenimi)](#1️⃣3️⃣-machine-learning-makine-öğrenimi)
 * [📂 Ekstra Projeler ve Kaynaklar](#-ekstra-projeler-ve-kaynaklar)
@@ -205,8 +206,8 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
 | 11 - Tavsiye Sistemleri | ✅ Tamamlandı |
 | 12 - Feature Engineering | ✅ Tamamlandı |
 | 13 - Machine Learning | 🚧 Devam Ediyor |
+| SQL | 🚧 Devam Ediyor |
 | Time Series | ❌ Planlanıyor |
-| SQL | ❌ Planlanıyor |
 
 ---
 
