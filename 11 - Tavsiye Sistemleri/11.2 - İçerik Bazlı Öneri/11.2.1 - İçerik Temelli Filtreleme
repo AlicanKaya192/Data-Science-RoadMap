@@ -1,0 +1,81 @@
+BAŞLIK: İÇERİK TEMELLİ FİLTRELEME (CONTENT-BASED FILTERING) REHBERİ
+
+1. NEDİR?
+İçerik Temelli Filtreleme, bir tavsiye sistemi yaklaşımıdır. Temel mantığı,
+kullanıcının geçmişte beğendiği bir ürüne (film, kitap, müzik vb.) "içerik özellikleri"
+bakımından benzeyen diğer ürünleri önermektir.
+
+Slogan: "Terminator filmini sevdin, o halde Matrix filmini de sevebilirsin.
+Çünkü ikisi de 'Bilim Kurgu' ve 'Aksiyon' türünde."
+
+Diğer yöntemlerden farkı: Diğer kullanıcıların ne yaptığıyla ilgilenmez.
+Sadece senin profiline ve ürünün özelliklerine odaklanır.
+
+2. TEMEL BİLEŞENLER VE MANTIK
+Sistemin çalışması için iki ana profil oluşturulması gerekir:
+
+A) Ürün Profili (Item Profile):
+Ürünü tanımlayan özelliklerdir (Öznitelikler).
+- Bir film için: Türü (Aksiyon), Yönetmeni (Nolan), Oyuncular (DiCaprio), Anahtar Kelimeler.
+- Bir telefon için: Ekran boyutu, RAM, Marka, Fiyat.
+
+B) Kullanıcı Profili (User Profile):
+Kullanıcının tercih ettiği özelliklerin matematiksel özetidir.
+Kullanıcı aksiyon filmlerine yüksek puan verdiyse, kullanıcı profilinde
+"Aksiyon" ağırlığı artar.
+
+3. TEKNİK SÜREÇ: NASIL ÇALIŞIR? (ADIM ADIM)
+
+Adım 1: Özellik Çıkarımı (Feature Extraction)
+Ham veri (örneğin film açıklaması) bilgisayarın anlayacağı formata çevrilir.
+Metin verileri için genellikle TF-IDF (Term Frequency-Inverse Document Frequency)
+yöntemi kullanılır. Bu yöntem, bir kelimenin o metin için ne kadar önemli
+olduğunu hesaplar.
+
+Adım 2: Vektörleştirme (Vectorization)
+Her ürün ve kullanıcı, matematiksel birer vektör (sayı dizisi) olarak ifade edilir.
+Örn Film A Vektörü: [Aksiyon: 0.9, Romantik: 0.1, Süre: 120]
+
+Adım 3: Benzerlik Hesaplama (Similarity Calculation)
+Kullanıcı vektörü ile aday ürün vektörleri arasındaki mesafe ölçülür.
+En sık kullanılan yöntemler:
+- Kosinüs Benzerliği (Cosine Similarity): İki vektör arasındaki açıyı ölçer.
+  Açı ne kadar darsa, ürünler o kadar benzerdir. (En popüler yöntem)
+- Öklid Mesafesi (Euclidean Distance): İki nokta arasındaki kuş uçuşu mesafe.
+- Jaccard Benzerliği: Kümelerin kesişim oranı (Özellikle ikili verilerde).
+
+Adım 4: Sıralama ve Önerme
+Benzerlik skoru en yüksek çıkan ürünler sıralanır ve kullanıcıya sunulur.
+
+4. AVANTAJLARI NELERDİR?
+
+1. Kullanıcı Bağımsızlığı:
+Sistemin çalışması için başka kullanıcıların verisine ihtiyaç yoktur.
+Tek bir kullanıcı ve ürünler yeterlidir.
+
+2. Yeni Ürün Sorunu Yoktur (Cold Start for Items):
+Sisteme yeni bir film eklendiğinde, kimse izlemese bile özellikleri (türü, konusu)
+bilindiği için sistem hemen bu filmi doğru kişiye önerebilir.
+
+3. Şeffaflık (Transparency):
+Sistem neden öneri yaptığını açıklayabilir.
+"Bunu önerdik çünkü X filmini izledin ve bu film de aynı yönetmene sahip."
+
+5. DEZAVANTAJLARI VE ZORLUKLARI
+
+1. Yeni Kullanıcı Sorunu (Cold Start for Users):
+Sisteme yeni giren bir kullanıcının geçmişi olmadığı için,
+sistem neyi sevdiğini bilemez ve öneri yapamaz.
+
+2. Aşırı Özelleşme (Overspecialization - Filtre Balonu):
+Sistem sürekli kullanıcının bildiği türde şeyler önerir. Sürpriz yapmaz.
+Kullanıcı sadece Aksiyon izliyorsa, asla kaliteli bir Belgesel önerisi görmez.
+Kullanıcı kendi ilgi alanları içine hapsolur.
+
+3. Özellik Çıkarımı Zordur:
+Ürünleri doğru etiketlemek zordur. Bir filmin "komik" olup olmadığını
+bilgisayara öğretmek, sadece "Komedi" etiketi yapıştırmaktan daha karışıktır.
+
+6. ÖZET KIYASLAMA
+İşbirlikçi Filtreleme (Collaborative) -> "Senin gibi insanlar bunu sevdi."
+İçerik Temelli Filtreleme (Content-Based) -> "Senin sevdiğin şeye bu benziyor."

@@ -1,0 +1,94 @@
+BAŞLIK: İŞBİRLİKÇİ FİLTRELEME (COLLABORATIVE FILTERING) REHBERİ
+
+1. NEDİR?
+İşbirlikçi Filtreleme, öneri yaparken ürünün içeriğine (türüne, rengine, konusuna)
+bakmaz. Bunun yerine "topluluğun bilgisine" (collective wisdom) güvenir.
+Kullanıcıların geçmiş davranışlarını (oylar, tıklamalar, satın almalar) analiz
+ederek benzer zevklere sahip grupları bulur.
+
+Temel Mantık: "Bana arkadaşını söyle, sana ne sevdiğini söyleyeyim."
+
+İçerik Temelli ile Farkı:
+- İçerik Temelli: "Yüzüklerin Efendisi'ni sevdin, Hobbit'i de seversin (Çünkü türü aynı)."
+- İşbirlikçi: "Yüzüklerin Efendisi'ni seven diğer insanlar Harry Potter'ı da sevmiş.
+  Sen de sevebilirsin."
+
+2. TEMEL YAPI: KULLANICI-ÜRÜN MATRİSİ (USER-ITEM MATRIX)
+Sistemin çalışması için bir tabloya ihtiyaç vardır.
+Satırlarda kullanıcılar, sütunlarda ürünler, kesişimlerde ise verilen puanlar bulunur.
+
+Örnek Tablo:
+       | Matrix | Titanic | Star Wars | Aşk-ı Memnu |
+-----------------------------------------------------
+Ali    |   5    |    1    |     5     |      ?      |
+Ayşe   |   1    |    5    |     ?     |      5      |
+Veli   |   5    |    ?    |     5     |      1      |
+
+Amaç: Tablodaki soru işaretlerini (?) tahmin etmektir.
+
+3. İŞBİRLİKÇİ FİLTRELEME TÜRLERİ
+
+A) Kullanıcı Tabanlı (User-Based Collaborative Filtering)
+"Senin gibi düşünen kullanıcıları bulur."
+
+Mantık: Ali ve Veli'nin zevkleri çok benziyor (İkisi de Matrix ve Star Wars seviyor).
+Veli "Titanic" filmine düşük puan vermiş.
+O zaman Ali de muhtemelen Titanic'i sevmeyecektir.
+
+Adımlar:
+1. Hedef kullanıcıya en çok benzeyen (komşu) kullanıcıları bul.
+2. Bu komşuların beğenip, hedef kullanıcının henüz görmediği ürünleri öner.
+
+B) Ürün Tabanlı (Item-Based Collaborative Filtering)
+"Kullanıcıların gözünde benzer olan ürünleri bulur." (Amazon'un kullandığı yöntem)
+
+Mantık: Ürünlerin özellikleri değil, "birlikte puanlanma desenleri" önemlidir.
+"Matrix" filmine 5 verenlerin neredeyse hepsi "Star Wars"a da 5 vermiş.
+O zaman bu iki film "kullanıcı davranışı açısından" benzerdir.
+Ali Matrix'i izlediyse, ona Star Wars önerilir.
+
+Avantajı: Kullanıcı zevkleri çok hızlı değişir ama ürünlerin ilişkisi
+daha sabittir. Bu yüzden genellikle daha performanslıdır.
+
+C) Model Tabanlı (Model-Based / Matrix Factorization)
+Matematiksel olarak daha gelişmiş yöntemdir (SVD - Singular Value Decomposition).
+Devasa ve boşluklu matrisleri, "Latent Factors" (Gizli Faktörler) adı verilen
+daha küçük matrislere böler.
+
+Örnek: Sistem, kullanıcıların puanlarından yola çıkarak filmleri
+"Ciddiyet" ve "Aksiyon" gibi gizli kategorilere kendi kendine ayırır.
+
+4. AVANTAJLARI
+
+1. Serendipity (Sürpriz Keşifler):
+   Sistem, kullanıcının normalde hiç bakmayacağı ama benzer zevkteki insanların
+   sevdiği farklı türleri önerebilir. (Örn: Sadece rock dinleyen birine,
+   diğer rock severlerin beğendiği bir klasik müzik parçasını önerebilir).
+
+2. Alan Bilgisi Gerektirmez:
+   Ürünlerin ne olduğu (kitap mı, araba mı, şarkı mı) sistemin umurunda değildir.
+   Sadece puanlara bakar.
+
+5. DEZAVANTAJLARI VE ZORLUKLARI
+
+1. Soğuk Başlangıç (Cold Start):
+   - Yeni Kullanıcı: Sisteme yeni giren birinin verisi yoktur, kime benzediği
+     bilinemez.
+   - Yeni Ürün: Yeni eklenen bir filmi kimse oylamamıştır, bu yüzden sistem
+     onu kimseye öneremez.
+
+2. Seyreklik (Sparsity):
+   Amazon'da milyonlarca ürün var ama bir kullanıcı en fazla 100 tanesini oylamıştır.
+   Tablonun %99'u boştur. Benzerlik hesaplamak zorlaşır.
+
+3. Popülerlik Yanlılığı (Popularity Bias):
+   Harry Potter gibi herkesin izlediği filmler herkese önerilir.
+   Niş (az bilinen) ama kaliteli filmler arada kaybolabilir.
+
+6. ÖRNEK SENARYO: NETFLIX
+
+- Senaryo: Gece yarısı film arıyorsunuz.
+- Sistem (User-Based): "Senin gibi gece yarısı aksiyon izleyen kullanıcılar,
+  şuan John Wick izliyor."
+- Sistem (Item-Based): "Daha önce 'Taken' filmini izlemiştin. Taken izleyenlerin
+  %85'i 'Bourne' serisini de bitirdi. İşte sana Bourne önerisi."

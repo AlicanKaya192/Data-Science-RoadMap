@@ -1,0 +1,85 @@
+BAŞLIK: METİN VEKTÖRLEŞTİRME (TEXT VECTORIZATION) REHBERİ
+
+1. NEDİR?
+Bilgisayarlar ve makine öğrenmesi algoritmaları kelimelerden, harflerden veya
+cümlelerden anlamaz; onlar sadece sayıları (matematiksel işlemleri) anlar.
+
+Metin Vektörleştirme, sözel verilerin (text), bilgisayarın işleyebileceği
+sayısal verilere (vektörlere/matrislere) dönüştürülmesi işlemidir.
+
+Amaç: "Elma" kelimesini bilgisayarın anlayacağı [0.2, 0.5, -0.1] gibi
+sayısal bir formata çevirmektir.
+
+2. NEDEN GEREKLİDİR?
+Bir yapay zeka modeline "Bu yorum olumlu mu?" diye sormak için, o yorumu
+önce matematiğe dökmek gerekir. İki metin arasındaki benzerliği bulmak,
+metinleri sınıflandırmak veya özetlemek için bu dönüşüm şarttır.
+
+3. TEMEL YÖNTEMLER (TEKNOLOJİK GELİŞİM SIRASINA GÖRE)
+
+A) Seyrek Vektörler (Sparse Vectors) - Geleneksel Yöntemler
+Genellikle kelime sayısına dayalıdır. Matrislerin çoğu "0"lardan oluşur.
+
+   1. One-Hot Encoding:
+      Her kelime için bir tane "1", geri kalan her yer "0"dır.
+      Kelime: "Elma" -> [1, 0, 0, 0]
+      Kelime: "Armut" -> [0, 1, 0, 0]
+      Dezavantajı: Kelime sayısı arttıkça vektör boyutu çok büyür, anlamsal ilişki yoktur.
+
+   2. Count Vectorizer (Bag of Words):
+      Kelimelerin kaç kere geçtiğini sayar. (Önceki notta detaylı işlendi).
+      Mantık: Frekans tabanlıdır.
+
+   3. TF-IDF (Term Frequency-Inverse Document Frequency):
+      Kelimelerin önem derecesini hesaplar.
+      Mantık: "Bir kelime bir belgede çok geçiyor ama tüm belgelerde az geçiyorsa,
+      o kelime bu belge için ayırt edicidir."
+
+B) Yoğun Vektörler (Dense Vectors / Word Embeddings) - Modern Yöntemler
+Kelimelerin "anlamını" öğrenen yöntemlerdir. Vektörler 0 ve 1 yerine
+ondalıklı sayılardan (0.54, -0.23 gibi) oluşur.
+
+   1. Word2Vec (Google):
+      Kelimeleri anlamlarına göre uzayda konumlandırır.
+      En ünlü özelliği anlamsal matematik yapabilmesidir:
+      Formül: "Kral" - "Erkek" + "Kadın" = "Kraliçe"
+      Bu yöntemle bilgisayar, Kral ile Kraliçe arasındaki ilişkinin cinsiyet
+      olduğunu sayısal olarak anlar.
+
+   2. GloVe (Global Vectors):
+      Kelimelerin birbiriyle ne sıklıkla yan yana geldiğine (co-occurrence)
+      bakarak tüm döküman setindeki istatistikleri kullanır.
+
+   3. FastText (Facebook):
+      Kelimenin tamamına değil, hecelerine (n-grams) bakar.
+      Avantajı: "Apple" kelimesini öğrenmişse, "Apples" kelimesini hiç görmese
+      bile kökü benzediği için anlamını tahmin edebilir. Yazım hatalarına dayanıklıdır.
+
+C) Bağlamsal Vektörler (Contextual Embeddings) - İleri Seviye (Transformers)
+Kelimenin cümle içindeki yerine göre vektör üretir.
+
+   1. BERT / GPT:
+      Geleneksel yöntemlerde "Yüz" kelimesi (surat) ile "Yüz" (sayı) kelimesi
+      aynı vektöre sahipti. BERT, kelimenin sağındaki ve solundaki kelimelere
+      bakarak hangisi olduğunu anlar ve farklı sayılar üretir.
+
+4. KARŞILAŞTIRMA TABLOSU
+
+| Yöntem | Anlamsal İlişkiyi Tutar mı? | Kelime Sırasını Önemser mi? | Boyut |
+| :--- | :--- | :--- | :--- |
+| Bag of Words | Hayır | Hayır | Çok Büyük (Seyrek) |
+| TF-IDF | Hayır (Önem derecesi var) | Hayır | Çok Büyük (Seyrek) |
+| Word2Vec | Evet | Kısmen (Pencere) | Küçük (Yoğun) |
+| BERT | Evet (Çok Güçlü) | Evet | Dinamik |
+
+5. HANGİSİNİ NE ZAMAN KULLANMALIYIM?
+
+- Basit Spam Filtresi / Konu Sınıflandırma:
+  Count Vectorizer veya TF-IDF yeterlidir. Hızlıdır ve az veriyle çalışır.
+
+- Tavsiye Sistemleri / Chatbot / Duygu Analizi:
+  Word2Vec veya GloVe kullanılmalıdır. Çünkü "Harika" ile "Mükemmel"
+  kelimelerinin benzer olduğunu anlaması gerekir.
+
+- Çeviri / Soru-Cevap / Metin Üretme:
+  BERT veya GPT gibi Transformer mimarileri kullanılmalıdır.

@@ -1,0 +1,112 @@
+# BİRLİKTELİK KURALI ANALİZİ (ASSOCIATION RULE LEARNING - ARL) KAPSAMLI REHBERİ
+
+## 1. Nedir?
+
+Birliktelik Kuralı Analizi (ARL); veritabanındaki olayların birlikte gerçekleşme olasılıklarını inceleyerek, 
+bunlar arasındaki gizli örüntüleri (pattern) çıkaran makine öğrenmesi yöntemidir.
+
+En yaygın kullanım alanı **Pazar Sepeti Analizi (Market Basket Analysis)** dir.
+Temel soru şudur: **"X ürününü satın alan müşteriler, yanında Y ürününü de satın alma eğiliminde mi?"**
+
+**Efsanevi Örnek (Walmart Hikayesi):**
+Yapılan bir veri analizi sonucunda; Cuma akşamları markete giden genç babaların, **Bebek Bezi** aldıklarında yanına 
+**Bira** da ekledikleri fark edilmiştir. (Bebekle ilgilenirken dışarı çıkamayacakları için evde içmek üzere). 
+Market bu iki ürünü yan yana koyarak satışları patlatmıştır. İşte ARL budur.
+
+---
+
+## 2. Neden Buna İhtiyaç Duyarız?
+
+Bu yöntem, müşteriyi tanımasa bile (üye girişi yapmasına gerek yok), sadece o anki alışveriş sepetine bakarak strateji geliştirmeyi sağlar.
+
+1.  **Çapraz Satış (Cross-Selling):** Müşteriye almayı düşünmediği ürünü aldırmak. ("Bunu alanlar bunu da aldı" modülü).
+2.  **Raf Düzeni Optimizasyonu:** Birbiriyle ilişkili ürünleri markette yan yana (veya e-ticarette aynı sayfaya) koymak.
+3.  **Promosyon Kurgusu:** "Ketçap alana Mayonez %50 indirimli" kampanyasını rastgele değil, veriye dayanarak yapmak.
+
+---
+
+## 3. Apriori Algoritması ve 3 Temel Metrik
+
+Birliktelik kurallarının matematiği 3 kritik terim üzerine kuruludur: **Support, Confidence ve Lift.**
+Bu metrikleri anlamadan yapılan analiz çöp olur.
+
+### A. Support (Destek)
+Bir ilişkinin veride ne kadar sık tekrarlandığını gösterir.
+* **Formül:** Freq(X, Y) / Toplam İşlem Sayısı
+* **Soru:** "Ekmek ve Peynir ikilisi, tüm alışverişlerin yüzde kaçında görülüyor?"
+* **Yorum:** Eğer Support çok düşükse (Örn: %0.001), bu ilişki tesadüf olabilir veya genel kitleye hitap etmeyebilir.
+
+### B. Confidence (Güven)
+X ürünü alındığında, Y ürününün alınma olasılığıdır. (Koşullu Olasılık).
+* **Formül:** Freq(X, Y) / Freq(X)
+* **Soru:** "Sepetine Ekmek atanların yüzde kaçı Peynir de attı?"
+* **Yorum:** Confidence %80 ise; "Ekmek alanların %80'i peynir de alıyor" demektir. Güvenilirlik ölçüsüdür.
+
+### C. Lift (Kazanç / Kaldıraç) - EN ÖNEMLİSİ!
+X'in satın alınmasının, Y'nin satın alınma ihtimalini **kaç kat** artırdığını gösterir.
+Bizi yanılgıdan kurtaran metriktir.
+
+* **Formül:** Confidence(X, Y) / Support(Y)
+* **Yorum:**
+    * **Lift = 1:** Aralarında ilişki yok. Tamamen bağımsızlar.
+    * **Lift > 1:** Pozitif ilişki. X'i alan Y'yi de alıyor. (Örn: Lift 2.5 ise; X'i almak, 
+    Y'nin satış ihtimalini 2.5 kat artırıyor demektir).
+    * **Lift < 1:** Negatif ilişki. X'i alan Y'yi almıyor. (İkame ürünler olabilir. 
+    Örn: Çamaşır suyu alan, diğer marka çamaşır suyunu almaz).
+
+---
+
+## 4. Pratik Hesaplama Örneği
+
+Basit bir bakkal defterimiz olsun. Toplam **10** işlem (fiş) var.
+* **4** fişte Süt var.
+* **3** fişte Süt ve Kurabiye **birlikte** var.
+* Toplamda Kurabiye satılan fiş sayısı **5**.
+
+Kuralımız: **{Süt} -> {Kurabiye}**
+
+1.  **Support Hesabı:**
+    Süt ve Kurabiye kaç kere birlikte görüldü? 3 kere. Toplam fiş 10.
+    * **Support = 3 / 10 = 0.3 (%30)**
+    * *Yorum:* Tüm alışverişlerin %30'unda bu ikili var.
+
+2.  **Confidence Hesabı:**
+    Süt alanların (4 kişi), kaçı kurabiye de aldı (3 kişi)?
+    * **Confidence = 3 / 4 = 0.75 (%75)**
+    * *Yorum:* Süt alanların %75'i kurabiye de alıyor.
+
+3.  **Lift Hesabı:**
+    Süt almak, kurabiye satışını ne kadar tetikledi?
+    * Lift = Confidence / Support(Kurabiye)
+    * Support(Kurabiye) = 5 / 10 = 0.5
+    * Lift = 0.75 / 0.5 = **1.5**
+    * *Yorum:* Süt satın alınması, kurabiye satın alma ihtimalini **1.5 kat artırıyor.** Bu harika bir kuraldır! Süt ile kurabiyeyi yan yana koymalıyız.
+
+---
+
+## 5. Gerçek Hayat Uygulamaları
+
+### A. E-Ticaret (Amazon / Hepsiburada)
+Ürün detay sayfasındaki **"Sıklıkla Birlikte Alınanlar"** (Frequently Bought Together) kutusu tamamen bu algoritma ile çalışır.
+* Telefon kılıfı bakıyorsunuz -> Sistem ekran koruyucu öneriyor.
+* Çünkü geçmiş veride Kılıf ve Ekran Koruyucu'nun **Lift** değeri çok yüksek.
+
+### B. İçerik Platformları (Spotify / Netflix)
+Şarkı listeleri oluşturulurken kullanılır.
+* "Bu şarkıyı listenize eklediyseniz, şunları da sevebilirsiniz."
+* Burada ürünler "şarkılar", sepet ise "çalma listesi" (playlist) olur.
+
+### C. Web Sitesi Gezinti Analizi
+Kullanıcıların hangi sayfalara sırayla girdiği analiz edilir.
+* "Hakkımızda" sayfasına girenlerin %60'ı "İletişim" sayfasına da giriyor.
+* **Aksiyon:** Hakkımızda sayfasının altına kocaman bir İletişim butonu koyulur.
+
+---
+
+## ÖZET TABLO: Metrikler Ne Söyler?
+
+| Metrik | Soru | İdeal Durum | İş Dünyası Karşılığı |
+| :--- | :--- | :--- | :--- |
+| **Support** | Ne kadar popüler? | Yüksek olması istenir. | Bu ürün ikilisi depoda stok tutmaya değer mi? |
+| **Confidence** | Ne kadar güvenilir? | Yüksek olması istenir. | Kampanya yaparsam müşterilerin çoğu buna uyar mı? |
+| **Lift** | İlişki gerçek mi? | **1'den Büyük** olmalı. | Bu iki ürünü yan yana koyarsam satışlarım katlanır mı? |
