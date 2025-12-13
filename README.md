@@ -149,6 +149,19 @@ Kullanıcılara ilgi duyabilecekleri ürün veya içerikleri önermek için kull
     - **11.5.1 - Model Tabanlı Matris Faktörleştirme:** Matris faktörleştirme ve SVD yöntemi.
     - **11.5.2_matris_faktörleştirme.py:** SVD algoritması ile boşluk doldurma ve tahminleme uygulaması.
 
+> **🔗 Ek Kaynaklar ve İleri Okumalar:**
+>
+> *   **Sentence Transformers:** Metin tabanlı içerik önerilerinde kullanılan embedding modelleri.
+>     *   [Model Linki](https://huggingface.co/sentence-transformers/paraphrase-MiniLM-L6-v2)
+>     *   [Dökümantasyon](https://huggingface.co/sentence-transformers)
+> *   **Implicit ALS:** Özellikle büyük veri setlerinde ve implicit feedback (tıklama, izleme vb.) verilerinde kullanılan kütüphane.
+>     *   [GitHub Repo](https://github.com/benfred/implicit)
+>     *   [Kaggle H&M Çözümü](https://www.kaggle.com/code/julian3833/h-m-implicit-als-model-0-014)
+> *   **Vektör Veritabanları ve Arama (FAISS):** Büyük ölçekli vektör benzerlik aramaları için Facebook AI Research tarafından geliştirilen kütüphane.
+>     *   [Medium Yazısı](https://medium.com/@mrcoffeeai/faiss-vector-database-be3a9725172f)
+>     *   [GitHub Repo](https://github.com/facebookresearch/faiss)
+>     *   [Dökümantasyon](https://faiss.ai/index.html)
+
 ### 1️⃣2️⃣ Feature Engineering (Özellik Mühendisliği)
 Ham veriden makine öğrenimi modelleri için anlamlı özellikler türetme sanatı.
 - **12.1 Aykırı Değerler (Outliers):**
@@ -176,6 +189,18 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - `HOUSE_PRICE_PREDICTION`: Regresyon modelleri ile ev fiyatı tahmini.
     - `Telco_Churn`: Sınıflandırma modelleri ile müşteri terk analizi.
 - **Değerlendirme:** Başarı metrikleri ve hata değerlendirme tabloları.
+
+> **🔗 Ek Kaynaklar (Boosting Modelleri ve Değerlendirme):**
+>
+> *   **Model Değerlendirme:** [GridSearchCV Scoring Parametreleri](https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter)
+> *   **LightGBM:** [Miuul - LightGBM Detaylı Anlatım](https://miuul.com/not-defteri/herkes-ona-baglanir-ondan-enerji-alir-lightgbm)
+> *   **CatBoost:**
+>     *   [Kategorik Değişken İşleme](https://catboost.ai/en/docs/concepts/algorithm-main-stages_cat-to-numberic#algorithm-main-stages_cat-to-numberic)
+>     *   [Parametre Tuning ve One-Hot Encoding](https://catboost.ai/en/docs/concepts/parameter-tuning)
+> *   **Karşılaştırmalar (XGBoost vs LightGBM vs CatBoost):**
+>     *   [Medium - Pratik Karşılaştırma](https://medium.com/@rajkiranrao205/xgboost-vs-lightgbm-vs-catboost-a-practical-comparison-with-coffee-cats-code-5fab396ed39d)
+>     *   [APXML - Karşılaştırma](https://apxml.com/posts/xgboost-vs-lightgbm-vs-catboost)
+>     *   [Neptune.ai - Hangisini Seçmeli?](https://neptune.ai/blog/when-to-choose-catboost-over-xgboost-or-lightgbm)
 
 ---
 
