@@ -206,7 +206,6 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
 > **🔗 Ek Kaynaklar (Boosting Modelleri ve Değerlendirme):**
 >
 > *   **Model Değerlendirme:** [GridSearchCV Scoring Parametreleri](https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter)
-> *   **LightGBM:** [Miuul - LightGBM Detaylı Anlatım](https://miuul.com/not-defteri/herkes-ona-baglanir-ondan-enerji-alir-lightgbm)
 > *   **CatBoost:**
 >     *   [Kategorik Değişken İşleme](https://catboost.ai/en/docs/concepts/algorithm-main-stages_cat-to-numberic#algorithm-main-stages_cat-to-numberic)
 >     *   [Parametre Tuning ve One-Hot Encoding](https://catboost.ai/en/docs/concepts/parameter-tuning)
