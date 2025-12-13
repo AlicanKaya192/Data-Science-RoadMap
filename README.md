@@ -47,8 +47,8 @@ Repository içerisindeki klasörler, öğrenim sırasına göre numaralandırıl
 ### 1️⃣ Çalışma Ortamı Ayarları
 Python geliştirme ortamının kurulması ve yönetilmesi ile ilgili temel adımlar.
 - **1.1 - setting_up_working_environment.py:** Çalışma ortamı kurulumu ve temel ayarlar.
-- **1.2 - What is a virtual environment:** Sanal ortamların (Virtual Environment) önemi ve kullanımı.
-- **1.3 - Package Management:** `conda` ve `pip` ile paket yönetimi ve bağımlılıklar.
+- **1.2 - What is a virtual environment ( Sanal Ortam Nedir ? ):** Sanal ortamların (Virtual Environment) tanımı, neden gerekli olduğu ve izole çalışma ortamlarının önemi.
+- **1.3 - Package Management ( Paket Yönetimi ):** Python paket yönetimi kavramı, `pip`, `pipenv` ve `conda` araçlarının kullanımı ve farkları.
 
 ### 2️⃣ Veri Yapıları
 Python'un temel yapı taşları olan veri tiplerinin detaylı incelenmesi.
@@ -86,21 +86,28 @@ Veri setini sistematik olarak analiz etme metodolojisi.
 ### 9️⃣ CRM Analitik
 Müşteri İlişkileri Yönetimi ve veri odaklı pazarlama stratejileri.
 - **9.1 CRM Giriş:**
-    - **9.1.1 - CRM Nedir?:** Müşteri İlişkileri Yönetimi kavramı ve Müşteri Yaşam Döngüsü.
-    - **9.1.3 - KPIs Nedir?:** Temel Performans Göstergeleri (Customer Acquisition Rate, Retention Rate vb.).
-    - **9.1.4 - Cohort Analizi:** Müşteri davranışlarının zaman içindeki değişiminin analizi.
+    - **9.1.1 - CRM NEDİR ?:** CRM kavramı, Müşteri Yaşam Döngüsü (Customer Lifecycle) ve KPI'ların önemi.
+    - **9.1.3 - KPIs_NEDİR:** Temel Performans Göstergeleri (KPI) detayları, Müşteri Kazanma Oranı (Customer Acquisition Rate) ve Müşteri Elde Tutma Oranı (Customer Retention Rate).
+    - **9.1.4 - Cohort_Analizi:** Cohort analizi tanımı, ortak özelliklere sahip grupların zaman içindeki davranışlarının incelenmesi.
 - **9.2 RFM Analizi:**
-    - **9.2.1 - RFM Nedir?:** Recency, Frequency, Monetary metriklerinin tanımı ve önemi.
+    - **9.2.1 - RFM NEDİR ?:** RFM analizi tanımı, metrikleri (Recency, Frequency, Monetary) ve müşteri segmentasyonundaki rolü.
     - **9.2.2 - Uygulama:** Python ile RFM analizi ve müşteri segmentasyonu uygulaması.
 - **9.3 Müşteri Yaşam Boyu Değeri (CLTV) ve Tahmini:**
-    - **9.3.1 - Yaşam Boyu Değeri:** CLTV hesaplama mantığı ve formülasyonu.
-    - **9.3.2 - Yaşam Boyu Tahmini:** BG-NBD ve Gamma-Gamma modelleri ile geleceğe yönelik CLTV tahmini.
+    - **9.3.1 - Yaşam Boyu Değeri:**
+        - **9.3.1.1 - What is customer lifetime value ?:** CLTV kavramı, hesaplama mantığı ve işletmeler için önemi.
+        - **9.3.1.2_cltv.py:** CLTV hesaplama uygulaması.
+    - **9.3.2 - Yaşam Boyu Tahmini:**
+        - **9.3.2.1 - Customer Lifetime Value Prediction:** Geleceğe yönelik CLTV tahmini ve stratejik önemi.
+        - **9.3.2.2 - Expected Number of Transaction with BG and NBD:** BG-NBD modeli ile müşterilerin gelecekteki işlem sayılarının tahmini.
+        - **9.3.2.3 - Gamma Gamma Sub Model:** Gamma-Gamma modeli ile müşterilerin ortalama işlem değerlerinin tahmini.
+        - **9.3.2.4_BG-NBD_ve_GammaGamma_ile_CLTV_tahmini.py:** BG-NBD ve Gamma-Gamma modelleri ile CLTV tahmini uygulaması.
 - **9.4 Projeler:**
     - `FLO_RFM.py`: FLO verisi ile uçtan uca RFM analizi ve segmentasyon projesi.
     - `FLO_CLTV_Prediction.py`: FLO verisi ile BG-NBD ve Gamma-Gamma modelleri kullanılarak CLTV tahmini projesi.
 
 ### 1️⃣0️⃣ Ölçümleme Problemleri
 Ürünlerin ve kullanıcı geri bildirimlerinin doğru bir şekilde değerlendirilmesi ve sıralanması için kullanılan istatistiksel yöntemler.
+- **10.1 - Ölçüm Problemleri:** Ölçümleme problemlerine giriş, sosyal ispat (Social Proof) kavramı ve sıralama mantığı.
 - **10.2 - Ürünleri Puanlama (Rating Products):**
     - **10.2.1_rating_products.py:** Ortalama puan, zamana dayalı ağırlıklı ortalama (Time-Based Weighted Average) ve kullanıcı temelli ağırlıklı ortalama (User-Based Weighted Average) hesaplamaları.
 - **10.3 - Ürünleri Sıralama (Sorting Products):**
@@ -111,20 +118,20 @@ Müşteri İlişkileri Yönetimi ve veri odaklı pazarlama stratejileri.
 ### 1️⃣2️⃣ Feature Engineering (Özellik Mühendisliği)
 Ham veriden makine öğrenimi modelleri için anlamlı özellikler türetme sanatı.
 - **12.1 Aykırı Değerler (Outliers):**
-    - **12.1.1 - Feature Engineering & Data Pre-Processing:** Veri ön işlemenin önemi ve genel bakış.
-    - **12.1.2 - Outliers:** Aykırı değerlerin tanımı, neden olduğu problemler ve tespit yöntemleri.
+    - **12.1.1 - Feature Engineering & Data Pre-Processing:** Veri ön işlemenin önemi, "Garbage In, Garbage Out" prensibi.
+    - **12.1.2 - Outliers (Aykırı Değerler):** Aykırı değerlerin tanımı, neden olduğu problemler ve tespit yöntemleri.
     - **12.1.3 - Uygulama:** Python ile aykırı değerleri yakalama ve analiz etme.
 - **12.2 Eksik Değerler (Missing Values):**
     - **12.2.1 - Eksik Değerler:** Eksik veri türleri ve çözüm stratejileri (Silme, Değer Atama, Tahmine Dayalı Yöntemler).
     - **12.2.2 - Uygulama:** Eksik değerlerin tespiti ve görselleştirilmesi.
 - **12.3 Encoding & Scaling:**
-    - **12.3.1 - Encoding:** Label Encoding mantığı ve uygulama alanları.
-    - **12.3.3 - One Hot Encoding:** Nominal değişkenler için dönüşüm yöntemi.
-    - **12.3.5 - Rare Encoding:** Nadir sınıfların analizi ve birleştirilmesi.
-    - **12.3.7 - Feature Scaling:** Standartlaştırma ve normalizasyon teknikleri (StandardScaler, MinMaxScaler vb.).
+    - **12.3.1 - Encoding:** Label Encoding mantığı, değişken dönüşümleri ve uygulama alanları.
+    - **12.3.3 - One Hot Encoding:** Nominal değişkenler için dönüşüm yöntemi ve sıralama hatasından kaçınma.
+    - **12.3.5 - Rare Encoding:** Nadir sınıfların analizi ve birleştirilmesi (Rare Encoding).
+    - **12.3.7 - Feature Scalling Nedir:** Özellik ölçeklendirme (Feature Scaling) kavramı, neden gerekli olduğu ve mesafe tabanlı algoritmalara etkisi.
     - **Uygulamalar:** İlgili yöntemlerin Python kodları ile pratik uygulamaları.
 - **12.4 Feature Extraction:**
-    - **12.4.1 - Feature Extraction:** Özellik çıkarımı nedir? Yapısal ve yapısal olmayan veriler üzerine teorik anlatım.
+    - **12.4.1 - Feature Extraction:** Özellik çıkarımı nedir? Yapısal ve yapısal olmayan verilerden değişken türetme mantığı.
     - **12.4.2 - Uygulama:** Binary özellikler, metin/tarih analizi ve özellik etkileşimleri (Feature Interactions) ile değişken türetme uygulaması.
 - **12.5 Uygulama:** Titanic ve Application Train veri setleri üzerinde özellik mühendisliği tekniklerinin bütünleşik uygulaması.
 - **12.6 Extra:** `Diabete_Feature_Engineering.py` ile diyabet veri seti üzerinde uçtan uca özellik mühendisliği uygulaması.
