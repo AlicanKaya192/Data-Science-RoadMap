@@ -114,6 +114,17 @@ Müşteri İlişkileri Yönetimi ve veri odaklı pazarlama stratejileri.
     - **10.3.1_sorting_products.py:** Derecelendirme, yorum ve satın alma sayılarına göre sıralama, Bayesian Average Rating (BAR) Score ve Hibrit Sıralama yöntemleri. IMDB film veri seti üzerinde uygulama.
 - **10.4 - Değerlendirmeleri Sıralama (Sorting Reviews):**
     - **10.4.1_sorting_reviews.py:** Kullanıcı yorumlarını sıralama yöntemleri. Up-Down Diff Score, Average Rating Score ve Wilson Lower Bound Score ile güven aralığına dayalı sıralama.
+- **10.5 - AB Testing:**
+    > **Not:** Bu bölümdeki teorik konuları (.txt dosyaları), `10.5.8_ab_testing.py` uygulama dosyasındaki ilgili kod bloklarına geldiğinizde okumanız, konuları daha iyi pekiştirmenizi sağlayacaktır.
+
+    - **10.5.1 - AB Testing Nedir ?:** AB Testinin tanımı, kullanım amaçları ve temel prensipleri.
+    - **10.5.2 - Güven Aralığı:** İstatistiksel güven aralığı kavramı ve hesaplanması.
+    - **10.5.3 - Korelasyon:** Değişkenler arasındaki ilişkinin yönü ve şiddeti.
+    - **10.5.4 - Hipotez Testleri:** Hipotez kurma, H0 ve H1 hipotezleri, p-value ve istatistiksel anlamlılık.
+    - **10.5.5 - İki Grup Ortalamasını Karşılaştırma:** Bağımsız iki örneklem T-Testi ve varsayımları.
+    - **10.5.6 - İki Grup Oran Karşılaştırma:** İki farklı grubun oranlarının karşılaştırılması.
+    - **10.5.7 - ikiden Fazla Grup Ortalaması Karşılaştırma:** ANOVA (Varyans Analizi) testi.
+    - **10.5.8_ab_testing.py:** AB Testi uygulamaları, parametrik ve non-parametrik testler, hipotez testleri ve sonuçların yorumlanması.
 
 ### 1️⃣2️⃣ Feature Engineering (Özellik Mühendisliği)
 Ham veriden makine öğrenimi modelleri için anlamlı özellikler türetme sanatı.
@@ -168,8 +179,8 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
 | 7 - Veri Görselleştirme | ✅ Tamamlandı |
 | 8 - Keşifçi Veri Analizi (EDA) | ✅ Tamamlandı |
 | 9 - CRM Analitik | ✅ Tamamlandı |
-| 10 - Ölçümleme Problemleri | 🚧 Devam Ediyor |
-| 11 - Tavsiye Sistemleri | ❌ Planlanıyor |
+| 10 - Ölçümleme Problemleri | ✅ Tamamlandı |
+| 11 - Tavsiye Sistemleri | 🚧 Devam Ediyor |
 | 12 - Feature Engineering | ✅ Tamamlandı |
 | 13 - Machine Learning | 🚧 Devam Ediyor |
 | Time Series | ❌ Planlanıyor |

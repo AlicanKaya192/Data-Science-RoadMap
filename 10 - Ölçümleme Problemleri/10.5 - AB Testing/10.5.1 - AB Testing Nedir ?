@@ -1,0 +1,98 @@
+# A/B TESTING (A/B TESTİ) KAPSAMLI REHBERİ
+
+## 1. A/B Testi Nedir?
+
+En yalın tanımıyla; iki farklı seçeneğin (A ve B varyasyonlarının), hangisinin daha başarılı olduğunu belirlemek için yapılan **karşılaştırmalı deneydir.**
+
+Bir web sitesinde, bir mobil uygulamada veya bir reklam kampanyasında bir değişiklik yapmak istediğinizde; kullanıcıların yarısına eski versiyonu (A Grubu - Kontrol Grubu), diğer yarısına yeni versiyonu (B Grubu - Test Grubu) gösterirsiniz. Günün sonunda hangi grubun daha çok tıkladığına, satın aldığına veya izlediğine bakarak kazananı seçersiniz.
+
+* **A Grubu (Control Group):** Mevcut düzenin olduğu, hiçbir değişikliğin yapılmadığı grup.
+* **B Grubu (Test Group):** Yeni özelliğin denendiği grup.
+
+---
+
+## 2. Neden Buna İhtiyaç Duyarız?
+
+İş dünyasında kararlar genellikle "Hippo" (Highest Paid Person's Opinion - En Yüksek Maaşlı Kişinin Fikri) yöntemine göre alınır. A/B testi, bu önyargıyı kırar ve kararları bilimsel temele oturtur.
+
+1.  **Hissi Değil, Veri Odaklı Karar:** "Bence kırmızı buton daha çok tıklanır" demek yerine test edip görmek.
+2.  **Risk Yönetimi:** Tüm siteyi bir anda değiştirmek yerine, küçük bir kitlede deneyip, eğer sonuç kötüyse zararı minimumda tutmak.
+3.  **Küçük Farkları Yakalamak:** Bazen %1'lik bir iyileşme bile milyon dolarlık fark yaratabilir. Gözle görülemeyecek bu farkı istatistiksel testler yakalar.
+
+---
+
+## 3. Temel İstatistiksel Kavramlar (İşin Mutfağı)
+
+A/B testi sadece "Ortalamalara bakmak" değildir. Matematiksel olarak sonucun **şans eseri** olup olmadığını kanıtlamamız gerekir.
+
+### A. Hipotezler ($H_0$ ve $H_1$)
+Testi yapmadan önce iki iddia ortaya atarız:
+* **$H_0$ (Yokluk Hipotezi - Null Hypothesis):** "A ve B grubu arasında istatistiksel olarak anlamlı bir fark **YOKTUR**. (Fark tamamen şans eseridir)."
+* **$H_1$ (Alternatif Hipotez):** "A ve B grubu arasında istatistiksel olarak anlamlı bir fark **VARDIR**."
+
+Bizim amacımız genellikle $H_0$ hipotezini çürütmektir (Reddetmektir).
+
+### B. P-Value (Olasılık Değeri)
+Hakimin tokmağıdır. Test sonucunda bir $p$ değeri çıkar.
+* **Eğer p < 0.05 ise:** $H_0$ REDDEDİLİR. Fark gerçektir, şans eseri değildir. (Sonuç anlamlı).
+* **Eğer p > 0.05 ise:** $H_0$ REDDEDİLEMEZ. Aradaki fark tesadüf olabilir. (Sonuç anlamsız).
+
+---
+
+## 4. A/B Testi Nasıl Yapılır? (Adım Adım Süreç)
+
+Sadece "Test ettim bitti" diyemeyiz. Belirli bir bilimsel sıra izlemeliyiz:
+
+### Adım 1: Normallik Varsayımı (Shapiro-Wilk Testi)
+Verilerin dağılımı düzgün mü? (Çan eğrisi şeklinde mi?).
+* Veri dağılımı normalse --> **Parametrik Testler** kullanılır.
+* Veri dağılımı normal değilse --> **Non-Parametrik Testler** kullanılır.
+
+### Adım 2: Varyans Homojenliği (Levene Testi)
+İki grubun değişkenliği (dağılım genişliği) birbirine benzer mi? Bu, hangi formülü kullanacağımızı belirler.
+
+### Adım 3: Testin Uygulanması
+* Her şey düzgünse (Parametrik): **T-Test (Independent Two Sample T-Test)** uygulanır.
+* Veri bozuksa/anormalse (Non-Parametrik): **Mann-Whitney U Testi** uygulanır.
+
+---
+
+## 5. Pratik Uygulama Örnekleri
+
+### ÖRNEK 1: "Satın Al" Butonu Rengi (E-Ticaret)
+Bir e-ticaret sitesi, "Satın Al" butonunu Yeşilden (Grup A) Kırmızıya (Grup B) çevirmek istiyor.
+
+**Veriler:**
+* **Grup A (Yeşil - Mevcut):** 1000 kişi gördü, ortalama satın alma tutarı: **50 TL**.
+* **Grup B (Kırmızı - Yeni):** 1000 kişi gördü, ortalama satın alma tutarı: **55 TL**.
+
+**İlk Bakış:** "Kırmızı buton (55 TL) daha iyi, hemen geçelim!" diyebilirsiniz. Bu büyük bir hatadır.
+
+**İstatistiksel Test Sonucu:**
+Yapılan T-Test sonucunda **p-value = 0.12** çıkmış olsun.
+* **Yorum:** P değeri 0.05'ten BÜYÜK. Bu demektir ki; aradaki 5 TL'lik fark tamamen tesadüf olabilir. Belki de B grubuna o gün zengin müşteriler denk geldi.
+* **Karar:** İstatistiksel olarak anlamlı bir fark yok. Kırmızı butona geçmek için yeterli kanıt yok. Eski sistemde kalınabilir.
+
+### ÖRNEK 2: Teklif Verme Stratejisi (Bidding - Veri Bilimi)
+Bir reklam şirketi, reklamlar için teklif veren yapay zeka algoritmasını (Maximum Bidding) değiştirmek istiyor.
+
+* **Algoritma A (Eski):** Dönüşüm Oranı %12.
+* **Algoritma B (Yeni):** Dönüşüm Oranı %12.5.
+
+**İstatistiksel Test Sonucu:**
+Yapılan test sonucunda **p-value = 0.001** çıkmış olsun.
+* **Yorum:** P değeri 0.05'ten çok KÜÇÜK. Bu demektir ki; aradaki %0.5'lik fark şans eseri değil, **gerçek** bir başarı farkıdır.
+* **Karar:** $H_0$ reddedilir. Yeni algoritma (B), istatistiksel olarak eskisine göre daha üstündür. Yeni sisteme geçiş yapılır.
+
+---
+
+## ÖZET TABLO: Hangi Durumda Ne Yapılır?
+
+| Durum | Kontrol | Kullanılacak Test |
+| :--- | :--- | :--- |
+| **Adım 1** | Veri Normal Dağılıyor mu? | **Shapiro-Wilk Testi** |
+| **Adım 2** | Varyanslar Eşit mi? | **Levene Testi** |
+| **Karar A** | Normal Dağılım VARSA | **T-Test (Independent Samples)** |
+| **Karar B** | Normal Dağılım YOKSA | **Mann-Whitney U Testi** |
+| **Sonuç** | p < 0.05 ise | Fark **ANLAMLI** (Yeni özellik işe yaradı/yaramadı). |
+| **Sonuç** | p > 0.05 ise | Fark **ANLAMSIZ** (Değişiklik bir fark yaratmadı). |

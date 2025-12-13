@@ -1,0 +1,106 @@
+# İKİDEN FAZLA GRUP KARŞILAŞTIRMA (ANOVA) KAPSAMLI REHBERİ
+
+## 1. Nedir? (Neden T-Test Yetmez?)
+
+Elimizde A, B ve C diye üç farklı grup olduğunu düşünelim. Bunların ortalamalarını kıyaslamak istiyoruz.
+Aklınıza şu gelebilir: *"Önce A ile B'yi, sonra B ile C'yi, en son da A ile C'yi T-Testi ile kıyaslayayım."*
+
+**BU YANLIŞTIR.**
+Bunu yaparsanız "Tip 1 Hata" (Yanlış Alarm) riskini matematiksel olarak patlatırsınız. Her testte %5 hata payı vardır. 
+Test sayısı arttıkça toplam hata payı katlanarak artar.
+
+Bunun yerine tek bir hamlede *"Bu grupların hepsi aynı mı, yoksa aralarında farklı olan var mı?"* sorusunu soran **ANOVA 
+(Analysis of Variance)** testi kullanılır.
+
+---
+
+## 2. Hipotez Yapısı
+
+ANOVA testinin hipotezleri T-Testinden biraz farklıdır:
+
+* **H0 (Yokluk Hipotezi):** $M_1 = M_2 = M_3 = ...$
+    * "Tüm grupların ortalamaları birbirine eşittir. Hiçbir fark yoktur."
+* **H1 (Alternatif Hipotez):**
+    * "Gruplardan **EN AZ BİRİ** diğerlerinden farklıdır."
+
+**Dikkat:** ANOVA bize *hangi* grubun farklı olduğunu söylemez. Sadece "Bir yerlerde bir fark var" der. (Buna "Alarm Sistemi" diyebiliriz). 
+Farkın kimden kaynaklandığını bulmak için **Post-Hoc** testleri yapılır.
+
+---
+
+## 3. Hangi Testi Kullanmalıyım? (Akış Şeması)
+
+Tıpkı diğer testlerde olduğu gibi burada da verinin "Varsayımları" belirleyicidir.
+
+### A. Varsayımlar
+1.  **Normallik:** Her gruptaki veri normal dağılıyor mu? (Shapiro-Wilk).
+2.  **Varyans Homojenliği:** Grupların dağılım genişlikleri benzer mi? (Levene).
+
+### B. Karar Mekanizması
+* **Durum 1: Her şey Düzgünse (Parametrik)**
+    * Kullanılacak Test: **One-Way ANOVA (Tek Yönlü Varyans Analizi)**.
+* **Durum 2: Normallik Yoksa veya Veri Çok Bozuksa (Non-Parametrik)**
+    * Kullanılacak Test: **Kruskal-Wallis Testi**.
+
+---
+
+## 4. Adım Adım ANOVA Süreci
+
+### Adım 1: Testi Çalıştır (ANOVA / Kruskal-Wallis)
+Önce ana testi yaparız.
+* **Sonuç P > 0.05 ise:** H0 Reddedilemez. Gruplar arasında fark yoktur. Konu kapanır.
+* **Sonuç P < 0.05 ise:** H0 Reddedilir. "Gruplar arasında bir fark VAR." Şimdi dedektiflik yapma zamanı.
+
+### Adım 2: Farkı Kim Yaratıyor? (Post-Hoc Analizi)
+ANOVA "fark var" dediğinde, ikili karşılaştırmalar yapmamıza izin veren özel testler devreye girer.
+* **Varyanslar Eşitse:** **Tukey Testi** kullanılır. (En yaygın olanıdır).
+* **Varyanslar Eşit Değilse:** **Tamhane's T2** testi kullanılır.
+
+---
+
+## 5. Pratik Uygulama Örnekleri
+
+### ÖRNEK 1: Pazarlama Kampanyaları (Parametrik - ANOVA)
+Bir şirket 3 farklı reklam stratejisi deniyor:
+* **Grup A:** Instagram Reklamları
+* **Grup B:** TV Reklamları
+* **Grup C:** Youtube Reklamları
+
+Her gruptan elde edilen satış cirolarını kıyaslıyoruz.
+
+**Süreç:**
+1.  **Varsayım:** Tüm gruplar normal dağılıyor ve varyanslar eşit. -> **One-Way ANOVA** seçildi.
+2.  **Test Sonucu:** P-Value = **0.004**.
+    * **Yorum:** P < 0.05 olduğu için fark VAR. (Ama kim daha iyi bilmiyoruz).
+3.  **Post-Hoc (Tukey Testi):**
+    * A vs B: Fark Yok.
+    * A vs C: Fark Var (C daha yüksek).
+    * B vs C: Fark Var (C daha yüksek).
+    * **Yönetici Kararı:** "Youtube (Grup C) diğer iki kanaldan istatistiksel olarak daha başarılıdır. Bütçe Youtube'a kaydırılmalıdır."
+
+### ÖRNEK 2: Müşteri Memnuniyeti (Non-Parametrik - Kruskal Wallis)
+Bir otel zinciri 3 farklı şubesindeki müşteri puanlarını (1-5 yıldız arası) kıyaslıyor.
+* **Grup 1:** İstanbul Şubesi
+* **Grup 2:** İzmir Şubesi
+* **Grup 3:** Ankara Şubesi
+
+Veri "Puan" (Ordinal) olduğu için normal dağılmıyor.
+
+**Süreç:**
+1.  **Varsayım:** Normallik yok. -> **Kruskal-Wallis** seçildi.
+2.  **Test Sonucu:** P-Value = **0.02**.
+    * **Yorum:** Şubeler arasında memnuniyet farkı var.
+3.  **Post-Hoc (Dunn Testi):**
+    * Yapılan analizde İzmir şubesinin puanlarının, diğerlerinden anlamlı derecede yüksek olduğu görülüyor.
+    * **Karar:** İzmir şubesi ödüllendirilmeli, diğer şubeler incelenmeli.
+
+---
+
+## ÖZET TABLO: Hangi Durumda Ne Yapılır?
+
+| Soru | Parametrik (Normal Dağılım) | Non-Parametrik (Normal Değil) |
+| :--- | :--- | :--- |
+| **Kullanılacak Ana Test** | **One-Way ANOVA** | **Kruskal-Wallis** |
+| **Testin Amacı** | Ortalamaları karşılaştırır. | Medyanları (Sıralamaları) karşılaştırır. |
+| **Fark Varsa (Post-Hoc)** | **Tukey** (Varyanslar eşitse)<br>**Tamhane** (Varyanslar eşit değilse) | **Dunn Testi** |
+| **Örnek Veri** | Satış Tutarı, Boy, Kilo | Müşteri Puanı (1-5), Rütbe |
