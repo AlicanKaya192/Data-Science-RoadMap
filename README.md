@@ -236,6 +236,10 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - **Case Study 1 (Maaş Tahmini):** Doğrusal Regresyon ile deneyim yılına göre maaş tahmini uygulaması.
     - **Case Study 2 (Churn & Fraud):** Müşteri terk ve dolandırıcılık tespiti üzerine sınıflandırma metrikleri analizi.
     - **Case Study 3 (Telco Churn Prediction):** Uçtan uca makine öğrenmesi projesi (EDA, Preprocessing, Modelleme).
+- **13.6 - CART (Classification & Regression Tree):**
+    - **13.6.1 - CART:** Karar ağaçları teorisi, Gini safsızlığı ve entropi kavramları.
+    - **13.6.2_cart.py:** Python ile Karar Ağacı Sınıflandırma uygulaması, model tuning ve görselleştirme.
+    - **13.6.3 - Tekrar İçin Sorular:** CART algoritması ve karar ağaçları üzerine test soruları.
 - **Machine Learning Extra:**
     - `HOUSE_PRICE_PREDICTON_SOLUTION.py`: Regresyon modelleri ile ev fiyatı tahmini.
     - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
