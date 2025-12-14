@@ -218,6 +218,16 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - **13.2.5 - Doğrusal Regresyon için Gradient Descent:** Gradyan İniş algoritmasının çalışma mantığı.
     - **13.2.6_linear_regression.py:** Python ile Sales Prediction uygulaması (Sklearn & Gradient Descent).
     - **13.2.7 - Tekrar İçin Sorular:** Doğrusal regresyon konu tekrarı soruları.
+- **13.3 - Lojistik Regresyon (Logistic Regression):**
+    - **13.3.1 - Lojistik Regresyon:** Sınıflandırma algoritması olarak Lojistik Regresyon ve Sigmoid fonksiyonu.
+    - **13.3.2 - Lojistik Regresyon için Gradient Descent:** Log Loss fonksiyonu ve optimizasyon süreci.
+    - **13.3.3 - Sınıflandırma Problemlerinde Başarı Değerlendirme:** Accuracy, Precision, Recall, F1-Score metrikleri.
+    - **13.3.4 - Karmaşıklık Matrisi (Confusion Matrix):** TP, TN, FP, FN kavramları ve hata analizi.
+    - **13.3.5 - Classification Threshold:** Sınıflandırma eşik değerinin (Threshold) önemi ve etkisi.
+    - **13.3.6 - ROC Eğrisi (ROC Curve):** ROC eğrisi ve AUC (Area Under Curve) ile model performansı ölçümü.
+    - **13.3.7 - LOG Loss:** Logaritmik Kayıp (Binary Cross Entropy) fonksiyonunun detayları.
+    - **13.3.8_logistic_regression.py:** Python ile Diyabet Tahmini (Diabetes Prediction) uygulaması.
+    - **13.3.9 - Tekrar İçin Sorular:** Lojistik regresyon ve sınıflandırma metrikleri üzerine kapsamlı test soruları.
 - **Machine Learning Extra:**
     - `HOUSE_PRICE_PREDICTON_SOLUTION.py`: Regresyon modelleri ile ev fiyatı tahmini.
     - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
