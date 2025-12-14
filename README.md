@@ -261,7 +261,7 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
 ## 📂 Ekstra Projeler ve Kaynaklar
 
 - **Armut ARL Projesi:** Birliktelik Kuralı Öğrenimi (Association Rule Learning) üzerine gerçek hayat senaryosu.
-- **CheatSheets:** Python, Pandas, Numpy ve Git için hızlı başvuru kağıtları.
+- **CheatSheets:** Python, Pandas, Numpy, Matplotlib, Seaborn, SQL, Docker, Machine Learning ve AI Agents için hızlı başvuru kağıtları.
 - **Datasets:** Çalışmalarda kullanılan veri setleri arşivi.
 - **Mülakat Soruları:** Teknik mülakatlara hazırlık için soru ve çözümler.
 - **Mentor Çözümleri:** Örnek problemlerin alternatif ve profesyonel çözümleri.
