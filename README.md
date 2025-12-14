@@ -201,10 +201,27 @@ Ham veriden makine öğrenimi modelleri için anlamlı özellikler türetme sana
 
 ### 1️⃣3️⃣ Machine Learning (Makine Öğrenimi)
 Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
-- **Projeler:**
-    - `HOUSE_PRICE_PREDICTION`: Regresyon modelleri ile ev fiyatı tahmini.
-    - `Telco_Churn`: Sınıflandırma modelleri ile müşteri terk analizi.
-- **Değerlendirme:** Başarı metrikleri ve hata değerlendirme tabloları.
+- **13.1 - Temel Kavramlar:**
+    - **13.1.1 - Makine Öğrenmesine Giriş:** Makine öğrenmesi tanımı, geleneksel programlama ile farkları.
+    - **13.1.2 - Değişken Türleri:** Bağımlı/Bağımsız değişkenler ve veri tipleri.
+    - **13.1.3 - Öğrenme Türleri:** Gözetimli, Gözetimsiz ve Pekiştirmeli öğrenme.
+    - **13.1.4 - Problem Türleri:** Regresyon ve Sınıflandırma problemleri.
+    - **13.1.5 - Model Başarı Değerlendirme Yöntemleri:** Confusion Matrix, Accuracy, Precision, Recall, F1-Score, ROC-AUC.
+    - **13.1.6 - Model Doğrulama Yöntemleri:** Hold-out, K-Fold Cross Validation.
+    - **13.1.7 - Yanlılık - Varyans Değiş Tokuş:** Bias-Variance Tradeoff, Overfitting ve Underfitting.
+    - **13.1.8 - Tekrar İçin Sorular:** Konu tekrarı için test soruları.
+- **13.2 - Doğrusal Regresyon (Linear Regression):**
+    - **13.2.1 - Doğrusal Regresyon:** Basit ve Çoklu Doğrusal Regresyon mantığı.
+    - **13.2.2 - Ağırlıkların Bulunması:** Parametre tahmini yöntemleri.
+    - **13.2.3 - Regresyon Modellerinde Başarı Değerlendirme:** MSE, RMSE, MAE, R-Squared.
+    - **13.2.4 - Parametrelerin Tahmin Edilmesi:** Parametre vs Hiperparametre.
+    - **13.2.5 - Doğrusal Regresyon için Gradient Descent:** Gradyan İniş algoritmasının çalışma mantığı.
+    - **13.2.6_linear_regression.py:** Python ile Sales Prediction uygulaması (Sklearn & Gradient Descent).
+    - **13.2.7 - Tekrar İçin Sorular:** Doğrusal regresyon konu tekrarı soruları.
+- **Machine Learning Extra:**
+    - `HOUSE_PRICE_PREDICTON_SOLUTION.py`: Regresyon modelleri ile ev fiyatı tahmini.
+    - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
+    - **Değerlendirme Tabloları:** Regresyon ve Sınıflandırma modelleri için hata değerlendirme Excel dosyaları.
 
 > **🔗 Ek Kaynaklar (Boosting Modelleri ve Değerlendirme):**
 >
