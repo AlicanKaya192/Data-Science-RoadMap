@@ -228,6 +228,14 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - **13.3.7 - LOG Loss:** Logaritmik Kayıp (Binary Cross Entropy) fonksiyonunun detayları.
     - **13.3.8_logistic_regression.py:** Python ile Diyabet Tahmini (Diabetes Prediction) uygulaması.
     - **13.3.9 - Tekrar İçin Sorular:** Lojistik regresyon ve sınıflandırma metrikleri üzerine kapsamlı test soruları.
+- **13.4 - KNN (K-Nearest Neighbors):**
+    - **13.4.1 - K-En Yakın Komşu:** KNN algoritmasının çalışma mantığı, mesafe ölçümleri ve "Lazy Learner" kavramı.
+    - **13.4.2_knn.py:** Python ile Diyabet Tahmini (Diabetes Prediction) üzerinde KNN uygulaması ve model tuning.
+    - **13.4.3 - Tekrar İçin Sorular:** KNN algoritması üzerine pekiştirme soruları.
+- **13.5 - Case Studies (Uygulamalı Çalışmalar):**
+    - **Case Study 1 (Maaş Tahmini):** Doğrusal Regresyon ile deneyim yılına göre maaş tahmini uygulaması.
+    - **Case Study 2 (Churn & Fraud):** Müşteri terk ve dolandırıcılık tespiti üzerine sınıflandırma metrikleri analizi.
+    - **Case Study 3 (Telco Churn Prediction):** Uçtan uca makine öğrenmesi projesi (EDA, Preprocessing, Modelleme).
 - **Machine Learning Extra:**
     - `HOUSE_PRICE_PREDICTON_SOLUTION.py`: Regresyon modelleri ile ev fiyatı tahmini.
     - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.

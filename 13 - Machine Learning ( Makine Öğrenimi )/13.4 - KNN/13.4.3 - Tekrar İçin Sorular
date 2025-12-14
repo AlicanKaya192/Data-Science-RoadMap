@@ -1,0 +1,218 @@
+SORULARIN CEVAPLARI EN ALTTA BULUNMAKTA
+
+------------------------------------------------------------------------------------
+
+1. K-En Yakın Komşu (KNN) algoritması ne tür bir makine öğrenmesi yöntemidir?
+
+A) Doğrusal Regresyon
+B) Karar Ağacı
+C) Kümelenme
+D) Sınıflandırma
+
+------------------------------------------------------------------------------------
+
+2. K-En Yakın Komşu (KNN) algoritmasında "k" değeri neyi temsil eder?
+
+A) Doğru pozitif sayısı
+B) Komşuların sayısı
+C) Modelin doğruluk değeri
+D) Öznitelik sayısı
+
+------------------------------------------------------------------------------------
+
+3. En Yakın Komşu (KNN) algoritmasının aykırı değerlere karşı nasıl bir hassasiyeti vardır?
+
+A) Aykırı değerlere karşı dayanıklıdır.
+B) Aykırı değerlere karşı duyarlıdır.
+C) Aykırı değerleri görmezden gelir.
+D) Aykırı değerleri otomatik olarak temizler.
+
+------------------------------------------------------------------------------------
+
+Veri Seti Hikayesi:
+Bir hastane, diyabet hastalığı teşhisi konulması için farklı tıbbi öznitelikleri (yaş, kan basıncı, insülin seviyesi, BMI, gebelik sayısı vb.) içeren bir veri seti toplamıştır. Veri seti, hastaların diyabet hastası olup olmadığını belirlemek için kullanılacaktır. Hastaların bazıları diyabet hastası iken bazıları değildir.
+
+
+4. Veri setindeki "BMI" (Vücut Kitle İndeksi) özniteliği ile diyabet hastalığı arasındaki ilişkiyi incelemek isteyen bir veri analisti, hangi tür istatistiksel analizleri yapabilir?
+
+A) Korelasyon analizi
+B) Tek Örneklem t-testi
+C) Varyans analizi (ANOVA)
+D) Regresyon analizi
+
+------------------------------------------------------------------------------------
+
+5. Veri setindeki "Kan Basıncı" (Blood Pressure) özniteliğinin diyabet hastalığına etkisini incelemek isteyen bir veri analisti, hangi görselleştirme yöntemini kullanabilir?
+
+A) Histogram
+B) Korelasyon matrisi
+C) Kutu grafiği (Box Plot)
+D) Scatter plot
+
+------------------------------------------------------------------------------------
+
+6. KNN algoritmasına neden "Tembel Öğrenici" (Lazy Learner) denir?
+
+A) Çok yavaş çalıştığı için.
+B) Eğitim aşamasında model oluşturmayıp, veriyi sadece hafızada tuttuğu için.
+C) Kodlaması çok kolay olduğu için.
+D) Eksik verileri doldurmadığı için.
+
+------------------------------------------------------------------------------------
+
+7. KNN algoritmasında K değeri çok küçük seçilirse (Örn: K=1) ne tür bir problem ortaya çıkabilir?
+
+A) Aşırı Öğrenme (Overfitting)
+B) Eksik Öğrenme (Underfitting)
+C) Yüksek Yanlılık (High Bias)
+D) Modelin hesaplama süresi artar.
+
+------------------------------------------------------------------------------------
+
+8. KNN algoritmasında K değeri çok büyük seçilirse (Örn: K=100) ne tür bir problem ortaya çıkabilir?
+
+A) Aşırı Öğrenme (Overfitting)
+B) Yüksek Varyans (High Variance)
+C) Eksik Öğrenme (Underfitting)
+D) Gürültüye karşı aşırı hassasiyet.
+
+------------------------------------------------------------------------------------
+
+9. İki nokta arasındaki "kuş uçuşu" düz çizgi mesafesini hesaplayan yöntem hangisidir?
+
+A) Manhattan Mesafesi
+B) Minkowski Mesafesi
+C) Hamming Mesafesi
+D) Öklid Mesafesi
+
+------------------------------------------------------------------------------------
+
+10. KNN algoritması kullanılmadan önce veriye neden Ölçeklendirme (Scaling) işlemi uygulanmalıdır?
+
+A) Veri setindeki eksik değerleri doldurmak için.
+B) Kategorik değişkenleri sayısal hale getirmek için.
+C) Büyük ölçekli değişkenlerin mesafe hesaplamasını domine etmesini engellemek için.
+D) Modelin eğitim süresini kısaltmak için.
+
+------------------------------------------------------------------------------------
+
+11. Sınıflandırma problemlerinde KNN algoritması yeni bir veri noktasının sınıfına nasıl karar verir?
+
+A) Komşuların ortalamasını alarak.
+B) En yakın komşunun sınıfını kopyalayarak.
+C) Komşuların çoğunluk sınıfına (Mod) bakarak.
+D) Rastgele seçim yaparak.
+
+------------------------------------------------------------------------------------
+
+12. Regresyon problemlerinde KNN algoritması yeni bir veri noktasının değerini nasıl tahmin eder?
+
+A) Komşuların değerlerinin ortalamasını alarak.
+B) En yakın komşunun değerini alarak.
+C) Komşuların medyan değerini alarak.
+D) En uzak komşunun değerini alarak.
+
+------------------------------------------------------------------------------------
+
+13. Aşağıdakilerden hangisi KNN algoritmasının dezavantajlarından biridir?
+
+A) Eğitim süresinin çok uzun olması.
+B) Büyük veri setlerinde tahmin süresinin yavaş olması ve yüksek bellek kullanımı.
+C) Karmaşık matematiksel formüller içermesi.
+D) Sadece sınıflandırma problemlerinde kullanılabilmesi.
+
+------------------------------------------------------------------------------------
+
+14. İkili sınıflandırma (Binary Classification) problemlerinde K değerinin genellikle "Tek Sayı" seçilmesinin nedeni nedir?
+
+A) Hesaplama maliyetini düşürmek.
+B) Oylama sırasında eşitlik (beraberlik) durumunu önlemek.
+C) Tek sayıların daha şanslı olduğuna inanılması.
+D) Python kütüphanelerinin sadece tek sayı kabul etmesi.
+
+------------------------------------------------------------------------------------
+
+15. `sklearn` kütüphanesinde KNN sınıflandırma modelini oluşturmak için kullanılan sınıf hangisidir?
+
+A) `KNeighborsRegressor`
+B) `LogisticRegression`
+C) `KNeighborsClassifier`
+D) `DecisionTreeClassifier`
+
+------------------------------------------------------------------------------------
+
+16. Verilen kod bloğunda `StandardScaler` kullanılmasının temel amacı nedir?
+
+```python
+X_scaled = StandardScaler().fit_transform(X)
+```
+
+A) Veriyi normal dağılıma yaklaştırmak ve ölçek farklarını gidermek.
+B) Verideki aykırı değerleri silmek.
+C) Veriyi eğitim ve test seti olarak ayırmak.
+D) Hedef değişkeni (y) tahmin etmek.
+
+------------------------------------------------------------------------------------
+
+17. KNN algoritmasında en uygun K değerini (hiperparametre) bulmak için kullanılan yöntem hangisidir?
+
+A) Rastgele seçim (Random Search)
+B) Izgara Araması (GridSearchCV)
+C) Gradyan İniş (Gradient Descent)
+D) Doğrusal Regresyon
+
+------------------------------------------------------------------------------------
+
+18. "Boyut Laneti" (Curse of Dimensionality) KNN algoritmasını nasıl etkiler?
+
+A) Boyut sayısı arttıkça algoritma hızlanır.
+B) Boyut sayısı arttıkça noktalar arasındaki mesafeler anlamsızlaşır ve performans düşer.
+C) Boyut sayısı arttıkça K değeri otomatik olarak artar.
+D) Boyut sayısı KNN algoritmasını etkilemez.
+
+------------------------------------------------------------------------------------
+
+19. Şehir bloklarında taksiyle gider gibi sadece dik açılarla gidilen mesafeyi hesaplayan yöntem hangisidir?
+
+A) Öklid Mesafesi
+B) Manhattan Mesafesi
+C) Minkowski Mesafesi
+D) Kosinüs Benzerliği
+
+------------------------------------------------------------------------------------
+
+20. Aşağıdaki kod bloğunda `cv=5` parametresi neyi ifade eder?
+
+```python
+cv_results = cross_validate(knn_model, X, y, cv=5, scoring=["accuracy", "f1", "roc_auc"])
+```
+
+A) K komşu sayısını.
+B) 5 katlı çapraz doğrulama (5-Fold Cross Validation) yapılacağını.
+C) 5 farklı modelin eğitileceğini.
+D) Veri setinin 5 kez kopyalanacağını.
+
+------------------------------------------------------------------------------------
+
+CEVAP ANAHTARI
+-------------------
+1 -> D
+2 -> B
+3 -> B
+4 -> A
+5 -> C
+6 -> B
+7 -> A
+8 -> C
+9 -> D
+10 -> C
+11 -> C
+12 -> A
+13 -> B
+14 -> B
+15 -> C
+16 -> A
+17 -> B
+18 -> B
+19 -> B
+20 -> B

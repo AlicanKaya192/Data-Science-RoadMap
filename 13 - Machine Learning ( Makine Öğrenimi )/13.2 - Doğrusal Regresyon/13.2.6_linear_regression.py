@@ -19,7 +19,7 @@ from sklearn.model_selection import train_test_split, cross_val_score
 ######################################################
 
 # Veri setinin okunması
-df = pd.read_csv("datasets/advertising.csv")
+df = pd.read_csv("Datasets ( Genel )/advertising.csv")
 df.shape
 
 # Bağımsız değişken (X) ve Bağımlı değişken (y) seçimi
@@ -97,7 +97,7 @@ reg_model.score(X, y)
 # Multiple Linear Regression
 ######################################################
 
-df = pd.read_csv("datasets/advertising.csv")
+df = pd.read_csv("Datasets ( Genel )/advertising.csv")
 
 # Bağımsız değişkenler (TV, Radio, Newspaper)
 X = df.drop('sales', axis=1)
@@ -253,7 +253,7 @@ def train(Y, initial_b, initial_w, X, learning_rate, num_iters):
     return cost_history, b, w
 
 
-df = pd.read_csv("datasets/advertising.csv")
+df = pd.read_csv("Datasets ( Genel )/advertising.csv")
 
 X = df["radio"]
 Y = df["sales"]
