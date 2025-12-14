@@ -186,10 +186,13 @@ Ham veriden makine öğrenimi modelleri için anlamlı özellikler türetme sana
     - **12.2.2 - Uygulama:** Eksik değerlerin tespiti ve görselleştirilmesi.
 - **12.3 Encoding & Scaling:**
     - **12.3.1 - Encoding:** Label Encoding mantığı, değişken dönüşümleri ve uygulama alanları.
+    - **12.3.2_Label Encoding Uygulama.py:** Label Encoding ve Binary Encoding uygulamaları.
     - **12.3.3 - One Hot Encoding:** Nominal değişkenler için dönüşüm yöntemi ve sıralama hatasından kaçınma.
+    - **12.3.4_One Hot Encoding Uygulama.py:** One Hot Encoding uygulaması ve dummy değişken tuzağı.
     - **12.3.5 - Rare Encoding:** Nadir sınıfların analizi ve birleştirilmesi (Rare Encoding).
+    - **12.3.6_Rare Encoding Uygulama.py:** Nadir sınıfların tespiti ve Rare Encoding işlemi.
     - **12.3.7 - Feature Scalling Nedir:** Özellik ölçeklendirme (Feature Scaling) kavramı, neden gerekli olduğu ve mesafe tabanlı algoritmalara etkisi.
-    - **Uygulamalar:** İlgili yöntemlerin Python kodları ile pratik uygulamaları.
+    - **12.3.8_Feature Scalling uygulama.py:** StandardScaler, RobustScaler, MinMaxScaler gibi ölçeklendirme yöntemlerinin uygulaması.
 - **12.4 Feature Extraction:**
     - **12.4.1 - Feature Extraction:** Özellik çıkarımı nedir? Yapısal ve yapısal olmayan verilerden değişken türetme mantığı.
     - **12.4.2 - Uygulama:** Binary özellikler, metin/tarih analizi ve özellik etkileşimleri (Feature Interactions) ile değişken türetme uygulaması.
