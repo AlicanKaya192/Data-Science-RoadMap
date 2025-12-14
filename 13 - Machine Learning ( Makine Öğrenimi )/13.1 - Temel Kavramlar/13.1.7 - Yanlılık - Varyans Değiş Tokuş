@@ -1,0 +1,109 @@
+BAŞLIK: YANLILIK - VARYANS DEĞİŞ TOKUŞU (BIAS-VARIANCE TRADEOFF)
+TÜR: Model Optimizasyonu ve Hata Analizi
+
+================================================================================
+1. GİRİŞ: TEMEL PROBLEM NEDİR?
+================================================================================
+Makine öğrenmesinde nihai amaç, eğitim verisini ezberlemek değil, görmediğimiz verilerde başarılı olmaktır (Genelleştirme). Ancak bu hedefe giderken iki zıt hata kaynağıyla mücadele ederiz: Yanlılık (Bias) ve Varyans (Variance).
+
+Bu ikisi bir tahterevalli gibidir:
+- Modeli çok basitleştirirseniz "Yanlılık" artar.
+- Modeli çok karmaşıklaştırırsanız "Varyans" artar.
+- Amaç: İkisinin ortasındaki "Tatlı Nokta"yı (Sweet Spot) bulmaktır.
+
+Toplam Hata Formülü:
+Hata = Yanlılık^2 + Varyans + Gürültü (Irreducible Error)
+
+================================================================================
+2. BİLEŞENLERİN DETAYLI ANALİZİ
+================================================================================
+
+A. YANLILIK (BIAS) -> "ÖNYARGI"
+Modelin problemi çözmek için yaptığı basitleştirici varsayımlardır.
+- Yüksek Yanlılık: Model veriyi yeterince dikkate almaz, kendi bildiğini okur. Verideki karmaşık ilişkileri yakalayamaz.
+- Sonuç: Eksik Öğrenme (Underfitting).
+- Belirtisi: Hem Eğitim setinde hem de Test setinde yüksek hata oranı.
+- Örnek: Üniversite sınavına hazırlanan bir öğrencinin, ders çalışmak yerine "Zaten hep A şıkkı çıkar" diyerek önyargılı davranması.
+
+B. VARYANS (VARIANCE) -> "HASSASİYET/DEĞİŞKENLİK"
+Modelin eğitim verisindeki küçük dalgalanmalara, gürültüye ve detaylara ne kadar duyarlı olduğudur.
+- Yüksek Varyans: Model, eğitim verisini o kadar çok önemser ki, verideki rastgele gürültüyü bile ezberler.
+- Sonuç: Aşırı Öğrenme (Overfitting).
+- Belirtisi: Eğitim setinde MÜKEMMEL (çok düşük) hata, Test setinde YÜKSEK hata.
+- Örnek: Öğrencinin geçmiş yılların sorularını cevaplarıyla birlikte ezberlemesi, ancak sınavda soru biraz değiştirilince çözememesi.
+
+C. GÜRÜLTÜ (IRREDUCIBLE ERROR)
+Verinin kendisindeki hatadır (Hatalı sensör okuması, yanlış etiketleme vb.).
+- Not: Ne yaparsanız yapın bu hatayı sıfıra indiremezsiniz. Bu, problemin doğasında vardır.
+
+================================================================================
+3. HEDEF TAHTASI ANALOJİSİ (BULLSEYE)
+================================================================================
+Bu konuyu anlamanın en iyi görsel yolu hedef tahtasıdır. Hedefin merkezi (kırmızı nokta) "Gerçek Değer"dir.
+
+1. Düşük Yanlılık - Düşük Varyans (İdeal Dünya):
+   - Atışların hepsi tam merkezde toplanmıştır.
+
+2. Yüksek Yanlılık - Düşük Varyans (Tutarlı ama Yanlış):
+   - Atışlar bir arada toplanmıştır (Düşük Varyans), ama hedefin merkezinden çok uzaktadır (Yüksek Yanlılık).
+   - Durum: Underfitting. Model yanlış bir varsayımda ısrar ediyor.
+
+3. Düşük Yanlılık - Yüksek Varyans (Doğru Yerde ama Dağınık):
+   - Atışların ortalaması merkezi tutar (Düşük Yanlılık), ama atışlar tahtanın her yerine dağılmıştır (Yüksek Varyans).
+   - Durum: Overfitting. Her seferinde farklı bir sonuç veriyor.
+
+4. Yüksek Yanlılık - Yüksek Varyans (Felaket):
+   - Atışlar hem dağınık hem de merkezden uzaktır.
+
+================================================================================
+4. TANI VE ÇÖZÜM REHBERİ
+================================================================================
+Modelinizin hangi sorunu yaşadığını nasıl anlar ve nasıl çözersiniz?
+
+DURUM 1: EKSİK ÖĞRENME (UNDERFITTING / HIGH BIAS)
+- Teşhis: Eğitim hatası yüksek, Test hatası da yüksek.
+- Anlamı: Model çok basit, veriyi öğrenemiyor.
+- Çözümler:
+  1. Modeli Karmaşıklaştır: Daha güçlü bir algoritma seç (Lineer Regresyon yerine Polinom veya Karar Ağacı).
+  2. Yeni Öznitelik Ekle (Feature Engineering): Veriye yeni sütunlar ekle.
+  3. Düzenlileştirmeyi Azalt (Decrease Regularization): Lambda/Alpha parametresini düşür.
+  4. Eğitim Süresini Uzat (Derin Öğrenme için).
+
+DURUM 2: AŞIRI ÖĞRENME (OVERFITTING / HIGH VARIANCE)
+- Teşhis: Eğitim hatası çok düşük (Neredeyse 0), Test hatası yüksek. Aradaki makas çok açık.
+- Anlamı: Model ezberlemiş.
+- Çözümler:
+  1. Daha Fazla Veri Topla: Veri arttıkça ezberlemek zorlaşır, genelleme mecburi olur.
+  2. Modeli Basitleştir: Ağaç derinliğini azalt, katman sayısını düşür.
+  3. Düzenlileştirme Ekle (Regularization): L1 (Lasso) veya L2 (Ridge) cezası ekleyerek katsayıları baskıla.
+  4. Özellik Seçimi (Feature Selection): Gereksiz sütunları at.
+  5. Erken Durdurma (Early Stopping): Test hatası artmaya başladığı an eğitimi kes.
+
+================================================================================
+5. DEĞİŞ TOKUŞ (TRADEOFF) GRAFİĞİ YORUMLAMA
+================================================================================
+Bir grafikte X ekseni "Model Karmaşıklığı", Y ekseni "Hata" olsun.
+
+1. Sol Taraf (Basit Model):
+   - Yanlılık çok yüksektir.
+   - Varyans çok düşüktür.
+   - Toplam hata yüksektir.
+
+2. Sağ Taraf (Karmaşık Model):
+   - Yanlılık düşer (sıfıra yaklaşır).
+   - Varyans tavan yapar (çok artar).
+   - Toplam hata yine yükselir.
+
+3. Orta Nokta (Optimum Model):
+   - Yanlılık ve Varyans eğrilerinin kesiştiği, toplam hatanın en düşük olduğu "U" şeklindeki çukurun dibidir.
+
+================================================================================
+ÖZET TABLO
+================================================================================
+PARAMETRE           | HIGH BIAS (UNDERFIT)      | HIGH VARIANCE (OVERFIT)
+------------------- | ------------------------- | --------------------------
+Eğitim Hatası       | Yüksek                    | Çok Düşük
+Test Hatası         | Yüksek                    | Yüksek
+Model Yapısı        | Çok Basit                 | Çok Karmaşık
+Veriye Duyarlılık   | Düşük (Umursamaz)         | Aşırı Yüksek (Hassas)
+Çözüm Yolu          | Karmaşıklığı Artır        | Veri Ekle / Sadeleştir

@@ -1,0 +1,88 @@
+BAŞLIK: REGRESYON MODELLERİNDE BAŞARI DEĞERLENDİRME (REGRESSION METRICS)
+TÜR: Performans Analizi ve Hata Ölçümü
+
+================================================================================
+1. GİRİŞ: TEMEL MANTIK NEDİR?
+================================================================================
+Regresyon modellerinde (Fiyat, Sıcaklık, Satış Adedi tahmini vb.) amaç, tahmin edilen değerin ($\hat{y}$), gerçek değere ($y$) mümkün olduğunca yakın olmasını sağlamaktır.
+
+Burada "Accuracy" (%90 Doğruluk) gibi bir kavram yoktur. Çünkü evin fiyatı 5.000.000 TL iken model 5.000.001 TL tahmin ederse bu "Yanlış" mıdır? Teknik olarak evet, ama pratikte mükemmel bir tahmindir.
+
+Bu yüzden Regresyonda "Hata Miktarı" (Distance/Error) ölçülür.
+
+Temel Kavram: Kalıntı (Residual)
+Hata = Gerçek Değer - Tahmin Edilen Değer
+e = y - $\hat{y}$
+
+================================================================================
+2. TEMEL HATA METRİKLERİ
+================================================================================
+
+A. MSE (MEAN SQUARED ERROR - ORTALAMA KARE HATA)
+Hataların karesinin ortalamasıdır.
+- Mantık: Hataların karesini alırız ki negatifler pozitife dönsün (-10 ile +10 birbirini götürmesin). Ayrıca karesini almak, BÜYÜK hataları devasa şekilde cezalandırır.
+- Özellik: Aykırı değerlere (Outlier) karşı çok hassastır. Model bir noktada çok saçmalarsa MSE fırlar.
+- Birim Sorunu: Sonuç "karesi alınmış" birimdedir (Örn: TL^2). Yorumlaması zordur.
+
+B. RMSE (ROOT MEAN SQUARED ERROR - KÖK ORTALAMA KARE HATA)
+MSE'nin kareköküdür. En yaygın kullanılan metriktir.
+- Mantık: MSE'deki "kare birim" sorununu çözer. Sonuç, hedef değişkenle aynı birimdedir.
+- Yorum: "RMSE = 50.000" ise, "Modelimiz ev fiyatlarını tahmin ederken ortalama ±50.000 TL sapıyor" diyebiliriz.
+- Kullanım: Büyük hataların yapılmasının kesinlikle istenmediği durumlarda idealdir.
+
+C. MAE (MEAN ABSOLUTE ERROR - ORTALAMA MUTLAK HATA)
+Hataların mutlak değerinin ortalamasıdır. Kare alma işlemi yoktur.
+- Mantık: Tüm hatalara eşit davranır. Büyük hatayı (Outlier) aşırı cezalandırmaz.
+- Yorum: "MAE = 40.000" ise, "Ortalama sapmamız 40.000 TL".
+- Kullanım: Veri setinde çok fazla aykırı değer (Outlier) varsa ve bunları temizlemek istemiyorsak MAE daha dirençli (Robust) bir metriktir.
+
+================================================================================
+3. MODELİN AÇIKLAYICILIK GÜCÜ (R-KARE)
+================================================================================
+Hata miktarı tek başına yeterli değildir. Modelin veriyi ne kadar iyi "kavradığını" anlamamız gerekir.
+
+D. R-KARE ($R^2$ - COEFFICIENT OF DETERMINATION)
+Bağımsız değişkenlerin (X), bağımlı değişkendeki (y) varyansı (değişimi) ne kadar açıklayabildiğini gösterir.
+- Değer Aralığı: Genellikle 0 ile 1 arasındadır. (Negatif çıkarsa model ortalamadan bile kötü demektir).
+- Yorum: $R^2$ = 0.85
+  "Modelimiz, ev fiyatlarındaki değişimin %85'ini, eldeki özelliklerle (oda sayısı, konum vb.) açıklayabiliyor. Kalan %15 açıklayamadığımız diğer faktörlerdir."
+- Tuzak: Modele gereksiz, saçma sapan sütunlar (Örn: Ev sahibinin burcu) ekleseniz bile $R^2$ artma eğilimindedir. Bu yanıltıcıdır.
+
+E. DÜZELTİLMİŞ R-KARE (ADJUSTED $R^2$)
+Klasik R-Kare'nin "her yeni değişkenle artma" tuzağını düzeltir.
+- Mantık: Modele eklenen yeni değişken gerçekten işe yarıyorsa puanı artırır, yaramıyorsa puanı DÜŞÜRÜR (Cezalandırır).
+- Kullanım: Çoklu Doğrusal Regresyon (Birden fazla girdi değişkeni olan) modellerinde mutlaka bu değere bakılmalıdır.
+
+================================================================================
+4. İŞ DÜNYASI İÇİN ÖZEL METRİK
+================================================================================
+
+F. MAPE (MEAN ABSOLUTE PERCENTAGE ERROR)
+Hatanın sayısal değeri değil, yüzdesel değeri önemlidir.
+- Formül: Mutlak Hata / Gerçek Değer
+- Yorum: MAPE = %5. "Modelimiz ortalama %5 yanılıyor."
+- Avantajı: Farklı ölçekteki ürünleri kıyaslarken harikadır. (10 liralık kalemde 1 lira hata ile 1 milyonluk evde 1 lira hata aynı değildir. MAPE bunu çözer).
+- Dezavantajı: Gerçek değer 0 ise hesaplanamaz (Sıfıra bölünme hatası).
+
+================================================================================
+5. KARŞILAŞTIRMA VE SEÇİM REHBERİ
+================================================================================
+
+SENARYO                                      | HANGİ METRİK KULLANILMALI?
+-------------------------------------------- | ---------------------------------------
+Standart, genel bir başarı ölçümü istiyorum. | RMSE (Endüstri Standardı)
+Verimde çok fazla Aykırı Değer (Outlier) var.| MAE (Çünkü sapmalara dirençlidir)
+Büyük hatalar felaket olur (Cezalandır).     | MSE veya RMSE
+Yöneticime sunum yapacağım, TL anlamaz.      | MAPE (% Hata olarak sunmak için)
+Modelin varyansı açıklama gücünü merak ediyorum.| Adjusted R-Squared
+Farklı ölçekteki (Birim) verileri kıyaslayacağım.| MAPE
+
+================================================================================
+ÖZET TABLO: FORMÜL MANTIĞI
+================================================================================
+METRİK | İŞLEM                                   | ANLAMI
+------ | --------------------------------------- | -------------------------------------
+MAE    | |Fark|                                  | Mutlak fark. Saf ortalama.
+MSE    | (Fark)^2                                | Karesi. Büyük hatalara ağır ceza.
+RMSE   | Kök((Fark)^2)                           | Karesinin kökü. Birimi düzeltir.
+R^2    | 1 - (Model Hatası / Ortalama Hatası)    | Açıklanan varyans oranı (%).

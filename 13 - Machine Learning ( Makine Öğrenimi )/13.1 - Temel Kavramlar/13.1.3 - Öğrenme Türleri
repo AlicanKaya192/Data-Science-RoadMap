@@ -1,0 +1,106 @@
+BAŞLIK: MAKİNE ÖĞRENMESİNDE ÖĞRENME TÜRLERİ (TYPES OF LEARNING)
+TÜR: Teknik Sınıflandırma ve Detaylı Analiz
+
+================================================================================
+1. GENEL BAKIŞ VE SINIFLANDIRMA MANTIĞI
+================================================================================
+Makine öğrenmesi algoritmaları, veriye yaklaşım biçimlerine ve eğitim sırasında "doğru cevabın" (etiket) verilip verilmediğine göre kategorize edilir.
+
+Temel Soru: Model öğrenirken bir öğretmeni (etiket) var mı, yoksa kendi başına mı keşfediyor?
+
+================================================================================
+2. ANA ÖĞRENME PARADİGMALARI
+================================================================================
+
+--------------------------------------------------------------------------------
+A. GÖZETİMLİ ÖĞRENME (SUPERVISED LEARNING)
+--------------------------------------------------------------------------------
+En yaygın kullanılan türdür. Veri setinde hem girdiler (X) hem de hedeflenen çıktılar (y) bulunur.
+* Analoji: Öğretmenin öğrenciye önce dersi anlatması, örnek soruları çözdürmesi ve sonra sınav yapmasıdır.
+
+Alt Kategoriler:
+1. Regresyon (Regression):
+   - Amaç: Sürekli bir sayısal değer tahmin etmektir.
+   - Örnek: "Bu özelliklerdeki bir arabanın fiyatı ne olur?"
+   - Algoritmalar: Lineer Regresyon, Lasso/Ridge, Karar Ağaçları Regresyonu.
+
+2. Sınıflandırma (Classification):
+   - Amaç: Verinin hangi kategoriye/sınıfa ait olduğunu belirlemektir.
+   - Örnek: "Bu e-posta Spam mi değil mi?", "Bu MR görüntüsünde tümör var mı yok mu?"
+   - Algoritmalar: Lojistik Regresyon, K-NN, SVM, Random Forest, Naive Bayes.
+
+--------------------------------------------------------------------------------
+B. GÖZETİMSİZ ÖĞRENME (UNSUPERVISED LEARNING)
+--------------------------------------------------------------------------------
+Veri setinde sadece girdiler (X) vardır, etiketler (y) YOKTUR. Model, verinin içindeki gizli yapıyı, örüntüleri veya grupları kendisi bulur.
+* Analoji: Bir çocuğun önüne yüzlerce karışık lego parçası koyup "bunları düzenle" demek gibidir. Çocuk renklerine veya şekillerine göre gruplayabilir.
+
+Alt Kategoriler:
+1. Kümeleme (Clustering):
+   - Amaç: Benzer özellik gösteren verileri gruplamaktır.
+   - Örnek: Müşteri segmentasyonu (Çok harcayanlar, Az harcayanlar).
+   - Algoritmalar: K-Means, DBSCAN, Hiyerarşik Kümeleme.
+
+2. Birliktelik Kuralı Çıkarımı (Association Rule Learning):
+   - Amaç: Veriler arasındaki "X olursa Y de olur" ilişkisini bulmaktır.
+   - Örnek: Market Sepeti Analizi ("Bebek bezi alan Bira da alıyor").
+   - Algoritmalar: Apriori, Eclat.
+
+3. Boyut İndirgeme (Dimensionality Reduction):
+   - Amaç: Verideki bilgi kaybını minimumda tutarak özellik sayısını azaltmaktır.
+   - Örnek: 1000 sütunlu bir veriyi 10 sütuna indirmek (Görselleştirme veya hız için).
+   - Algoritmalar: PCA (Temel Bileşen Analizi), t-SNE, LDA.
+
+--------------------------------------------------------------------------------
+C. PEKİŞTİRMELİ ÖĞRENME (REINFORCEMENT LEARNING)
+--------------------------------------------------------------------------------
+Model (Ajan), bir ortamla etkileşime girer ve deneme-yanılma yoluyla öğrenir. Doğru etiketler yoktur, bunun yerine "Ödül" ve "Ceza" sistemi vardır.
+* Analoji: Bir köpeğe "otur" komutunu öğretmek. Doğru yaparsa ödül maması alır, yanlış yaparsa alamaz.
+
+Temel Bileşenler:
+- Ajan (Agent): Öğrenen sistem (Örn: Robot, Satranç yazılımı).
+- Ortam (Environment): Ajanın hareket ettiği dünya.
+- Eylem (Action): Ajanın yapabileceği hareketler.
+- Ödül (Reward): Eylemin sonucuna göre alınan puan.
+
+Kullanım Alanları:
+- Oyun oynayan yapay zekalar (AlphaGo, Dota 2 botları).
+- Robotik (Yürüyen robotlar).
+- Otonom araçların park etme eğitimi.
+
+================================================================================
+3. ARA VE MODERN ÖĞRENME TÜRLERİ
+================================================================================
+Klasik üçlünün dışında, modern problemlerin çözümü için gelişmiş teknikler mevcuttur.
+
+--------------------------------------------------------------------------------
+D. YARI GÖZETİMLİ ÖĞRENME (SEMI-SUPERVISED LEARNING)
+--------------------------------------------------------------------------------
+Az miktarda etiketli veri ile çok miktarda etiketsiz verinin birlikte kullanılmasıdır.
+- Neden Gerekli? Veri toplamak ucuzdur ama veriyi etiketlemek (örneğin bir radyoloğun binlerce röntgeni incelemesi) pahalı ve zordur.
+- Çalışma Prensibi: Model önce az sayıdaki etiketli veriyle eğitilir, sonra öğrendiklerini kullanarak etiketsiz verileri kendisi etiketler ve onlarla tekrar eğitilir.
+
+--------------------------------------------------------------------------------
+E. KENDİ KENDİNE ÖĞRENME (SELF-SUPERVISED LEARNING)
+--------------------------------------------------------------------------------
+Etiketsiz veriden, verinin kendi parçalarını kullanarak etiket üretme yöntemidir. Özellikle Derin Öğrenme ve NLP'de (Doğal Dil İşleme) devrim yaratmıştır.
+- Örnek (ChatGPT vb.): Bir cümlenin yarısını gizler ve modelden gizli kısmı tahmin etmesini ister. "Ankara Türkiye'nin [GİZLİ]dir." -> Model "Başkenti" kelimesini bulmaya çalışır.
+- Farkı: İnsan etiketlemesi gerekmez, veri kendi kendisinin etiketidir.
+
+--------------------------------------------------------------------------------
+F. TRANSFER ÖĞRENMESİ (TRANSFER LEARNING)
+--------------------------------------------------------------------------------
+Bir problem üzerinde eğitilmiş bir modelin bilgisinin, benzer başka bir probleme aktarılmasıdır.
+- Örnek: 1 milyon kedi/köpek resmiyle eğitilmiş bir modeli alıp, son katmanlarını değiştirerek çok az veriyle "Kutup Ayısı / Boz Ayı" ayırt edici hale getirmek.
+- Avantajı: Modeli sıfırdan eğitmek yerine, hazır "bilgi birikimini" kullanmak zaman ve işlem gücü kazandırır.
+
+================================================================================
+ÖZET KARŞILAŞTIRMA TABLOSU
+================================================================================
+TÜR                 | ETİKET DURUMU     | HEDEF                     | TİPİK ÖRNEK
+------------------- | ----------------- | ------------------------- | -------------------
+Gözetimli           | Var (Tam)         | Tahmin (Sayı/Sınıf)       | Ev Fiyatı, Spam
+Gözetimsiz          | Yok               | Yapı Keşfi / Gruplama     | Müşteri Segmenti
+Yarı Gözetimli      | Az Var, Çok Yok   | Verimlilik / Maliyet      | Tıbbi Görüntüleme
+Pekiştirmeli        | Ödül/Ceza Sistemi | Strateji Geliştirme       | Satranç, Robotik
+Transfer            | Başka Görevden    | Bilgi Aktarımı            | Görüntü Tanıma
