@@ -240,6 +240,9 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - **13.6.1 - CART:** Karar ağaçları teorisi, Gini safsızlığı ve entropi kavramları.
     - **13.6.2_cart.py:** Python ile Karar Ağacı Sınıflandırma uygulaması, model tuning ve görselleştirme.
     - **13.6.3 - Tekrar İçin Sorular:** CART algoritması ve karar ağaçları üzerine test soruları.
+- **13.7 - Gelişmiş Ağaç Yöntemleri (Advanced Tree Methods):**
+    - **13.7.1 - Rastgele Ormanlar:** Rastgele Ormanlar algoritmasının çalışma mantığı, Bagging yöntemi ve teorik temelleri.
+    - **13.7.2_advanced_trees.py:** Random Forests, GBM, XGBoost, LightGBM ve CatBoost algoritmalarının karşılaştırmalı uygulaması. Hiperparametre optimizasyonu (GridSearchCV, RandomizedSearchCV), değişken önem düzeyleri (Feature Importance) ve doğrulama eğrileri (Validation Curves) analizi.
 - **Machine Learning Extra:**
     - `HOUSE_PRICE_PREDICTON_SOLUTION.py`: Regresyon modelleri ile ev fiyatı tahmini.
     - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
