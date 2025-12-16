@@ -1,0 +1,124 @@
+BAŞLIK: CATBOOST (CATEGORICAL BOOSTING) - KAPSAMLI REHBER
+TÜR: Yandex Labs, Kategorik Veri Uzmanı, Simetrik Ağaçlar (Oblivious Trees)
+
+================================================================================
+1. GİRİŞ: NEDEN CATBOOST?
+================================================================================
+Makine öğrenmesi modelleri matematiktir ve matematikte kelimeler (kedi, köpek, kırmızı) geçmez, sadece sayılar geçer.
+Eskiden, elimizdeki kategorik verileri (Örn: "Toyota", "BMW") sayıya çevirmek için can çekişirdik (One-Hot Encoding). Bu işlem veri setini şişirir ve yavaşlatırdı.
+
+CatBoost'un Vaadi:
+"Veriyi ön işlemden geçirmene gerek yok. Bana 'Toyota' diye ver, gerisini ben hallederim."
+
+Kökeni: Rus teknoloji devi Yandex tarafından, arama motoru sonuçlarını sıralamak için geliştirilmiştir.
+
+================================================================================
+2. EN BÜYÜK DEVRİM: KATEGORİK VERİ İŞLEME (TARGET ENCODING)
+================================================================================
+CatBoost, kategorik verileri sayıya çevirirken "Target Encoding" (Hedef Odaklı Kodlama) benzeri bir yöntem kullanır ama bunu çok daha akıllıca yapar.
+
+Klasik Sorun:
+Eğer "Toyota" kelimesini, tüm Toyota'ların ortalama fiyatıyla değiştirirseniz (Target Mean), model cevabı görmüş olur. Buna "Data Leakage" (Veri Sızıntısı) denir. Model ezberler (Overfitting).
+
+CatBoost Çözümü (Ordered Target Statistics):
+Veriyi rastgele karıştırır (Permütasyon). Her satır için sadece KENDİNDEN ÖNCE gelen satırların istatistiğini kullanır.
+
+Mantık:
+- 1. Satır (Toyota): Henüz geçmiş yok. Ortalama = Genel Ortalama.
+- 50. Satır (Toyota): Kendinden önceki 49 Toyota'nın ortalamasını alır.
+- 100. Satır (Toyota): Kendinden önceki 99 Toyota'nın ortalamasını alır.
+
+Sonuç: Geleceği görmeden (Sızıntı olmadan) kategorik veriyi mükemmel bir sayısal değere dönüştürür.
+
+================================================================================
+3. MİMARİ FARK: SİMETRİK AĞAÇLAR (OBLIVIOUS TREES)
+================================================================================
+
+
+XGBoost ve LightGBM asimetrik (dengesiz) ağaçlar kurabilir. CatBoost ise takıntılı derecede düzenlidir; "Simetrik Ağaçlar" kurar.
+
+Simetrik Ağaç Nedir?
+Ağacın aynı derinliğindeki tüm düğümler AYNI soruyla bölünür.
+- Seviye 1: Hepsi "Yaş > 20" mi diye sorar.
+- Seviye 2: Hepsi "Gelir > 5000" mi diye sorar.
+
+Avantajı Nedir?
+1. Aşırı Öğrenmeyi Engeller: Yapı çok katı olduğu için modelin veriyi ezberlemesi zordur.
+2. İnanılmaz Hızlı Tahmin (Inference): Ağaç yapısı çok düzenli olduğu için bilgisayar işlemcisi (CPU Cache) tahmin yaparken veriyi çok hızlı işler. Eğitimde yavaş olabilir ama canlıya alındığında (Production) çok hızlı cevap döner.
+
+================================================================================
+4. ORDERED BOOSTING: TAHMİN KAYMASINI (PREDICTION SHIFT) ENGELLEME
+================================================================================
+Bu, CatBoost'un matematiksel kalbidir.
+
+Sorun:
+Standart Gradient Boosting'de, hatayı hesaplarken (Residual) kullandığımız veri ile ağacı eğittiğimiz veri aynıdır. Bu, modelin hatayı olduğundan küçük sanmasına yol açar (Bias).
+
+CatBoost Çözümü:
+Veriyi sanal olarak parçalara ayırır.
+- Model A'yı verinin ilk yarısıyla eğitir, ikinci yarısındaki hatayı hesaplar.
+- Model B'yi başka bir parçayla eğitir, diğerinin hatasını hesaplar.
+Bu sayede "Kendi kuyruğunu kovalayan kedi" gibi olmaz; hatayı her zaman "görmediği" veriler üzerinden ölçer.
+
+================================================================================
+5. SAYISAL SENARYO: RENKLERİ SAYIYA ÇEVİRME
+================================================================================
+Basitleştirilmiş "Smoothed Target Encoding" Formülü:
+Değer = (Sınıftaki Hedef Toplamı + Prior) / (Sınıftaki Veri Sayısı + 1)
+
+Veri Seti: [Kırmızı, Kırmızı, Mavi, Kırmızı]
+Hedefler: [1, 0, 1, 1]
+Prior (Başlangıç Tahmini): 0.5 olsun.
+
+Dönüşüm Süreci (Ordered - Sıralı):
+1. Satır (Kırmızı): Geçmişte hiç Kırmızı yok.
+   Değer = (0 + 0.5) / (0 + 1) = 0.5
+
+2. Satır (Kırmızı): Geçmişte 1 tane Kırmızı var (Hedefi 1).
+   Değer = (1 + 0.5) / (1 + 1) = 0.75
+
+3. Satır (Mavi): Geçmişte Mavi yok.
+   Değer = 0.5
+
+4. Satır (Kırmızı): Geçmişte 2 tane Kırmızı var (Hedefleri 1 ve 0, Toplam 1).
+   Değer = (1 + 0.5) / (2 + 1) = 0.5
+
+*Gördüğünüz gibi, her "Kırmızı" farklı bir sayıya dönüştü. Bilgi zenginleşti.*
+
+================================================================================
+6. KRİTİK PARAMETRELER (TUNING REHBERİ)
+================================================================================
+CatBoost genellikle "Varsayılan Ayarlarla" (Default) en iyi çalışan modeldir. Yine de bilmeniz gerekenler:
+
+1. `cat_features`: BU ZORUNLUDUR. Modele hangi sütunların kategorik olduğunu (indekslerini) söylemelisiniz.
+2. `iterations`: Ağaç sayısı (XGBoost'taki n_estimators). Genelde 1000 ve üzeri.
+3. `learning_rate`: Öğrenme hızı. CatBoost bunu veri setine göre otomatik belirleyebilir.
+4. `depth`: Ağaç derinliği. Simetrik olduğu için genelde 6-10 arası idealdir (XGBoost'tan biraz daha derin olabilir).
+5. `border_count`: Sayısal değişkenleri bölerken kaç tane "Kova" kullanılacağı (LightGBM histogram mantığı).
+
+================================================================================
+7. AVANTAJLAR VE DEZAVANTAJLAR
+================================================================================
+
+AVANTAJLAR:
+1. Kategorik Veri Kralı: One-Hot Encoding ile uğraşmanıza gerek yoktur, hatta yapmamanız daha iyidir.
+2. Overfitting Direnci: Ordered Boosting ve Simetrik Ağaçlar sayesinde ezberlemesi çok zordur. Küçük veri setlerinde bile harika çalışır.
+3. Varsayılan Performans: Parametre ayarı yapmadan (Hyperparameter Tuning) genellikle en iyi sonucu verir.
+4. Görsellik: Eğitim sırasında harika grafikler çizer (CatBoost Viewer).
+
+DEZAVANTAJLAR:
+1. Yavaş Eğitim: Özellikle "Ordered" modunda ve çok fazla kategorik veri varsa, LightGBM'e göre eğitimi çok daha uzun sürer.
+2. Kapalı Kutu: Özelleştirilmesi (Custom Loss Functions) XGBoost kadar esnek değildir.
+
+================================================================================
+BÜYÜK FİNAL: ÜÇ SİLAHŞÖRÜN KARŞILAŞTIRMASI
+================================================================================
+ÖZELLİK             | XGBOOST                 | LIGHTGBM                | CATBOOST
+------------------- | ----------------------- | ----------------------- | -----------------------
+Çıkış Yılı          | 2014                    | 2017 (Microsoft)        | 2017 (Yandex)
+Ağaç Yapısı         | Level-wise (Katmanlı)   | Leaf-wise (Yaprak)      | Symmetric (Simetrik)
+Hız (Eğitim)        | Hızlı                   | En Hızlı 🚀             | Yavaş (Ama kaliteli)
+Hız (Tahmin)        | Hızlı                   | Hızlı                   | En Hızlı (Simetri farkı)
+Kategorik Veri      | One-Hot (Genelde)       | İyi (Native)            | Mükemmel (İhtisas Alanı)
+Kullanıcı Dostu     | Orta (Ayar ister)       | Zor (Hassas ayar)       | Kolay (Otomatik)
+En İyi Senaryo      | Kaggle Yarışmaları      | Büyük Veri (Big Data)   | Kategorik / Karmaşık Veri

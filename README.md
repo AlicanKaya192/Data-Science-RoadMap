@@ -242,7 +242,12 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - **13.6.3 - Tekrar İçin Sorular:** CART algoritması ve karar ağaçları üzerine test soruları.
 - **13.7 - Gelişmiş Ağaç Yöntemleri (Advanced Tree Methods):**
     - **13.7.1 - Rastgele Ormanlar:** Rastgele Ormanlar algoritmasının çalışma mantığı, Bagging yöntemi ve teorik temelleri.
-    - **13.7.2_advanced_trees.py:** Random Forests, GBM, XGBoost, LightGBM ve CatBoost algoritmalarının karşılaştırmalı uygulaması. Hiperparametre optimizasyonu (GridSearchCV, RandomizedSearchCV), değişken önem düzeyleri (Feature Importance) ve doğrulama eğrileri (Validation Curves) analizi.
+    - **13.7.2 - Gradient Boosting Machines:** GBM algoritmasının çalışma prensibi, Boosting yöntemi ve hata düzeltme yaklaşımı.
+    - **13.7.3 - XGBoost ( eXtreme Gradient Boosting ):** XGBoost algoritmasının özellikleri, ölçeklenebilirliği ve optimizasyon teknikleri.
+    - **13.7.4 - LightGBM:** LightGBM algoritmasının yaprak odaklı büyüme stratejisi ve hız avantajları.
+    - **13.7.5 - CatBoost:** CatBoost algoritmasının kategorik değişkenlerle çalışma yeteneği ve simetrik ağaç yapısı.
+    - **13.7.6_advanced_trees.py:** Random Forests, GBM, XGBoost, LightGBM ve CatBoost algoritmalarının karşılaştırmalı uygulaması. Hiperparametre optimizasyonu (GridSearchCV, RandomizedSearchCV), değişken önem düzeyleri (Feature Importance) ve doğrulama eğrileri (Validation Curves) analizi.
+    - **13.7.7 - Tekrar İçin Sorular:** Gelişmiş ağaç yöntemleri (Random Forest, GBM, XGBoost, LightGBM, CatBoost) üzerine kapsamlı test soruları.
 - **Machine Learning Extra:**
     - `HOUSE_PRICE_PREDICTON_SOLUTION.py`: Regresyon modelleri ile ev fiyatı tahmini.
     - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.

@@ -556,4 +556,4 @@ for i in range(len(rf_val_params)):
     val_curve_params(rf_model, X, y, rf_val_params[i][0], rf_val_params[i][1])
 
 # İlk parametre setinin değer aralığını görüntülüyoruz.
-rf_val_params[0][1]
+rf_val_params[0][1] 

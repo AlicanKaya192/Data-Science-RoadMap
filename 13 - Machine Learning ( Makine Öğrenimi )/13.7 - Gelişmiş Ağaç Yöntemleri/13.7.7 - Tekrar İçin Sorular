@@ -1,0 +1,218 @@
+SORULARIN CEVAPLARI EN ALTTA BULUNMAKTA
+
+------------------------------------------------------------------------------------
+
+1. Random Forest, ... ile ... yöntemlerinin birleşimi ile oluşmuştur. Boşlukları doldurunuz.
+
+A) Bagging, Random Subspace
+B) LightGBM, CatBoost
+C) Doğrusal Regresyon, Lojistik Regresyon
+D) CART, GBM
+
+------------------------------------------------------------------------------------
+
+2. Python'da Rastgele Ormanlar modelini oluşturmak için hangi komut kullanılır?
+
+A) DecisionTreeClassifier
+B) RandomForest
+C) RF
+D) RandomForestClassifier
+
+------------------------------------------------------------------------------------
+
+3. Zayıf sınıflandırıcıların bir araya gelerek güçlü bir sınıflandırıcı oluşturma fikrine dayalı olan makine öğrenmesi modeli hangisidir?
+
+A) GBM
+B) XGBoost
+C) CatBoost
+D) LightGBM
+
+------------------------------------------------------------------------------------
+
+4. GBM ile XGBoost arasındaki temel fark nedir?
+
+A) GBM, yalnızca regresyon problemleri için kullanılırken, XGBoost sadece sınıflandırma problemleri için kullanılır.
+B) XGBoost, yalnızca düşük boyutlu verilerle çalışırken, GBM daha büyük veri kümeleri için uygundur.
+C) GBM, tahminlerdeki hataları düzeltmek için sadece rastgele ağaçlar kullanırken, XGBoost daha karmaşık düzenlemeleri içeren ağaçlar kullanır.
+D) XGBoost, daha hızlı eğitim süreleri ve daha iyi performans ile GBM'e kıyasla genellikle daha gelişmiş bir algoritmadır.
+
+------------------------------------------------------------------------------------
+
+5. Kategorik değişkenler ile otomatik olarak mücadele edebilen, hızlı, başarılı bir diğer GBM türevi olan makine öğrenmesi modeli hangisidir?
+
+A) LightGBM
+B) XGBoost
+C) CatBoost
+D) Hiçbiri
+
+------------------------------------------------------------------------------------
+
+6. Random Forest algoritmasında `n_estimators` parametresi neyi ifade eder?
+
+A) Ağacın maksimum derinliğini
+B) Oluşturulacak karar ağacı sayısını
+C) Bölünme için gereken minimum örnek sayısını
+D) Her düğümde göz önünde bulundurulacak değişken sayısını
+
+------------------------------------------------------------------------------------
+
+7. Gradient Boosting Machines (GBM) algoritmasında, her yeni ağaç neyi hedefler?
+
+A) Önceki ağaçların tahminlerini ortalamayı
+B) Veri setindeki rastgele bir alt kümeyi sınıflandırmayı
+C) Önceki ağaçların yaptığı hataları (residuals) tahmin etmeyi
+D) Ağaç derinliğini artırmayı
+
+------------------------------------------------------------------------------------
+
+8. XGBoost algoritmasının "eXtreme" olarak adlandırılmasının temel nedenlerinden biri nedir?
+
+A) Sadece ekstrem değerleri tahmin etmesi
+B) Hız ve performans için optimize edilmiş, ölçeklenebilir yapısı
+C) Sadece çok büyük veri setlerinde çalışması
+D) Karar ağaçları yerine sinir ağları kullanması
+
+------------------------------------------------------------------------------------
+
+9. LightGBM'in diğer ağaç tabanlı yöntemlerden (örneğin XGBoost) en belirgin farkı olan büyüme stratejisi nedir?
+
+A) Level-wise (Seviye odaklı) büyüme
+B) Depth-wise (Derinlik odaklı) büyüme
+C) Leaf-wise (Yaprak odaklı) büyüme
+D) Random-wise (Rastgele) büyüme
+
+------------------------------------------------------------------------------------
+
+10. CatBoost algoritmasının ismi nereden gelmektedir?
+
+A) Category + Boosting
+B) Cat + Boost (Hızlı kedi)
+C) Categorical + Bootstrap
+D) Classification + Boosting
+
+------------------------------------------------------------------------------------
+
+11. Aşağıdaki kod bloğunda `cv=10` parametresi ne anlama gelmektedir?
+
+```python
+cv_results = cross_validate(rf_model, X, y, cv=10, scoring=["accuracy", "f1", "roc_auc"])
+```
+
+A) Modelin 10 kez eğitileceğini
+B) Veri setinin 10 parçaya bölünüp, 10 katlı çapraz doğrulama yapılacağını
+C) En iyi 10 özelliğin seçileceğini
+D) Ağaç derinliğinin 10 olacağını
+
+------------------------------------------------------------------------------------
+
+12. `model.feature_importances_` özniteliği bize neyi verir?
+
+A) Modelin eğitim süresini
+B) Değişkenlerin model tahminindeki önem düzeylerini
+C) Modelin doğruluk skorunu
+D) Kullanılan hiperparametreleri
+
+------------------------------------------------------------------------------------
+
+13. Aşağıdaki kodda `n_jobs=-1` parametresinin işlevi nedir?
+
+```python
+GridSearchCV(rf_model, rf_params, cv=5, n_jobs=-1, verbose=True)
+```
+
+A) İşlemi tek bir işlemci çekirdeğinde çalıştırır.
+B) İşlemi arka planda sessizce çalıştırır.
+C) Mevcut tüm işlemci çekirdeklerini kullanarak işlemi paralel ve hızlı çalıştırır.
+D) İşlem sırasında hata oluşursa durdurur.
+
+------------------------------------------------------------------------------------
+
+14. `validation_curve` fonksiyonu temel olarak neyi analiz etmek için kullanılır?
+
+A) Modelin eğitim süresini
+B) Hangi değişkenlerin daha önemli olduğunu
+C) Bir hiperparametrenin farklı değerlerinde modelin aşırı öğrenme (overfitting) veya eksik öğrenme (underfitting) durumunu
+D) Veri setindeki eksik değerleri
+
+------------------------------------------------------------------------------------
+
+15. Random Forest ve GBM arasındaki temel yapısal fark nedir?
+
+A) Random Forest bağımlı ağaçlar kurar, GBM bağımsız ağaçlar kurar.
+B) Random Forest Bagging (paralel) kullanır, GBM Boosting (ardışık) kullanır.
+C) Random Forest sadece sınıflandırma yapar, GBM sadece regresyon yapar.
+D) Random Forest daha yavaştır, GBM daha hızlıdır.
+
+------------------------------------------------------------------------------------
+
+16. LightGBM modelinde `colsample_bytree` parametresi ne işe yarar?
+
+A) Ağaç başına kullanılacak gözlem (satır) oranını belirler.
+B) Ağaç başına kullanılacak değişken (sütun) oranını belirler.
+C) Ağacın maksimum derinliğini belirler.
+D) Öğrenme oranını belirler.
+
+------------------------------------------------------------------------------------
+
+17. `RandomizedSearchCV` ile `GridSearchCV` arasındaki temel fark nedir?
+
+A) RandomizedSearchCV tüm kombinasyonları dener, GridSearchCV rastgele seçer.
+B) RandomizedSearchCV rastgele belirlenen bir kombinasyon alt kümesini dener, GridSearchCV tüm olası kombinasyonları dener.
+C) RandomizedSearchCV daha yavaştır.
+D) İkisi de aynı işlemi yapar, sadece isimleri farklıdır.
+
+------------------------------------------------------------------------------------
+
+18. Aşağıdaki kod parçası ne yapmaktadır?
+
+```python
+rf_final = rf_model.set_params(**rf_best_grid.best_params_, random_state=17).fit(X, y)
+```
+
+A) Modeli varsayılan parametrelerle eğitir.
+B) GridSearch sonucunda bulunan en iyi parametreleri modele atar ve tüm veri setiyle final modelini eğitir.
+C) Modeli test verisi üzerinde değerlendirir.
+D) Modelin parametrelerini rastgele değiştirir.
+
+------------------------------------------------------------------------------------
+
+19. Bir ağaç modelinde `max_depth` (maksimum derinlik) parametresini çok yüksek tutmak genellikle neye yol açar?
+
+A) Underfitting (Eksik Öğrenme)
+B) Overfitting (Aşırı Öğrenme)
+C) Modelin hiç öğrenmemesine
+D) Eğitim süresinin kısalmasına
+
+------------------------------------------------------------------------------------
+
+20. "Ensemble Learning" (Topluluk Öğrenmesi) ne demektir?
+
+A) Tek bir güçlü model yerine, birden fazla modelin tahminlerini birleştirerek daha başarılı bir sonuç elde etme yaklaşımı.
+B) Veri setini parçalara ayırma işlemi.
+C) Sadece karar ağaçları kullanma zorunluluğu.
+D) Veri görselleştirme tekniği.
+
+------------------------------------------------------------------------------------
+
+CEVAP ANAHTARI:
+
+1 - A
+2 - D
+3 - A
+4 - D
+5 - C
+6 - B
+7 - C
+8 - B
+9 - C
+10 - A
+11 - B
+12 - B
+13 - C
+14 - C
+15 - B
+16 - B
+17 - B
+18 - B
+19 - B
+20 - A
