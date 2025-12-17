@@ -7,6 +7,11 @@
 # Elimizdeki veri seti üzerinden minimum hata ile ev fiyatlarını tahmin eden bir makine öğrenmesi modeli geliştiriniz ve kaggle yarışmasına tahminlerinizi yükleyiniz.
 # https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview/evaluation
 
+# Bu dosya, House Prices (Kaggle) yarışması için uçtan uca bir çözüm akışını içerir.
+# Aşamalar: Veri okuma, EDA, özellik mühendisliği, encoding, modelleme,
+# hiperparametre optimizasyonu, önem düzeyleri ve submission dosyasının oluşturulması.
+# Amaç: Açıklayıcı yorumlar ve fonksiyonlara docstring ekleyerek okunabilirliği artırmak.
+
 
 # 1. GEREKLILIKLER
 
@@ -59,6 +64,9 @@ train = pd.read_csv("Datasets ( Genel )/train.csv")
 test = pd.read_csv("Datasets ( Genel )/test.csv")
 df = pd.concat([train, test], axis=0, ignore_index=True)
 
+# İlk gözlemler için veri setinin baş ve son satırlarını inceleyelim.
+# Bu adım, veri yapısı ve sütunların beklenen şekilde birleşip birleşmediğini hızlıca kontrol etmeye yarar.
+
 
 df.head()
 df.tail()
@@ -67,6 +75,22 @@ df.tail()
 ######################################
 
 def check_df(dataframe):
+    """
+    Veri çerçevesinin temel özetini ekrana yazdırır.
+
+    Açıklama:
+    - Boyut (satır, sütun) bilgisini gösterir.
+    - Sütun tiplerini listeler.
+    - İlk ve son birkaç satırı örnek olarak sunar.
+    - Eksik değer sayılarını gösterir.
+    - Temel yüzdelik değerleri (quantiles) hesaplayıp özetler.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): İncelenecek veri çerçevesi.
+
+    Dönüş:
+    - None: Yalnızca çıktıyı yazdırır, veri döndürmez.
+    """
     print("##################### Shape #####################")
     print(dataframe.shape)
     print("##################### Types #####################")
@@ -90,6 +114,22 @@ check_df(df)
 ##################################
 
 def grab_col_names(dataframe, cat_th=10, car_th=20):
+    """
+    Veri çerçevesindeki kategorik ve sayısal değişkenleri mantıklı eşikler ile ayırır.
+
+    Açıklama:
+    - `cat_cols`: Tipi object olanlar + sınıf sayısı `cat_th` altında olan sayısal değişkenler.
+    - `cat_but_car`: Tipi object olup sınıf sayısı `car_th` üstünde olan (kardinal) değişkenler.
+    - `num_cols`: Tipi sayısal olan ve sınıf sayısı `cat_th` üstünde olan değişkenler.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): İncelenecek veri çerçevesi.
+    - cat_th (int): Sayısal ama az sınıflı değişkenleri kategorik saymak için eşik.
+    - car_th (int): Yüksek kardinalite eşik değeri.
+
+    Dönüş:
+    - Tuple[List[str], List[str], List[str]]: (cat_cols, cat_but_car, num_cols)
+    """
     cat_cols = [col for col in dataframe.columns if dataframe[col].dtypes == "O"]
 
     num_but_cat = [col for col in dataframe.columns if dataframe[col].nunique() < cat_th and
@@ -126,6 +166,17 @@ cat_cols, cat_but_car, num_cols = grab_col_names(df)
 ######################################
 
 def cat_summary(dataframe, col_name, plot=False):
+    """
+    Kategorik bir değişken için sınıf sayıları ve oranlarını raporlar.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi.
+    - col_name (str): İncelenecek kategorik sütun adı.
+    - plot (bool): True ise, sütun dağılımını çubuk grafik ile görselleştirir.
+
+    Dönüş:
+    - None: Çıktı yazdırır ve opsiyonel grafik gösterir.
+    """
     print(pd.DataFrame({col_name: dataframe[col_name].value_counts(),
                         "Ratio": 100 * dataframe[col_name].value_counts() / len(dataframe)}))
 
@@ -145,6 +196,17 @@ for col in cat_cols:
 ######################################
 
 def num_summary(dataframe, numerical_col, plot=False):
+    """
+    Sayısal bir değişken için özet istatistikleri ve istenirse histogramı verir.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi.
+    - numerical_col (str): İncelenecek sayısal sütun adı.
+    - plot (bool): True ise histogram grafiği gösterir.
+
+    Dönüş:
+    - None: Çıktıları yazdırır ve opsiyonel grafik gösterir.
+    """
     quantiles = [0.05, 0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 0.95, 0.99]
     print(dataframe[numerical_col].describe(quantiles).T)
 
@@ -167,6 +229,17 @@ for col in num_cols:
 ######################################
 
 def target_summary_with_cat(dataframe, target, categorical_col):
+    """
+    Kategorik bir değişkenin sınıflarına göre hedef değişkenin ortalamasını raporlar.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi.
+    - target (str): Hedef değişken sütun adı (ör. 'SalePrice').
+    - categorical_col (str): İncelenecek kategorik sütun adı.
+
+    Dönüş:
+    - None: Çıktı yazdırır.
+    """
     print(pd.DataFrame({"TARGET_MEAN": dataframe.groupby(categorical_col)[target].mean()}), end="\n\n\n")
 
 
@@ -198,6 +271,17 @@ plt.show()
 
 
 def high_correlated_cols(dataframe, plot=False, corr_th=0.70):
+    """
+    Yüksek korelasyona sahip sütunları tespit eder ve isteğe bağlı olarak ısı haritası çizer.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi.
+    - plot (bool): True ise korelasyon ısı haritası çizilir.
+    - corr_th (float): Korelasyon eşik değeri (varsayılan 0.70).
+
+    Dönüş:
+    - List[str]: Korelasyonu yüksek olduğu için düşürülmesi düşünülebilecek sütun adları listesi.
+    """
     corr = dataframe.corr()
     cor_matrix = corr.abs()
     upper_triangle_matrix = cor_matrix.where(np.triu(np.ones(cor_matrix.shape), k=1).astype(bool))  # np.bool yerine bool
@@ -224,6 +308,21 @@ high_correlated_cols(df, plot=True)
 
 # Aykırı değerlerin baskılanması
 def outlier_thresholds(dataframe, variable, low_quantile=0.10, up_quantile=0.90):
+    """
+    Bir değişken için alt ve üst eşik değerlerini (aykırı değer sınırları) hesaplar.
+
+    Açıklama:
+    - Eşikler, seçilen yüzdelikler arasındaki aralık kullanılarak IQR benzeri mantıkla hesaplanır.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi.
+    - variable (str): İncelenecek sütun adı.
+    - low_quantile (float): Alt yüzdelik (varsayılan 0.10).
+    - up_quantile (float): Üst yüzdelik (varsayılan 0.90).
+
+    Dönüş:
+    - Tuple[float, float]: (low_limit, up_limit) alt ve üst sınır değerleri.
+    """
     quantile_one = dataframe[variable].quantile(low_quantile)
     quantile_three = dataframe[variable].quantile(up_quantile)
     interquantile_range = quantile_three - quantile_one
@@ -233,6 +332,16 @@ def outlier_thresholds(dataframe, variable, low_quantile=0.10, up_quantile=0.90)
 
 # Aykırı değer kontrolü
 def check_outlier(dataframe, col_name):
+    """
+    Belirtilen sütunda aykırı değer (hesaplanan eşiklerin dışında kalan) olup olmadığını kontrol eder.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi.
+    - col_name (str): Sütun adı.
+
+    Dönüş:
+    - bool: Aykırı değer varsa True, aksi halde False.
+    """
     low_limit, up_limit = outlier_thresholds(dataframe, col_name)
     if dataframe[(dataframe[col_name] > up_limit) | (dataframe[col_name] < low_limit)].any(axis=None):
         return True
@@ -247,6 +356,16 @@ for col in num_cols:
 
 # Aykırı değerlerin baskılanması
 def replace_with_thresholds(dataframe, variable):
+    """
+    Aykırı değerleri, ilgili değişken için hesaplanan alt/üst eşik değerlerine kırpar.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi (yerinde güncellenir).
+    - variable (str): Sütun adı.
+
+    Dönüş:
+    - None: Veri çerçevesini yerinde (in-place) günceller.
+    """
     low_limit, up_limit = outlier_thresholds(dataframe, variable)
     dataframe.loc[(dataframe[variable] < low_limit), variable] = low_limit
     dataframe.loc[(dataframe[variable] > up_limit), variable] = up_limit
@@ -268,6 +387,16 @@ for col in num_cols:
 
 
 def missing_values_table(dataframe, na_name=False):
+    """
+    Eksik değer içeren sütunları, eksik sayısı ve oranları ile raporlar.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi.
+    - na_name (bool): True ise, eksik değer içeren sütun adlarını liste olarak döndürür.
+
+    Dönüş:
+    - Optional[List[str]]: `na_name=True` ise sütun adları listesi, aksi halde None (yalnızca yazdırır).
+    """
     na_columns = [col for col in dataframe.columns if dataframe[col].isnull().sum() > 0]
 
     n_miss = dataframe[na_columns].isnull().sum().sort_values(ascending=False)
@@ -300,6 +429,22 @@ missing_values_table(df)
 
 # Bu fonsksiyon eksik değerlerin median veya mean ile doldurulmasını sağlar
 def quick_missing_imp(data, num_method="median", cat_length=20, target="SalePrice"):
+    """
+    Eksik değerleri hızlı bir şekilde doldurur:
+
+    - Kategorik değişkenlerde (tipi object) sınıf sayısı `cat_length` altındaysa mode ile doldurur.
+    - Sayısal değişkenlerde `num_method` ("mean" veya "median") ile doldurur.
+    - Hedef değişken `target` korunur.
+
+    Parametreler:
+    - data (pd.DataFrame): Veri çerçevesi.
+    - num_method (str): "mean" veya "median".
+    - cat_length (int): Mode ile doldurma için sınıf sayısı eşiği.
+    - target (str): Hedef değişken adı, geçici olarak korunur ve geri yazılır.
+
+    Dönüş:
+    - pd.DataFrame: Eksik değerleri doldurulmuş yeni veri çerçevesi.
+    """
     variables_with_na = [col for col in data.columns if data[col].isnull().sum() > 0]  # Eksik değere sahip olan değişkenler listelenir
 
     temp_target = data[target]
@@ -335,6 +480,17 @@ df = quick_missing_imp(df, num_method="median", cat_length=17)
 
 # Kategorik kolonların dağılımının incelenmesi
 def rare_analyser(dataframe, target, cat_cols):
+    """
+    Kategorik sütunların sınıf sayısı, dağılım oranı ve hedef ortalaması ile özetini yazdırır.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi.
+    - target (str): Hedef değişken sütun adı.
+    - cat_cols (List[str]): İncelenecek kategorik sütun adları.
+
+    Dönüş:
+    - None: Yalnızca çıktıyı yazdırır.
+    """
     for col in cat_cols:
         print(col, ":", len(dataframe[col].value_counts()))
         print(pd.DataFrame({"COUNT": dataframe[col].value_counts(),
@@ -346,6 +502,16 @@ rare_analyser(df, "SalePrice", cat_cols)
 
 # Nadir sınıfların tespit edilmesi
 def rare_encoder(dataframe, rare_perc):
+    """
+    Nadir sınıfları (frekansı `rare_perc` altında kalan) 'Rare' etiketi altında birleştirir.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi.
+    - rare_perc (float): Nadirlik eşiği (ör. 0.01).
+
+    Dönüş:
+    - pd.DataFrame: Nadir sınıfları yeniden etiketlenmiş kopya veri çerçevesi.
+    """
     temp_df = dataframe.copy()
 
     rare_columns = [col for col in temp_df.columns if temp_df[col].dtypes == 'O'
@@ -433,6 +599,16 @@ df.drop(drop_list, axis=1, inplace=True)
 cat_cols, cat_but_car, num_cols = grab_col_names(df)
 
 def label_encoder(dataframe, binary_col):
+    """
+    İkili (binary) kategorik bir sütunu 0/1 değerlerine dönüştürür.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi (yerinde güncellenir).
+    - binary_col (str): İkili kategorik sütun adı.
+
+    Dönüş:
+    - pd.DataFrame: Güncellenmiş veri çerçevesi (aynı referans).
+    """
     labelencoder = LabelEncoder()
     dataframe[binary_col] = labelencoder.fit_transform(dataframe[binary_col])
     return dataframe
@@ -444,6 +620,17 @@ for col in binary_cols:
 
 
 def one_hot_encoder(dataframe, categorical_cols, drop_first=True):
+    """
+    Belirtilen kategorik sütunlar için One-Hot Encoding uygular.
+
+    Parametreler:
+    - dataframe (pd.DataFrame): Veri çerçevesi.
+    - categorical_cols (List[str]): One-Hot uygulanacak sütun adları.
+    - drop_first (bool): Dummy tuzağından kaçınmak için ilk kategoriyi düş.
+
+    Dönüş:
+    - pd.DataFrame: One-Hot uygulanmış yeni veri çerçevesi.
+    """
     dataframe = pd.get_dummies(dataframe, columns=categorical_cols, drop_first=drop_first)
     return dataframe
 
@@ -576,6 +763,18 @@ print(f"Yeni RMSE: {rmse_new}")
 
 # feature importance
 def plot_importance(model, features, num=len(X), save=False):
+    """
+    Modeldeki özellik önem düzeylerini (feature importances) çubuk grafik ile görselleştirir.
+
+    Parametreler:
+    - model: Önem düzeylerini sağlayan ağaç temelli model (ör. LGBMRegressor).
+    - features (pd.DataFrame): Eğitimde kullanılan özellikler (sütun adları önemlidir).
+    - num (int): Grafikte gösterilecek maksimum özellik sayısı.
+    - save (bool): True ise grafiği dosyaya kaydeder.
+
+    Dönüş:
+    - None: Grafiği gösterir ve isteğe bağlı kaydeder.
+    """
 
     feature_imp = pd.DataFrame({"Value": model.feature_importances_, "Feature": features.columns})
     plt.figure(figsize=(10, 10))
@@ -605,4 +804,3 @@ predictions = final_model.predict(test_df.drop(["Id","SalePrice"], axis=1))
 dictionary = {"Id":test_df.index, "SalePrice":predictions}
 dfSubmission = pd.DataFrame(dictionary)
 dfSubmission.to_csv("housePricePredictions.csv", index=False)
-

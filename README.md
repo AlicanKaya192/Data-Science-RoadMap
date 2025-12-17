@@ -233,9 +233,12 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - **13.4.2_knn.py:** Python ile Diyabet Tahmini (Diabetes Prediction) üzerinde KNN uygulaması ve model tuning.
     - **13.4.3 - Tekrar İçin Sorular:** KNN algoritması üzerine pekiştirme soruları.
 - **13.5 - Case Studies (Uygulamalı Çalışmalar):**
-    - **Case Study 1 (Maaş Tahmini):** Doğrusal Regresyon ile deneyim yılına göre maaş tahmini uygulaması.
-    - **Case Study 2 (Churn & Fraud):** Müşteri terk ve dolandırıcılık tespiti üzerine sınıflandırma metrikleri analizi.
-    - **Case Study 3 (Telco Churn Prediction):** Uçtan uca makine öğrenmesi projesi (EDA, Preprocessing, Modelleme).
+    - **13.5.1 - Case Study 1.pdf:** Maaş tahmini projesi için görev tanımları ve açıklamalar.
+    - **13.5.2_case_study_1_uygulama.py:** Doğrusal Regresyon ile deneyim yılına göre maaş tahmini uygulaması.
+    - **15.5.3 - Case study 2.pdf:** Churn ve Fraud tespiti üzerine vaka analizi dokümanı.
+    - **15.5.4_case_study_2_uygulama.py:** Müşteri terk ve dolandırıcılık tespiti üzerine sınıflandırma metrikleri analizi.
+    - **15.5.6 - Case Study 3.pdf:** Telco Churn Prediction projesi için detaylı proje dokümanı.
+    - **15.5.7_case_study_3_uygulama.py:** Uçtan uca makine öğrenmesi projesi (EDA, Preprocessing, Modelleme).
 - **13.6 - CART (Classification & Regression Tree):**
     - **13.6.1 - CART:** Karar ağaçları teorisi, Gini safsızlığı ve entropi kavramları.
     - **13.6.2_cart.py:** Python ile Karar Ağacı Sınıflandırma uygulaması, model tuning ve görselleştirme.
@@ -256,8 +259,11 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
         > * [Understanding Confusion Matrix](https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62)
         > * [Understanding AUC - ROC Curve](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
         > * [Tactics to Combat Imbalanced Classes](https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/)
+- **13.9 - Case Study (House Price Prediction):**
+    - **13.9.1 - House_Price-221119-122427.pdf:** Proje ile ilgili detaylı açıklamaları ve görevleri içeren PDF dosyası.
+    - **13.9.2_HOUSE_PRICE_PREDICTON_SOLUTION.py:** Ev fiyat tahminleme projesi. Veri analizi (EDA), özellik mühendisliği (Feature Engineering), encoding, modelleme (Linear, Ridge, Lasso, ElasticNet, KNN, CART, RF, SVR, GBM, XGBoost, LightGBM, CatBoost), hiperparametre optimizasyonu ve özellik önem düzeyi analizi içeren kapsamlı çözüm.
+    - **13.9.2_HOUSE_PRICE_PREDICTON_SOLUTION.ipynb:** Projenin Kaggle uyumlu, İngilizce açıklamalı Jupyter Notebook versiyonu.
 - **Machine Learning Extra:**
-    - `HOUSE_PRICE_PREDICTON_SOLUTION.py`: Regresyon modelleri ile ev fiyatı tahmini.
     - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
     - **Değerlendirme Tabloları:** Regresyon ve Sınıflandırma modelleri için hata değerlendirme Excel dosyaları.
 

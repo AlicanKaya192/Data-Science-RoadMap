@@ -27,7 +27,7 @@ pd.set_option('display.width', 500)
 warnings.simplefilter(action='ignore', category=Warning)
 
 # Veri setinin yüklenmesi
-df = pd.read_csv("datasets/diabetes.csv")
+df = pd.read_csv("Datasets ( Genel )/diabetes.csv")
 
 # Bağımlı ve bağımsız değişkenlerin ayrılması
 # Hedef değişkenimiz (y) "Outcome" sütunudur.
