@@ -281,10 +281,10 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
 - **13.13 - Case Study 3 (FLO Müşteri Segmentasyonu):**
     - **13.13.1 - FLO_Unsupervised_Learning_Musteri_Segmantasyonu-220805-080321.pdf:** Proje ile ilgili detaylı açıklamaları ve görevleri içeren PDF dosyası.
     - **13.13.2_flo_unsupervised_learning.py:** FLO veri seti üzerinde K-Means ve Hiyerarşik Kümeleme yöntemleri ile gözetimsiz öğrenme tabanlı müşteri segmentasyonu projesi.
-- **14 - Genel Tekrar Soruları:**
-    - **14.1 - Genel Tekrar İçin Sorular:** Makine öğrenimi konularını kapsayan 70 soruluk kapsamlı test ve cevap anahtarı.
-- **15 - Machine Learning Extra:**
-    - `15.1_Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
+- **13.14 - Genel Tekrar Soruları:**
+    - **13.14.1 - Genel Tekrar İçin Sorular:** Makine öğrenimi konularını kapsayan 70 soruluk kapsamlı test ve cevap anahtarı.
+- **13.15 - Machine Learning Extra:**
+    - `13.15.1_Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
     - **Değerlendirme Tabloları:** Regresyon ve Sınıflandırma modelleri için hata değerlendirme Excel dosyaları.
 
 > **🔗 Ek Kaynaklar (Boosting Modelleri ve Değerlendirme):**
