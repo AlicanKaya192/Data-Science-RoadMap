@@ -269,6 +269,11 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - **13.10.3 - Temel Bileşen Analizi ( Principal Component Analysis ):** PCA ile boyut indirgeme ve varyans analizi.
     - **13.10.4_unsupervised_learning.py:** K-Means, Hiyerarşik Kümeleme ve PCA yöntemlerinin Python ile uygulaması. (USArrests, Hitters, Breast Cancer, Iris, Diabetes veri setleri).
     - **13.10.5 - Tekrar İçin Sorular:** Denetimsiz öğrenme konuları üzerine test soruları.
+- **13.11 - Makine Öğrenmesi Pipeline (Machine Learning Pipeline):**
+    - **13.11.1_diabetes_pipeline.py:** Uçtan uca makine öğrenmesi pipeline'ı. Veri ön işleme, özellik mühendisliği, model eğitimi ve değerlendirme adımlarının otomatikleştirilmesi.
+    - **13.11.1_diabetes_prediction.py:** Eğitilen modelin tahminleme için kullanılması.
+    - **13.11.1_diabetes_research.py:** Model geliştirme ve araştırma süreci.
+    - **13.11.2 - Tekrar İçin Sorular:** Makine öğrenmesi pipeline ve genel kavramlar üzerine test soruları.
 - **Machine Learning Extra:**
     - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
     - **Değerlendirme Tabloları:** Regresyon ve Sınıflandırma modelleri için hata değerlendirme Excel dosyaları.
