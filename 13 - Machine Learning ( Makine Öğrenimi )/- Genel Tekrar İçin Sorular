@@ -452,6 +452,186 @@ D) SVM (Mesafe temelli)
 
 ------------------------------------------------------------------------------------
 
+51. Bir online alışveriş platformu, kullanıcıların geçmiş satın alma verilerini kullanarak hangi ürünleri önereceğini tahminlemek istiyor. Hangi makine öğrenmesi öğrenme türü bu senaryoda en uygun olabilir?
+
+A) Denetimli Öğrenme
+B) Denetimsiz Öğrenme
+C) Pekiştirmeli Öğrenme
+D) Doğrusal Regresyon
+
+------------------------------------------------------------------------------------
+
+52. Bir tıp merkezi, hastaların semptomlarını inceleyerek benzer hastalık gruplarını tanımlamak istiyor. Hangi makine öğrenmesi öğrenme türü bu senaryoda en uygun olabilir?
+
+A) Denetimli Öğrenme
+B) Denetimsiz Öğrenme
+C) Pekiştirmeli Öğrenme
+D) Karar Ağaçları
+
+------------------------------------------------------------------------------------
+
+53. Bir şirket, reklam harcamaları ile satışlar arasındaki ilişkiyi anlamak istiyor. Reklam harcamaları arttıkça satışların ne yönde değiştiğini tahminlemek için hangi makine öğrenmesi yöntemi en uygun olur?
+
+A) Sınıflandırma
+B) Kümeleme
+C) Doğrusal Regresyon
+D) Karar Ağaçları
+
+------------------------------------------------------------------------------------
+
+54. Bir doğrusal regresyon modelinin Gradient Descent ile eğitiminde öğrenme hızını (learning rate) çok büyük seçmek ne tür bir sonuca yol açabilir?
+
+A) Yakınsama hızını artırabilir
+B) Optimal çözüme daha çabuk ulaşmayı sağlar
+C) Modelin ağırlıklarını daha doğru tahmin eder
+D) Ağırlık güncellemelerinin sıkça atlandığı yerel minimumlarda sıkışma riskini artırabilir
+
+------------------------------------------------------------------------------------
+
+55. XYZ Şirketi, satışlarını etkileyen faktörleri anlamak ve gelecek dönem satışlarını tahminlemek istiyor. Şirket, reklam harcamaları ile satışlar arasındaki ilişkiyi değerlendirmek için bir Doğrusal Regresyon modeli kullanmaya karar verdi. Model eğitildi ve yeni bir reklam harcaması değeri verildi. Bu değeri kullanarak gelecek dönemdeki tahmini satışları yapmak için hangi adımı izlemelidir?
+
+A) Modelin tahmin ettiği satışlar değerini ikiye katlamak
+B) Modelin ağırlık katsayıları ile yeni reklam harcaması değerini çarpmak
+C) Modelin tahmin ettiği satışlar değerini bölmek
+D) Modelin tahmin ettiği satışlar değerini küçültmek
+
+------------------------------------------------------------------------------------
+
+56. Bir şirket, ürün fiyatı, reklam harcamaları ve hava sıcaklığı gibi faktörlerin satışlar üzerindeki etkisini değerlendirmek istiyor. Bu durumda hangi regresyon yöntemi en uygun olabilir?
+
+A) Çoklu Doğrusal Regresyon
+B) Lojistik Regresyon
+C) Ridge Regresyon
+D) Lasso Regresyon
+
+------------------------------------------------------------------------------------
+
+57. Lojistik Regresyon ile Doğrusal Regresyon arasındaki temel fark nedir?
+
+A) Lojistik Regresyon sadece iki sınıfın tahmin edilmesinde kullanılırken, Doğrusal Regresyon birden fazla sınıfı tahmin etmek için kullanılır.
+B) Lojistik Regresyon sadece sürekli değerleri tahmin etmek için kullanılırken, Doğrusal Regresyon kategorik değerleri tahmin etmek için kullanılır.
+C) Lojistik Regresyon tahmin sonuçlarını [0, 1] aralığında sınırlar ve sınıflandırma problemleri için kullanılırken, Doğrusal Regresyon tahmin sonuçları sürekli değerlerdir ve regresyon problemleri için kullanılır.
+D) Lojistik Regresyon doğrusal bir denklem kullanırken, Doğrusal Regresyon lojistik bir denklem kullanır.
+
+------------------------------------------------------------------------------------
+
+58. Bir banka, müşterilerinin bir kredi ürünü başvurusunun onaylanıp onaylanmamasını tahminlemek için bir sınıflandırma modeli geliştirmek istiyor. Model, müşteri başvurularının %90'ını doğru bir şekilde tahminliyor ancak gerçekte onaylanan başvuruların sadece %60'ını doğru tahminliyor. Bu durumda hangi başarı değerlendirme metriği, modelin gerçek onaylanan başvuruları daha iyi tahminlemesini değerlendirmek için en uygun olur?
+
+A) Hassasiyet (Precision)
+B) Kesinlik (Accuracy)
+C) Özgüllük (Specificity)
+D) F1 Skoru
+
+------------------------------------------------------------------------------------
+
+59. KNN, gradient descent gibi uzaklık temelli modeller kullanılırken veri ön işleme aşamasında bağımsız değişkenlerin hangi işlemden geçmesi sonuçlara daha doğru ve/veya hızlı ulaşılmasını sağlar?
+
+A) Standartlaştırma (Standardization)
+B) Normalleştirme (Normalization)
+C) İndirgeme (Reduction)
+D) Dönüştürme (Transformation)
+
+------------------------------------------------------------------------------------
+
+60. Modeli fit etmek ve modeli değerlendirmek arasındaki farkı en iyi açıklayan seçenek hangisidir?
+
+A) Modeli fit etmek, modelin performansını ölçmek için veriyi kullanmak anlamına gelirken, modeli değerlendirmek, modeli öğrenme algoritmasıyla uyumlu hale getirmek anlamına gelir.
+B) Modeli fit etmek, veriyi modele beslemek ve modelin öğrenmesini sağlamak anlamına gelirken, modeli değerlendirmek, modelin performansını ölçmek için veriyi kullanmaktır.
+C) Modeli fit etmek, modelin öğrenme algoritmasıyla uyumlu hale getirmek anlamına gelirken, modeli değerlendirmek, veriyi modele beslemek ve modelin öğrenmesini sağlamak anlamına gelir.
+D) Modeli fit etmek, modelin performansını ölçmek için veriyi kullanmak anlamına gelirken, modeli değerlendirmek, modeli öğrenme algoritmasıyla uyumlu hale getirmek anlamına gelir.
+
+------------------------------------------------------------------------------------
+
+61. Random Forest algoritması, hangi veri tipleriyle çalışabilir?
+
+A) Sadece sayısal verilerle.
+B) Sadece metin verilerle.
+C) Hem sayısal hem de kategorik verilerle.
+D) Yalnızca tek bir veri tipiyle çalışabilir.
+
+------------------------------------------------------------------------------------
+
+62. Makine öğrenimi modelinde "feature importance" nedir?
+
+A) Modelin eğitim süresini belirten bir ölçüttür.
+B) Her bir değişkenin model için önemini ölçen bir metriktir.
+C) Veri setindeki eksik değerleri doldurmak için kullanılan bir yöntemdir.
+D) Model başarımızı ölçmek için kullanılır.
+
+------------------------------------------------------------------------------------
+
+63. ..., RandomizedSearchCV de denenecek parametre sayısını belirlemek için kullanılan hiperparametredir.
+
+A) numbers
+B) n_iter
+C) n_jobs
+D) verbose
+
+------------------------------------------------------------------------------------
+
+64. ..., küçük miktarda bilgi kaybını göze alıp değişken boyutunu azaltmak için kullanılır.
+
+A) K-means
+B) Hiyerarşik kümeleme
+C) RF
+D) Hiçbiri
+
+------------------------------------------------------------------------------------
+
+65. Bir perakende mağazası müşteri verilerini kullanarak müşterileri farklı gruplara ayırmak istemektedir. Alışveriş miktarları, tercih ettikleri ürün kategorileri gibi bilgiler bu veriler arasında yer almaktadır. Hangi makine öğrenmesi yöntemi kullanılabilir?
+
+A) Denetimli Öğrenme
+B) Karar Ağaçları
+C) Lojistik Regresyon
+D) Denetimsiz Öğrenme
+
+------------------------------------------------------------------------------------
+
+66. K-ortalamalar ve hiyerarşik kümeleme arasındaki temel fark nedir?
+
+A) K-ortalamalar, sadece iki küme oluştururken, hiyerarşik kümeleme birden fazla küme oluşturur.
+B) Hiyerarşik kümeleme, her veri noktasını ayrı bir küme olarak ele alırken, K-ortalamalar belirli sayıda merkez nokta kullanır.
+C) K-ortalamaların karmaşıklığı daha düşüktür ve daha hızlı çalışırken, hiyerarşik kümeleme daha karmaşıktır ve daha yavaş çalışır.
+D) Hiyerarşik kümeleme sonuçları daha iyi görselleştirilebilirken, K-ortalamalar daha iyi kümeleme sonuçları üretir.
+
+------------------------------------------------------------------------------------
+
+67. Python da Karar Ağacı Regresyonu (CART) modelini oluşturmak için hangi komut kullanılır?
+
+A) DecisionTreeClassifier
+B) Decision Tree
+C) CARTRegressor
+D) DecisionTreeRegressor
+
+------------------------------------------------------------------------------------
+
+68. GridSearchCV, hangi amaçla kullanılır?
+
+A) Veri önişleme yöntemlerini belirlemek için kullanılır.
+B) Modelin performansını değerlendirmek için kullanılır.
+C) En iyi hiperparametre kombinasyonunu bulmak için kullanılır.
+D) 5 katlı model kurmak için kullanılır.
+
+------------------------------------------------------------------------------------
+
+69. export_text fonksiyonu ne işe yarar?
+
+A) Bir metin dosyasını veri setiyle doldurmak için kullanılır.
+B) Bir Karar Ağacı modelini eğitmek için kullanılır.
+C) Bir Karar Ağacı modelini metin tabanlı bir açıklamayla temsil etmek için kullanılır.
+D) Bir metin tabanlı veri setini dışarı aktarmak için kullanılır.
+
+------------------------------------------------------------------------------------
+
+70. Çoklu Doğrusal Regresyon modeli nedir?
+
+A) Sadece bir bağımsız değişkenin olduğu regresyon modeli
+B) Birden fazla bağımsız değişkenin olduğu regresyon modeli
+C) Regresyon modelinin doğru tahmin etme yeteneği
+D) Modelin verileri kümelemesi
+
+------------------------------------------------------------------------------------
+
 CEVAP ANAHTARI:
 
 1 - C
@@ -504,3 +684,23 @@ CEVAP ANAHTARI:
 48 - B
 49 - B
 50 - C
+51 - A
+52 - B
+53 - C
+54 - D
+55 - B
+56 - A
+57 - C
+58 - A
+59 - A
+60 - B
+61 - C
+62 - B
+63 - B
+64 - D
+65 - D
+66 - B
+67 - D
+68 - C
+69 - C
+70 - B

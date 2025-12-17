@@ -101,6 +101,7 @@ Veri setini sistematik olarak analiz etme metodolojisi.
 Müşteri İlişkileri Yönetimi ve veri odaklı pazarlama stratejileri.
 - **9.1 CRM Giriş:**
     - **9.1.1 - CRM NEDİR ?:** CRM kavramı, Müşteri Yaşam Döngüsü (Customer Lifecycle) ve KPI'ların önemi.
+    - **9.1.2 - CRM.pdf:** CRM kavramları ve stratejileri üzerine detaylı sunum dosyası.
     - **9.1.3 - KPIs_NEDİR:** Temel Performans Göstergeleri (KPI) detayları, Müşteri Kazanma Oranı (Customer Acquisition Rate) ve Müşteri Elde Tutma Oranı (Customer Retention Rate).
     - **9.1.4 - Cohort_Analizi:** Cohort analizi tanımı, ortak özelliklere sahip grupların zaman içindeki davranışlarının incelenmesi.
 - **9.2 RFM Analizi:**
@@ -274,6 +275,8 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - **13.11.1_diabetes_prediction.py:** Eğitilen modelin tahminleme için kullanılması.
     - **13.11.1_diabetes_research.py:** Model geliştirme ve araştırma süreci.
     - **13.11.2 - Tekrar İçin Sorular:** Makine öğrenmesi pipeline ve genel kavramlar üzerine test soruları.
+- **Genel Tekrar Soruları:**
+    - **- Genel Tekrar İçin Sorular:** Makine öğrenimi konularını kapsayan 70 soruluk kapsamlı test ve cevap anahtarı.
 - **Machine Learning Extra:**
     - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
     - **Değerlendirme Tabloları:** Regresyon ve Sınıflandırma modelleri için hata değerlendirme Excel dosyaları.
