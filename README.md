@@ -330,6 +330,7 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
 | 14 - GIT | 🚧 Devam Ediyor |
 | 15 - SQL | 🚧 Devam Ediyor |
 | 16 - Time Series | ❌ Planlanıyor |
+| 17 - Docker | ❌ Planlanıyor |
 
 ---
 
