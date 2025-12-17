@@ -106,7 +106,7 @@ Müşteri İlişkileri Yönetimi ve veri odaklı pazarlama stratejileri.
     - **9.1.4 - Cohort_Analizi:** Cohort analizi tanımı, ortak özelliklere sahip grupların zaman içindeki davranışlarının incelenmesi.
 - **9.2 RFM Analizi:**
     - **9.2.1 - RFM NEDİR ?:** RFM analizi tanımı, metrikleri (Recency, Frequency, Monetary) ve müşteri segmentasyonundaki rolü.
-    - **9.2.2 - Uygulama:** Python ile RFM analizi ve müşteri segmentasyonu uygulaması.
+    - **9.2.2_rfm_analizi.py:** Python ile RFM analizi ve müşteri segmentasyonu uygulaması.
 - **9.3 Müşteri Yaşam Boyu Değeri (CLTV) ve Tahmini:**
     - **9.3.1 - Yaşam Boyu Değeri:**
         - **9.3.1.1 - What is customer lifetime value ?:** CLTV kavramı, hesaplama mantığı ve işletmeler için önemi.
@@ -117,8 +117,9 @@ Müşteri İlişkileri Yönetimi ve veri odaklı pazarlama stratejileri.
         - **9.3.2.3 - Gamma Gamma Sub Model:** Gamma-Gamma modeli ile müşterilerin ortalama işlem değerlerinin tahmini.
         - **9.3.2.4_BG-NBD_ve_GammaGamma_ile_CLTV_tahmini.py:** BG-NBD ve Gamma-Gamma modelleri ile CLTV tahmini uygulaması.
 - **9.4 Projeler:**
-    - `FLO_RFM.py`: FLO verisi ile uçtan uca RFM analizi ve segmentasyon projesi.
-    - `FLO_CLTV_Prediction.py`: FLO verisi ile BG-NBD ve Gamma-Gamma modelleri kullanılarak CLTV tahmini projesi.
+    - **9.4.1 - FLO_RFM_Analizi.pdf:** FLO RFM analizi projesi için detaylı açıklamalar ve görevler.
+    - **9.4.2_FLO_CLTV_Prediction.py:** FLO verisi ile BG-NBD ve Gamma-Gamma modelleri kullanılarak CLTV tahmini projesi.
+    - **9.4.3_FLO_RFM.py:** FLO verisi ile uçtan uca RFM analizi ve segmentasyon projesi.
 
 ### 1️⃣0️⃣ Ölçümleme Problemleri
 Ürünlerin ve kullanıcı geri bildirimlerinin doğru bir şekilde değerlendirilmesi ve sıralanması için kullanılan istatistiksel yöntemler.
@@ -274,11 +275,16 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - **13.11.1_diabetes_pipeline.py:** Uçtan uca makine öğrenmesi pipeline'ı. Veri ön işleme, özellik mühendisliği, model eğitimi ve değerlendirme adımlarının otomatikleştirilmesi.
     - **13.11.1_diabetes_prediction.py:** Eğitilen modelin tahminleme için kullanılması.
     - **13.11.1_diabetes_research.py:** Model geliştirme ve araştırma süreci.
-    - **13.11.2 - Tekrar İçin Sorular:** Makine öğrenmesi pipeline ve genel kavramlar üzerine test soruları.
-- **Genel Tekrar Soruları:**
-    - **- Genel Tekrar İçin Sorular:** Makine öğrenimi konularını kapsayan 70 soruluk kapsamlı test ve cevap anahtarı.
-- **Machine Learning Extra:**
-    - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
+- **13.12 - Case Study 2 (Scoutium Yetenek Avcılığı):**
+    - **13.12.1 - Scoutium_Yetenek_Avcılığı_Sınıflandırma.pdf:** Proje ile ilgili detaylı açıklamaları ve görevleri içeren PDF dosyası.
+    - **13.12.2_scoutium_prediction.py:** Scoutium veri seti üzerinde makine öğrenmesi ile yetenek avcılığı sınıflandırma projesi. Random Forest, GBM, XGBoost ve LightGBM modellerinin kullanımı.
+- **13.13 - Case Study 3 (FLO Müşteri Segmentasyonu):**
+    - **13.13.1 - FLO_Unsupervised_Learning_Musteri_Segmantasyonu-220805-080321.pdf:** Proje ile ilgili detaylı açıklamaları ve görevleri içeren PDF dosyası.
+    - **13.13.2_flo_unsupervised_learning.py:** FLO veri seti üzerinde K-Means ve Hiyerarşik Kümeleme yöntemleri ile gözetimsiz öğrenme tabanlı müşteri segmentasyonu projesi.
+- **14 - Genel Tekrar Soruları:**
+    - **14.1 - Genel Tekrar İçin Sorular:** Makine öğrenimi konularını kapsayan 70 soruluk kapsamlı test ve cevap anahtarı.
+- **15 - Machine Learning Extra:**
+    - `15.1_Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
     - **Değerlendirme Tabloları:** Regresyon ve Sınıflandırma modelleri için hata değerlendirme Excel dosyaları.
 
 > **🔗 Ek Kaynaklar (Boosting Modelleri ve Değerlendirme):**
@@ -320,9 +326,10 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
 | 10 - Ölçümleme Problemleri | ✅ Tamamlandı |
 | 11 - Tavsiye Sistemleri | ✅ Tamamlandı |
 | 12 - Feature Engineering | ✅ Tamamlandı |
-| 13 - Machine Learning | 🚧 Devam Ediyor |
-| SQL | 🚧 Devam Ediyor |
-| Time Series | ❌ Planlanıyor |
+| 13 - Machine Learning | ✅ Tamamlandı |
+| 14 - GIT | 🚧 Devam Ediyor |
+| 15 - SQL | 🚧 Devam Ediyor |
+| 16 - Time Series | ❌ Planlanıyor |
 
 ---
 

@@ -149,3 +149,52 @@ MÜLAKAT SORULARI
    2. Minimum Yaprak Düğüm Sayısı (min_samples_leaf): Bu hiperparametre, bir yaprak düğümünde bulunması gereken minimum örnek sayısını belirler.
       Daha yüksek bir değer, ağacın daha genel olmasını sağlar ve aşırı öğrenmeyi önlemeye yardımcı olabilir.
       Bu hiperparametre, modelin esnekliğini ve genelleme yeteneğini etkiler."
+
+15. Sunumlarınızı farklı izleyiciler için nasıl değiştirirsiniz? (örneğin teknik geçmişi olan ve olmayan kişiler)
+
+   "Sunumlarımı izleyicinin teknik geçmişine göre uyarlamak için öncelikle izleyicinin bilgi seviyesini ve ilgi alanlarını değerlendiririm.
+   Teknik geçmişi olan izleyiciler için, daha derinlemesine teknik detaylara ve metodolojilere odaklanırım.
+   Bu tür izleyicilere, kullanılan algoritmaların matematiksel temelleri, model performans metrikleri ve veri işleme teknikleri hakkında daha fazla bilgi sunarım.
+   Ayrıca, kod örnekleri ve teknik terimler kullanmaktan çekinmem.
+
+   Öte yandan, teknik geçmişi olmayan izleyiciler için sunumumu daha sade ve anlaşılır hale getiririm.
+   Karmaşık teknik terimleri basit bir dille açıklarım ve görsel öğeler (grafikler, diyagramlar) kullanarak kavramları somutlaştırırım.
+   Ayrıca, gerçek dünya uygulamaları ve iş sonuçlarına odaklanarak, izleyicinin ilgisini çekmeye çalışırım.
+   Bu tür izleyicilere, modelin nasıl çalıştığını ve iş süreçlerine nasıl katkıda bulunduğunu vurgularım.
+
+   Genel olarak, izleyici kitlesine uygun bir dil ve içerik seçmek, sunumun etkili ve anlaşılır olmasını sağlar."
+
+16. PCA nedir? Hangi amaçlar için kullanılır?
+
+   "PCA (Principal Component Analysis), çok boyutlu veri setlerinde boyut indirgeme amacıyla kullanılan bir istatistiksel tekniktir.
+   PCA, orijinal değişkenler arasındaki korelasyonları analiz ederek, verinin varyansını en iyi şekilde temsil eden yeni, daha az sayıda değişken (ana bileşenler) oluşturur.
+   Bu ana bileşenler, orijinal değişkenlerin doğrusal kombinasyonlarıdır ve birbirinden bağımsızdır.
+
+   PCA'nın başlıca kullanım amaçları şunlardır:
+   1. Boyut İndirgeme: Yüksek boyutlu veri setlerinde, gereksiz veya az bilgi içeren değişkenleri azaltarak veri setini daha yönetilebilir hale getirir.
+   2. Görselleştirme: İki veya üç boyuta indirgenmiş veriler, görselleştirme için kullanılabilir, bu da veri yapısını ve ilişkilerini daha iyi anlamayı sağlar.
+   3. Gürültü Azaltma: PCA, verideki gürültüyü azaltarak model performansını artırabilir.
+   4. Özellik Çıkarımı: Yeni özellikler oluşturmak için kullanılabilir, bu da makine öğrenmesi modellerinin performansını iyileştirebilir.
+
+   PCA, özellikle büyük veri setlerinde ve yüksek boyutlu verilerle çalışırken faydalıdır."
+
+17. Unsupervised learning sürecinden supervised learning’e nasıl geçeriz?
+
+   "Unsupervised learning (denetimsiz öğrenme) sürecinden supervised learning (denetimli öğrenme) sürecine geçiş yapmak için aşağıdaki adımlar izlenebilir:
+   1. Veri Keşfi ve Ön İşleme: Unsupervised learning ile elde edilen veriler üzerinde keşif yaparak, veri setindeki yapıları ve desenleri anlamak önemlidir. Eksik verilerin doldurulması, aykırı değerlerin tespiti ve veri normalizasyonu gibi ön işleme adımları gerçekleştirilir.
+   2. Kümeleme Sonuçlarının Etiketlenmesi: Unsupervised learning teknikleri (örneğin, K-means kümeleme) kullanılarak veriler gruplandırılır. Elde edilen kümeler, domain bilgisi veya uzman görüşü kullanılarak etiketlenir. Bu etiketler, supervised learning için hedef değişken olarak kullanılabilir.
+   3. Özellik Mühendisliği: Unsupervised learning sürecinde elde edilen yapılar ve desenler, yeni özellikler oluşturmak için kullanılabilir. Bu yeni özellikler, supervised learning modellerinin performansını artırabilir.
+   4. Model Eğitimi: Elde edilen etiketli veri seti kullanılarak supervised learning modelleri (örneğin, karar ağaçları, lojistik regresyon) eğitilir.
+   5. Model Değerlendirme ve İyileştirme: Eğitilen modellerin performansı değerlendirilir ve gerekirse hiperparametre ayarlamaları veya model iyileştirmeleri yapılır.
+
+   Bu süreç, unsupervised learning ile elde edilen bilgilerin supervised learning modellerine entegre edilmesini sağlar ve daha etkili tahminler yapılmasına olanak tanır."
+
+18. K-Means kümeleme algoritması nasıl çalışır?
+
+   "K-Means kümeleme algoritması, verileri K adet kümeye ayırmak için kullanılan popüler bir denetimsiz öğrenme yöntemidir.
+   Algoritmanın çalışma prensibi şu şekildedir:
+   1. K Değerinin Belirlenmesi: Kullanıcı tarafından belirlenen K sayısı, oluşturulacak küme sayısını ifade eder.
+   2. Başlangıç Merkezlerinin Seçimi: Rastgele olarak K adet başlangıç küme merkezi (centroid) seçilir.
+   3. Küme Atama: Her veri noktası, en yakın küme merkezine atanır. Bu, genellikle Öklidyen mesafe kullanılarak yapılır.
+   4. Merkezlerin Güncellenmesi: Her küme için yeni merkezler, o kümedeki tüm veri noktalarının ortalaması alınarak hesaplanır.
+
