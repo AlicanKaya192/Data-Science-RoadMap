@@ -1,0 +1,36 @@
+**Başlık:** �� Veri Bilimi Yolculuğumun Başucu Kaynağı: Data Science Roadmap!
+
+Veri Bilimi ve Makine Öğrenimi alanındaki öğrenim sürecimi, aldığım notları ve geliştirdiğim projeleri tek bir çatı altında topladığım **Data Science Roadmap** repository'mi sizlerle paylaşmaktan heyecan duyuyorum.
+
+Bu proje, sadece kodlardan ibaret sıradan bir repo değil; Python temellerinden başlayıp ileri seviye Makine Öğrenimi modellerine uzanan, teorik ve pratik kaynaklarla zenginleştirilmiş yaşayan bir kütüphane! 📚
+
+📂 **İçerikte Neler Var?**
+
+🔹 **Kapsamlı Teknik Modüller:**
+*   **Veri Analizi & Görselleştirme:** Numpy, Pandas, Matplotlib, Seaborn ile veri manipülasyonu.
+*   **CRM Analitiği:** RFM Analizi, CLTV Tahmini (BG-NBD & Gamma-Gamma) ve Müşteri Segmentasyonu.
+*   **Ölçümleme & A/B Testleri:** İstatistiksel testler, ürün sıralama ve puanlama algoritmaları.
+*   **Tavsiye Sistemleri:** Birliktelik Kuralı, İçerik ve İşbirlikçi Filtreleme, Matris Faktörleştirme.
+*   **Feature Engineering:** Aykırı/Eksik değer analizi, Encoding, Scaling ve özellik çıkarımı.
+*   **Machine Learning:** Regresyon, Sınıflandırma, Gelişmiş Ağaç Yöntemleri (XGBoost, LightGBM, CatBoost) ve Unsupervised Learning.
+
+🛠 **Gerçek Hayat Projeleri (Case Studies):**
+Teoriyi pratiğe dökmek için **FLO**, **Scoutium**, **Armut** ve **Telco** gibi sektör örnekleriyle hazırladığım uçtan uca projeler.
+
+💡 **Fark Yaratan Ekstra Kaynaklar:**
+Bu repoyu sadece bir kod deposu olmaktan çıkaran materyaller:
+*   📄 **PDF Ders Notları:** Konuların teorik temellerini anlatan detaylı dokümanlar.
+*   ❓ **Konu Tekrar Soruları & Kahoot!:** Bilgileri taze tutmak ve kendinizi denemek için hazırladığım testler ve interaktif quizler.
+*   📝 **CheatSheets:** Python, SQL, Git, Docker ve ML algoritmaları için elinizin altında bulunması gereken hızlı başvuru kağıtları.
+*   💼 **Mülakat Soruları:** Teknik mülakatlara hazırlık sürecinde karşılaşabileceğiniz kritik soru ve cevaplar.
+*   👨‍🏫 **Mentor Çözümleri:** Problemlere farklı ve profesyonel bakış açıları kazandıran alternatif çözüm yolları.
+
+🚧 **Yol Haritası:**
+Şu an **SQL** ve **Git** entegrasyonlarını tamamlıyorum. Sırada **Zaman Serileri (Time Series)** modülü var!
+
+Veri bilimiyle ilgilenen herkesin faydalanabileceği, yaşayan ve gelişen bu kaynağı incelemek isterseniz:
+
+🔗 **GitHub Repo:** [GitHub Linkini Buraya Yapıştır]
+🌐 **Portfolio:** https://alican-kaya.com/
+
+#DataScience #MachineLearning #Python #ArtificialIntelligence #BigData #GitHub #Portfolio #InterviewPrep #CheatSheets #DataAnalysis #CareerDevelopment
