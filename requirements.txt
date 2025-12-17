@@ -8,10 +8,9 @@ missingno
 mlxtend
 lifetimes
 scikit-learn
-learn
 statsmodels
 catboost
-imbalanced-
+imbalanced-learn
 lightgbm
 xgboost
 openpyxl
@@ -21,4 +20,3 @@ six
 tzdata
 joblib
 scipy
-EOF
