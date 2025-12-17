@@ -248,6 +248,14 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - **13.7.5 - CatBoost:** CatBoost algoritmasının kategorik değişkenlerle çalışma yeteneği ve simetrik ağaç yapısı.
     - **13.7.6_advanced_trees.py:** Random Forests, GBM, XGBoost, LightGBM ve CatBoost algoritmalarının karşılaştırmalı uygulaması. Hiperparametre optimizasyonu (GridSearchCV, RandomizedSearchCV), değişken önem düzeyleri (Feature Importance) ve doğrulama eğrileri (Validation Curves) analizi.
     - **13.7.7 - Tekrar İçin Sorular:** Gelişmiş ağaç yöntemleri (Random Forest, GBM, XGBoost, LightGBM, CatBoost) üzerine kapsamlı test soruları.
+- **13.8 - Dengesiz Veri Seti Nedir? Nasıl Başa Çıkılır? (Imbalanced Datasets):**
+    - **13.8.1_Dengesiz_Veri_Seti_Birebir.ipynb:** Dengesiz veri setleri ile başa çıkma yöntemleri. Random Oversampling, Random Undersampling ve SMOTE tekniklerinin uygulanması ve Lojistik Regresyon modeli üzerindeki etkilerinin karşılaştırılması.
+        > **🔗 Referanslar:**
+        > * [Random Oversampling and Undersampling](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/)
+        > * [SMOTE for Imbalanced Classification](https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/)
+        > * [Understanding Confusion Matrix](https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62)
+        > * [Understanding AUC - ROC Curve](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
+        > * [Tactics to Combat Imbalanced Classes](https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/)
 - **Machine Learning Extra:**
     - `HOUSE_PRICE_PREDICTON_SOLUTION.py`: Regresyon modelleri ile ev fiyatı tahmini.
     - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.

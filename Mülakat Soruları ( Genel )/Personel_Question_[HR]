@@ -104,3 +104,48 @@ MÜLAKAT SORULARI
    - Regresyon sonuçları genellikle gerçek sayılar iken, sınıflandırma sonuçları belirli sınıflar veya etiketlerdir.
 
    Özetle, regresyon sürekli değerler tahmin ederken, sınıflandırma belirli kategorilere ayırma işlemi yapar."
+
+11. Yakın zamanda dahil olduğunuz bir takımdan bahsediniz. Takım ne idi? Bu takıma katılırken yaşadığınız önemli zorluklar nelerdi? Bunlarla nasıl başa çıktınız? İşyerinizdeki kişileri tanıma sürecinizde bu sizin için karakteristik bir özellik midir? Bu tecrübeden ne öğrendiniz?
+
+   "Geçtiğimiz yıl bir veri bilimi projesi için yeni bir takıma katıldım. Takım, farklı disiplinlerden gelen üyelerden oluşuyordu ve bu çeşitlilik başlangıçta iletişim ve işbirliği açısından bazı zorluklar yarattı.
+   Takıma katılırken, ekip üyelerinin çalışma tarzlarını ve beklentilerini anlamak için aktif bir şekilde dinlemeye ve gözlemlemeye odaklandım.
+   Ayrıca, düzenli toplantılar düzenleyerek açık iletişimi teşvik ettim ve herkesin katkıda bulunabileceği bir ortam yaratmaya çalıştım.
+   Bu süreçte, esneklik ve empati becerilerimi geliştirdim, bu da takım içindeki ilişkileri güçlendirmeme yardımcı oldu.
+   Bu deneyim, yeni bir takıma katılırken adaptasyon sürecinin önemini ve etkili iletişimin takım başarısındaki kritik rolünü bana öğretti."
+
+12. Random Forest’ı teknik olmayan birine nasıl anlatırsınız?
+
+   "Random Forest, bir orman gibi düşünebileceğimiz birçok karar ağacından oluşan bir makine öğrenmesi modelidir.
+   Her bir karar ağacı, verileri belirli kurallara göre sınıflandırır veya tahmin eder.
+   Ancak, tek bir ağaç bazen hatalar yapabilir çünkü sadece belirli bir bakış açısına sahiptir.
+   Random Forest, birçok farklı ağaç oluşturur ve her bir ağaç farklı verilerle eğitilir.
+   Sonuç olarak, tüm ağaçların verdiği tahminler bir araya getirilir ve en yaygın olanı seçilir (sınıflandırma için) veya ortalaması alınır (regresyon için).
+   Bu yöntem, tek bir ağacın yapabileceği hataları azaltır ve daha doğru sonuçlar elde etmemizi sağlar.
+   Yani, Random Forest, birçok küçük karar ağacının birlikte çalışarak daha iyi kararlar vermesini sağlayan güçlü bir araçtır."
+
+13. Gradient Boosting Machine(GBM) nedir? Nasıl çalışır?
+
+   "Gradient Boosting Machine (GBM), makine öğrenmesi alanında kullanılan güçlü bir topluluk (ensemble) öğrenme yöntemidir.
+   GBM, zayıf öğreniciler olarak adlandırılan basit modelleri (genellikle karar ağaçları) ardışık olarak eğitir ve her yeni model, önceki modellerin hatalarını düzeltmeye odaklanır.
+   GBM'in çalışma prensibi şu şekildedir:
+   1. İlk olarak, basit bir model (örneğin, küçük bir karar ağacı) eğitilir ve bu modelin tahminleri ile gerçek değerler arasındaki fark (hata) hesaplanır.
+   2. Daha sonra, bu hataları minimize etmek için yeni bir model eğitilir. Bu yeni model, önceki modelin hatalarını tahmin etmeye çalışır.
+   3. Bu süreç, belirli bir sayıda iterasyon veya hata belirli bir seviyeye inene kadar tekrarlanır.
+   4. Sonuç olarak, tüm modellerin tahminleri toplanır ve nihai tahmin elde edilir.
+
+   GBM, özellikle karmaşık veri setlerinde yüksek doğruluk sağlar ve çeşitli hiperparametrelerle (örneğin, öğrenme hızı, ağaç derinliği) ayarlanabilir.
+   Ancak, aşırı öğrenme riskini azaltmak için dikkatli bir şekilde yapılandırılması gerekir."
+
+14. Hiperparametre nedir? Ağaç yöntemleri için  en sık kullanılan hiperparametrelerden iki tanesini açıklayınız.
+
+   "Hiperparametreler, makine öğrenmesi modellerinin eğitim sürecinden önce belirlenen ve modelin öğrenme sürecini kontrol eden parametrelerdir.
+   Hiperparametreler, modelin performansını ve genelleme yeteneğini etkileyebilir ve genellikle model eğitimi sırasında optimize edilmezler.
+
+   Ağaç yöntemleri için en sık kullanılan iki hiperparametre şunlardır:
+   1. Maksimum Derinlik (max_depth): Bu hiperparametre, bir karar ağacının maksimum derinliğini belirler.
+      Daha derin ağaçlar, veriye daha iyi uyum sağlayabilir ancak aşırı öğrenme riskini artırabilir.
+      Bu nedenle, max_depth hiperparametresi, modelin karmaşıklığını kontrol etmek için kullanılır.
+
+   2. Minimum Yaprak Düğüm Sayısı (min_samples_leaf): Bu hiperparametre, bir yaprak düğümünde bulunması gereken minimum örnek sayısını belirler.
+      Daha yüksek bir değer, ağacın daha genel olmasını sağlar ve aşırı öğrenmeyi önlemeye yardımcı olabilir.
+      Bu hiperparametre, modelin esnekliğini ve genelleme yeteneğini etkiler."
