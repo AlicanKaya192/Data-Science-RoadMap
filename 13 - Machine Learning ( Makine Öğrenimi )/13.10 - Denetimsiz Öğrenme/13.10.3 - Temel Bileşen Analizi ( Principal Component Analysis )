@@ -1,0 +1,111 @@
+BAŞLIK: TEMEL BİLEŞEN ANALİZİ (PCA) - KAPSAMLI REHBER
+TÜR: Boyut İndirgeme (Dimensionality Reduction), Özellik Çıkarımı (Feature Extraction)
+
+================================================================================
+1. GİRİŞ: NEDEN BOYUT İNDİRGİYORUZ?
+================================================================================
+Veri biliminde "Sütun Sayısı" (Feature) arttıkça işler zorlaşır.
+- Görselleştiremezsiniz (4. boyutu çizebilecek bir grafik yok).
+- İşlemci yorulur (Model eğitimi çok uzar).
+- "Boyut Laneti": Veri uzayı o kadar genişler ki, noktalar birbirinden çok uzaklaşır ve model desen bulamaz.
+
+PCA'nın Amacı:
+Verinin "Özünü" (Bilgisini/Varyansını) kaybetmeden, sütun sayısını azaltmaktır.
+100 değişkenli bir veriyi, %95 bilgi kaybı olmadan 3 değişkene indirmektir.
+
+================================================================================
+2. TEMEL MANTIK: FOTOĞRAF MAKİNESİ ANALOJİSİ
+================================================================================
+PCA'yı anlamanın en iyi yolu "Gölge" veya "Fotoğraf" mantığıdır.
+
+Senaryo:
+Elinizde 3 Boyutlu şeffaf bir çaydanlık var. Bunu 2 Boyutlu bir kağıda (fotoğrafa) aktarmak istiyorsunuz.
+
+- Açı 1 (Tepeden): Sadece yuvarlak bir kapak görürsünüz. (Çaydanlık olduğu anlaşılmaz. Bilgi Kaybı çok).
+- Açı 2 (Arkadan): Sadece dümdüz bir dikdörtgen görürsünüz. (Kötü açı).
+- Açı 3 (Yandan): Sapını, ağzını ve gövdesini net görürsünüz. (En iyi açı!).
+
+İşte PCA, matematikte o "En İyi Açıyı" bulan algoritmadır.
+Veriyi öyle bir eksene yansıtır ki (Projection), noktalar birbirine karışmaz ve verinin dağılımı (Varyans) en geniş haliyle korunur.
+
+================================================================================
+3. ALGORİTMA ADIMLARI (MATEMATİKSEL SÜREÇ)
+================================================================================
+PCA, veriyi döndürerek yeni eksenler (Principal Components) oluşturur.
+
+Adım 1: Standardizasyon (Olmazsa Olmaz)
+Tüm değişkenleri aynı ölçeğe (Mean=0, Std=1) getirmelisiniz.
+Yoksa "Maaş (50.000)" değişkeni, "Yaş (30)" değişkenini ezer geçer.
+
+Adım 2: Kovaryans Matrisi (İlişkileri Anlama)
+Değişkenlerin birbirleriyle nasıl hareket ettiğine bakılır.
+(Boy artınca Kilo da artıyor mu? Bunlar ilişkiliyse, ikisini tek bir bileşende birleştirebiliriz).
+
+Adım 3: Özdeğerler ve Özvektörler (Eigenvalues & Eigenvectors)
+Burası işin motorudur. Matrisin lineer cebir ile parçalanmasıdır.
+- Özvektör (Eigenvector): Yeni eksenin YÖNÜNÜ belirtir. (Çaydanlığa nereden bakacağız?).
+- Özdeğer (Eigenvalue): O eksenin ÖNEMİNİ (taşıdığı bilgi miktarını) belirtir.
+
+Adım 4: Seçim ve İzdüşüm (Projection)
+En yüksek Özdeğere sahip olanlar (PC1, PC2...) seçilir. Veri bu yeni eksenlere yansıtılır.
+
+================================================================================
+4. TEMEL BİLEŞENLER (PRINCIPAL COMPONENTS) NEDİR?
+================================================================================
+PCA işlemi bittiğinde elinizdeki "Yaş", "Maaş", "Kıdem" sütunları gider. Yerine PC1, PC2, PC3 gelir.
+
+- PC1 (Birinci Bileşen): Verideki en büyük varyansı (bilgiyi) taşıyan eksendir.
+- PC2 (İkinci Bileşen): Kalan varyansın en çoğunu taşır. PC1'e DİK (Orthogonal) olmak zorundadır.
+
+Özellik:
+Bu yeni bileşenler arasında korelasyon SIFIRDIR.
+Yani PCA, "Çoklu Doğrusal Bağlantı" (Multicollinearity) sorununu kökten çözer. Birbiriyle kavgalı değişkenleri barıştırıp birbirinden ayırır.
+
+
+
+================================================================================
+5. KAÇ BİLEŞEN SEÇMELİYİM? (EXPLAINED VARIANCE RATIO)
+================================================================================
+Veriyi 50 boyuttan 2 boyuta indirdik ama ne kadar bilgi kaybettik?
+
+Açıklanan Varyans Oranı (Explained Variance Ratio):
+Her bileşenin, orijinal verinin yüzde kaçını temsil ettiğini söyler.
+
+Örnek Tablo:
+- PC1: %40 bilgi taşıyor.
+- PC2: %30 bilgi taşıyor.
+- PC3: %15 bilgi taşıyor.
+...
+Toplam Kümülatif Varyans: %40 + %30 + %15 = %85.
+
+Karar Kuralı:
+Genellikle toplam varyansın %90 veya %95'ini koruyacak kadar bileşen sayısı seçilir. Geriye kalan %5 "Gürültü" (Noise) kabul edilip atılır.
+
+================================================================================
+6. AVANTAJLAR VE DEZAVANTAJLAR
+================================================================================
+
+AVANTAJLAR:
+1. Görselleştirme: 100 boyutlu veriyi 2 boyuta indirip ekranda görmenizi sağlar (Müşteri kümelerini görmek için harikadır).
+2. Hız: Daha az sütun = Daha hızlı model eğitimi.
+3. Gürültü Temizleme: Önemsiz detayları (küçük varyanslı bileşenleri) atarak modelin genelleme yeteneğini artırır.
+4. Korelasyonu Kaldırma: Regresyon modellerinin baş belası olan çoklu bağlantıyı yok eder.
+
+DEZAVANTAJLAR:
+1. Yorumlanabilirlik Kaybı (En Büyük Sorun):
+   - Orijinal veride "Maaş arttıkça harcama artar" diyebilirdiniz.
+   - PCA sonrası elinizde "PC1 arttıkça PC2 azalır" gibi soyut bir şey kalır. PC1'in fiziksel hayatta neye karşılık geldiğini (Maaş mı? Yaş mı?) bilemezsiniz.
+2. Veri Kaybı: Ne kadar iyi olursa olsun, boyut indirgemek her zaman bir miktar bilgi kaybı demektir.
+3. Doğrusallık: PCA sadece doğrusal (linear) ilişkileri yakalar. Veri "S" şeklinde kıvrılıyorsa (Manifold), PCA başarısız olur (Bunun için t-SNE veya UMAP kullanılır).
+
+================================================================================
+ÖZET TABLO: PCA KİMLİK KARTI
+================================================================================
+ÖZELLİK             | AÇIKLAMA
+------------------- | ----------------------------------------------------
+Yöntem Tipi         | Denetimsiz (Unsupervised)
+Ana Amaç            | Varyansı (Bilgiyi) maksimumda tutarak boyut azaltmak
+Matematik           | Özdeğer & Özvektör (Lineer Cebir)
+Ön Şart             | Feature Scaling (Standartlaştırma) ŞARTTIR
+Çıktı               | Birbiriyle ilişkisiz (Uncorrelated) yeni değişkenler
+En İyi Kullanım     | Görselleştirme, Gürültü azaltma, Resim Sıkıştırma

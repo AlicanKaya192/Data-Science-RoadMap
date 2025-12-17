@@ -263,6 +263,12 @@ Veriden öğrenen modellerin kurulması ve değerlendirilmesi.
     - **13.9.1 - House_Price-221119-122427.pdf:** Proje ile ilgili detaylı açıklamaları ve görevleri içeren PDF dosyası.
     - **13.9.2_HOUSE_PRICE_PREDICTON_SOLUTION.py:** Ev fiyat tahminleme projesi. Veri analizi (EDA), özellik mühendisliği (Feature Engineering), encoding, modelleme (Linear, Ridge, Lasso, ElasticNet, KNN, CART, RF, SVR, GBM, XGBoost, LightGBM, CatBoost), hiperparametre optimizasyonu ve özellik önem düzeyi analizi içeren kapsamlı çözüm.
     - **13.9.2_HOUSE_PRICE_PREDICTON_SOLUTION.ipynb:** Projenin Kaggle uyumlu, İngilizce açıklamalı Jupyter Notebook versiyonu.
+- **13.10 - Denetimsiz Öğrenme (Unsupervised Learning):**
+    - **13.10.1 - Denetimsiz Öğrenme ( Unsupervised Learning ):** Denetimsiz öğrenme kavramı ve kullanım alanları.
+    - **13.10.2 - K-Ortalamalar ( K-Means ):** K-Means kümeleme algoritması ve çalışma mantığı.
+    - **13.10.3 - Temel Bileşen Analizi ( Principal Component Analysis ):** PCA ile boyut indirgeme ve varyans analizi.
+    - **13.10.4_unsupervised_learning.py:** K-Means, Hiyerarşik Kümeleme ve PCA yöntemlerinin Python ile uygulaması. (USArrests, Hitters, Breast Cancer, Iris, Diabetes veri setleri).
+    - **13.10.5 - Tekrar İçin Sorular:** Denetimsiz öğrenme konuları üzerine test soruları.
 - **Machine Learning Extra:**
     - `Telco_Churn.py`: Sınıflandırma modelleri ile müşteri terk analizi.
     - **Değerlendirme Tabloları:** Regresyon ve Sınıflandırma modelleri için hata değerlendirme Excel dosyaları.
