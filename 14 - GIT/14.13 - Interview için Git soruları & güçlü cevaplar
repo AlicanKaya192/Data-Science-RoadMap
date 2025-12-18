@@ -1,0 +1,201 @@
+========================
+INTERVIEW ICIN GIT SORULARI
+VE GUCLU CEVAPLAR
+========================
+
+
+------------------------
+TEMEL / JUNIOR SEVIYE
+------------------------
+
+SORU
+Git nedir ve neden kullanılır?
+
+CEVAP
+Git, yazılım projelerinde kod değişikliklerini takip etmek ve
+ekip içinde güvenli şekilde çalışmak için kullanılan bir
+versiyon kontrol sistemidir.
+Kod geçmişini saklar, geri dönüş imkanı sağlar ve ekip çalışmasını kolaylaştırır.
+
+
+SORU
+Commit nedir?
+
+CEVAP
+Commit, kodun belirli bir anının kalıcı olarak kaydedilmiş halidir.
+Her commit neyin değiştiğini ve ne zaman değiştiğini gösterir.
+
+
+SORU
+Staging area ne işe yarar?
+
+CEVAP
+Staging area, commit’e girecek değişikliklerin seçildiği ara alandır.
+Bu sayede her değişiklik commit’e girmek zorunda kalmaz,
+kontrollü commit alınır.
+
+
+SORU
+Branch neden kullanılır?
+
+CEVAP
+Branch, ana koddan bağımsız çalışmayı sağlar.
+Yeni özellik veya hata düzeltmesi ana kodu etkilemeden geliştirilir.
+
+
+------------------------
+ORTA / MID SEVIYE
+------------------------
+
+SORU
+Yanlış branch’e commit attığını fark edersen ne yaparsın?
+
+CEVAP
+Commit’i silmem.
+Commit’i doğru branch’e taşırım.
+Ana branch’i temiz tutarım.
+History’yi bozmadan çözüm üretirim.
+
+
+SORU
+Merge ile rebase arasındaki fark nedir?
+
+CEVAP
+Merge commit geçmişini korur.
+Rebase commit geçmişini yeniden yazar.
+Paylaşılan branch’lerde merge,
+kişisel branch’lerde rebase tercih ederim.
+
+
+SORU
+Reset ile revert arasındaki fark nedir?
+
+CEVAP
+Reset commit’i siler ve history’yi değiştirir.
+Revert hatalı commit’i geri alan yeni bir commit oluşturur.
+Production’da revert kullanırım, reset kullanmam.
+
+
+SORU
+Pull request neden gereklidir?
+
+CEVAP
+Pull request kodun ana branch’e girmeden önce incelenmesini sağlar.
+Kod kalitesini artırır, hataları erken yakalar
+ve ekip içi bilgi paylaşımını güçlendirir.
+
+
+SORU
+Merge conflict nedir ve nasıl çözülür?
+
+CEVAP
+Aynı dosya veya satırda yapılan çakışan değişikliklerdir.
+Manuel olarak hangi kodun kalacağına karar veririm,
+test ederim ve commit alırım.
+
+
+------------------------
+ILERI / SENIOR SEVIYE
+------------------------
+
+SORU
+Force push ne zaman kullanılır?
+
+CEVAP
+Sadece kişisel branch’lerde ve zorunlu durumlarda kullanırım.
+Paylaşılan branch’lerde force push yapmam.
+Gerekirse ekibi önceden bilgilendiririm.
+
+
+SORU
+Reflog ne işe yarar?
+
+CEVAP
+Reflog, HEAD’in geçmişte yaptığı tüm hareketleri kaydeder.
+Kaybolduğu sanılan commit’leri bulmak için kullanılır.
+Kriz anlarında en güçlü kurtarma aracıdır.
+
+
+SORU
+Production’a hatalı kod çıktıysa nasıl geri alırsın?
+
+CEVAP
+Sorunlu commit’i tespit ederim.
+Reset yapmam.
+Revert commit oluştururum.
+Production’ı hızlıca stabilize ederim.
+
+
+SORU
+Ana branch neden direkt commit’e kapalı olmalıdır?
+
+CEVAP
+Ana branch production’a en yakın koddur.
+Kontrolsüz commit’ler ciddi risk oluşturur.
+PR ve CI süreci ana branch’i korur.
+
+
+SORU
+CI/CD ile Git arasındaki ilişki nedir?
+
+CEVAP
+Git değişiklikleri CI/CD süreçlerini tetikler.
+PR’lar testleri çalıştırır.
+Ana branch’e merge deploy sürecini başlatır.
+Git, otomasyonun merkezindedir.
+
+
+------------------------
+DAVRANIS + TEKNIK KARISIK
+------------------------
+
+SORU
+Git’te en tehlikeli komut hangisidir?
+
+CEVAP
+Bağlamı bilinmeden kullanılan reset --hard.
+Yanlış kullanıldığında geri dönüşü zor veri kaybı yaratır.
+
+
+SORU
+Bir ekipte Git kaosu olduğunu nasıl anlarsın?
+
+CEVAP
+Ana branch’e direkt commit atılıyorsa,
+büyük ve kontrolsüz PR’lar varsa,
+code review yapılmıyorsa,
+branch isimleri düzensizse
+orada Git disiplini yoktur.
+
+
+SORU
+İyi bir commit geçmişi neden önemlidir?
+
+CEVAP
+Debug süresini kısaltır.
+Geri dönüşleri kolaylaştırır.
+Yeni gelen geliştiriciler için dokümantasyon görevi görür.
+
+
+SORU
+Junior bir geliştirici Git’te en çok nerede hata yapar?
+
+CEVAP
+Yanlış branch’e commit atmak,
+büyük PR açmak,
+commit mesajlarını özensiz yazmak.
+Bu yüzden süreç ve review çok önemlidir.
+
+
+------------------------
+KAPATICI GUCLU SORU
+------------------------
+
+SORU
+Git senin için sadece bir araç mı?
+
+CEVAP
+Hayır.
+Git, ekip disiplini, iletişim ve kalite aracıdır.
+Doğru kullanıldığında ekip hızlandırır,
+yanlış kullanıldığında herkesi yavaşlatır.

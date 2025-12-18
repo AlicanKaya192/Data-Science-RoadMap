@@ -1,0 +1,42 @@
+========================
+GIT TERMINOLOJI NETLIGI
+========================
+
+Bu bölüm, Git interview’lerinde en sık sorulan temel kavramların
+net ve teknik tanımlarını içerir. Amaç, kavram karmaşasını önlemektir.
+
+
+HEAD
+HEAD, şu anda üzerinde çalışılan commit’i işaret eden referanstır.
+Genellikle aktif branch’in en son commit’ini gösterir.
+Branch değiştirildiğinde HEAD de yeni branch’in son commit’ine geçer.
+
+
+UPSTREAM BRANCH
+Upstream branch, lokal branch’in takip ettiği remote branch’tir.
+Push ve pull işlemlerinde varsayılan hedef olarak kullanılır.
+Upstream tanımlıysa git pull ve git push komutları parametresiz çalışabilir.
+
+
+DETACHED HEAD
+Detached HEAD, HEAD’in bir branch’e değil doğrudan bir commit’e işaret etmesi durumudur.
+Bu modda yapılan commit’ler herhangi bir branch’e bağlı değildir.
+Branch oluşturulmazsa bu commit’ler kaybolabilir.
+
+
+FAST-FORWARD MERGE
+Fast-forward merge, hedef branch’in ileride olmadığı durumlarda gerçekleşir.
+Yeni bir merge commit oluşmaz.
+Branch pointer doğrudan ileri taşınır.
+History düz ve lineer kalır.
+
+
+SQUASH MERGE
+Squash merge, bir branch’teki birden fazla commit’i tek commit olarak birleştirir.
+Ana branch’in commit geçmişini sade tutmak için kullanılır.
+Feature detayları korunur ama commit sayısı azaltılır.
+
+
+NEDEN ONEMLIDIR
+Bu terimler interview’lerde doğrudan sorulabilir.
+Ayrıca verilen cevapların teknik doğruluğu bu kavramlara hâkimiyetle ölçülür.

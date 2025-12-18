@@ -1,0 +1,79 @@
+========================
+RESET TURLERI
+========================
+
+Bu bölüm, git reset komutunun farklı türlerini ve etkilerini açıklar.
+Interview’lerde sıkça sorulur çünkü veri kaybı riski bu komutla ilgilidir.
+
+
+RESET NEDIR
+Reset, branch’in işaret ettiği commit’i geri almayı sağlar.
+Hangi alanların etkileneceği kullanılan reset türüne bağlıdır.
+
+
+SOFT RESET
+Soft reset, sadece commit referansını geri alır.
+Staging area ve working directory etkilenmez.
+
+Ne Olur
+Commit silinir.
+Değişiklikler staging area’da kalır.
+Dosya içerikleri korunur.
+
+Ne Zaman Kullanilir
+Yanlış commit mesajı atıldıysa
+Commit’ler birleştirilecekse
+History düzenlemesi yapılacaksa
+
+
+MIXED RESET
+Mixed reset, commit’i geri alır ve staging area’yı temizler.
+Working directory etkilenmez.
+
+Ne Olur
+Commit silinir.
+Dosyalar staging area’dan çıkar.
+Değişiklikler working directory’de kalır.
+
+Ne Zaman Kullanilir
+Yanlış dosyalar stage edildiyse
+Commit öncesi dosyalar yeniden seçilecekse
+Staging alanı temizlenmek isteniyorsa
+
+
+HARD RESET
+Hard reset, commit’i, staging area’yı ve working directory’yi geri alır.
+Tüm yerel değişiklikler silinir.
+
+Ne Olur
+Commit silinir.
+Stage edilmiş dosyalar silinir.
+Working directory eski haline döner.
+
+Neden Risklidir
+Commit alınmamış değişiklikler kalıcı olarak kaybolur.
+Yanlış kullanıldığında ciddi veri kaybı yaşanır.
+
+Ne Zaman Kullanilir
+Kişisel branch’te
+Emin olunan durumlarda
+Son çare olarak
+
+
+RESET VE REVERT FARKI
+Reset commit’i siler.
+Revert commit’i tersine çeviren yeni bir commit oluşturur.
+Reset history’yi değiştirir.
+Revert history’yi korur.
+
+
+INTERVIEW’DE BEKLENEN YAKLASIM
+Production branch’te reset kullanılmaz.
+Paylaşılan branch’lerde reset tercih edilmez.
+Geri alma işlemleri revert ile yapılır.
+
+
+BU KONUDAN CIKARILAN DERS
+Reset güçlü ama tehlikelidir.
+Hangi alanı etkilediği bilinmeden kullanılmamalıdır.
+Revert ekip güvenliği sağlar.

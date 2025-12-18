@@ -1,0 +1,165 @@
+========================
+GERÇEK GİT KRİZ SENARYOLARI
+========================
+
+Bu bölüm, günlük yazılım geliştirme süreçlerinde gerçek ekiplerde yaşanan
+Git krizlerini ve bu krizlerin nasıl yönetildiğini anlatır.
+Amaç, panik anında ne yapılacağını bilmek ve veri kaybını önlemektir.
+
+
+========================
+KRİZ 1 – YANLIŞ BRANCH’E COMMIT ATILMASI
+========================
+
+Senaryo
+Geliştirici, feature branch’te çalışması gerekirken yanlışlıkla main
+branch üzerinde commit atar.
+
+Ortaya Çıkan Problem
+Main branch üzerinde henüz test edilmemiş kod bulunur.
+CI/CD tetiklenebilir veya production riske girer.
+
+Durumun Fark Edilmesi
+git status veya git log incelendiğinde commit’in yanlış branch’te olduğu görülür.
+
+Yaklaşım
+Commit silinmez.
+Commit başka branch’e taşınır.
+Main branch temizlenir.
+
+Bu Senaryodan Çıkarılan Ders
+Commit atmadan önce aktif branch kontrol edilmelidir.
+Branch isimleri net ve anlaşılır olmalıdır.
+
+
+========================
+KRİZ 2 – FORCE PUSH SONRASI KAYIP COMMIT
+========================
+
+Senaryo
+Bir geliştirici, remote branch’e force push yapar.
+Başka bir ekip üyesinin commit’leri görünmez hale gelir.
+
+Ortaya Çıkan Problem
+Commit’ler history’den silinmiş gibi görünür.
+Ekip panik yaşar.
+
+Gerçek Durum
+Commit’ler tamamen silinmemiştir.
+Sadece branch referansı değişmiştir.
+
+Yaklaşım
+reflog incelenir.
+Kayıp commit’lerin hash bilgisi bulunur.
+Yeni branch oluşturularak commit’ler geri alınır.
+
+Bu Senaryodan Çıkarılan Ders
+Force push tek başına yapılmamalıdır.
+Takım içinde force push kuralları net olmalıdır.
+
+
+========================
+KRİZ 3 – REBASE SONRASI BOZULAN HISTORY
+========================
+
+Senaryo
+Geliştirici, paylaşılan bir branch üzerinde rebase yapar ve push eder.
+
+Ortaya Çıkan Problem
+Diğer geliştiricilerin local branch’leri remote ile uyumsuz hale gelir.
+Çakışmalar artar.
+
+Neden Yaşandı
+Rebase, commit geçmişini yeniden yazar.
+Paylaşılan branch’lerde kontrolsüz kullanılmıştır.
+
+Yaklaşım
+Rebase geri alınır.
+Ekip ile senkronize şekilde branch yeniden oluşturulur.
+Gerekirse merge tercih edilir.
+
+Bu Senaryodan Çıkarılan Ders
+Rebase kişisel branch’lerde kullanılmalıdır.
+Paylaşılan branch’lerde merge tercih edilmelidir.
+
+
+========================
+KRİZ 4 – YANLIŞLIKLA reset --hard KULLANILMASI
+========================
+
+Senaryo
+Geliştirici, reset komutunu yanlış kullanır ve değişiklikler kaybolur.
+
+Ortaya Çıkan Problem
+Working directory ve staging area tamamen temizlenir.
+Dosyalar geri gelmez gibi görünür.
+
+Gerçek Durum
+Commit alınmışsa veri kaybı yoktur.
+Commit alınmamışsa risk vardır.
+
+Yaklaşım
+reflog kontrol edilir.
+Önceki HEAD referansı bulunur.
+Gerekirse commit’e geri dönülür.
+
+Bu Senaryodan Çıkarılan Ders
+reset --hard son çare olarak kullanılmalıdır.
+Önemli değişikliklerde commit veya stash alınmalıdır.
+
+
+========================
+KRİZ 5 – PRODUCTION’A HATALI KOD ÇIKMASI
+========================
+
+Senaryo
+Yanlış branch merge edilir ve hatalı kod production’a çıkar.
+
+Ortaya Çıkan Problem
+Uygulama hatalı çalışır.
+Kullanıcılar etkilenir.
+
+Yaklaşım
+Sorunlu commit tespit edilir.
+Yeni bir revert commit oluşturulur.
+Production hızlı şekilde stabilize edilir.
+
+Neden Revert Kullanıldı
+History bozulmaz.
+Takım içi izlenebilirlik korunur.
+
+Bu Senaryodan Çıkarılan Ders
+Production branch’te reset kullanılmamalıdır.
+Geri alma işlemleri revert ile yapılmalıdır.
+
+
+========================
+KRİZ 6 – SİLİNEN BRANCH’İN GERİ GETİRİLMESİ
+========================
+
+Senaryo
+Bir branch yanlışlıkla silinir.
+Üzerindeki çalışmalar kaybolmuş gibi görünür.
+
+Gerçek Durum
+Branch silinmiştir ama commit’ler hâlâ mevcuttur.
+
+Yaklaşım
+reflog veya git log incelenir.
+Son commit hash’i bulunur.
+Yeni branch oluşturularak çalışma geri getirilir.
+
+Bu Senaryodan Çıkarılan Ders
+Branch silmek commit silmek değildir.
+Git’te veri çoğu zaman kurtarılabilir.
+
+
+========================
+GENEL KRİZ YÖNETİM PRENSİPLERİ
+========================
+
+Panik yapılmaz.
+Önce log ve reflog incelenir.
+History silinmeden çözüm aranır.
+Force ve hard işlemler son çaredir.
+Takım içi iletişim kriz anında kritik öneme sahiptir.

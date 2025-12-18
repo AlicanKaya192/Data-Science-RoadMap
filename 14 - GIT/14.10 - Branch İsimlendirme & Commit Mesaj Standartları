@@ -1,0 +1,82 @@
+========================
+BRANCH ISIMLENDIRME VE COMMIT MESAJ STANDARTLARI
+========================
+
+Bu bölüm, ekip içinde okunabilirlik ve izlenebilirlik sağlamak için
+branch ve commit standartlarının neden gerekli olduğunu açıklar.
+Interview’lerde “disiplinli çalışma” göstergesi olarak değerlendirilir.
+
+
+BRANCH ISIMLENDIRME NEDEN ONEMLIDIR
+Branch adı, yapılan işin ne olduğunu ilk bakışta anlatmalıdır.
+Yanlış veya belirsiz branch isimleri ekip içinde kafa karışıklığı yaratır.
+Doğru isimlendirme kod inceleme ve takip sürecini hızlandırır.
+
+
+BRANCH ISIMLENDIRME PRENSIPLERI
+Küçük harf kullanılır.
+Kelimeler kısa ve anlamlıdır.
+Slash ile kategori ayrımı yapılır.
+Branch adı işin amacını net ifade eder.
+
+
+YAYGIN BRANCH KATEGORILERI
+feature: Yeni özellik geliştirme
+bugfix: Hata düzeltmeleri
+hotfix: Production acil müdahaleleri
+chore: Yapısal veya bakım işleri
+experiment: Deneme çalışmaları
+
+
+IYI BRANCH ISMI ORNEKLERI
+feature/user-login-validation
+bugfix/payment-timeout
+hotfix/production-null-error
+chore/update-dependencies
+
+
+KOTU BRANCH ISMI ORNEKLERI
+test
+new-branch
+fix
+deneme
+abc123
+
+
+COMMIT MESAJLARI NEDEN ONEMLIDIR
+Commit mesajı, gelecekteki geliştiriciler için açıklayıcı bir kayıttır.
+“Ne değişti” ve “neden değişti” sorularına cevap vermelidir.
+Sadece bugünü değil, aylar sonrasını da düşünerek yazılır.
+
+
+IYI COMMIT MESAJI OZELLIKLERI
+Kısa ve net başlık
+Tek işi anlatan ifade
+Teknik ama anlaşılır dil
+Gereksiz kelime yok
+
+
+KOTU COMMIT MESAJLARI
+fix
+update
+wip
+son
+deneme commit
+
+
+COMMIT MESAJI ICIN GENEL YAKLASIM
+Ne değişti
+Neden değişti
+Varsa etkisi
+
+
+INTERVIEW’DE BEKLENEN BILGI
+Branch isimlendirme standardının anlatılabilmesi
+Commit mesajlarının neden önemli olduğunun açıklanabilmesi
+Kötü commit mesajı örneklerinin farkında olunması
+
+
+BU KONUDAN CIKARILAN DERS
+Okunabilir branch ve commit’ler ekip hızını artırır.
+Standartsız isimlendirme teknik borç oluşturur.
+İyi commit mesajı sessiz bir dokümantasyondur.

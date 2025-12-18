@@ -1,0 +1,295 @@
+========================
+JUNIOR SEVİYE GIT
+========================
+
+Amaç
+Git ile güvenli şekilde çalışmak, kod kaybetmeden commit alıp remote repoya gönderebilmek.
+
+TEMEL KAVRAMLAR
+
+Repository
+Projenin tüm dosyalarını ve geçmişini tutan yapıdır.
+
+Working Directory
+Dosyaların düzenlendiği aktif çalışma alanıdır.
+
+Staging Area
+Commit’e girecek değişikliklerin seçildiği ara alandır.
+
+Commit
+Kodun belirli bir anının kalıcı kaydıdır.
+
+HEAD
+Üzerinde bulunulan commit ve branch’i gösterir.
+
+KURULUM VE AYARLAR
+
+git config user.name
+Commit’lerde görünecek kullanıcı adını tanımlar.
+
+git config user.email
+Commit’lere eklenecek e-posta bilgisini tanımlar.
+
+git config --global
+Ayarı tüm projeler için geçerli yapar.
+
+git config color.ui auto
+Terminal çıktılarının renklendirilmesini sağlar.
+
+REPO OLUŞTURMA
+
+git init
+Bulunulan klasörü Git reposu haline getirir.
+
+git clone
+Uzak bir repoyu tüm geçmişiyle indirir.
+
+GÜNLÜK ÇALIŞMA AKIŞI
+
+git status
+Dosyaların durumunu gösterir.
+
+git add
+Dosyayı staging area’ya ekler.
+
+git add .
+Tüm değişiklikleri staging area’ya ekler.
+
+git diff
+Working directory ile staging area arasındaki farkı gösterir.
+
+git diff --staged
+Staging area ile son commit arasındaki farkı gösterir.
+
+git reset
+Dosyayı staging area’dan çıkarır.
+
+git commit
+Staging area’daki değişiklikleri kaydeder.
+
+git commit -m
+Mesaj ile commit oluşturur.
+
+git commit -am
+Takip edilen dosyaları otomatik ekleyerek commit oluşturur.
+
+DOSYA İŞLEMLERİ
+
+git rm
+Dosyayı siler ve silme işlemini commit’e hazırlar.
+
+git mv
+Dosya yolunu değiştirir ve commit’e hazırlar.
+
+git checkout -- file
+Dosyadaki değişiklikleri geri alır.
+
+REMOTE İŞLEMLER
+
+git pull
+Remote değişiklikleri alır ve branch’e uygular.
+
+git push
+Lokal commit’leri remote repoya gönderir.
+
+IGNORED DOSYALAR
+
+.gitignore
+Takip edilmemesi gereken dosyaları tanımlar.
+
+Pattern yapısı
+Wildcard kullanarak dosya grupları tanımlanabilir.
+
+
+========================
+MID SEVİYE GIT
+========================
+
+Amaç
+Takım içinde paralel geliştirme, branch yönetimi ve çatışma çözümü.
+
+BRANCH YAPISI
+
+git branch
+Branch’leri listeler.
+
+git branch yeni-branch
+Yeni branch oluşturur.
+
+git checkout branch
+Branch değiştirir.
+
+git checkout -b branch
+Branch oluşturur ve geçer.
+
+git switch
+Branch değiştirmenin modern yoludur.
+
+git switch -c
+Branch oluşturur ve geçer.
+
+MERGE VE BİRLEŞTİRME
+
+git merge
+Başka bir branch’i mevcut branch’e dahil eder.
+
+Fast-forward merge
+Commit geçmişi düz şekilde ilerler.
+
+Merge commit
+Branch’lerin birleştiğini gösteren özel commit oluşturur.
+
+Squash merge
+Bir branch’teki commit’leri tek commit yapar.
+
+STASH KULLANIMI
+
+git stash
+Değişiklikleri geçici olarak saklar.
+
+git stash list
+Stash kayıtlarını listeler.
+
+git stash pop
+Son stash’i geri yükler ve siler.
+
+git stash drop
+Belirli stash kaydını siler.
+
+COMMIT DÜZENLEME
+
+git commit --amend
+Son commit’i düzenler.
+
+git log
+Commit geçmişini listeler.
+
+git log --oneline
+Commit’leri tek satırda gösterir.
+
+git log --graph
+Branch yapısını görsel olarak gösterir.
+
+git log branchA..branchB
+Bir branch’te olup diğerinde olmayan commit’leri listeler.
+
+DOSYA TARİHİ
+
+git log file
+Dosyayı değiştiren commit’leri gösterir.
+
+git log --follow
+Dosya yeniden adlandırılsa bile geçmişi gösterir.
+
+git blame
+Her satırın kim tarafından değiştirildiğini gösterir.
+
+REMOTE GELİŞMİŞ
+
+git remote add
+Remote repo tanımlar.
+
+git fetch
+Remote değişiklikleri indirir ama uygulamaz.
+
+git fetch --prune
+Silinmiş remote branch’leri temizler.
+
+git push -u
+Branch ile upstream ilişkisi kurar.
+
+
+========================
+SENIOR SEVİYE GIT
+========================
+
+Amaç
+Temiz commit geçmişi, ileri seviye kurtarma ve workflow yönetimi.
+
+REBASE
+
+git rebase
+Commit’leri başka bir branch’in sonuna taşır.
+
+Lineer history
+Daha okunabilir commit geçmişi sağlar.
+
+Interactive rebase
+Commit birleştirme
+Commit sırası değiştirme
+Commit mesajı düzenleme
+Commit silme
+
+RESET TÜRLERİ
+
+git reset --soft
+Commit’i geri alır, değişiklikleri korur.
+
+git reset --mixed
+Staging area’yı temizler.
+
+git reset --hard
+Tüm değişiklikleri siler.
+
+REVERT
+
+git revert
+Geçmişi bozmadan commit’i geri alır.
+
+REFLOG VE KURTARMA
+
+git reflog
+HEAD hareketlerinin kaydını tutar.
+
+Silinmiş commit’ler buradan bulunabilir.
+
+CHERRY-PICK
+
+git cherry-pick
+Tek bir commit’i başka branch’e taşır.
+
+TAG VE VERSİYONLAMA
+
+git tag
+Tag’leri listeler.
+
+git tag -a
+Açıklamalı tag oluşturur.
+
+git tag -d
+Tag siler.
+
+git push --tags
+Tag’leri remote’a gönderir.
+
+FORCE PUSH
+
+git push --force-with-lease
+Remote branch’i kontrollü şekilde günceller.
+
+IGNORE VE GLOBAL AYARLAR
+
+git config core.excludesfile
+Global ignore dosyası tanımlar.
+
+ÖNEMLİ DOSYALAR
+
+.git
+Git’in iç yapısı.
+
+.git/config
+Repo’ya özel ayarlar.
+
+.gitignore
+Takip dışı dosyalar.
+
+~/.gitconfig
+Kullanıcıya özel global ayarlar.
+
+SENIOR BEKLENTİLERİ
+
+Kayıp commit kurtarma
+Rebase çatışması çözme
+Git workflow tasarlama
+Takıma Git best practice öğretme
+CI/CD ile Git entegrasyonu

@@ -1,0 +1,231 @@
+========================
+KURUMSAL GİT KULLANIMI
+========================
+
+Bu bölüm, Git’in bireysel kullanımdan çıkarak ekip ve kurumsal ölçekte
+nasıl yapılandırılması gerektiğini anlatır.
+Amaç; kod kalitesini korumak, ekip içi kaosu önlemek ve sürdürülebilir
+bir geliştirme süreci oluşturmaktır.
+
+
+========================
+KURUMSAL GİT’İN TEMEL PRENSİPLERİ
+========================
+
+Tek bir ana gerçeklik kaynağı vardır.
+Ana branch’ler rastgele değiştirilemez.
+Her değişiklik izlenebilir olmalıdır.
+Kim, ne zaman, neden değiştirdi sorusu cevaplanabilir olmalıdır.
+Kod kalitesi bireysel değil ekip sorumluluğudur.
+
+
+========================
+BRANCH STRATEJİSİ NEDEN ÖNEMLİDİR
+========================
+
+Branch stratejisi olmayan ekiplerde:
+Hatalı kod ana branch’e karışır.
+Rollback zorlaşır.
+Sorumluluk belirsizleşir.
+Debug süresi uzar.
+
+Doğru branch stratejisi:
+Riskleri izole eder.
+Kod incelemeyi kolaylaştırır.
+Release süreçlerini netleştirir.
+
+
+========================
+GIT FLOW
+========================
+
+Genel Tanım
+Git Flow, release odaklı ve planlı geliştirme süreçleri için tasarlanmıştır.
+Kurumsal ve büyük ekiplerde sık kullanılır.
+
+Temel Branch’ler
+main: Production’da çalışan kararlı kod
+develop: Güncel geliştirme branch’i
+feature: Yeni özelliklerin geliştirildiği branch’ler
+release: Yayına hazırlık branch’i
+hotfix: Production hataları için acil müdahale branch’i
+
+Nasıl Çalışır
+Geliştirme feature branch’lerde yapılır.
+Feature’lar develop branch’e merge edilir.
+Release zamanı geldiğinde release branch açılır.
+Testler tamamlanınca main’e merge edilir.
+
+Avantajları
+Net ve disiplinli yapı
+Release süreci kontrol altında
+Hotfix süreçleri izole
+
+Dezavantajları
+Branch sayısı fazladır
+Küçük ekipler için ağır olabilir
+
+
+========================
+GITHUB FLOW
+========================
+
+Genel Tanım
+GitHub Flow, sürekli deploy yapılan ürünler için tasarlanmıştır.
+Daha sade ve hızlı bir yapıdır.
+
+Temel Yapı
+Tek ana branch vardır (genellikle main).
+Her değişiklik feature branch’te yapılır.
+Her feature pull request ile ana branch’e alınır.
+
+Nasıl Çalışır
+Branch açılır.
+Kod yazılır.
+Pull request açılır.
+Code review yapılır.
+Ana branch’e merge edilir ve deploy edilir.
+
+Avantajları
+Basit ve anlaşılır
+Hızlı geliştirme
+CI/CD ile uyumlu
+
+Dezavantajları
+Release kontrolü sınırlıdır
+Büyük ve karmaşık projelerde risk artabilir
+
+
+========================
+TRUNK BASED DEVELOPMENT
+========================
+
+Genel Tanım
+Trunk Based Development, tüm ekibin tek ana branch üzerinden çalıştığı
+ileri seviye bir yaklaşımdır.
+
+Temel Mantık
+Uzun ömürlü branch’ler yoktur.
+Değişiklikler küçük ve sık yapılır.
+Feature flag’ler aktif olarak kullanılır.
+
+Nasıl Çalışır
+Ana branch sürekli günceldir.
+Geliştiriciler kısa süreli branch’ler açar veya direkt ana branch’e çalışır.
+Kodlar küçük parçalara bölünür.
+
+Avantajları
+Merge çatışmaları azalır
+Deploy süreci hızlanır
+CI/CD verimli çalışır
+
+Dezavantajları
+Disiplin gerektirir
+Test altyapısı zayıfsa risklidir
+Junior ağırlıklı ekipler için uygun değildir
+
+
+========================
+PULL REQUEST KÜLTÜRÜ
+========================
+
+Pull Request Nedir
+Kodun ana branch’e girmeden önce incelenmesini sağlayan kontrol noktasıdır.
+
+Kurumsal PR Kuralları
+PR küçük olmalıdır.
+PR açıklaması net olmalıdır.
+Neden yapıldığı anlaşılmalıdır.
+Test bilgisi eklenmelidir.
+
+PR İnceleme Süreci
+Kod okunur
+Mantık sorgulanır
+Edge case’ler değerlendirilir
+Gerekirse değişiklik istenir
+
+PR Onay Yetkisi
+Herkes merge edemez.
+Yetkiler rol bazlı tanımlanır.
+
+
+========================
+CODE REVIEW KÜLTÜRÜ
+========================
+
+Amaç
+Hata yakalamak değil kaliteyi yükseltmektir.
+
+İyi Bir Code Review
+Kişisel değil teknik olur
+Yapıcı dil kullanılır
+Standartlara odaklanır
+
+Kötü Code Review
+Yorum yok
+Sadece onay
+Kişisel eleştiri
+
+Kurumsal Etki
+Bilgi paylaşımı artar
+Kod standardı oluşur
+Junior’lar hızla gelişir
+
+
+========================
+YETKİ VE ERİŞİM YÖNETİMİ
+========================
+
+Kimler Ana Branch’e Push Atabilir
+Genellikle sadece senior veya lead roller
+
+Kimler PR Açabilir
+Tüm geliştiriciler
+
+Kimler PR Onaylar
+Tech lead
+Senior developer
+Code owner
+
+Bu Neden Önemli
+Yanlışlıkla production kırılmaz
+Sorumluluk netleşir
+
+
+========================
+CI/CD VE GIT İLİŞKİSİ
+========================
+
+CI/CD Nedir
+Kod değiştiğinde otomatik test ve deploy süreçlerinin çalışmasıdır.
+
+Git ile Entegrasyon
+Her PR test tetikler
+Main branch deploy tetikler
+Fail olan build merge edilmez
+
+Kurumsal Fayda
+Hatalar erken yakalanır
+Manual işlem azalır
+Deploy güvenliği artar
+
+
+========================
+KURUMSAL GİT’TE EN SIK YAPILAN HATALAR
+========================
+
+Ana branch’e direkt commit atmak
+Büyük PR’lar açmak
+Code review’suz merge etmek
+Force push’u kural haline getirmek
+Branch isimlendirme standardı olmaması
+
+
+========================
+SONUÇ
+========================
+
+Kurumsal Git kullanımı sadece komut bilgisi değildir.
+Disiplin, iletişim ve süreç yönetimidir.
+Doğru yapı, ekip hızını artırır.
+Yanlış yapı, en iyi geliştiriciyi bile yavaşlatır.
