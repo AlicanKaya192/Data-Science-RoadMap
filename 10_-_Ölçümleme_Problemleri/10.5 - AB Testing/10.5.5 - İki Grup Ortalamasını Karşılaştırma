@@ -1,0 +1,92 @@
+# BAĞIMSIZ İKİ ÖRNEKLEM T-TESTİ (INDEPENDENT TWO-SAMPLE T-TEST)
+
+## 1. Nedir?
+
+Bağımsız İki Örneklem T-Testi (Independent Samples T-Test); birbirinden tamamen farklı iki grubun (A ve B grupleri) ortalamaları arasında istatistiksel olarak anlamlı bir fark olup olmadığını test eden parametrik bir yöntemdir.
+
+A/B Testlerinin "Altın Standardı"dır.
+* **"Bağımsız" ne demek?** A grubundaki kişiler ile B grubundaki kişiler farklıdır. Yani bir kişi hem A hem B grubunda olamaz.
+* **"T-Testi" ne demek?** İki grubun ortalamalarını standart sapmalarını da dikkate alarak kıyaslayan matematiksel formüldür.
+
+---
+
+## 2. Neden Sadece Ortalamalara Bakıp Karar Veremeyiz?
+
+Diyelim ki bir e-ticaret sitesinde kampanya testi yapıyorsunuz:
+* **A Grubu (Eski Kampanya):** Ortalama Sepet Tutarı: **100 TL**
+* **B Grubu (Yeni Kampanya):** Ortalama Sepet Tutarı: **105 TL**
+
+İlk bakışta "B grubu 5 TL daha iyi, hemen buna geçelim" diyebilirsiniz. **Bu çok risklidir.**
+Çünkü bu 5 TL'lik fark tamamen şans eseri (o gün zengin bir müşterinin denk gelmesi gibi) oluşmuş olabilir. T-Testi bize şu cevabı verir:
+*"Bu 5 TL'lik fark tesadüf mü, yoksa gerçekten bir başarı mı?"*
+
+---
+
+## 3. Testin Uygulanabilmesi İçin Ön Şartlar (Varsayımlar)
+
+T-Testini kafamıza göre her veriye uygulayamayız. Verinin bu testi "hak etmesi" gerekir. Buna **Varsayım Kontrolü** denir.
+
+1.  **Normallik Varsayımı (Normality):**
+    Verilerin dağılımı "Çan Eğrisi" (Normal Dağılım) şeklinde olmalıdır. Veri ne çok uçuk kaçık olmalı, ne de çok çarpık olmalı.
+    * *Kontrol Testi:* **Shapiro-Wilk Testi**.
+
+2.  **Varyans Homojenliği (Homogeneity of Variance):**
+    İki grubun değişkenliği (dağılım genişliği) birbirine benzer olmalıdır. Yani A grubundaki veriler çok sıkışıkken, B grubundakiler çok dağınık olmamalıdır.
+    * *Kontrol Testi:* **Levene Testi**.
+
+**NOT:** Eğer bu şartlar sağlanmıyorsa T-Testi yapılamaz. Onun yerine "Mann-Whitney U Testi" (Non-Parametrik) yapılır.
+
+---
+
+## 4. Adım Adım T-Testi Süreci
+
+Bir A/B testinde T-Testi şu sırayla uygulanır:
+
+### Adım 1: Hipotezleri Kur
+* **H0 (Yokluk Hipotezi):** $M_1 = M_2$ (İki grup ortalaması arasında fark yoktur).
+* **H1 (Alternatif Hipotez):** $M_1 \neq M_2$ (İki grup ortalaması arasında fark vardır).
+
+### Adım 2: Varsayımları Kontrol Et
+Önce veriye Shapiro-Wilk ve Levene testlerini uygula.
+* Veriler normal dağılıyor mu? (Evet/Hayır)
+* Varyanslar homojen mi? (Evet/Hayır)
+* **İkisi de "Evet" ise -> T-Testini çalıştır.**
+
+### Adım 3: P-Value Değerini Yorumla
+Test sonucu çıkan P değerine bak.
+* **p < 0.05 ise:** H0 RED. (Fark Var). Ortalamalar birbirinden gerçekten farklıdır. Kazanan bellidir.
+* **p > 0.05 ise:** H0 REDDEDİLEMEZ. (Fark Yok). Aradaki fark şans eseridir.
+
+---
+
+## 5. Pratik Uygulama Örneği (Mobil Uygulama Testi)
+
+Bir mobil oyun şirketi, oyun içi satın alma ekranını değiştirdi.
+* **Grup A (Kontrol):** Eski ekranı gören 1000 kişi.
+* **Grup B (Test):** Yeni ekranı gören 1000 kişi.
+
+**Veriler:**
+* A Grubu Ortalaması: **5.2 $**
+* B Grubu Ortalaması: **5.8 $**
+
+**Süreç:**
+1.  **Normallik Kontrolü:** İki grubun da verisi normal dağılıyor (Shapiro p > 0.05).
+2.  **Varyans Kontrolü:** Varyanslar eşit (Levene p > 0.05).
+3.  **T-Testi Uygulaması:**
+    * Hesaplanan P-Value: **0.03**
+
+**Sonuç ve Karar:**
+P değeri (0.03), kritik sınır olan 0.05'ten **KÜÇÜKTÜR.**
+Bu demek oluyor ki; B grubundaki **0.6 $'lık artış** şans eseri değildir. İstatistiksel olarak anlamlıdır.
+
+**Yönetici Özeti:** "Yaptığımız değişiklik %95 güvenle geliri artırmıştır. Yeni ekrana geçiş yapabiliriz."
+
+---
+
+## ÖZET TABLO: Hangi Testi Ne Zaman Seçmeliyim?
+
+| Durum | Varsayım Durumu | Kullanılacak Test |
+| :--- | :--- | :--- |
+| **İdeal Senaryo** | Normallik VAR + Varyanslar EŞİT | **T-Test (Standart)** |
+| **Kısmi Sorunlu** | Normallik VAR + Varyanslar EŞİT DEĞİL | **Welch T-Test** |
+| **Sorunlu Veri** | Normallik YOK (Veri Çarpık) | **Mann-Whitney U Testi** |

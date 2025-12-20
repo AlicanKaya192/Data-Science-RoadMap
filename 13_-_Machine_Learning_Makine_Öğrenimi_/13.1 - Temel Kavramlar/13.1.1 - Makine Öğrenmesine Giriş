@@ -1,0 +1,143 @@
+BAŞLIK: MAKİNE ÖĞRENMESİ (MACHINE LEARNING): UÇTAN UCA KAPSAMLI TEKNİK REHBER
+TÜR: Akademik/Teknik Detaylı Anlatım
+
+================================================================================
+BÖLÜM 1: MAKİNE ÖĞRENMESİ NEDİR? (DERİNLEMESİNE ANALİZ)
+================================================================================
+
+Tanım: Bilgisayarların insanlara benzer şekilde öğrenmesini sağlamak maksadıyla çeşitli algoritma ve tekniklerin 
+geliştirilmesi için çalışılan bilimsel çalışma alanıdır.
+
+Makine Öğrenmesi (Machine Learning - ML), bilgisayar sistemlerinin açık ve net talimatlar (hard-coded rules) ile 
+programlanmadan, veri üzerinden deneyim kazanarak performanslarını artırmalarını sağlayan, istatistik ve bilgisayar biliminin kesişim noktasıdır.
+
+1.1. Geleneksel Programlama vs. Makine Öğrenmesi Paradigması
+Geleneksel yazılım mühendisliğinde süreç şöyledir: İnsan bir kural yazar (Örn: "Eğer hava sıcaklığı > 30 ise 'Sıcak' yaz"), 
+bilgisayara veri girer ve bilgisayar bu kuralı uygulayarak çıktı üretir.
+- Formül: Veri + Kurallar = Çıktı
+
+Makine öğrenmesinde ise bu akış tersine döner. Bilgisayara hem veriyi (hava dereceleri) hem de o verinin sonucunu 
+(insanların o gün 'sıcak' deyip demediği) veririz. Bilgisayar bu ikisi arasındaki ilişkiyi kuran matematiksel fonksiyonu kendisi türetir.
+- Formül: Veri + Çıktı = Kurallar (Model)
+
+1.2. Temel Felsefe: Genelleştirme (Generalization)
+Makine öğrenmesinin nihai amacı veriyi "ezberlemek" değil, veriden "genelleme" yapmaktır. Sistem, eğitim sırasında görmediği 
+yepyeni bir veriyle karşılaştığında (örneğin daha önce hiç görmediği bir müşteri profili), geçmişteki örüntülere dayanarak doğru bir 
+tahminde bulunabilmelidir. Bu yeteneğe "Genelleştirme Başarısı" denir.
+
+================================================================================
+BÖLÜM 2: MAKİNE ÖĞRENMESİNİN TEMEL BİLEŞENLERİ
+================================================================================
+
+Bir ML sisteminin çalışabilmesi için şu 4 temel bileşene ihtiyaç vardır:
+
+1. Veri Seti (Dataset):
+   - Öznitelikler (Features): Tahmin yapmak için kullanılan girdiler (Örn: Evin m2'si, konumu). Genellikle "X" ile gösterilir.
+   - Etiketler (Labels): Tahmin edilmek istenen gerçek sonuçlar (Örn: Evin fiyatı). Genellikle "y" ile gösterilir.
+
+2. Model (Hipotez):
+   Veriyi en iyi ifade eden matematiksel yapıdır. (Örn: Bir doğru denklemi: y = wx + b). Modelin amacı, 
+   X verildiğinde y'yi en az hatayla bulmaktır.
+
+3. Amaç/Yitim Fonksiyonu (Loss/Cost Function):
+   Modelin tahminleri ile gerçek değerler arasındaki farkı ölçen matematiksel formüldür.
+   - Hedef: Bu fonksiyonun sonucunu (Hatayı) 0'a yaklaştırmaktır.
+   - Örnek: Ortalama Kare Hata (MSE) -> Hataların karesini alıp ortalamasını bulur.
+
+4. Optimizasyon Algoritması (Örn: Gradyan İniş):
+   Yitim fonksiyonunu minimize etmek için modelin parametrelerini (ağırlıklarını) güncelleyen mekanizmadır.
+
+================================================================================
+BÖLÜM 3: ÖĞRENME TÜRLERİ VE DETAYLI ALGORİTMALAR
+================================================================================
+
+A. GÖZETİMLİ ÖĞRENME (SUPERVISED LEARNING)
+Veri setinde hem soruların (X) hem de cevapların (y) olduğu öğrenme türüdür.
+
+1. Regresyon (Regression) - Sayısal Tahmin
+   Sürekli (continuous) değerleri tahmin etmek için kullanılır.
+   - Lineer Regresyon: Veri noktaları arasından geçen en uygun doğruyu çizer.
+   - Polinom Regresyon: Veri doğrusal değilse (kıvrımlıysa), eğriler çizerek tahmin yapar.
+   - Kullanım: Borsa tahmini, hava durumu sıcaklık tahmini, satış hacmi tahmini.
+
+2. Sınıflandırma (Classification) - Kategori Tahmini
+   Verinin hangi sınıfa ait olduğunu belirler.
+   - Lojistik Regresyon: İsimdeki "regresyon"a aldanmayın, bir olasılık hesaplar (0 ile 1 arası) ve 
+   veriyi sınıflar (Örn: %50'den büyükse A sınıfı).
+   - K-En Yakın Komşu (K-NN): Yeni gelen veriye bakar, ona en yakın "K" adet komşusu neyse o sınıfa atar.
+   - Destek Vektör Makineleri (SVM): Sınıfları birbirinden ayırmak için en geniş marjlı "hiper düzlemi" (sınır çizgisini) bulur.
+   - Karar Ağaçları (Decision Trees): Veriyi "Evet/Hayır" sorularıyla dallara ayırarak sonuca gider. (Örn: Yaş > 30 mu? -> Evet -> Gelir > 5000 mi? -> ...)
+
+B. GÖZETİMSİZ ÖĞRENME (UNSUPERVISED LEARNING)
+Veride etiket (cevap) yoktur. Model, verinin kendi içindeki gizli yapıyı (structure) bulur.
+
+1. Kümeleme (Clustering)
+   Benzer verileri gruplar.
+   - K-Means: Veriyi önceden belirlenen "K" adet kümeye ayırır. Her kümenin bir merkezi vardır.
+   - Hiyerarşik Kümeleme: Verileri bir ağaç yapısı (dendrogram) gibi gruplar.
+   - Kullanım: Müşteri segmentasyonu, genetik araştırmalar, sahte haber tespiti.
+
+2. Boyut İndirgeme (Dimensionality Reduction)
+   Veri setindeki gereksiz sütunları (gürültü) atarak veriyi sadeleştirir.
+   - PCA (Temel Bileşen Analizi): Verinin varyansını (çeşitliliğini) en çok koruyan yeni ve daha az sayıda özellik üretir.
+   - Kullanım: Büyük verilerin görselleştirilmesi, işlem hızını artırma.
+
+C. PEKİŞTİRMELİ ÖĞRENME (REINFORCEMENT LEARNING)
+Bu, davranışçılık psikolojisine dayanır. Bir "Ajan" (Agent), bir "Ortam" (Environment) içinde bulunur.
+- Döngü: Ajan bir eylem yapar -> Ortam değişir -> Ajan bir ödül veya ceza alır -> Ajan stratejisini günceller.
+- Keşif vs. Sömürü (Exploration vs Exploitation): Ajan bildiği güvenli yolu mu seçmeli (Sömürü) yoksa daha yüksek ödül ihtimali için risk mi almalı (Keşif)?
+- Kullanım: Otonom araçların sürüş eğitimi, oyun oynayan yapay zekalar (AlphaGo), robotik kol kontrolü.
+
+================================================================================
+BÖLÜM 4: MODEL NASIL ÖĞRENİR? (TEKNİK SÜREÇ)
+================================================================================
+Bu süreç, bir "sihir" değil, saf matematiktir. İşte o meşhur "Gradyan İniş" burada devreye girer.
+
+Adım 1: Başlatma (Initialization)
+Modelin parametrelerine (ağırlıklarına) rastgele değerler atanır. Model şu an çok kötüdür ve her şeyi yanlış tahmin eder.
+
+Adım 2: İleri Yayılım (Forward Pass)
+Veri modele verilir ve bir tahmin üretilir.
+Örn: Model, 100 m2 eve 200.000 TL dedi (Gerçek fiyat 500.000 TL).
+
+Adım 3: Hata Hesaplama (Loss Calculation)
+Tahmin ile gerçek arasındaki fark hesaplanır.
+Hata = (500.000 - 200.000)^2 (Karesi alınır ki negatifler pozitife dönsün ve büyük hatalar daha çok cezalandırılsın).
+
+Adım 4: Geriye Yayılım ve Gradyan İniş (Backpropagation & Gradient Descent)
+Burası kalbidir.
+- Gradyan (Eğim): Hata fonksiyonunun türevi alınır. Türev, hatayı azaltmak için parametreleri (ağırlıkları) "hangi yönde" ve "ne kadar" değiştirmemiz gerektiğini söyler.
+- Gradyan İniş Analojisi: Gözleri bağlı bir dağcı olduğunuzu ve dağın zirvesinden (yüksek hata) en dibine (minimum hata) inmeye çalıştığınızı düşünün. 
+Ayağınızla eğimi hissedersiniz. Eğim aşağı doğruysa o yöne adım atarsınız.
+- Öğrenme Oranı (Learning Rate): Bu adımın büyüklüğüdür. Çok büyük adım atarsanız dibi ıskalayıp karşı tepeye çıkabilirsiniz. Çok küçük atarsanız inmeniz yıllar sürer.
+
+Adım 5: Güncelleme (Update)
+Ağırlıklar, hesaplanan gradyan ve öğrenme oranı kullanılarak güncellenir. Bu döngü (Epoch), hata minimuma inene kadar binlerce kez tekrarlanır.
+
+================================================================================
+BÖLÜM 5: MODEL PERFORMANSI VE SORUNLAR
+================================================================================
+
+5.1. Overfitting (Aşırı Öğrenme / Ezberleme)
+Model, eğitim verisindeki gürültüyü bile öğrenir. Eğitim setinde %99 başarı gösterir ama test setinde çuvallar.
+- Belirtisi: Düşük Eğitim Hatası (Bias), Yüksek Test Hatası (Variance).
+- Çözüm: Daha fazla veri toplamak, Düzenlileştirme (Regularization), Model karmaşıklığını azaltmak.
+
+5.2. Underfitting (Eksik Öğrenme)
+Model verideki yapıyı öğrenemeyecek kadar basittir. Hem eğitim hem test setinde başarısızdır.
+- Çözüm: Modeli karmaşıklaştırmak, yeni öznitelikler eklemek, eğitim süresini artırmak.
+
+5.3. Değerlendirme Metrikleri
+- Accuracy (Doğruluk): Toplam doğru tahmin yüzdesi. (Veri dengesizse yanıltıcıdır).
+- Precision (Kesinlik): "Pozitif" dediğimiz tahminlerin ne kadarı gerçekten pozitif?
+- Recall (Duyarlılık): Gerçekteki "Pozitif"lerin ne kadarını yakalayabildik?
+- F1-Score: Precision ve Recall'un harmonik ortalamasıdır. Dengesiz veri setleri için en iyi metriktir.
+
+================================================================================
+SONUÇ: UYGULAMA ALANLARI
+================================================================================
+Bugün bu teorik altyapı şu alanlarda hayat bulur:
+1. Doğal Dil İşleme (NLP): Çeviri (Google Translate), Chatbotlar (ChatGPT), Duygu Analizi.
+2. Bilgisayarlı Görü (Computer Vision): Yüz tanıma, Kanser hücresi tespiti, Otonom sürüş.
+3. Öneri Sistemleri: Netflix, Spotify, Amazon ürün önerileri.
+4. Finansal Teknolojiler: Kredi risk skorlaması, Algoritmik ticaret, Dolandırıcılık tespiti.

@@ -1,0 +1,206 @@
+SORULARIN CEVAPLARI EN ALTTA BULUNMAKTA
+
+------------------------------------------------------------------------------------
+
+1. Bir film öneri sistemi geliştirmek istiyorsunuz. Hangi değişken bağımlı değişken olarak kullanılabilir?
+
+A) Filmin Konusu
+B) Yönetmenin Yaşı
+C) Filmin İzleyici Sayısı
+D) Filmin IMDB Puanı
+
+------------------------------------------------------------------------------------
+
+2. Bir e-ticaret şirketi, müşterilerin alışveriş alışkanlıklarını incelemek istiyor. Hangi değişken kategorik değişken örneğidir?
+
+A) Satın Alınan Ürünlerin Toplam Tutarı
+B) Müşterinin Cinsiyeti
+C) Müşterinin Yaşı
+D) Alışveriş Yapılan Şube
+
+------------------------------------------------------------------------------------
+
+3. Hangi özellik kategorik ve sayısal değişkenler arasında ortak değildir?
+
+A) İstatistiksel Dağılım
+B) Ölçek Tipi
+C) Toplama İşlemine Uygunluk
+D) Sıralama Yeteneği
+
+------------------------------------------------------------------------------------
+
+4. Bir makine öğrenimi modelinin performansını değerlendirmek için hangi yöntem kullanılır?
+
+A) Veri Önişleme
+B) Model Eğitim Süresi
+C) Hiperparametre Ayarı
+D) Test Verisi Üzerinde Doğrulama
+
+------------------------------------------------------------------------------------
+
+5. Bir makine öğrenimi modeli eğitilirken, model eğitim verilerine yüksek derecede uyma eğilimi gösterir, ancak yeni verilere kötü uyarlanır. Bu durum hangi kavramı ifade eder?
+
+A) Varyans
+B) Yanlılık (Bias)
+C) Aşırı Uyum (Overfitting)
+D) Alt Uyum (Underfitting)
+
+------------------------------------------------------------------------------------
+
+6. Geleneksel programlama ile Makine Öğrenmesi arasındaki temel fark nedir?
+
+A) Geleneksel programlamada kuralları bilgisayar bulur.
+B) Makine öğrenmesinde kuralları insan yazar.
+C) Geleneksel programlamada Veri + Kurallar = Çıktı iken, Makine Öğrenmesinde Veri + Çıktı = Kurallar (Model) şeklindedir.
+D) Makine öğrenmesi sadece sayısal verilerle çalışır.
+
+------------------------------------------------------------------------------------
+
+7. Bir veri setinde tahmin edilmek istenen gerçek sonuçlara (örneğin evin fiyatı) ne ad verilir?
+
+A) Öznitelik (Feature)
+B) Etiket (Label)
+C) Gürültü (Noise)
+D) Küme (Cluster)
+
+------------------------------------------------------------------------------------
+
+8. Aşağıdakilerden hangisi Gözetimli Öğrenme (Supervised Learning) kapsamında yer almaz?
+
+A) Regresyon
+B) Sınıflandırma
+C) Kümeleme (Clustering)
+D) Karar Ağaçları
+
+------------------------------------------------------------------------------------
+
+9. "Bir evin oda sayısı, konumu ve metrekaresine bakarak satış fiyatını tahmin etmek" hangi problem türüne örnektir?
+
+A) Sınıflandırma
+B) Kümeleme
+C) Regresyon
+D) Boyut İndirgeme
+
+------------------------------------------------------------------------------------
+
+10. Bir e-postanın "Spam" veya "Spam Değil" olarak etiketlenmesi hangi problem türüdür?
+
+A) İkili Sınıflandırma (Binary Classification)
+B) Çok Sınıflı Sınıflandırma (Multi-Class Classification)
+C) Regresyon
+D) Kümeleme
+
+------------------------------------------------------------------------------------
+
+11. Veri setinde etiketlerin (hedef değişkenin) bulunmadığı ve modelin verideki gizli yapıları keşfettiği öğrenme türü hangisidir?
+
+A) Gözetimli Öğrenme
+B) Gözetimsiz Öğrenme (Unsupervised Learning)
+C) Pekiştirmeli Öğrenme
+D) Yarı Gözetimli Öğrenme
+
+------------------------------------------------------------------------------------
+
+12. Dengesiz (Imbalanced) bir veri setinde model başarısını ölçmek için "Doğruluk" (Accuracy) metriği neden yanıltıcı olabilir?
+
+A) Hesaplaması çok zordur.
+B) Sadece negatif sınıfları dikkate alır.
+C) Model, çoğunluk sınıfını sürekli tahmin ederek yapay bir yüksek skor elde edebilir.
+D) Accuracy sadece regresyon problemlerinde kullanılır.
+
+------------------------------------------------------------------------------------
+
+13. Bir spam filtresinde "Normal" bir mailin yanlışlıkla "Spam" olarak işaretlenmesini (False Positive) minimize etmek istiyorsanız hangi metriğe odaklanmalısınız?
+
+A) Duyarlılık (Recall)
+B) Kesinlik (Precision)
+C) Accuracy
+D) MSE
+
+------------------------------------------------------------------------------------
+
+14. Kanser teşhisi gibi kritik bir konuda, hasta olan birini gözden kaçırmamak (False Negative'i düşürmek) için hangi metrik daha önemlidir?
+
+A) Kesinlik (Precision)
+B) Duyarlılık (Recall)
+C) R-Kare
+D) Varyans
+
+------------------------------------------------------------------------------------
+
+15. Modelin hiperparametrelerini (örneğin ağaç derinliği, komşu sayısı) ayarlamak için veri setinin hangi bölümü kullanılır?
+
+A) Eğitim Seti (Train Set)
+B) Test Seti (Test Set)
+C) Doğrulama Seti (Validation Set)
+D) Üretim Seti (Production Set)
+
+------------------------------------------------------------------------------------
+
+16. K-Katlı Çapraz Doğrulama (K-Fold Cross Validation) yönteminin temel avantajı nedir?
+
+A) Modeli daha hızlı eğitir.
+B) Veri setini büyütür.
+C) Şans faktörünü azaltarak modelin genelleştirme başarısını daha güvenilir ölçer.
+D) Hiperparametreleri otomatik ayarlar.
+
+------------------------------------------------------------------------------------
+
+17. Bir modelin eğitim verisindeki ilişkileri öğrenemeyip hem eğitim hem de test setinde yüksek hata vermesi durumuna ne ad verilir?
+
+A) Aşırı Uyum (Overfitting)
+B) Yüksek Varyans
+C) Yüksek Yanlılık (High Bias) / Underfitting
+D) Dengesiz Veri
+
+------------------------------------------------------------------------------------
+
+18. Bir modelin eğitim verisini ezberleyip (aşırı uyum), test verisinde başarısız olması durumu hangisiyle ifade edilir?
+
+A) Yüksek Varyans (High Variance)
+B) Yüksek Yanlılık (High Bias)
+C) Underfitting
+D) Optimum Denge
+
+------------------------------------------------------------------------------------
+
+19. Modelin tahminleri ile gerçek değerler arasındaki farkı ölçen ve optimizasyon sırasında minimize edilmeye çalışılan fonksiyona ne denir?
+
+A) Aktivasyon Fonksiyonu
+B) Yitim Fonksiyonu (Loss Function)
+C) Sigmoid Fonksiyonu
+D) Korelasyon Fonksiyonu
+
+------------------------------------------------------------------------------------
+
+20. Zaman serisi tahminini basit regresyondan ayıran temel özellik nedir?
+
+A) Verilerin kategorik olması.
+B) Verilerin birbirinden bağımsız olması.
+C) Verilerin sıralı olması ve mevsimsellik/trend içermesi.
+D) Hedef değişkenin olmaması.
+
+------------------------------------------------------------------------------------
+
+CEVAP ANAHTARI
+-------------------
+1 -> D
+2 -> B
+3 -> C
+4 -> D
+5 -> C
+6 -> C
+7 -> B
+8 -> C
+9 -> C
+10 -> A
+11 -> B
+12 -> C
+13 -> B
+14 -> B
+15 -> C
+16 -> C
+17 -> C
+18 -> A
+19 -> B
+20 -> C

@@ -1,0 +1,115 @@
+BAŞLIK: MAKİNE ÖĞRENMESİNDE PROBLEM TÜRLERİ (TYPES OF ML PROBLEMS)
+TÜR: Teknik Sınıflandırma ve Uygulama Senaryoları
+
+================================================================================
+1. GİRİŞ: PROBLEM TÜRÜNÜ BELİRLEMENİN ÖNEMİ
+================================================================================
+Bir veri bilimi projesine başlarken sorulacak ilk soru şudur: "Biz neyi tahmin etmeye veya çözmeye çalışıyoruz?"
+Bu sorunun cevabı, kullanılacak algoritmayı, başarı metriğini (Accuracy mi, RMSE mi?) ve veri hazırlama sürecini tamamen değiştirir.
+
+================================================================================
+2. TEMEL PROBLEM TÜRLERİ (PREDICTIVE TASKS)
+================================================================================
+
+--------------------------------------------------------------------------------
+A. REGRESYON PROBLEMLERİ (REGRESSION)
+--------------------------------------------------------------------------------
+Hedef değişkenin (Target) sayısal ve sürekli (continuous) olduğu problemlerdir. "Ne kadar?", "Kaç tane?", "Fiyatı ne?" sorularına cevap aranır.
+
+1. Basit Regresyon:
+   - Tek bir çıktı tahmin edilir.
+   - Örnek: Bir evin özelliklerine bakarak satış fiyatını tahmin etmek.
+
+2. Zaman Serisi Tahmini (Time Series Forecasting):
+   - Zaman faktörünün kritik olduğu özel bir regresyon türüdür. Veriler birbirinden bağımsız değildir, sıralıdır.
+   - Örnek: Gelecek ayın elektrik tüketimini, geçmiş 12 aya bakarak tahmin etmek.
+   - Farkı: Mevsimsellik (Seasonality) ve Trend faktörleri işin içine girer.
+
+--------------------------------------------------------------------------------
+B. SINIFLANDIRMA PROBLEMLERİ (CLASSIFICATION)
+--------------------------------------------------------------------------------
+Hedef değişkenin kategorik olduğu problemlerdir. "Hangi grup?", "Evet mi Hayır mı?" sorularına cevap aranır.
+
+1. İkili Sınıflandırma (Binary Classification):
+   - Sadece iki olası sonuç vardır (0 veya 1).
+   - Örnek: Kredi başvurusu Onay/Red, E-posta Spam/Normal, Hasta/Sağlıklı.
+
+2. Çok Sınıflı Sınıflandırma (Multi-Class Classification):
+   - İkiden fazla kategori vardır ancak her veri SADECE BİR sınıfa ait olabilir.
+   - Örnek: Bir hayvan resmini sınıflandırmak (Kedi, Köpek veya Kuş). Bir resim hem kedi hem köpek olamaz.
+
+3. Çok Etiketli Sınıflandırma (Multi-Label Classification):
+   - Bir veri AYNI ANDA birden fazla sınıfa ait olabilir.
+   - Örnek: Film türü tahmini. Bir film hem "Aksiyon" hem "Bilim Kurgu" hem de "Macera" kategorisinde olabilir.
+   - Örnek: Haber metni etiketleme (Hem "Siyaset" hem "Ekonomi" haberi olabilir).
+
+================================================================================
+3. KEŞİFSEL VE YAPISAL PROBLEMLER (DESCRIPTIVE TASKS)
+================================================================================
+
+--------------------------------------------------------------------------------
+C. KÜMELEME PROBLEMLERİ (CLUSTERING)
+--------------------------------------------------------------------------------
+Verilerin etiketlenmediği durumlarda, verileri benzerliklerine göre gruplama problemidir.
+
+1. Düz Kümeleme (Flat Clustering):
+   - Veriyi baştan belirlenen N adet kümeye ayırır (Örn: K-Means).
+   - Örnek: Müşterileri alışkanlıklarına göre 3 segmente ayırmak.
+
+2. Hiyerarşik Kümeleme (Hierarchical Clustering):
+   - Verileri bir ağaç yapısı gibi alt gruplara böler.
+   - Örnek: Biyolojide türlerin sınıflandırılması (Canlılar -> Hayvanlar -> Memeliler...).
+
+--------------------------------------------------------------------------------
+D. BOYUT İNDİRGEME (DIMENSIONALITY REDUCTION)
+--------------------------------------------------------------------------------
+Çok fazla değişkene (sütuna) sahip verilerin, bilgi kaybı en aza indirilerek özetlenmesi problemidir.
+- Senaryo: 10.000 pikselden oluşan bir yüz fotoğrafını, yüzü tanımlayan temel 50 özelliğe indirmek.
+- Amaç: Görselleştirme yapmak veya modelin çalışma hızını artırmak.
+
+================================================================================
+4. ÖZEL VE İLERİ DÜZEY PROBLEM TÜRLERİ
+================================================================================
+
+--------------------------------------------------------------------------------
+E. ANOMALİ TESPİTİ (ANOMALY / OUTLIER DETECTION)
+--------------------------------------------------------------------------------
+Veri setindeki genel dağılıma uymayan, "normal dışı" örneklerin bulunmasıdır. Bu problemler genellikle dengesiz veri setleriyle (imbalanced data) çalışır (Örn: %99 normal, %1 anomali).
+
+- Örnekler:
+  * Finans: Kredi kartı dolandırıcılığı tespiti (Fraud Detection).
+  * Üretim: Fabrika makinelerindeki arıza ön sinyallerinin yakalanması (Predictive Maintenance).
+  * Siber Güvenlik: Ağ trafiğindeki saldırı girişimlerinin tespiti.
+
+--------------------------------------------------------------------------------
+F. SIRALAMA PROBLEMLERİ (RANKING)
+--------------------------------------------------------------------------------
+Amaç sadece bir sınıfı tahmin etmek değil, çıktıları belirli bir ilgi düzeyine göre sıraya dizmektir.
+- Örnek: Google arama sonuçları. Aranan kelimeyle en alakalı sayfanın 1. sırada, daha az alakalı olanın 10. sırada çıkması.
+- Örnek: Netflix'in "Sizin için en çok eşleşenler" listesi.
+
+--------------------------------------------------------------------------------
+G. ÖNERİ SİSTEMLERİ (RECOMMENDATION)
+--------------------------------------------------------------------------------
+Kullanıcıların geçmiş tercihlerine dayanarak yeni ürün/içerik önerme problemidir.
+- İçerik Tabanlı (Content-Based): "Yüzüklerin Efendisi'ni izledin, Hobbit'i de seversin." (Ürün benzerliği).
+- İşbirlikçi Filtreleme (Collaborative Filtering): "Senin gibi davranan diğer kullanıcılar şunu da izledi." (Kullanıcı benzerliği).
+
+--------------------------------------------------------------------------------
+H. ÜRETKEN MODELLER (GENERATIVE TASKS)
+--------------------------------------------------------------------------------
+Var olan veriyi analiz edip, o verinin dağılımına uygun YENİ veriler üretme problemidir.
+- Metin Üretimi: ChatGPT (Bir sonraki kelimeyi tahmin ederek cümle kurma).
+- Görüntü Üretimi: Midjourney, DALL-E (Pikselleri tahmin ederek resim çizme).
+
+================================================================================
+ÖZET SEÇİM REHBERİ
+================================================================================
+Eğer amacınız...                                    | Problem Türü
+--------------------------------------------------- | -----------------------
+Bir sayı tahmin etmek (Fiyat, Sıcaklık)             | Regresyon
+Evet/Hayır veya A/B/C demek                         | Sınıflandırma
+Veriyi gruplara ayırmak (Etiketsiz)                 | Kümeleme
+Anormal durumları yakalamak                         | Anomali Tespiti
+Kullanıcıya özel liste sunmak                       | Öneri / Sıralama
+Yeni veri (Resim/Yazı) oluşturmak                   | Üretken (Generative) ML

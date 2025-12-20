@@ -1,0 +1,70 @@
+========================
+MERGE VS REBASE
+========================
+
+Bu bölüm, merge ve rebase kavramlarının farklarını,
+hangi senaryoda hangisinin tercih edilmesi gerektiğini açıklar.
+Interview’lerde en sık sorulan konulardan biridir.
+
+
+MERGE NEDIR
+Merge, bir branch’teki commit’leri başka bir branch’e dahil etme işlemidir.
+Mevcut commit geçmişi korunur.
+Gerekirse yeni bir merge commit oluşturulur.
+
+
+MERGE KULLANIMININ OZELLIKLERI
+Commit geçmişi olduğu gibi kalır.
+Branch’lerin ne zaman birleştiği net şekilde görülebilir.
+Takım içinde paylaşılan branch’lerde güvenlidir.
+
+
+MERGE NE ZAMAN TERCIH EDILIR
+Paylaşılan branch’lerde çalışılıyorsa
+Develop veya main gibi ortak branch’lerde
+Geçmişin korunması isteniyorsa
+Takım içi senkronizasyon önemliyse
+
+
+REBASE NEDIR
+Rebase, bir branch’teki commit’leri alıp başka bir branch’in sonuna taşır.
+Commit geçmişi yeniden yazılır.
+Daha lineer bir history oluşturur.
+
+
+REBASE KULLANIMININ OZELLIKLERI
+Commit’ler yeni hash alır.
+History daha temiz ve okunabilir olur.
+Geçmişte branch ayrımı görünmez.
+
+
+REBASE NE ZAMAN TERCIH EDILIR
+Kişisel branch’lerde çalışılıyorsa
+Feature branch henüz paylaşılmamışsa
+Commit geçmişi düzenlenmek isteniyorsa
+Squash veya cleanup yapılacaksa
+
+
+PAYLASILAN BRANCH’TE REBASE NEDEN RISKLI
+Rebase commit hash’lerini değiştirir.
+Aynı branch’i kullanan diğer geliştiricilerin history’si bozulur.
+Çakışmalar ve senkron problemleri oluşur.
+
+
+MERGE VE REBASE ARASINDAKI TEMEL FARKLAR
+Merge geçmişi korur.
+Rebase geçmişi yeniden yazar.
+Merge güvenlidir.
+Rebase kontrollü kullanılmalıdır.
+
+
+INTERVIEW’DE BEKLENEN YAKLASIM
+Paylaşılan branch’lerde merge kullanılır.
+Kişisel branch’lerde rebase tercih edilir.
+Temiz history için rebase, güvenlik için merge kullanılır.
+
+
+BU KONUDAN CIKARILAN DERS
+Merge ekip uyumunu korur.
+Rebase bireysel disiplini güçlendirir.
+Yanlış yerde kullanılan rebase kriz üretir.

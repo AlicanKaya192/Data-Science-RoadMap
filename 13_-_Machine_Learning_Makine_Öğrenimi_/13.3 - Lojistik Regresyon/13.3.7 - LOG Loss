@@ -1,0 +1,84 @@
+BAŞLIK: LOG LOSS (LOGARİTMİK KAYIP / BINARY CROSS ENTROPY)
+TÜR: Maliyet Fonksiyonu ve Performans Metriği
+
+================================================================================
+1. GİRİŞ: NEDİR?
+================================================================================
+Log Loss (veya diğer adıyla Binary Cross Entropy), sınıflandırma modellerinde tahmin edilen "Olasılık Değeri"nin başarısını ölçen metriktir.
+
+- Accuracy (Doğruluk): "Doğru bildin mi?" diye sorar. (Sonuç odaklıdır).
+- Log Loss: "Ne kadar emin konuşuyorsun ve ne kadar yaklaştın?" diye sorar. (Süreç ve güven odaklıdır).
+
+Temel Prensip: Modelin tahmini gerçek değerden uzaklaştıkça ceza doğrusal değil, ÜSSEL (Logaritmik) olarak artar.
+
+================================================================================
+2. NEDEN "ACCURACY" YETMEZ? (LOG LOSS'UN GÜCÜ)
+================================================================================
+İki farklı model düşünelim. İkisi de bir hastanın "Kanser (1)" olduğunu tahmin etsin.
+
+- Model A: "Bu hasta %51 ihtimalle Kanser." (Tahmin: 1)
+- Model B: "Bu hasta %99 ihtimalle Kanser." (Tahmin: 1)
+
+Accuracy açısından ikisi de AYNIDIR (İkisi de doğru bilmiştir).
+Ancak Log Loss açısından Model B çok daha başarılıdır çünkü kendine güveni tamdır.
+
+Tersi Durum (Felaket Senaryosu):
+Eğer hasta aslında "Sağlıklı (0)" ise:
+- Model A (%51 Kanser dedi): Az ceza alır. "Zaten emin değildim" der.
+- Model B (%99 Kanser dedi): DEVASA ceza alır. Çünkü hem yanlış bilmiş hem de yanlışından çok emin olmuştur.
+
+Özet: Log Loss, kendinden emin bir şekilde yapılan yanlışları (Confident Wrong) affetmez.
+
+================================================================================
+3. MATEMATİKSEL FORMÜL VE MANTIK
+================================================================================
+Formül korkutucu görünebilir ama mantığı çok basittir. İki parçadan oluşur.
+
+Genel Formül:
+Loss = - [ y * log(p) + (1-y) * log(1-p) ]
+
+Burada:
+- y: Gerçek etiket (0 veya 1).
+- p: Modelin tahmin ettiği olasılık (0 ile 1 arası).
+- log: Doğal logaritma.
+
+Parça 1: Gerçek Değer 1 ise (y=1)
+- Formülün sadece ilk kısmı çalışır: -log(p)
+- Model 1'e yakın tahmin yaparsa (p=0.99) -> log(0.99) ≈ 0 -> Hata YOK.
+- Model 0'a yakın tahmin yaparsa (p=0.01) -> log(0.01) ≈ -4.6 -> Hata BÜYÜK (Eksi ile çarpılınca pozitif olur).
+
+Parça 2: Gerçek Değer 0 ise (y=0)
+- Formülün sadece ikinci kısmı çalışır: -log(1-p)
+- Model 0'a yakın tahmin yaparsa (p=0.01) -> log(0.99) ≈ 0 -> Hata YOK.
+- Model 1'e yakın tahmin yaparsa (p=0.99) -> log(0.01) ≈ -4.6 -> Hata BÜYÜK.
+
+================================================================================
+4. DEĞERLERİ YORUMLAMA (SKOR NE OLMALI?)
+================================================================================
+Log Loss değeri 0 ile Sonsuz (+∞) arasındadır.
+Amaç: 0'a mümkün olduğunca yaklaşmaktır.
+
+- 0.000: Kusursuz Model. (Pratikte imkansızdır).
+- 0.693: Rastgele Tahmin. (Sınıflar dengeliyse ve model her şeye %50-%50 diyorsa Log Loss ~0.69 çıkar). Eğer modeliniz 0.69'dan yüksekse, yazı-tura atsanız daha iyi sonuç alırsınız.
+- 0.00 - 0.10: Mükemmel seviye.
+- 0.10 - 0.30: Çok iyi seviye.
+- 2.00+: Model felaket durumda. Muhtemelen sınıfları ters etiketlediniz.
+
+================================================================================
+5. MSE YERİNE NEDEN LOG LOSS?
+================================================================================
+Doğrusal regresyonda hataların karesini (MSE) alıyorduk. Sınıflandırmada (Lojistik Regresyon) neden bunu yapmıyoruz?
+
+1. Dışbükeylik (Convexity): Sigmoid fonksiyonuyla MSE kullanılırsa grafik dalgalı olur (Non-Convex). Gradyan İniş algoritması takılır. Log Loss ise pürüzsüz bir çukurdur (Convex), dibi bulmak garantidir.
+2. Cezalandırma Şiddeti: MSE hatayı karesiyle cezalandırır. Log Loss ise logaritmik cezalandırır. Olasılık hatalarında Log Loss, yanlışa yaklaştıkça hatayı sonsuza götürür, bu da modelin o yanlıştan hızla kaçmasını sağlar.
+
+================================================================================
+ÖZET TABLO: LOG LOSS VS ACCURACY
+================================================================================
+ÖZELLİK             | ACCURACY (DOĞRULUK)       | LOG LOSS
+------------------- | ------------------------- | -------------------------
+Neyi Ölçer?         | Kararın doğruluğunu       | Olasılığın kalitesini
+Güven Faktörü       | Umursamaz                 | Çok önemser
+Hata Cezası         | Sabittir (Yanlış=0)       | Yanlışın şiddetine göre artar
+Kullanım Yeri       | Sonuç raporlama           | Model eğitimi (Optimizasyon)
+İdeal Değer         | 1.0 (%100)                | 0.0

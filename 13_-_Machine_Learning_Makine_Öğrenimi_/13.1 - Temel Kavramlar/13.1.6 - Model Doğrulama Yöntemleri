@@ -1,0 +1,94 @@
+BAŞLIK: MODEL DOĞRULAMA YÖNTEMLERİ (MODEL VALIDATION TECHNIQUES)
+TÜR: Teknik Metodoloji ve Veri Bölümleme Stratejileri
+
+================================================================================
+1. GİRİŞ: NEDEN DOĞRULAMA YAPIYORUZ?
+================================================================================
+Modeli eğittiğimiz veri ile test edemeyiz. Bu, sınav sorularını önceden gören öğrencinin başarısını ölçmeye benzer.
+Amaç: Modelin daha önce hiç görmediği veriler üzerindeki performansını (Genelleştirme Yeteneği) güvenilir bir şekilde simüle etmektir.
+
+Temel Kavramlar:
+- Overfitting (Aşırı Öğrenme): Modelin eğitim setini ezberlemesi, test setinde başarısız olması.
+- Bias-Variance Tradeoff: Modelin hatasının kaynağını (yanlılık mı varyans mı) dengeleme.
+
+================================================================================
+2. TEMEL YÖNTEMLER (VERİ BÖLÜMLEME)
+================================================================================
+
+A. HOLD-OUT YÖNTEMİ (TRAIN / TEST SPLIT)
+En basit ve yaygın yöntemdir. Veri seti rastgele iki parçaya ayrılır.
+- Yapı: %70 Eğitim (Train), %30 Test.
+- Süreç: Model %70 ile eğitilir, kalan %30 ile performansı ölçülür.
+- Avantajı: Çok hızlıdır ve işlem maliyeti düşüktür.
+- Dezavantajı: "Şans Faktörü". Test setine rastgele çok kolay veya çok zor örnekler düşerse, sonuç yanıltıcı olabilir. Güven aralığı geniştir.
+
+B. ÜÇLÜ BÖLÜMLEME (TRAIN / VALIDATION / TEST)
+Modelin ayarlarını (Hiperparametrelerini) değiştireceksek 2 parça yetmez.
+- Eğitim Seti (Train): Modeli kurmak için.
+- Doğrulama Seti (Validation): Hiperparametre ayarı (Örn: Ağaç derinliği, K sayısı) yapmak için.
+- Test Seti (Test): En sonda, ayarlar bittikten sonra "gerçek" performansı görmek için. (Bu sete eğitim boyunca ASLA dokunulmaz).
+* Analoji:
+  - Train: Ders çalışma / Ödev.
+  - Validation: Deneme sınavı (Eksikleri görüp düzeltirsin).
+  - Test: Üniversite sınavı (Geri dönüşü yoktur).
+
+================================================================================
+3. ÇAPRAZ DOĞRULAMA YÖNTEMLERİ (CROSS-VALIDATION)
+================================================================================
+Hold-Out yöntemindeki "şans faktörünü" ortadan kaldırmak için kullanılır. Altın standarttır.
+
+A. K-KATLI ÇAPRAZ DOĞRULAMA (K-FOLD CROSS VALIDATION)
+Veri seti rastgele "K" adet eşit parçaya (Fold) bölünür (Genelde K=5 veya 10).
+- Süreç (K=5 için):
+  1. Tur: Parça 1 test, diğerleri eğitim.
+  2. Tur: Parça 2 test, diğerleri eğitim.
+  ...
+  5. Tur: Parça 5 test, diğerleri eğitim.
+- Sonuç: Elde edilen 5 farklı başarı puanının ortalaması alınır.
+- Avantajı: Verinin her bir satırı hem eğitim hem de test için kullanılmış olur. Sonuç çok güvenilirdir.
+
+B. KATMANLI K-KATLI (STRATIFIED K-FOLD)
+Sınıflandırma problemlerinde, özellikle Dengesiz Veri (Imbalanced Data) varsa zorunludur.
+- Sorun: Rastgele bölerken bir parçaya sadece "Sağlıklı" insanlar düşebilir, hiç "Hasta" düşmeyebilir.
+- Çözüm: Stratified K-Fold, her bir parçadaki sınıf oranının, ana veri setindeki oranla aynı olmasını garanti eder. (Ana veri %90-%10 ise, her parça da %90-%10 olur).
+
+C. TEKİNİ DIŞARIDA BIRAKMA (LEAVE-ONE-OUT CV - LOOCV)
+K-Fold'un ekstrem halidir. "K" sayısı, veri setindeki satır sayısına (N) eşittir.
+- Süreç: Her seferinde sadece 1 örnek test için ayrılır, kalan hepsiyle eğitim yapılır. Bu işlem N kere tekrarlanır.
+- Kullanım: Veri seti çok küçükse (Örn: 50 satır) her veriyi kullanmak için yapılır. Büyük veride çok yavaştır.
+
+================================================================================
+4. ÖZEL DURUMLAR İÇİN YÖNTEMLER
+================================================================================
+
+A. ZAMAN SERİSİ DOĞRULAMASI (TIME SERIES SPLIT / WALK-FORWARD)
+Zaman serilerinde (Borsa, Satış tahmini) veriyi rastgele karıştıramazsınız. Geleceği kullanarak geçmişi tahmin etmek hile olur (Data Leakage).
+- Yanlış: 2023 verisiyle eğitip, 2022 verisiyle test etmek.
+- Doğru (Rolling Window):
+  1. Eğitim: [Ocak-Şubat], Test: [Mart]
+  2. Eğitim: [Ocak-Şubat-Mart], Test: [Nisan]
+  3. Eğitim: [Ocak-Şubat-Mart-Nisan], Test: [Mayıs]
+- Mantık: Test seti her zaman eğitim setinden kronolojik olarak SONRA gelmelidir.
+
+B. BOOTSTRAPPING
+Veri setinden "yerine koyarak" (with replacement) tekrar tekrar örneklem alma yöntemidir.
+- Süreç: Torbadan bir top çek, rengine bak, torbaya geri at. Tekrar çek.
+- Amaç: Modelin stabilitesini ve güven aralıklarını ölçmek için kullanılır. Genellikle istatistiksel modellerde tercih edilir.
+
+================================================================================
+5. HİPERPARAMETRE OPTİMİZASYONU İLE BİRLİKTE KULLANIM
+================================================================================
+Doğrulama yöntemleri genellikle "Grid Search" veya "Random Search" ile birlikte çalışır.
+
+- Grid Search CV: Belirlenen parametre kombinasyonlarını (Örn: Ağaç derinliği 3, 5, 10) denerken, her denemeyi K-Fold Cross Validation ile yapar. En yüksek ortalama skoru veren parametreyi seçer.
+
+================================================================================
+ÖZET SEÇİM REHBERİ
+================================================================================
+DURUM                               | ÖNERİLEN YÖNTEM
+----------------------------------- | -----------------------------------
+Veri seti çok büyük (>100k satır)   | Hold-Out (Train/Test)
+Veri seti orta boyutta              | K-Fold Cross Validation (K=5 veya 10)
+Sınıflar dengesiz (Kanser vb.)      | Stratified K-Fold
+Veri seti çok küçük (<100 satır)    | Leave-One-Out (LOOCV)
+Zaman Serisi (Borsa, Satış)         | Time Series Split (Walk-Forward)

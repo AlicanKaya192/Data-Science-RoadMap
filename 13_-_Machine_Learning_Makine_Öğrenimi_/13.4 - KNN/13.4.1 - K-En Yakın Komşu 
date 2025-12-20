@@ -1,0 +1,109 @@
+BAŞLIK: K-EN YAKIN KOMŞU (K-NEAREST NEIGHBORS - KNN)
+TÜR: Gözetimli Öğrenme / Tembel Öğrenici (Lazy Learner)
+
+================================================================================
+1. GİRİŞ: "BANA ARKADAŞINI SÖYLE..."
+================================================================================
+KNN, makine öğrenmesinin en basit ve en eski algoritmalarından biridir.
+Temel Felsefesi: "Bir veri noktası, özellik uzayında kendisine en yakın olan komşularına benzer."
+Atasözü: "Bana arkadaşını söyle, sana kim olduğunu söyleyeyim."
+
+- Türü: Hem Sınıflandırma (Classification) hem de Regresyon (Regression) problemlerinde kullanılabilir.
+- Yapısı: "Tembel Öğrenici" (Lazy Learner). (Detayları aşağıda).
+
+================================================================================
+2. ALGORİTMA NASIL ÇALIŞIR? (ADIM ADIM)
+================================================================================
+KNN'in çalışma mantığı 4 basit adımdan oluşur:
+
+1. K Değerini Seç: Kaç tane komşuya bakılacağına karar ver (Örn: K=3 veya K=5).
+2. Mesafeyi Ölç: Tahmin edilecek yeni veri noktası ile eğitim setindeki MEVCUT TÜM noktalar arasındaki mesafeyi tek tek hesapla.
+3. En Yakınları Bul: Mesafeleri küçükten büyüğe sırala ve en yakın "K" adet komşuyu seç.
+4. Karar Ver:
+   - Sınıflandırma ise: Komşuların çoğunluğu hangi sınıftaysa (Mod), yeni veri o sınıftandır. (Örn: 3 komşunun 2'si Kırmızı, 1'i Mavi -> Sonuç Kırmızı).
+   - Regresyon ise: Komşuların değerlerinin ortalamasını (Mean) al. (Örn: Ev fiyatları 100k, 110k, 120k -> Tahmin 110k).
+
+================================================================================
+3. TEMBEL ÖĞRENME (LAZY LEARNING) NEDİR?
+================================================================================
+KNN'in en belirgin özelliğidir.
+- Diğer Modeller (Eager Learners): Eğitim verisini alır, matematiksel bir formül (Model) türetir ve veriyi unutur. Tahmin yaparken sadece formülü kullanır.
+- KNN (Lazy Learner): Eğitim aşamasında HİÇBİR ŞEY yapmaz. Sadece veriyi hafızaya (RAM) kaydeder.
+- Sonuç: Eğitim süresi sıfırdır ama Tahmin süresi uzundur (Çünkü her tahmin için tüm veriyi tekrar taraması gerekir).
+
+================================================================================
+4. KRİTİK PARAMETRE: "K" DEĞERİ
+================================================================================
+KNN'in başarısı tamamen "K" sayısının doğru seçilmesine bağlıdır.
+
+A. K Değeri Çok Küçükse (Örn: K=1)
+- Model, en yakınındaki tek bir noktaya bakar.
+- Sorun: Gürültüye (Noise) ve Aykırı Değerlere (Outlier) karşı çok hassastır.
+- Sonuç: Aşırı Öğrenme (Overfitting). Varyans yüksektir.
+
+B. K Değeri Çok Büyükse (Örn: K=100)
+- Model, çok geniş bir alana bakar. Farklı sınıflar birbirine karışır.
+- Sorun: Sınırlar kaybolur, model çok basitleşir.
+- Sonuç: Eksik Öğrenme (Underfitting). Yanlılık (Bias) yüksektir.
+
+C. K Nasıl Seçilir?
+- Genellikle verinin karekökü ($\sqrt{N}$) başlangıç için iyi bir tahmindir.
+- "Dirsek Yöntemi" (Elbow Method) ile farklı K değerleri denenip hata oranının en düşük olduğu yer seçilir.
+- İpucu: Sınıflandırmada eşitlik (Tie) olmaması için K genellikle TEK SAYI seçilir (3, 5, 7...).
+
+================================================================================
+5. MESAFE ÖLÇÜM YÖNTEMLERİ (DISTANCE METRICS)
+================================================================================
+"Yakınlık" neye göre ölçülür?
+
+1. Öklid Mesafesi (Euclidean Distance):
+   - En yaygın yöntemdir. İki nokta arasındaki kuş uçuşu düz çizgi mesafesidir (Hipotenüs).
+   - Formül: $\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$
+
+2. Manhattan Mesafesi (Taxicab Geometry):
+   - Şehir bloklarında taksiyle gider gibi sadece dik açılarla gidilen mesafedir.
+   - Formül: $|x_2-x_1| + |y_2-y_1|$
+   - Kullanım: Yüksek boyutlu verilerde bazen Öklid'den daha iyi çalışır.
+
+3. Minkowski Mesafesi:
+   - Öklid ve Manhattan'ın genelleştirilmiş matematiksel formudur.
+
+================================================================================
+6. KRİTİK ÖN KOŞUL: ÖLÇEKLENDİRME (FEATURE SCALING)
+================================================================================
+KNN kullanıyorsanız veriyi ölçeklendirmek (Normalization / Standardization) ZORUNLUDUR.
+
+Neden?
+KNN mesafeye bakar.
+- Değişken 1: Maaş (Aranılan: 0 - 50.000 TL)
+- Değişken 2: Yaş (Aralık: 0 - 90)
+
+Maaş sütunundaki 1000 TL'lik fark, Yaş sütunundaki 5 yıllık farktan sayısal olarak çok daha büyüktür.
+Ölçeklendirme yapmazsanız, KNN sadece "Maaş" sütununa göre çalışır, Yaş sütununu görmezden gelir. Tüm değişkenleri 0-1 arasına sıkıştırmalısınız.
+
+================================================================================
+7. AVANTAJLAR VE DEZAVANTAJLAR
+================================================================================
+
+AVANTAJLAR:
+- Basitlik: Anlaması ve kodlaması çok kolaydır.
+- Varsayım Yoktur: Verinin dağılımı (Normal dağılım vb.) hakkında varsayımda bulunmaz (Non-parametric).
+- Doğrusal Olmayan Veri: Karmaşık sınırları olan verilerde iyi çalışır.
+
+DEZAVANTAJLAR:
+- Yavaşlık: Veri seti büyüdükçe tahmin süresi çok uzar. Canlı sistemler için hantal kalabilir.
+- Bellek Sorunu: Tüm eğitim setini hafızada (RAM) tutmak zorundadır.
+- Boyut Laneti (Curse of Dimensionality): Sütun sayısı (Boyut) arttıkça, noktalar birbirinden uzaklaşır ve "yakınlık" kavramı anlamsızlaşır.
+- Ölçek Hassasiyeti: Veri mutlaka ölçeklendirilmelidir.
+
+================================================================================
+ÖZET TABLO
+================================================================================
+ÖZELLİK             | AÇIKLAMA
+------------------- | -----------------------------------------
+Öğrenme Tipi        | Gözetimli (Supervised)
+Model Yapısı        | Tembel (Lazy), Parametresiz (Non-parametric)
+Ana Parametre       | K (Komşu Sayısı)
+Kullanım Alanı      | Öneri Sistemleri, Basit Sınıflandırma
+Zayıf Noktası       | Büyük Veri (Yavaşlar), Aykırı Değerler
+Olmazsa Olmazı      | Feature Scaling (Standardizasyon)

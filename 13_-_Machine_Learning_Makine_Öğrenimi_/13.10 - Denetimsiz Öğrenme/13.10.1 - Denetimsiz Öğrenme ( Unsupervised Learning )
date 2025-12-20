@@ -1,0 +1,114 @@
+BAŞLIK: DENETİMSİZ ÖĞRENME (UNSUPERVISED LEARNING) - KAPSAMLI REHBER
+TÜR: Kümeleme (Clustering), Boyut İndirgeme, Birliktelik Kuralları
+
+================================================================================
+1. GİRİŞ: ÖĞRETMEN YOK, CEVAP ANAHTARI YOK
+================================================================================
+Denetimli öğrenmede modele "Bu resim kedidir", "Bu resim köpektir" deriz.
+Denetimsiz öğrenmede ise modele sadece 1000 tane resim veririz ve şunu deriz:
+"Bunları birbirine benzeyenler grubuna ayır. Neye benzediklerini bilmiyorum ama sen grupla."
+
+Temel Fark:
+- Supervised: Girdi (X) + Hedef (y) -> Fonksiyon öğrenir ($y = f(X)$).
+- Unsupervised: Sadece Girdi (X) -> Verinin yapısını/dağılımını öğrenir.
+
+Kullanım Alanları:
+1. Müşteri Segmentasyonu (Kimler birbirine benziyor?)
+2. Anomali Tespiti (Bankacılıkta dolandırıcılık yakalama).
+3. Öneri Sistemleri (Bunu alan şunu da aldı).
+4. Veri Görselleştirme (100 boyutlu veriyi 2 boyuta indirme).
+
+================================================================================
+2. ALGORİTMA 1: K-MEANS KÜMELEME (EN POPÜLER)
+================================================================================
+Veriyi $K$ adet kümeye ayırmayı hedefler.
+
+Çalışma Mantığı (İteratif):
+1. Başlangıç: Rastgele $K$ adet merkez noktası (Centroid) seç.
+2. Atama: Her veri noktasını kendisine en yakın merkeze ata. (Öklid mesafesi).
+3. Güncelleme: Oluşan her kümenin yeni ağırlık merkezini hesapla ve merkezi oraya kaydır.
+4. Tekrar: Merkezler hareket etmeyi durdurana kadar 2. ve 3. adımları tekrarla.
+
+Kritik Soru: K Kaç Olmalı? (Elbow Method)
+Bilgisayar kaç grup olduğunu bilemez. Biz deneriz.
+- K=1'den K=10'a kadar deneriz.
+- Hata kareler toplamı (Inertia) nerede kırılıyorsa (Dirsek/Elbow noktası), ideal grup sayısı odur.
+
+Dezavantajı:
+- Aykırı değerlere (Outlier) karşı çok hassastır.
+- Kümeleri "küresel" (yuvarlak) varsayar. Hilal şeklindeki veriyi ayıramaz.
+
+================================================================================
+3. ALGORİTMA 2: HİYERARŞİK KÜMELEME (AGGLOMERATIVE)
+================================================================================
+K-Means gibi baştan grup sayısı vermeyiz. Veriyi alttan üste doğru birleştirir.
+
+Mantık:
+1. Başlangıçta her veri noktası tek başına bir kümedir.
+2. En yakın iki noktayı bul ve birleştir. (Artık bir grup oldular).
+3. Bu işlemi tek bir devasa küme kalana kadar tekrarla.
+
+Sonuç: Dendrogram (Soyağacı Grafiği)
+
+Bu grafik bize verinin hiyerarşisini gösterir. Biz grafiğe bakıp, "Şuradan kesersem 3 küme, buradan kesersem 5 küme olur" diye karar veririz.
+
+================================================================================
+4. ALGORİTMA 3: DBSCAN (DENSITY-BASED SPATIAL CLUSTERING)
+================================================================================
+K-Means'in çözemediği "şekilli" verileri ve gürültüyü (noise) çözmek için kullanılır.
+Mantığı "Mesafe" değil, "Yoğunluk"tur.
+
+Analoji (Adalar ve Okyanus):
+- Verinin yoğun olduğu yerleri "Ada" (Cluster) kabul eder.
+- Verinin seyrek olduğu yerleri "Okyanus" (Noise/Outlier) kabul eder.
+
+İki Parametresi Vardır:
+1. Epsilon ($\epsilon$): Bir noktanın komşuluk yarıçapı.
+2. MinPoints: Bir bölgeye "yoğun" demek için gereken minimum nokta sayısı.
+
+Avantajı:
+- K sayısını vermenize gerek yoktur.
+- Aykırı değerleri (Outlier) otomatik olarak "-1" diye etiketleyip atar.
+- İç içe geçmiş halkalar gibi garip şekilleri başarıyla ayırır.
+
+================================================================================
+5. ALGORİTMA 4: BOYUT İNDİRGEME - PCA (PRINCIPAL COMPONENT ANALYSIS)
+================================================================================
+
+
+Veri setinizde 50 tane sütun (değişken) varsa, bunu 2 boyutlu ekranda çizemezsiniz. PCA, verinin özünü kaybetmeden boyut sayısını azaltır.
+
+Nasıl Çalışır? (Fotoğraf Analojisi)
+3 boyutlu bir çaydanlığın fotoğrafını çektiğinizi düşünün.
+- Tepeden çekerseniz (sadece kapak görünür), çok bilgi kaybedersiniz (Kötü Açı).
+- Yandan çekerseniz (sapı, gövdesi görünür), nesneyi en iyi anlatan açıyı bulursunuz (İyi Açı).
+
+PCA, verinin "Varyansını" (Bilgisini) en yüksek tutan o "İyi Açıyı" (Principal Component) matematiksel olarak bulur ve veriyi o eksene izdüşürür.
+50 sütunu alıp, bilginin %95'ini koruyarak 2 yeni süper-sütuna (PC1, PC2) dönüştürür.
+
+================================================================================
+6. ALGORİTMA 5: BİRLİKTELİK KURALI - APRIORI (SEPET ANALİZİ)
+================================================================================
+"Bebek bezi alanlar, yanında bira da alıyor." efsanesinin arkasındaki algoritmadır.
+
+Amaç:
+Veri içindeki "Eğer X olursa, Y de olur" kurallarını bulmaktır.
+
+3 Temel Metrik:
+1. Support (Destek): Bir ürünün ne kadar sık görüldüğü. (Popülarite).
+2. Confidence (Güven): X'i alanların yüzde kaçı Y'yi de aldı?
+3. Lift (Kaldıraç): X'in satılması, Y'nin satış ihtimalini kaç kat artırıyor?
+   - Lift > 1 ise: Bunlar kanka ürünlerdir (Birlikte sat).
+   - Lift < 1 ise: Bunlar düşman ürünlerdir (Birini alan diğerini almıyor).
+
+================================================================================
+7. ÖZET TABLO: HANGİSİNİ NE ZAMAN KULLANAYIM?
+================================================================================
+SENARYO                            | ÖNERİLEN ALGORİTMA
+---------------------------------- | -------------------------------------
+"Müşterileri gruplara ayır"        | K-Means (Veri büyükse), Hierarchical (Küçükse)
+"Verimde çok gürültü/hata var"     | DBSCAN (Outlier'ları ayıklar)
+"Veri görselleştirmek istiyorum"   | PCA (veya t-SNE)
+"Market raf düzeni yapacağım"      | Apriori (Association Rule Learning)
+"Garip şekilli kümelerim var"      | DBSCAN
+"Grup sayısını bilmiyorum"         | Hierarchical veya DBSCAN

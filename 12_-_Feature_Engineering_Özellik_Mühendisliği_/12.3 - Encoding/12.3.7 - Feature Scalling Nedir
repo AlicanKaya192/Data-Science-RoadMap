@@ -1,0 +1,99 @@
+# FEATURE SCALING (OZELLIK OLCEKLENDIRME) KAPSAMLI REHBERI
+
+## 1. Feature Scaling (Ozellik Olceklendirme) Nedir?
+
+Feature Scaling (Ozellik Olceklendirme), makine ogrenmesi modelleri olusturulurken veri on isleme (data preprocessing) asamasinda uygulanan kritik bir adimdir. En basit tanimiyla; veri setinizdeki farkli ozelliklerin (degiskenlerin/sutunlarin) deger araliklarini birbirine yakin veya standart bir forma getirme islemidir.
+
+Veri setindeki degiskenler genellikle farkli birimlere ve buyukluklere sahiptir. Ornegin, bir ev fiyati tahmin projesinde evin metrekaresi 80 ile 500 arasinda degisirken, oda sayisi 1 ile 10 arasinda degisebilir. Bu sayisal ucurumlar modelin ogrenme surecini bozar. Olceklendirme islemi, bu sayilari belirli bir araliga (ornegin 0 ile 1 arasina) indirger.
+
+---
+
+## 2. Neden Buna Ihtiyac Duyariz?
+
+Makine ogrenmesi algoritmalarinin cogu, veriler arasindaki iliskiyi anlamak icin matematiksel formuller kullanir. Eger verileri olceklendirmezsek su sorunlarla karsilasiriz:
+
+### A. Mesafe Tabanli Algoritmalarin Yanilgisi
+
+KNN (K-Nearest Neighbors), K-Means Clustering veya SVM gibi algoritmalar, veri noktalari arasindaki mesafeyi hesaplar.
+
+Ornek Senaryo:
+Elinizde iki insan verisi olsun. Birinin maasi 10.000 TL ve yasi 30; digerinin maasi 100.000 TL ve yasi 50 olsun. Matematiksel olarak maas farki 90.000 birimken, yas farki sadece 20 birimdir. Algoritma bu durumda Yas degiskenini neredeyse tamamen gormezden gelir cunku 90.000 sayisi 20'nin yaninda devasa kalir. Model sadece maasa gore karar verir. Olceklendirme, yas ve maasin modele esit agirlikta girmesini saglar.
+
+### B. Gradient Descent (Dereceli Azalma) Hizi
+
+Lineer Regresyon, Lojistik Regresyon ve Yapay Sinir Aglari, hatayi minimize etmek icin Gradient Descent kullanir. Veriler farkli olceklerdeyse, maliyet fonksiyonunun sekli cok yamuk olur ve algoritmanin en iyi sonuca ulasmasi cok uzun surer. Veriler olceklendiginde bu yol daha duzgun olur; model cok daha hizli ve kararli ogrenir.
+
+---
+
+## 3. Ne Durumlarda Kullanilmali?
+
+Her zaman feature scaling yapmak zorunda degilsiniz, ancak asagidaki durumlarda kesinlikle yapmalisiniz:
+
+1. Mesafe Tabanli Algoritmalar Kullanirken:
+   - K-Nearest Neighbors (KNN)
+   - K-Means Clustering
+   - Support Vector Machines (SVM)
+
+2. Gradient Descent Kullanan Algoritmalar:
+   - Lineer ve Lojistik Regresyon
+   - Yapay Sinir Aglari (Neural Networks / Deep Learning)
+
+3. Boyut Indirgeme Algoritmalari:
+   - PCA (Principal Component Analysis)
+   - LDA
+
+Ne Zaman Kullanilmayabilir?
+Agac Tabanli Modeller (Decision Trees, Random Forest, XGBoost) kurallar uzerinden calistigi icin sayilarin buyuklugunden etkilenmezler. Bu modellerde scaling yapmak performansi artirmaz ama zarar da vermez.
+
+---
+
+## 4. Feature Scaling Yontemleri ve Ozellikleri
+
+Veri bilimi dunyasinda en sik kullanilan 4 temel yontem sunlardir:
+
+### 1. Standardization (Z-Score Normalization)
+
+Veriyi, ortalamasi 0 ve standart sapmasi 1 olacak sekilde donusturur.
+
+Formul: z = (x - u) / s
+- x: Deger
+- u: Ortalama
+- s: Standart Sapma
+
+Ozellikleri: Verinin dagilim seklini korur. Ust ve alt sinir yoktur.
+Ne Zaman Kullanilir? Genellikle varsayilan yontemdir. SVM ve Lojistik Regresyon icin idealdir. Aykiri degerlerden Min-Max kadar etkilenmez.
+
+### 2. Normalization (Min-Max Scaling)
+
+Verileri belirli bir araliga (genellikle 0 ile 1 arasina) sikistirir.
+
+Formul: X_yeni = (X - X_min) / (X_max - X_min)
+
+Ozellikleri: En kucuk deger 0, en buyuk deger 1 olur.
+Ne Zaman Kullanilir? Veriniz Normal dagilima sahip degilse kullanislidir. Derin Ogrenme (Deep Learning) ve Goruntu Isleme alanlarinda cok yaygindir.
+Dezavantaji: Aykiri degerlere (outliers) karsi cok hassastir.
+
+### 3. Robust Scaler
+
+Medyan (Ortanca) ve IQR (Ceyrekler Acikligi) kullanarak olceklendirme yapar.
+
+Formul: (X - Medyan) / IQR
+
+Ozellikleri: Ortalama yerine medyan kullandigi icin aykiri degerlerden etkilenmez.
+Ne Zaman Kullanilir? Veri setinizde cok fazla Aykiri Deger (Outlier) varsa, Standardization veya Normalization veriyi bozabilir. Bu durumda Robust Scaler kullanilmalidir.
+
+### 4. Max Abs Scaler
+
+Veriyi, maksimum mutlak degere bolerek olcekler.
+
+Ozellikleri: Veriler -1 ile 1 arasinda olur. Verinin seyrekliligini (sparsity) bozmaz.
+Ne Zaman Kullanilir? Genellikle icinde cok fazla 0 barindiran (Sparse Data) veri setleri ile calisirken kullanilir.
+
+---
+
+## OZET TABLO: Hangisini Secmeliyim?
+
+- Veri setinde cok fazla aykiri deger varsa: Robust Scaler
+- Sinir Aglari veya Goruntu Isleme yapiyorsaniz: Min-Max Normalization
+- Hangi yontemi sececeginizi bilmiyorsaniz: Standardization (StandardScaler)
+- K-Means veya KNN kullaniyorsaniz: Standardization veya Min-Max

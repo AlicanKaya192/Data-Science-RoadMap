@@ -1,0 +1,216 @@
+SORULARIN CEVAPLARI EN ALTTA BULUNMAKTA
+
+------------------------------------------------------------------------------------
+
+1. Lojistik Regresyon modeli ne tür problemler için kullanılır?
+
+A) Regresyon problemleri
+B) Sınıflandırma problemleri
+C) Kümeleme problemleri
+D) Veri normalleştirme problemleri
+
+------------------------------------------------------------------------------------
+
+2. Bir sınıflandırma modelinin doğru pozitif (True Positive) değeri nedir?
+
+A) Modelin yanlış bir şekilde olumsuz tahminlediği durumlar
+B) Gerçek pozitif durumlar
+C) Modelin doğru bir şekilde pozitif tahminlediği durumlar
+D) Modelin yanlış bir şekilde pozitif tahminlediği durumlar
+
+------------------------------------------------------------------------------------
+
+3. Hassasiyet (Precision) ve Kesinlik (Accuracy) kavramları arasındaki fark nedir?
+
+A) Hassasiyet modelin doğru tahminlediği olumlu sonuçların oranını, kesinlik ise tüm tahminlerin doğruluğunu ifade eder.
+B) Hassasiyet tüm tahminlerin doğruluğunu ifade ederken, kesinlik modelin doğru tahminlediği olumlu sonuçların oranını ifade eder.
+C) Hassasiyet modelin doğru tahminlediği olumsuz sonuçların oranını, kesinlik ise tüm tahminlerin doğruluğunu ifade eder.
+D) Hassasiyet modelin yanlış tahminlediği olumlu sonuçların oranını, kesinlik ise modelin yanlış tahminlediği olumsuz sonuçların oranını ifade eder.
+
+------------------------------------------------------------------------------------
+
+4. Bir sınıflandırma modelinin yanlış pozitif (False Positive) değeri nedir?
+
+A) Gerçek pozitif durumlar
+B) Modelin yanlış bir şekilde olumsuz tahminlediği durumlar
+C) Modelin doğru bir şekilde pozitif tahminlediği durumlar
+D) Modelin yanlış bir şekilde pozitif tahminlediği durumlar
+
+------------------------------------------------------------------------------------
+
+5. F1 Skoru hangi iki değerin harmonik ortalamasıdır?
+
+A) Hassasiyet (Precision) ve kesinlik (Recall)
+B) Hassasiyet (Precision) ve özgüllük (Specificity)
+C) Hassasiyet (Precision) ve duyarlılık (Sensitivity)
+D) Hassasiyet (Precision) ve doğru negatif hızı (True Negative Rate)
+
+------------------------------------------------------------------------------------
+
+6. Lojistik Regresyon'da kullanılan Sigmoid fonksiyonunun matematiksel formülü aşağıdakilerden hangisidir?
+
+A) f(x) = ax + b
+B) σ(z) = 1 / (1 + e^(-z))
+C) y = x^2
+D) L = - log(y)
+
+------------------------------------------------------------------------------------
+
+7. Lojistik Regresyon modelinde maliyet fonksiyonu olarak neden "Mean Squared Error (MSE)" yerine "Log Loss" kullanılır?
+
+A) MSE hesaplaması daha zordur.
+B) Log Loss, Sigmoid fonksiyonu ile birlikte kullanıldığında "Convex" (Dışbükey) bir yapı oluşturur ve global minimuma ulaşmayı kolaylaştırır.
+C) MSE sadece negatif değerler üretir.
+D) Log Loss daha hızlı hesaplanır.
+
+------------------------------------------------------------------------------------
+
+8. Bir sınıflandırma modelinde "Recall" (Duyarlılık) değerini artırmak için genellikle hangi işlem yapılır?
+
+A) Sınıflandırma eşik değeri (Threshold) yükseltilir.
+B) Sınıflandırma eşik değeri (Threshold) düşürülür.
+C) Veri setindeki özellik sayısı azaltılır.
+D) Modelin öğrenme hızı (Learning Rate) artırılır.
+
+------------------------------------------------------------------------------------
+
+9. ROC eğrisinin eksenleri aşağıdakilerden hangisidir?
+
+A) X: Precision, Y: Recall
+B) X: False Positive Rate, Y: True Positive Rate
+C) X: True Positive Rate, Y: False Positive Rate
+D) X: Accuracy, Y: F1 Score
+
+------------------------------------------------------------------------------------
+
+10. AUC (Area Under Curve) değeri 0.5 olan bir model için aşağıdakilerden hangisi söylenebilir?
+
+A) Model mükemmel çalışmaktadır.
+B) Model rastgele tahmin yapmaktadır (Yazı-tura gibi).
+C) Modelin Precision değeri çok yüksektir.
+D) Modelin Recall değeri çok düşüktür.
+
+------------------------------------------------------------------------------------
+
+11. Tip-1 Hata (False Positive) ne anlama gelir?
+
+A) Gerçekte var olan bir durumu yok sanmak.
+B) Gerçekte olmayan bir durumu var sanmak (Yanlış Alarm).
+C) Modelin eğitim süresinin çok uzun olması.
+D) Veri setinde eksik değerlerin olması.
+
+------------------------------------------------------------------------------------
+
+12. Aşağıdaki kod bloğunda `outlier_thresholds` fonksiyonunun amacı nedir?
+
+```python
+def outlier_thresholds(dataframe, col_name, q1=0.05, q3=0.95):
+    quartile1 = dataframe[col_name].quantile(q1)
+    quartile3 = dataframe[col_name].quantile(q3)
+    interquantile_range = quartile3 - quartile1
+    up_limit = quartile3 + 1.5 * interquantile_range
+    low_limit = quartile1 - 1.5 * interquantile_range
+    return low_limit, up_limit
+```
+
+A) Veri setindeki eksik değerleri doldurmak.
+B) Aykırı değerleri tespit etmek için alt ve üst sınırları belirlemek.
+C) Veriyi 0 ile 1 arasına sıkıştırmak.
+D) Lojistik regresyon modelini eğitmek.
+
+------------------------------------------------------------------------------------
+
+13. Karmaşıklık Matrisinde (Confusion Matrix) "Gerçek: Hasta" ve "Tahmin: Sağlıklı" durumu hangisidir?
+
+A) True Positive (TP)
+B) True Negative (TN)
+C) False Positive (FP)
+D) False Negative (FN)
+
+------------------------------------------------------------------------------------
+
+14. Çoklu sınıflandırma (Multiclass Classification) problemlerinde, sınıfların olasılıkları toplamının 1 olmasını sağlayan fonksiyon hangisidir?
+
+A) Sigmoid
+B) ReLU
+C) Softmax
+D) Tanh
+
+------------------------------------------------------------------------------------
+
+15. Lojistik Regresyon modelinde z = w * x + b işlemi neyi ifade eder?
+
+A) Olasılık değerini.
+B) Doğrusal (Lineer) kısmı.
+C) Hata oranını.
+D) Sınıf etiketini.
+
+------------------------------------------------------------------------------------
+
+16. F1 Skoru hangi durumlarda Accuracy (Doğruluk) metriğinden daha güvenilirdir?
+
+A) Veri seti dengeli olduğunda.
+B) Veri seti dengesiz (Imbalanced) olduğunda.
+C) Sadece regresyon problemlerinde.
+D) Veri seti çok küçük olduğunda.
+
+------------------------------------------------------------------------------------
+
+17. `sklearn.linear_model` kütüphanesinden `LogisticRegression` sınıfı kullanılarak bir model kurulduğunda, `model.predict_proba(X)` metodu ne döndürür?
+
+A) Sınıf tahminlerini (0 veya 1).
+B) Sınıflara ait olasılık değerlerini.
+C) Modelin katsayılarını.
+D) Modelin doğruluk skorunu.
+
+------------------------------------------------------------------------------------
+
+18. Bir spam filtresi için "Önemli bir iş mailini yanlışlıkla spam kutusuna atmamak" (False Positive'i azaltmak) öncelikliyse, hangi metriğe odaklanılmalıdır?
+
+A) Recall
+B) Precision
+C) Accuracy
+D) Log Loss
+
+------------------------------------------------------------------------------------
+
+19. Log Loss değeri 2.00'ın üzerinde olan bir model için ne söylenebilir?
+
+A) Model mükemmel çalışıyor.
+B) Model kabul edilebilir seviyede.
+C) Model felaket durumda, muhtemelen sınıflar ters etiketlenmiş.
+D) Modelin öğrenme hızı çok düşüktür.
+
+------------------------------------------------------------------------------------
+
+20. ROC eğrisinde "Sol Üst Köşe" (0, 1) noktası neyi ifade eder?
+
+A) %100 Yanlış Alarm, %0 Yakalama.
+B) %0 Yanlış Alarm, %100 Yakalama (Kusursuz Model).
+C) Rastgele Tahmin.
+D) En kötü performans.
+
+------------------------------------------------------------------------------------
+
+CEVAP ANAHTARI
+-------------------
+1 -> B
+2 -> C
+3 -> A
+4 -> D
+5 -> A
+6 -> B
+7 -> B
+8 -> B
+9 -> B
+10 -> B
+11 -> B
+12 -> B
+13 -> D
+14 -> C
+15 -> B
+16 -> B
+17 -> B
+18 -> B
+19 -> C
+20 -> B

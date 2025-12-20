@@ -1,0 +1,706 @@
+SORULARIN CEVAPLARI EN ALTTA BULUNMAKTA
+
+------------------------------------------------------------------------------------
+
+1. Bir pipeline oluştururken, adımlar hangi sırayla olmalıdır?
+
+A) Model oluşturma, veri ön işleme, keşifçi veri analizi
+B) Veri ön işleme, keşifçi veri analizi, model oluşturma
+C) Keşifçi veri analizi, Veri ön işleme, model oluşturma
+D) Hiçbiri
+
+------------------------------------------------------------------------------------
+
+2. Makine öğrenmesi pipeline'ı nedir?
+
+A) Veri setini rastgele bölen bir yöntemdir.
+B) Veri setini eğitim ve test kümelerine ayıran bir yöntemdir.
+C) Veri önişleme, model oluşturma ve değerlendirme adımlarını sırasıyla içeren bir akış yöntemidir.
+D) Yalnızca derin öğrenme modelleri için kullanılan bir tekniktir.
+
+------------------------------------------------------------------------------------
+
+3. Makine öğrenimi projelerinde pipeline kullanmanın başlıca avantajı nedir?
+
+A) Modelin daha karmaşık hale gelmesini sağlar.
+B) Adımları düzenli bir şekilde sıralayarak tekrar eden işlemleri azaltır ve iş akışını daha anlaşılır hale getirir.
+C) Sadece veri önişleme adımlarını içerir, model oluşturma ile ilgili değildir.
+D) Hiperparametre ayarlama işlemini otomatik olarak gerçekleştirir.
+
+------------------------------------------------------------------------------------
+
+4. ..., Birden fazla modeli bir araya getirerek daha iyi tahminler elde etmek için kullanılan bir yaklaşımdır.
+
+A) Random Forest
+B) GBM
+C) Ensemble learning
+D) LightGBM
+
+------------------------------------------------------------------------------------
+
+5. Python'da bir dosyayı modül olarak içe aktarırken ve aynı dosyayı doğrudan çalıştırırken kullanılan ifade hangisidir?
+
+A) if __name__ == "__main__": ifadesi
+B) def main(): ifadesi
+C) if __module__ == "__main__": ifadesi
+D) if __run__ == "__main__": ifadesi
+
+------------------------------------------------------------------------------------
+
+6. Denetimli öğrenme (Supervised Learning) problemlerinde modelin başarısını ölçmek için kullanılan "Confusion Matrix" (Karmaşıklık Matrisi) hangi değerleri içermez?
+
+A) True Positive (TP)
+B) False Negative (FN)
+C) Mean Squared Error (MSE)
+D) True Negative (TN)
+
+------------------------------------------------------------------------------------
+
+7. Doğrusal Regresyon (Linear Regression) modelinde amaç fonksiyonu genellikle nedir?
+
+A) Hata Kareler Toplamını (SSE) minimize etmek
+B) Doğruluk (Accuracy) oranını maksimize etmek
+C) Gini safsızlığını minimize etmek
+D) Log Loss değerini maksimize etmek
+
+------------------------------------------------------------------------------------
+
+8. Lojistik Regresyon modelinde çıktıları 0 ile 1 arasına sıkıştırmak için hangi fonksiyon kullanılır?
+
+A) ReLU
+B) Sigmoid
+C) Tanh
+D) Linear
+
+------------------------------------------------------------------------------------
+
+9. K-En Yakın Komşu (KNN) algoritmasında "K" değeri çok küçük seçilirse (örneğin K=1) ne olması beklenir?
+
+A) Model underfitting (yetersiz öğrenme) yaşar.
+B) Model overfitting (aşırı öğrenme) eğilimi gösterir ve gürültüye duyarlı hale gelir.
+C) Modelin genelleme yeteneği artar.
+D) Hesaplama maliyeti düşer.
+
+------------------------------------------------------------------------------------
+
+10. Karar Ağaçlarında (CART) bölünme kriteri olarak kullanılan "Gini Safsızlığı" (Gini Impurity) neyi ölçer?
+
+A) Bir düğümdeki verilerin ne kadar homojen olduğunu
+B) Ağacın derinliğini
+C) Tahmin edilen değerin hatasını
+D) Değişkenler arasındaki korelasyonu
+
+------------------------------------------------------------------------------------
+
+11. Random Forest algoritması ile ilgili aşağıdakilerden hangisi yanlıştır?
+
+A) Bagging (Bootstrap Aggregating) yöntemini kullanır.
+B) Birden fazla karar ağacının birleşimidir.
+C) Her ağaç tüm veri seti ve tüm özellikler kullanılarak eğitilir.
+D) Varyansı düşürerek overfitting riskini azaltır.
+
+------------------------------------------------------------------------------------
+
+12. Gradient Boosting Machines (GBM) algoritmasının temel çalışma prensibi nedir?
+
+A) Ağaçları paralel olarak eğitmek
+B) Önceki ağaçların yaptığı hataları (residuals) tahmin eden yeni ağaçlar eklemek
+C) Rastgele alt kümeler üzerinde bağımsız ağaçlar kurmak
+D) Veriyi yüksek boyutlu uzaya taşımak
+
+------------------------------------------------------------------------------------
+
+13. XGBoost algoritmasının diğer boosting yöntemlerine göre en belirgin avantajı nedir?
+
+A) Sadece kategorik verilerle çalışabilmesi
+B) Daha yavaş ama daha doğru olması
+C) Sistem optimizasyonu ve hız (ölçeklenebilirlik) sağlaması
+D) Karar ağacı kullanmaması
+
+------------------------------------------------------------------------------------
+
+14. LightGBM algoritması ağaç büyüme stratejisi olarak hangisini kullanır?
+
+A) Level-wise (Seviye odaklı)
+B) Leaf-wise (Yaprak odaklı)
+C) Depth-wise (Derinlik odaklı)
+D) Random-wise (Rastgele)
+
+------------------------------------------------------------------------------------
+
+15. CatBoost algoritmasının en güçlü olduğu alan hangisidir?
+
+A) Görüntü işleme
+B) Doğal dil işleme
+C) Kategorik değişkenlerin otomatik ve verimli işlenmesi
+D) Zaman serisi analizi
+
+------------------------------------------------------------------------------------
+
+16. Dengesiz veri setlerinde (Imbalanced Datasets) modelin çoğunluk sınıfını tahmin etmeye meyilli olmasını engellemek için hangi yöntem kullanılabilir?
+
+A) PCA
+B) SMOTE (Synthetic Minority Over-sampling Technique)
+C) K-Means
+D) Normalizasyon
+
+------------------------------------------------------------------------------------
+
+17. ROC Eğrisi (Receiver Operating Characteristic Curve) altında kalan alan (AUC) neyi ifade eder?
+
+A) Modelin hata oranını
+B) Modelin sınıfları ayırt etme yeteneğini (1'e yaklaştıkça başarı artar)
+C) Modelin eğitim süresini
+D) Veri setindeki dengesizliği
+
+------------------------------------------------------------------------------------
+
+18. Bias-Variance Tradeoff (Yanlılık-Varyans Değiş Tokuşu) bağlamında, yüksek varyans (High Variance) neye işaret eder?
+
+A) Underfitting (Yetersiz Öğrenme)
+B) Overfitting (Aşırı Öğrenme)
+C) İdeal Model
+D) Yüksek Doğruluk
+
+------------------------------------------------------------------------------------
+
+19. K-Means kümeleme algoritmasında optimum küme sayısını belirlemek için kullanılan yöntem hangisidir?
+
+A) Grid Search
+B) Elbow Yöntemi
+C) Cross Validation
+D) Gradient Descent
+
+------------------------------------------------------------------------------------
+
+20. Temel Bileşen Analizi (PCA) temel olarak ne amaçla kullanılır?
+
+A) Veri setindeki eksik değerleri doldurmak
+B) Veri setini sınıflandırmak
+C) Boyut indirgeme (Dimensionality Reduction) yaparak varyansı korumak
+D) Aykırı değerleri tespit etmek
+
+------------------------------------------------------------------------------------
+
+21. Regresyon problemlerinde model başarısını ölçmek için kullanılan RMSE (Root Mean Squared Error) metriği nasıl hesaplanır?
+
+A) Hataların mutlak değerlerinin ortalaması
+B) Hataların karelerinin ortalamasının karekökü
+C) Hataların karesi
+D) Tahmin edilen değerlerin ortalaması
+
+------------------------------------------------------------------------------------
+
+22. Bir sınıflandırma probleminde "Precision" (Kesinlik) neyi ifade eder?
+
+A) Pozitif olarak tahmin edilenlerin ne kadarının gerçekten pozitif olduğunu
+B) Gerçekten pozitif olanların ne kadarının doğru tahmin edildiğini (Recall)
+C) Tüm tahminlerin ne kadarının doğru olduğunu (Accuracy)
+D) Yanlış pozitiflerin oranını
+
+------------------------------------------------------------------------------------
+
+23. "Lazy Learner" (Tembel Öğrenici) olarak bilinen ve eğitim aşamasında model kurmayıp sadece veriyi saklayan algoritma hangisidir?
+
+A) Lojistik Regresyon
+B) Karar Ağaçları
+C) KNN (K-Nearest Neighbors)
+D) SVM
+
+------------------------------------------------------------------------------------
+
+24. Hiperparametre optimizasyonu için kullanılan `GridSearchCV` yöntemi nasıl çalışır?
+
+A) Rastgele parametre kombinasyonları dener.
+B) Belirlenen parametre ızgarasındaki (grid) tüm kombinasyonları dener.
+C) Parametreleri gradyan iniş yöntemiyle optimize eder.
+D) Sadece varsayılan parametreleri kullanır.
+
+------------------------------------------------------------------------------------
+
+25. Bir veri setinde "Multicollinearity" (Çoklu Doğrusal Bağlantı) sorunu varsa ne yapılmalıdır?
+
+A) Veri seti çoğaltılmalıdır.
+B) Yüksek korelasyonlu değişkenlerden biri çıkarılmalı veya PCA uygulanmalıdır.
+C) Daha karmaşık bir model seçilmelidir.
+D) Eğitim süresi uzatılmalıdır.
+
+------------------------------------------------------------------------------------
+
+26. Aşağıdakilerden hangisi bir "Ensemble Learning" (Topluluk Öğrenmesi) yöntemi değildir?
+
+A) Random Forest
+B) AdaBoost
+C) Decision Tree (Tek başına)
+D) XGBoost
+
+------------------------------------------------------------------------------------
+
+27. Lojistik Regresyon modelinde "Log Loss" değeri ideal olarak ne olmalıdır?
+
+A) 0'a yakın
+B) 1'e yakın
+C) Sonsuz
+D) Negatif
+
+------------------------------------------------------------------------------------
+
+28. Hiyerarşik Kümeleme (Hierarchical Clustering) sonucunda elde edilen ağaç yapısına ne ad verilir?
+
+A) Histogram
+B) Scatter Plot
+C) Dendrogram
+D) Boxplot
+
+------------------------------------------------------------------------------------
+
+29. Veri ön işleme adımında "One-Hot Encoding" ne zaman kullanılır?
+
+A) Sayısal değişkenleri ölçeklendirmek için
+B) Nominal (sıralı olmayan) kategorik değişkenleri sayısal hale getirmek için
+C) Eksik değerleri doldurmak için
+D) Aykırı değerleri silmek için
+
+------------------------------------------------------------------------------------
+
+30. "Cross Validation" (Çapraz Doğrulama) işleminin temel amacı nedir?
+
+A) Modelin eğitim süresini kısaltmak
+B) Modelin görmediği veriler üzerindeki performansını (genelleme yeteneğini) daha güvenilir ölçmek
+C) Veri setini büyütmek
+D) Hiperparametreleri rastgele seçmek
+
+------------------------------------------------------------------------------------
+
+31. Bir model hem eğitim setinde hem de test setinde düşük başarı gösteriyorsa bu durum ne olarak adlandırılır?
+
+A) Overfitting (Aşırı Öğrenme)
+B) Underfitting (Yetersiz Öğrenme)
+C) Optimal Fitting
+D) High Variance
+
+------------------------------------------------------------------------------------
+
+32. Scikit-learn kütüphanesinde veri setini eğitim ve test olarak ayırmak için hangi fonksiyon kullanılır?
+
+A) `train_test_split`
+B) `cross_val_score`
+C) `GridSearchCV`
+D) `StandardScaler`
+
+------------------------------------------------------------------------------------
+
+33. Aşağıdakilerden hangisi bir "Gözetimsiz Öğrenme" (Unsupervised Learning) algoritmasıdır?
+
+A) Linear Regression
+B) Logistic Regression
+C) K-Means Clustering
+D) Random Forest
+
+------------------------------------------------------------------------------------
+
+34. Feature Importance (Değişken Önem Düzeyi) analizi hangi modellerde doğal olarak yapılabilir?
+
+A) KNN
+B) Ağaç tabanlı modeller (Random Forest, XGBoost vb.)
+C) K-Means
+D) PCA
+
+------------------------------------------------------------------------------------
+
+35. "Recall" (Duyarlılık) metriği hangi durumda daha önemlidir?
+
+A) Yanlış pozitiflerin (False Positive) maliyeti yüksekse (Örn: Spam filtresi)
+B) Yanlış negatiflerin (False Negative) maliyeti yüksekse (Örn: Kanser teşhisi)
+C) Veri seti dengeli ise
+D) Modelin hızı önemliyse
+
+------------------------------------------------------------------------------------
+
+36. Standartlaştırma (StandardScaler) işlemi veriyi nasıl dönüştürür?
+
+A) 0 ile 1 arasına sıkıştırır.
+B) Ortalaması 0, standart sapması 1 olacak şekilde dönüştürür.
+C) Logaritmasını alır.
+D) Karesini alır.
+
+------------------------------------------------------------------------------------
+
+37. Bir regresyon probleminde R-Kare (R-Squared) değeri 0.95 çıkarsa bu ne anlama gelir?
+
+A) Modelin hatası %95'tir.
+B) Bağımsız değişkenler, bağımlı değişkendeki varyansın %95'ini açıklamaktadır.
+C) Model başarısızdır.
+D) Veri setinin %95'i eğitim için kullanılmıştır.
+
+------------------------------------------------------------------------------------
+
+38. "Outlier" (Aykırı Değer) tespiti için kullanılan "Boxplot" (Kutu Grafiği) yönteminde, aykırı değerler genellikle hangi sınırların dışında kalır?
+
+A) Ortalama ± Standart Sapma
+B) Q1 - 1.5*IQR ve Q3 + 1.5*IQR
+C) Min ve Max değerler
+D) Medyan ± IQR
+
+------------------------------------------------------------------------------------
+
+39. Makine öğrenmesi modelini kaydetmek ve daha sonra tekrar kullanmak için Python'da yaygın olarak hangi kütüphane kullanılır?
+
+A) `pickle` veya `joblib`
+B) `pandas`
+C) `numpy`
+D) `matplotlib`
+
+------------------------------------------------------------------------------------
+
+40. "Batch Learning" ile "Online Learning" arasındaki fark nedir?
+
+A) Batch learning tüm veriyle eğitilir, online learning veri geldikçe parça parça eğitilir.
+B) Batch learning internet gerektirir, online learning gerektirmez.
+C) Batch learning daha hızlıdır.
+D) Online learning sadece görüntü işleme içindir.
+
+------------------------------------------------------------------------------------
+
+41. Bir karar ağacının aşırı öğrenmesini (overfitting) engellemek için hangi parametre ile oynanabilir?
+
+A) `max_depth` (Maksimum derinlik azaltılabilir)
+B) `n_estimators` (Artırılabilir)
+C) `learning_rate` (Azaltılabilir)
+D) `random_state`
+
+------------------------------------------------------------------------------------
+
+42. "Stochastic Gradient Descent" (SGD) ile normal "Gradient Descent" arasındaki fark nedir?
+
+A) SGD her adımda rastgele seçilen tek bir örnek veya küçük bir grup (batch) ile ağırlıkları günceller, bu da daha hızlı olmasını sağlar.
+B) SGD tüm veri setini kullanır.
+C) SGD sadece sınıflandırma problemlerinde kullanılır.
+D) SGD daha yavaştır.
+
+------------------------------------------------------------------------------------
+
+43. Aşağıdakilerden hangisi bir hiperparametre DEĞİLDİR?
+
+A) K-Means'teki K sayısı
+B) Karar ağacındaki maksimum derinlik
+C) Doğrusal regresyondaki öğrenilen katsayılar (weights/coefficients)
+D) KNN'deki komşu sayısı
+
+------------------------------------------------------------------------------------
+
+44. "Label Encoding" hangi durumlarda "One-Hot Encoding"e tercih edilebilir?
+
+A) Kategorik değişkenin kardinalitesi (benzersiz değer sayısı) çok yüksekse ve sıralama ilişkisi varsa (Ordinal).
+B) Değişken nominal ise.
+C) Veri seti çok küçükse.
+D) Hiçbir zaman tercih edilmez.
+
+------------------------------------------------------------------------------------
+
+45. PCA uygulandıktan sonra elde edilen bileşenler (Principal Components) arasındaki korelasyon nasıldır?
+
+A) Yüksektir.
+B) 0'dır (Korelasyonsuzdur).
+C) Negatiftir.
+D) Değişkendir.
+
+------------------------------------------------------------------------------------
+
+46. "Rare Encoding" işlemi neyi amaçlar?
+
+A) Nadir görülen kategorik sınıfları birleştirerek gürültüyü azaltmak.
+B) Nadir sayısal değerleri silmek.
+C) Veri setini çoğaltmak.
+D) Eksik değerleri doldurmak.
+
+------------------------------------------------------------------------------------
+
+47. Bir modelin "F1-Score" değeri nasıl hesaplanır?
+
+A) (Precision + Recall) / 2
+B) 2 * (Precision * Recall) / (Precision + Recall)
+C) (TP + TN) / (TP + TN + FP + FN)
+D) Precision - Recall
+
+------------------------------------------------------------------------------------
+
+48. "Voting Classifier" nedir?
+
+A) Sadece tek bir model kullanan yöntemdir.
+B) Birden fazla modelin tahminlerini oylayarak (hard veya soft voting) nihai kararı veren ensemble yöntemidir.
+C) Veriyi oylayarak temizleyen bir yöntemdir.
+D) Sadece regresyon için kullanılır.
+
+------------------------------------------------------------------------------------
+
+49. Makine öğrenmesi projesinde "Baseline Model" oluşturmanın amacı nedir?
+
+A) En karmaşık modeli kurmak.
+B) Basit bir model kurarak (örn: ortalama değer veya basit bir algoritma) geliştirilecek modeller için bir referans noktası oluşturmak.
+C) Projeyi bitirmek.
+D) Veri ön işlemeyi atlamak.
+
+------------------------------------------------------------------------------------
+
+50. "Feature Scaling" (Özellik Ölçeklendirme) hangi algoritmalar için ZORUNLU değildir?
+
+A) KNN (Mesafe temelli)
+B) K-Means (Mesafe temelli)
+C) Karar Ağaçları ve Rastgele Ormanlar (Ağaç tabanlı)
+D) SVM (Mesafe temelli)
+
+------------------------------------------------------------------------------------
+
+51. Bir online alışveriş platformu, kullanıcıların geçmiş satın alma verilerini kullanarak hangi ürünleri önereceğini tahminlemek istiyor. Hangi makine öğrenmesi öğrenme türü bu senaryoda en uygun olabilir?
+
+A) Denetimli Öğrenme
+B) Denetimsiz Öğrenme
+C) Pekiştirmeli Öğrenme
+D) Doğrusal Regresyon
+
+------------------------------------------------------------------------------------
+
+52. Bir tıp merkezi, hastaların semptomlarını inceleyerek benzer hastalık gruplarını tanımlamak istiyor. Hangi makine öğrenmesi öğrenme türü bu senaryoda en uygun olabilir?
+
+A) Denetimli Öğrenme
+B) Denetimsiz Öğrenme
+C) Pekiştirmeli Öğrenme
+D) Karar Ağaçları
+
+------------------------------------------------------------------------------------
+
+53. Bir şirket, reklam harcamaları ile satışlar arasındaki ilişkiyi anlamak istiyor. Reklam harcamaları arttıkça satışların ne yönde değiştiğini tahminlemek için hangi makine öğrenmesi yöntemi en uygun olur?
+
+A) Sınıflandırma
+B) Kümeleme
+C) Doğrusal Regresyon
+D) Karar Ağaçları
+
+------------------------------------------------------------------------------------
+
+54. Bir doğrusal regresyon modelinin Gradient Descent ile eğitiminde öğrenme hızını (learning rate) çok büyük seçmek ne tür bir sonuca yol açabilir?
+
+A) Yakınsama hızını artırabilir
+B) Optimal çözüme daha çabuk ulaşmayı sağlar
+C) Modelin ağırlıklarını daha doğru tahmin eder
+D) Ağırlık güncellemelerinin sıkça atlandığı yerel minimumlarda sıkışma riskini artırabilir
+
+------------------------------------------------------------------------------------
+
+55. XYZ Şirketi, satışlarını etkileyen faktörleri anlamak ve gelecek dönem satışlarını tahminlemek istiyor. Şirket, reklam harcamaları ile satışlar arasındaki ilişkiyi değerlendirmek için bir Doğrusal Regresyon modeli kullanmaya karar verdi. Model eğitildi ve yeni bir reklam harcaması değeri verildi. Bu değeri kullanarak gelecek dönemdeki tahmini satışları yapmak için hangi adımı izlemelidir?
+
+A) Modelin tahmin ettiği satışlar değerini ikiye katlamak
+B) Modelin ağırlık katsayıları ile yeni reklam harcaması değerini çarpmak
+C) Modelin tahmin ettiği satışlar değerini bölmek
+D) Modelin tahmin ettiği satışlar değerini küçültmek
+
+------------------------------------------------------------------------------------
+
+56. Bir şirket, ürün fiyatı, reklam harcamaları ve hava sıcaklığı gibi faktörlerin satışlar üzerindeki etkisini değerlendirmek istiyor. Bu durumda hangi regresyon yöntemi en uygun olabilir?
+
+A) Çoklu Doğrusal Regresyon
+B) Lojistik Regresyon
+C) Ridge Regresyon
+D) Lasso Regresyon
+
+------------------------------------------------------------------------------------
+
+57. Lojistik Regresyon ile Doğrusal Regresyon arasındaki temel fark nedir?
+
+A) Lojistik Regresyon sadece iki sınıfın tahmin edilmesinde kullanılırken, Doğrusal Regresyon birden fazla sınıfı tahmin etmek için kullanılır.
+B) Lojistik Regresyon sadece sürekli değerleri tahmin etmek için kullanılırken, Doğrusal Regresyon kategorik değerleri tahmin etmek için kullanılır.
+C) Lojistik Regresyon tahmin sonuçlarını [0, 1] aralığında sınırlar ve sınıflandırma problemleri için kullanılırken, Doğrusal Regresyon tahmin sonuçları sürekli değerlerdir ve regresyon problemleri için kullanılır.
+D) Lojistik Regresyon doğrusal bir denklem kullanırken, Doğrusal Regresyon lojistik bir denklem kullanır.
+
+------------------------------------------------------------------------------------
+
+58. Bir banka, müşterilerinin bir kredi ürünü başvurusunun onaylanıp onaylanmamasını tahminlemek için bir sınıflandırma modeli geliştirmek istiyor. Model, müşteri başvurularının %90'ını doğru bir şekilde tahminliyor ancak gerçekte onaylanan başvuruların sadece %60'ını doğru tahminliyor. Bu durumda hangi başarı değerlendirme metriği, modelin gerçek onaylanan başvuruları daha iyi tahminlemesini değerlendirmek için en uygun olur?
+
+A) Hassasiyet (Precision)
+B) Kesinlik (Accuracy)
+C) Özgüllük (Specificity)
+D) F1 Skoru
+
+------------------------------------------------------------------------------------
+
+59. KNN, gradient descent gibi uzaklık temelli modeller kullanılırken veri ön işleme aşamasında bağımsız değişkenlerin hangi işlemden geçmesi sonuçlara daha doğru ve/veya hızlı ulaşılmasını sağlar?
+
+A) Standartlaştırma (Standardization)
+B) Normalleştirme (Normalization)
+C) İndirgeme (Reduction)
+D) Dönüştürme (Transformation)
+
+------------------------------------------------------------------------------------
+
+60. Modeli fit etmek ve modeli değerlendirmek arasındaki farkı en iyi açıklayan seçenek hangisidir?
+
+A) Modeli fit etmek, modelin performansını ölçmek için veriyi kullanmak anlamına gelirken, modeli değerlendirmek, modeli öğrenme algoritmasıyla uyumlu hale getirmek anlamına gelir.
+B) Modeli fit etmek, veriyi modele beslemek ve modelin öğrenmesini sağlamak anlamına gelirken, modeli değerlendirmek, modelin performansını ölçmek için veriyi kullanmaktır.
+C) Modeli fit etmek, modelin öğrenme algoritmasıyla uyumlu hale getirmek anlamına gelirken, modeli değerlendirmek, veriyi modele beslemek ve modelin öğrenmesini sağlamak anlamına gelir.
+D) Modeli fit etmek, modelin performansını ölçmek için veriyi kullanmak anlamına gelirken, modeli değerlendirmek, modeli öğrenme algoritmasıyla uyumlu hale getirmek anlamına gelir.
+
+------------------------------------------------------------------------------------
+
+61. Random Forest algoritması, hangi veri tipleriyle çalışabilir?
+
+A) Sadece sayısal verilerle.
+B) Sadece metin verilerle.
+C) Hem sayısal hem de kategorik verilerle.
+D) Yalnızca tek bir veri tipiyle çalışabilir.
+
+------------------------------------------------------------------------------------
+
+62. Makine öğrenimi modelinde "feature importance" nedir?
+
+A) Modelin eğitim süresini belirten bir ölçüttür.
+B) Her bir değişkenin model için önemini ölçen bir metriktir.
+C) Veri setindeki eksik değerleri doldurmak için kullanılan bir yöntemdir.
+D) Model başarımızı ölçmek için kullanılır.
+
+------------------------------------------------------------------------------------
+
+63. ..., RandomizedSearchCV de denenecek parametre sayısını belirlemek için kullanılan hiperparametredir.
+
+A) numbers
+B) n_iter
+C) n_jobs
+D) verbose
+
+------------------------------------------------------------------------------------
+
+64. ..., küçük miktarda bilgi kaybını göze alıp değişken boyutunu azaltmak için kullanılır.
+
+A) K-means
+B) Hiyerarşik kümeleme
+C) RF
+D) Hiçbiri
+
+------------------------------------------------------------------------------------
+
+65. Bir perakende mağazası müşteri verilerini kullanarak müşterileri farklı gruplara ayırmak istemektedir. Alışveriş miktarları, tercih ettikleri ürün kategorileri gibi bilgiler bu veriler arasında yer almaktadır. Hangi makine öğrenmesi yöntemi kullanılabilir?
+
+A) Denetimli Öğrenme
+B) Karar Ağaçları
+C) Lojistik Regresyon
+D) Denetimsiz Öğrenme
+
+------------------------------------------------------------------------------------
+
+66. K-ortalamalar ve hiyerarşik kümeleme arasındaki temel fark nedir?
+
+A) K-ortalamalar, sadece iki küme oluştururken, hiyerarşik kümeleme birden fazla küme oluşturur.
+B) Hiyerarşik kümeleme, her veri noktasını ayrı bir küme olarak ele alırken, K-ortalamalar belirli sayıda merkez nokta kullanır.
+C) K-ortalamaların karmaşıklığı daha düşüktür ve daha hızlı çalışırken, hiyerarşik kümeleme daha karmaşıktır ve daha yavaş çalışır.
+D) Hiyerarşik kümeleme sonuçları daha iyi görselleştirilebilirken, K-ortalamalar daha iyi kümeleme sonuçları üretir.
+
+------------------------------------------------------------------------------------
+
+67. Python da Karar Ağacı Regresyonu (CART) modelini oluşturmak için hangi komut kullanılır?
+
+A) DecisionTreeClassifier
+B) Decision Tree
+C) CARTRegressor
+D) DecisionTreeRegressor
+
+------------------------------------------------------------------------------------
+
+68. GridSearchCV, hangi amaçla kullanılır?
+
+A) Veri önişleme yöntemlerini belirlemek için kullanılır.
+B) Modelin performansını değerlendirmek için kullanılır.
+C) En iyi hiperparametre kombinasyonunu bulmak için kullanılır.
+D) 5 katlı model kurmak için kullanılır.
+
+------------------------------------------------------------------------------------
+
+69. export_text fonksiyonu ne işe yarar?
+
+A) Bir metin dosyasını veri setiyle doldurmak için kullanılır.
+B) Bir Karar Ağacı modelini eğitmek için kullanılır.
+C) Bir Karar Ağacı modelini metin tabanlı bir açıklamayla temsil etmek için kullanılır.
+D) Bir metin tabanlı veri setini dışarı aktarmak için kullanılır.
+
+------------------------------------------------------------------------------------
+
+70. Çoklu Doğrusal Regresyon modeli nedir?
+
+A) Sadece bir bağımsız değişkenin olduğu regresyon modeli
+B) Birden fazla bağımsız değişkenin olduğu regresyon modeli
+C) Regresyon modelinin doğru tahmin etme yeteneği
+D) Modelin verileri kümelemesi
+
+------------------------------------------------------------------------------------
+
+CEVAP ANAHTARI:
+
+1 - C
+2 - C
+3 - B
+4 - C
+5 - A
+6 - C
+7 - A
+8 - B
+9 - B
+10 - A
+11 - C
+12 - B
+13 - C
+14 - B
+15 - C
+16 - B
+17 - B
+18 - B
+19 - B
+20 - C
+21 - B
+22 - A
+23 - C
+24 - B
+25 - B
+26 - C
+27 - A
+28 - C
+29 - B
+30 - B
+31 - B
+32 - A
+33 - C
+34 - B
+35 - B
+36 - B
+37 - B
+38 - B
+39 - A
+40 - A
+41 - A
+42 - A
+43 - C
+44 - A
+45 - B
+46 - A
+47 - B
+48 - B
+49 - B
+50 - C
+51 - A
+52 - B
+53 - C
+54 - D
+55 - B
+56 - A
+57 - C
+58 - A
+59 - A
+60 - B
+61 - C
+62 - B
+63 - B
+64 - D
+65 - D
+66 - B
+67 - D
+68 - C
+69 - C
+70 - B

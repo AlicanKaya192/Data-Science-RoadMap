@@ -1,0 +1,30 @@
+Öncelikle veri ön işlemenin önemine dair Harvard Business Review'dan bir ifade paylaşalım.
+
+"Eğer veriniz kötüyse makine öğrenmesi araçlarınız kullanışsız olacaktır." şeklinde bir ifade 2018 yılında yazılmış.
+Harvard Business Review, iş dünyasının kabul ettiği saygın bir kaynak.
+
+Bununla birlikte The Economist'de yayınlanan başka bir makale var.
+
+"Dünya'nın en değerli kaynağı artık petrol değil, veridir."
+
+Bu bölümde ele alınacak konular:
+
+- Outliers (Aykırı Değerler)
+- Missing Values (Eksik Değerler)
+- Encoding
+- Feature Scalin (Özellik Ölçeklendirme)
+- Feature Extraction (Özellik Çıkarımı)
+- Feature Interactions (Özellik Etkileşimleri)
+- End to End Application (Uçtan Uca Uygulama)
+
+"Uygulamalı makine öğrenmesi temel olarak değişken mühendisliğidir." - Andrew Ng
+
+Özellik Mühendisliği : Özellikler üzerinde gerçekleştirilen çalışmalar. Ham veriden değişken üretmek.
+
+Veri Ön İşleme : Çalışmalar öncesi verinin uygun hale getirilmesi sürecidir.
+
+Peki bunun özellik mühendisliğiyle ne farkı var ?
+
+Şöyle düşünülebilir, özellik mühendisliği, veri ön işleme sürecinin alt başlıklarından birisidir. Yani büyük resim,
+büyük çerçeve, büyük şemsiye, veri ön işleme, veri hazırlığı basamağıdır. Bunun altında ön işleme işlemleri, bunun altında
+özellik çıkarımı, özellik mühendisliği işlemleri, özellik ölçeklendirme işlemleri gibi işlemler vardır.

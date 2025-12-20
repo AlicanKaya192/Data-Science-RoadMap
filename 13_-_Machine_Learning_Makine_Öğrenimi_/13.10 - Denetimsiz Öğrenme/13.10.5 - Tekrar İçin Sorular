@@ -1,0 +1,213 @@
+SORULARIN CEVAPLARI EN ALTTA BULUNMAKTA
+
+------------------------------------------------------------------------------------
+
+1. Denetimli öğrenme ile denetimsiz öğrenme arasındaki temel fark nedir?
+
+A) Denetimli öğrenmede veri kümesinde bağımlı değişken bulunmazken, denetimsiz öğrenmede bağımlı değişken bulunur.
+B) Denetimli öğrenmede model önceden belirlenmiş etiketlere göre eğitilirken, denetimsiz öğrenmede model veriyi analiz ederek desenleri kendi keşfeder.
+C) Denetimli öğrenme yalnızca sayısal verilerle çalışırken, denetimsiz öğrenme sayısal ve kategorik verilerle çalışabilir.
+D) Denetimli öğrenmede model sadece sınıflandırma problemleri için kullanılırken, denetimsiz öğrenme hem sınıflandırma hem de regresyon problemleri için kullanılabilir.
+
+------------------------------------------------------------------------------------
+
+2. Aşağıdakilerden hangisi K-ortalamalar adımlarını doğru vermiştir?
+
+1- Rastgele k merkez seçilir.
+2- Her gözlem en yakın olduğu merkeze atanır.
+3- Her gözlem için k merkezlere uzaklıklar hesaplanır.
+4- Küme sayısı belirlenir.
+5- Bu işlem belirlenen bir iterasyon adedince tekrar edilir ve küme içi hata kareler toplamlarının toplamının minimum olduğu durumdaki gözlemlerin kümelenme yapısı nihai kümelenme olarak seçilir.
+6- Atama işlemlerinden sonra oluşan kümeler için tekrar merkez hesaplamaları yapılır.
+
+A) 1-4-2-3-5-6
+B) 4-1-2-3-5-6
+C) 1-4-3-2-6-5
+D) 4-1-3-2-6-5
+
+------------------------------------------------------------------------------------
+
+3. Elbow yöntemi nedir ve ne amaçla kullanılır?
+
+A) Bir veri setini eğitim ve test verisi olarak bölme yöntemidir.
+B) Bir regresyon modelinin başarısını değerlendirmek için kullanılan bir metriktir.
+C) Kümeleme analizinde kullanılan bir yöntemdir ve optimal küme sayısını belirlemeye yardımcı olur.
+D) Veri setini scale etmek için kullanılan bir yöntemdir.
+
+------------------------------------------------------------------------------------
+
+4. Hiyerarşik kümeleme yöntemi nasıl çalışır?
+
+A) Veri kümesini iki alt kümeye böler ve bu şekilde devam eder.
+B) Hiyerarşik bir şekilde yukarıdan aşağı bölerek kümeler.
+C) Veriyi birleştirici veya bölümleyici şekilde bölerek kümelendirir.
+D) K-Means yöntemi ile aynıdır ve sayısal verilerle çalışır.
+
+------------------------------------------------------------------------------------
+
+5. ..., Hiyerarşik kümelemelerde kullanılan görselleştirme yöntemidir.
+
+A) Histogram
+B) Pasta
+C) Dendrogram
+D) Hiçbiri
+
+------------------------------------------------------------------------------------
+
+6. PCA (Temel Bileşen Analizi) uygulanmadan önce veri setine genellikle hangi işlem uygulanmalıdır?
+
+A) Normalizasyon (Min-Max Scaling)
+B) Standartlaştırma (StandardScaler)
+C) Logaritmik Dönüşüm
+D) Hiçbir işlem yapılmasına gerek yoktur
+
+------------------------------------------------------------------------------------
+
+7. K-Means algoritmasında `kmeans.inertia_` değeri neyi ifade eder?
+
+A) Kümeler arası uzaklıkların toplamını
+B) Küme merkezlerinin orijine olan uzaklığını
+C) Küme içi hata kareler toplamını (SSD)
+D) Optimum küme sayısını
+
+------------------------------------------------------------------------------------
+
+8. Hiyerarşik kümelemede `linkage` metodunda "average" parametresi kullanıldığında uzaklık nasıl hesaplanır?
+
+A) İki küme arasındaki en yakın iki nokta arasındaki uzaklık
+B) İki küme arasındaki en uzak iki nokta arasındaki uzaklık
+C) İki kümenin merkez noktaları arasındaki uzaklık
+D) İki kümedeki tüm noktaların birbirine olan uzaklıklarının ortalaması
+
+------------------------------------------------------------------------------------
+
+9. Dendrogram çizdirilirken `truncate_mode="lastp"` parametresi ne amaçla kullanılır?
+
+A) Dendrogramın renklerini değiştirmek için
+B) Çok fazla gözlem olduğunda grafiği sadeleştirmek ve sadece son p birleşimi göstermek için
+C) Dendrogramı ters çevirmek için
+D) Küme sayısını otomatik belirlemek için
+
+------------------------------------------------------------------------------------
+
+10. PCA analizinde `explained_variance_ratio_` neyi gösterir?
+
+A) Her bir bileşenin toplam varyansın ne kadarını açıkladığını
+B) Veri setindeki toplam değişken sayısını
+C) Modelin hata oranını
+D) Bileşenler arasındaki korelasyonu
+
+------------------------------------------------------------------------------------
+
+11. K-Means modelinde `random_state` parametresinin kullanılma amacı nedir?
+
+A) Küme sayısını belirlemek
+B) Kod her çalıştığında aynı başlangıç merkezlerinin seçilmesini sağlayarak tekrarlanabilir sonuçlar elde etmek
+C) Veriyi rastgele karıştırmak
+D) Hata oranını minimize etmek
+
+------------------------------------------------------------------------------------
+
+12. Principal Component Regression (PCR) yöntemi temel olarak nedir?
+
+A) Sadece kategorik değişkenlerle yapılan bir regresyon türüdür.
+B) Değişkenlerin PCA ile boyutunun indirgenmesi ve elde edilen bileşenlerin regresyon modelinde kullanılmasıdır.
+C) Karar ağaçları kullanılarak yapılan bir regresyon analizidir.
+D) Kümeleme sonuçlarının regresyon modeline dahil edilmesidir.
+
+------------------------------------------------------------------------------------
+
+13. Kodda kullanılan `KElbowVisualizer` fonksiyonu hangi kütüphaneye aittir ve ne işe yarar?
+
+A) Matplotlib - Veriyi görselleştirir
+B) Seaborn - Isı haritası çizer
+C) Yellowbrick - Optimum küme sayısını belirlemek için Elbow yöntemini görselleştirir
+D) Scikit-learn - K-Means modelini eğitir
+
+------------------------------------------------------------------------------------
+
+14. Hiyerarşik kümelemede küme sayısına karar vermek için genellikle hangi grafik üzerinde yatay bir kesim çizgisi (threshold) belirlenir?
+
+A) Scatter Plot (Saçılım Grafiği)
+B) Histogram
+C) Box Plot (Kutu Grafiği)
+D) Dendrogram
+
+------------------------------------------------------------------------------------
+
+15. PCA (Temel Bileşen Analizi) hangi tür bir makine öğrenmesi tekniğidir?
+
+A) Gözetimli Öğrenme (Supervised Learning)
+B) Gözetimsiz Öğrenme (Unsupervised Learning)
+C) Pekiştirmeli Öğrenme (Reinforcement Learning)
+D) Yarı Gözetimli Öğrenme (Semi-supervised Learning)
+
+------------------------------------------------------------------------------------
+
+16. Scikit-learn kütüphanesinde hiyerarşik kümeleme yapmak için kullanılan sınıf hangisidir?
+
+A) KMeans
+B) AgglomerativeClustering
+C) DecisionTreeRegressor
+D) PCA
+
+------------------------------------------------------------------------------------
+
+17. K-Means algoritması kümeleri oluştururken genellikle hangi uzaklık ölçüsünü temel alır?
+
+A) Manhattan Uzaklığı
+B) Öklid Uzaklığı (Euclidean Distance)
+C) Kosinüs Benzerliği
+D) Korelasyon Uzaklığı
+
+------------------------------------------------------------------------------------
+
+18. PCA yöntemi boyut indirgeme yaparken temel olarak neyi maksimize etmeye çalışır?
+
+A) Veri setindeki varyansı (bilgi kaybını minimize etmek için)
+B) Değişkenler arasındaki korelasyonu
+C) Hata kareler toplamını
+D) Küme sayısını
+
+------------------------------------------------------------------------------------
+
+19. Kodda `df.groupby("cluster").agg(["count","mean","median"])` satırı ne amaçla yazılmıştır?
+
+A) Kümeleri görselleştirmek için
+B) Kümelerin istatistiksel özelliklerini inceleyip profillerini çıkarmak için
+C) Veri setindeki eksik değerleri doldurmak için
+D) K-Means modelini eğitmek için
+
+------------------------------------------------------------------------------------
+
+20. Bir veri setinde çok yüksek korelasyona sahip değişkenler varsa (çoklu doğrusal bağlantı problemi), bu sorunu çözmek için hangi yöntem kullanılabilir?
+
+A) K-Means
+B) Hiyerarşik Kümeleme
+C) PCA (Temel Bileşen Analizi)
+D) Karar Ağaçları
+
+------------------------------------------------------------------------------------
+
+CEVAP ANAHTARI:
+
+1 - B
+2 - D
+3 - C
+4 - C
+5 - C
+6 - B
+7 - C
+8 - D
+9 - B
+10 - A
+11 - B
+12 - B
+13 - C
+14 - D
+15 - B
+16 - B
+17 - B
+18 - A
+19 - B
+20 - C

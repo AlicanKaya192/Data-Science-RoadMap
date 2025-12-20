@@ -1,0 +1,112 @@
+BAŞLIK: K-ORTALAMALAR (K-MEANS) - KAPSAMLI REHBER
+TÜR: Denetimsiz Öğrenme, Kümeleme (Clustering), Merkez Tabanlı Algoritma
+
+================================================================================
+1. GİRİŞ: AMAÇ NEDİR?
+================================================================================
+K-Means, elimizdeki etiketsiz veri yığınını, birbirine benzeyen "K" adet gruba ayırmaya çalışır.
+
+Temel Felsefe:
+"Bana arkadaşını söyle, sana kim olduğunu söyleyeyim."
+(Yakın olanlar aynı gruptadır).
+
+Örnek Senaryo (Tişört Bedeni):
+Elimizde 1000 kişinin boy ve kilo verisi var ama tişört bedenleri (S, M, L) yazmıyor.
+K-Means'e "Bunu 3 gruba ayır" dersek, bize Small, Medium ve Large kümelerini koordinatlara bakarak oluşturur.
+
+================================================================================
+2. ALGORİTMA NASIL ÇALIŞIR? (DÖNGÜSEL SÜREÇ)
+================================================================================
+Algoritma 4 adımlı bir döngüden oluşur ve merkezler "durana" kadar devam eder.
+
+
+
+Adım 1: Başlatma (Initialization)
+Kullanıcı "K=3" der. Algoritma veri uzayında rastgele 3 nokta (Centroid/Merkez) seçer.
+
+Adım 2: Atama (Assignment)
+Her bir veri noktası için, o anki 3 merkeze olan uzaklık ölçülür.
+En yakın merkez hangisiyse, nokta o merkezin rengini alır (O kümeye atanır).
+
+Adım 3: Güncelleme (Update - "Means" Kısmı)
+Kümeler oluştu. Şimdi her kümenin yeni "Ağırlık Merkezi" hesaplanır.
+(O kümedeki tüm noktaların X ve Y ortalaması alınır).
+Merkez noktası, bu yeni hesaplanan ortalamaya kaydırılır.
+
+Adım 4: Tekrar (Repeat)
+Merkezler yer değiştirdiği için, bazı noktalar artık diğer merkeze daha yakın olabilir.
+Merkezler sabitlenene (hareket etmeyi durdurana) kadar Adım 2 ve 3 tekrar edilir.
+
+================================================================================
+3. KRİTİK MATEMATİK: ÖKLİD MESAFESİ VE ÖLÇEKLENDİRME
+================================================================================
+K-Means, "Benzerlik" kavramını "Mesafe" ile ölçer.
+Kullandığı formül genellikle Öklid (Euclidean) mesafesidir:
+Mesafe = √((x2 - x1)² + (y2 - y1)²)
+
+!!! ÇOK ÖNEMLİ UYARI: SCALING (ÖLÇEKLENDİRME) !!!
+K-Means kullanırken verileri standartlaştırmak (StandardScaler) ZORUNLUDUR.
+
+Neden?
+- Değişken 1 (Maaş): 5.000 TL - 50.000 TL arası.
+- Değişken 2 (Yaş): 20 - 60 arası.
+
+Maaş sütunundaki 1 birimlik fark (1 TL), Yaş sütunundaki 1 birimlik farktan (1 Yıl) matematiksel olarak farksızdır. Ancak Maaş sayıları çok büyük olduğu için, mesafe formülünü domine eder. Algoritma sadece Maaş'a göre kümeleme yapar, Yaş'ı görmezden gelir.
+Çözüm: Tüm verileri 0 ile 1 arasına veya standart sapmaya göre sıkıştırmaktır.
+
+================================================================================
+4. "K" SAYISINI NASIL SEÇECEĞİZ? (ELBOW METHOD)
+================================================================================
+Denetimli öğrenmede sınıf sayısı bellidir. Burada ise "Kaç küme olmalı?" sorusu bir muammadır.
+
+Yöntem: Dirsek Metodu (Elbow Method)
+WCSS (Within-Cluster Sum of Squares) / Inertia değeri kullanılır. Bu değer, noktaların kendi merkezlerine olan uzaklıklarının karesi toplamıdır. (Ne kadar küçükse küme o kadar sıkıdır).
+
+Süreç:
+1. K=1'den K=10'a kadar algoritmayı çalıştır.
+2. Her K değeri için Inertia (Hata) değerini kaydet.
+3. Grafiğini çiz.
+
+
+
+Yorumlama:
+K arttıkça hata sürekli düşer. Ancak bir noktada düşüş hızı aniden yavaşlar (Grafik dirsek yapar). İşte o kırılma noktası ideal K sayısıdır.
+
+================================================================================
+5. BAŞLANGIÇ TUZAĞI VE K-MEANS++
+================================================================================
+Standart K-Means, ilk merkezleri "Rastgele" seçer.
+Sorun: Eğer şans eseri iki merkezi birbirine çok yakın seçerse, algoritma yanlış kümeler oluşturabilir ve düzeltemez (Local Minimum).
+
+Çözüm: K-Means++
+Modern kütüphanelerde (Scikit-Learn) varsayılan yöntemdir.
+İlk merkezleri rastgele seçmez; onları matematiksel olarak birbirine "en uzak" olacak şekilde dağıtarak başlatır. Bu sayede algoritma çok daha hızlı ve doğru yakınsar.
+
+================================================================================
+6. AVANTAJLAR VE DEZAVANTAJLAR
+================================================================================
+
+AVANTAJLAR:
+1. Basit ve Anlaşılır: Mantığını anlatmak ve uygulamak çok kolaydır.
+2. Hızlı: Büyük veri setlerinde hiyerarşik kümelemeye göre çok daha hızlı çalışır.
+3. Ölçeklenebilir: Yeni veriler geldiğinde kümeleri güncellemek kolaydır.
+
+DEZAVANTAJLAR:
+1. K Sayısı: Başlangıçta K sayısını sizin vermeniz gerekir (DBSCAN'de gerekmez).
+2. Aykırı Değerler (Outliers): Bir tane çok uzak nokta, merkezin (ortalamanın) kaymasına neden olur ve tüm kümeyi bozar.
+3. Küme Şekli: K-Means kümeleri "Küresel" (Yuvarlak) varsayar.
+   - İç içe geçmiş halkalar veya hilal şeklindeki verileri ayıramaz.
+   - Farklı yoğunluktaki kümelerde başarısız olur.
+
+================================================================================
+7. K-MEANS ÖZET TABLOSU
+================================================================================
+ÖZELLİK             | AÇIKLAMA
+------------------- | ----------------------------------------------------
+Algoritma Türü      | Denetimsiz (Unsupervised)
+Matematik           | Öklid Mesafesi (Euclidean Distance)
+Hiperparametre      | K (Küme Sayısı)
+Optimizasyon        | Inertia (WCSS) minimize edilir
+Ön İşleme           | KESİNLİKLE Scaling (Standartlaştırma) gerekir
+Zayıf Yönü          | Outlier'lar ve Şekilsiz Kümeler
+En İyi Kullanım     | Müşteri Segmentasyonu, Renk Sıkıştırma

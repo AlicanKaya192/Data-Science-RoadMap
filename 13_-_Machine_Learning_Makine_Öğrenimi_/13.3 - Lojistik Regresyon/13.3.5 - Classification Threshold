@@ -1,0 +1,91 @@
+BAŞLIK: SINIFLANDIRMA EŞİĞİ (CLASSIFICATION THRESHOLD)
+TÜR: Model Ayarlama ve Karar Mekanizması
+
+================================================================================
+1. GİRİŞ: OLASILIKTAN KARARA GİDEN YOL
+================================================================================
+Sınıflandırma algoritmaları (Lojistik Regresyon, Random Forest vb.) genellikle çıktı olarak size net bir "Evet/Hayır" vermez. Size bir OLASILIK verir.
+
+- Model Çıktısı: 0.78 (%78 ihtimalle Pozitif).
+- Model Çıktısı: 0.42 (%42 ihtimalle Pozitif).
+
+Soru şudur: Bu olasılığı neye göre "Sınıf 1" (Pozitif) veya "Sınıf 0" (Negatif) olarak etiketleyeceğiz?
+İşte bu sınırı çizen sayıya "Sınıflandırma Eşiği" denir.
+
+================================================================================
+2. VARSAYILAN EŞİK (DEFAULT THRESHOLD: 0.5)
+================================================================================
+Çoğu yazılım kütüphanesinde (Scikit-Learn vb.) bu değer varsayılan olarak 0.5 kabul edilir.
+
+- Mantık:
+  * Olasılık > 0.5 ise -> Sınıf 1 (Pozitif)
+  * Olasılık ≤ 0.5 ise -> Sınıf 0 (Negatif)
+
+Ancak gerçek hayatta 0.5 her zaman en doğru karar değildir.
+
+================================================================================
+3. EŞİK DEĞERİYLE OYNAMAK (PRECISION - RECALL TAHJTEREVALLİSİ)
+================================================================================
+Eşik değerini değiştirmek, modelin ürettiği Karmaşıklık Matrisini (TP, FP, FN, TN) tamamen değiştirir.
+
+Bu bir değiş-tokuş (Trade-off) oyunudur:
+Eşiği değiştirdiğinizde Precision (Kesinlik) ve Recall (Duyarlılık) zıt yönlerde hareket eder.
+
+A. EŞİĞİ DÜŞÜRMEK (ÖRN: 0.1) -> "KAPIYI HERKESE AÇMAK"
+Modelin "Pozitif" demesi için %10 ihtimal bile yeterli olsun dersek:
+- Sonuç: Model çok daha fazla şeye "Pozitif" der.
+- Etkisi:
+  * Recall ARTAR: (Gözden kaçırma azalır. Neredeyse tüm hastaları bulursunuz).
+  * Precision AZALIR: (Yanlış alarm artar. Sağlıklı bir sürü kişiye de hasta dersiniz).
+  * Risk: Tip-1 Hata (False Positive) patlar.
+
+B. EŞİĞİ YÜKSELTMEK (ÖRN: 0.9) -> "KATI GÜVENLİK GÖREVLİSİ"
+Modelin "Pozitif" demesi için %90 emin olmasını şart koşarsak:
+- Sonuç: Model çok zor "Pozitif" der. Sadece çok emin olduklarını seçer.
+- Etkisi:
+  * Precision ARTAR: (Model bir şeye pozitif dediyse, muhtemelen doğrudur. Yanlış alarm azalır).
+  * Recall AZALIR: (Gözden kaçırma artar. Sınırda kalan birçok gerçek hastayı elersiniz).
+  * Risk: Tip-2 Hata (False Negative) patlar.
+
+================================================================================
+4. SENARYO BAZLI EŞİK AYARLAMA REHBERİ
+================================================================================
+Hangi eşiği seçeceğiniz, "Hangi hata bizim için daha pahalı/tehlikeli?" sorusuna bağlıdır.
+
+Senaryo 1: Kanser Taraması (Ölümcül Hastalık)
+- Amaç: Hiçbir hastayı gözden kaçırmamak (Yüksek Recall).
+- Eylem: Eşiği DÜŞÜRÜN (Örn: 0.3).
+- Mantık: %30 şüphe bile olsa "Hasta" diyelim, doktora gönderelim. Eğer sağlıklıysa (FP) tekrar test yapılır, sorun değil. Ama hastaysa ve "Sağlıklı" dersek (FN) hasta ölür.
+
+Senaryo 2: Spam Mail Filtresi
+- Amaç: Önemli bir iş mailini yanlışlıkla spam kutusuna atmamak (Yüksek Precision).
+- Eylem: Eşiği YÜKSELTİN (Örn: 0.8 veya 0.9).
+- Mantık: Model %90 emin değilse o maile dokunmasın, gelen kutusuna düşsün. Arada bir iki spam mail kaçması (FN), patronun mailinin silinmesinden (FP) daha iyidir.
+
+Senaryo 3: Banka Kredi Onayı (Riskli Dönem)
+- Amaç: Batacak kredileri minimize etmek.
+- Eylem: Eşiği YÜKSELTİN.
+- Mantık: Sadece ödeme ihtimali çok yüksek olanlara kredi verelim.
+
+================================================================================
+5. OPTİMUM EŞİK NASIL BULUNUR?
+================================================================================
+Doğru noktayı bulmak için görsel araçlar kullanılır.
+
+1. ROC Eğrisi (Receiver Operating Characteristic):
+   Farklı eşik değerlerinde True Positive Rate ve False Positive Rate değişimini gösterir. Eğrinin sol üst köşeye en yakın olduğu nokta genellikle iyi bir eşik değeridir.
+
+2. Precision-Recall Eğrisi:
+   Dengesiz veri setlerinde kullanılır. İkisinin kesiştiği veya F1-Skorunun maksimum olduğu nokta seçilir.
+
+3. İş Bilgisi (Domain Knowledge):
+   Veri bilimci tek başına karar vermez. Doktor veya İşletmeci ile konuşulur: "1 tane hastayı kaçırmanın maliyeti ile 10 tane sağlıklıya boşuna test yapmanın maliyeti nedir?" Bu maliyet analizine göre eşik belirlenir.
+
+================================================================================
+ÖZET TABLO
+================================================================================
+EŞİK DEĞERİ (THRESHOLD) | DAVRANIŞ TÜRÜ         | KAZANÇ (METRİK) | KAYIP (RİSK)
+----------------------- | --------------------- | --------------- | -------------------
+DÜŞÜK (Örn: 0.1)        | Hassas / Panik Atak   | Yüksek Recall   | Çok Fazla Yanlış Alarm (FP)
+ORTA (0.5)              | Dengeli               | Dengeli         | Dengeli
+YÜKSEK (Örn: 0.9)       | Tutucu / Seçici       | Yüksek Precision| Çok Fazla Gözden Kaçırma (FN)

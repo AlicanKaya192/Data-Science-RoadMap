@@ -1,0 +1,109 @@
+BAŞLIK: MAKİNE ÖĞRENMESİNDE DEĞİŞKEN TÜRLERİ (VARIABLE TYPES)
+TÜR: Teknik Dokümantasyon ve Veri Ön İşleme Rehberi
+
+================================================================================
+1. GİRİŞ: NEDEN ÖNEMLİ?
+================================================================================
+Makine öğrenmesi modelleri özünde matematiksel fonksiyonlardır. Çoğu algoritma 
+(Lineer Regresyon, SVM, Yapay Sinir Ağları vb.) kelimelerden veya kategorilerden anlamaz; sadece sayılarla çalışır.
+
+Bu yüzden veri setindeki değişkenin türünü bilmek şu iki kritik adım için zorunludur:
+1. Hangi algoritmanın seçileceği (Örn: Hedef değişken sayısal ise Regresyon, kategorik ise Sınıflandırma).
+2. Verinin nasıl işleneceği (Encoding, Scaling vb.).
+
+================================================================================
+2. ANA DEĞİŞKEN KATEGORİLERİ
+================================================================================
+Veriler temel olarak iki ana sınıfa ayrılır: Sayısal (Nicel) ve Kategorik (Nitel).
+
+--------------------------------------------------------------------------------
+A. SAYISAL (NİCEL / NUMERICAL) DEĞİŞKENLER
+--------------------------------------------------------------------------------
+Matematiksel olarak ölçülebilen, büyüklük ifade eden sayılardır.
+
+1. Sürekli (Continuous) Değişkenler
+   - Tanım: İki değer arasında sonsuz sayıda farklı değer alabilirler. Genellikle ölçüm sonucu elde edilirler. Ondalıklı olabilirler.
+   - Örnekler:
+     * Ev Fiyatı: 3.500.000 TL, 3.500.000,50 TL...
+     * Sıcaklık: 24.5 °C
+     * Boy/Kilo: 1.75 m, 80.4 kg
+     * Hız: 65.3 km/s
+   - ML İçin Önemi: Regresyon problemlerinin hedef değişkenidir. Genellikle "Ölçeklendirme" (Scaling/Normalization) gerektirir.
+
+2. Kesikli (Discrete) Değişkenler
+   - Tanım: Sadece belirli, sayılabilir tam sayı değerlerini alırlar. Aradaki değerleri alamazlar (yarım çocuk olamaz).
+   - Örnekler:
+     * Mağaza ziyaretçi sayısı (100 kişi, 101 kişi...)
+     * Bir evdeki oda sayısı (2 oda, 3 oda...)
+     * Web sitesine tıklama sayısı.
+   - ML İçin Önemi: Bazen sınıflandırma, bazen regresyon olarak ele alınabilirler.
+
+--------------------------------------------------------------------------------
+B. KATEGORİK (NİTEL / CATEGORICAL) DEĞİŞKENLER
+--------------------------------------------------------------------------------
+Sayısal bir büyüklük ifade etmeyen, veriyi gruplara veya sınıflara ayıran etiketlerdir.
+
+1. Nominal (Sırasız) Değişkenler
+   - Tanım: Sınıflar arasında herhangi bir hiyerarşi, rütbe veya üstünlük yoktur. Sadece isimlendirmedir.
+   - Örnekler:
+     * Renkler: Kırmızı, Mavi, Yeşil (Kırmızı > Mavi diyemeyiz).
+     * Cinsiyet: Kadın, Erkek.
+     * Şehirler: İstanbul, Ankara, İzmir.
+     * Kan Grubu: A, B, AB, 0.
+   - İşleme Yöntemi: One-Hot Encoding (Aşağıda açıklanmıştır).
+
+2. Ordinal (Sıralı) Değişkenler
+   - Tanım: Sınıflar arasında matematiksel bir fark tam bilinmese de, net bir sıralama/rütbe vardır.
+   - Örnekler:
+     * Eğitim Durumu: İlkokul < Lise < Üniversite < Doktora.
+     * Rütbe: Onbaşı < Çavuş < Teğmen.
+     * Anket Cevapları: Hiç Katılmıyorum < Katılmıyorum < Nötr < Katılıyorum.
+     * Müşteri Segmenti: Bronz, Gümüş, Altın.
+   - İşleme Yöntemi: Label Encoding (Sıralamayı koruyan sayısal atama).
+
+================================================================================
+3. MAKİNE ÖĞRENMESİ İÇİN DÖNÜŞÜM YÖNTEMLERİ (ENCODING)
+================================================================================
+Bilgisayar "Kırmızı" veya "Lise" kelimesini işleyemez. Bunları sayıya çevirmemiz gerekir.
+
+A. Label Encoding / Integer Encoding
+   - Mantık: Her kategoriye bir sayı atanır.
+   - Kullanım Yeri: Sadece "Ordinal" (Sıralı) değişkenler için uygundur.
+   - Örnek (Eğitim):
+     * İlkokul -> 0
+     * Lise -> 1
+     * Üniversite -> 2
+   - Risk: Eğer bunu "Nominal" (Sırasız) değişkende kullanırsanız (Örn: Ankara:1, İstanbul:2), 
+   model İstanbul'u Ankara'dan "daha büyük" veya "iki katı" sanabilir. Bu hatadır.
+
+B. One-Hot Encoding (Dummy Variables)
+   - Mantık: Her kategori için yeni bir sütun açılır ve var olan kategoriye 1, diğerlerine 0 yazılır.
+   - Kullanım Yeri: "Nominal" (Sırasız) değişkenler için standarttır.
+   - Örnek (Renk: Kırmızı, Mavi, Yeşil):
+     * Orijinal Veri: [Kırmızı]
+     * Dönüşüm:
+       - Renk_Kırmızı: 1
+       - Renk_Mavi:    0
+       - Renk_Yeşil:   0
+
+================================================================================
+4. MODELLEME AÇISINDAN DEĞİŞKEN ROLLERİ
+================================================================================
+
+1. Bağımlı Değişken (Dependent / Target / Label / y)
+   - Tahmin etmeye çalıştığımız sonuçtur.
+   - Eğer Bağımlı Değişken Sayısal ise -> Problem "Regresyon"dur.
+   - Eğer Bağımlı Değişken Kategorik ise -> Problem "Sınıflandırma"dır.
+
+2. Bağımsız Değişkenler (Independent / Features / Attributes / X)
+   - Tahmin yapmak için kullandığımız girdilerdir.
+
+================================================================================
+ÖZET TABLO
+================================================================================
+DEĞİŞKEN TÜRÜ    | ALT TÜR     | ÖRNEK              | UYGUN İŞLEM (ML)
+---------------- | ----------- | ------------------ | -------------------------
+Sayısal (Nicel)  | Sürekli     | Fiyat, Boy, Hız    | Ölçeklendirme (Scaling)
+Sayısal (Nicel)  | Kesikli     | Oda Sayısı, Adet   | Olduğu gibi / Scaling
+Kategorik (Nitel)| Nominal     | Renk, Şehir        | One-Hot Encoding
+Kategorik (Nitel)| Ordinal     | Rütbe, Eğitim      | Label Encoding

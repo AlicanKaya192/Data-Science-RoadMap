@@ -1,0 +1,74 @@
+What_is_a_virtual_environment (Sanal Ortam Nedir ?)
+
+İzole çalışma ortamları oluşturmak için kullanılan araçlardır.
+
+Farklı çalışmalar için oluşabilecek farklı kütüphane ve versiyon ihtiyaçlarını,
+çalışmalar birbirini etkilemeyecek şekilde oluşturma imkânı sağlar.
+
+###############################################
+
+ÖRNEK 1
+
+Bir proje geliştirmek istiyoruz ve bu proje içerisinde:
+
+Proje 1:
+- Python 3.7 versiyonu
+- Numpy 1.16 versiyonu
+- Pandas 1.1 versiyonu
+
+Bunlarla bir proje geliştirdiğimizi ve çalışmalarımızı sürdürdüğümüzü düşünelim.
+
+Eş zamanlı olarak başka bir proje ile çalışmak istediğimizi ve bunun da örneğin:
+
+Proje 2:
+- Python 2.7 versiyonu
+- Numpy 1.14 versiyonu
+- Pandas 0.14 versiyonu
+
+istediğini varsayalım.
+
+Eş zamanlı olarak bir diğer projenin de aynı Python, Numpy, Pandas paketlerinde farklı versiyon beklentisi olduğunu varsayalım:
+
+PROJE 3 :
+
+- Python 3.8 versiyonu
+- Numpy 1.20 versiyonu
+- Pandas 0.19 versiyonu
+
+Bu durumda sanal ortamlar oluşturarak, yani her proje için ayrı bir sanal ortam oluşturarak çalışmalarımızı yapabiliriz.
+
+###############################################
+
+2. Örnek
+
+Pygame kütüphanesi ile Python’da oyun yazmak istediğimizi düşünelim.
+
+Böyle bir durumda Pygame der ki:
+"Python 3 serisiyle çalışamıyorum, 2 ile çalışabiliyorum."
+
+Biz de deriz ki:
+"İyi de kardeşim, bizim bütün uygulamalarımız 3 serisi ile çalışıyor. Senin için 2’ye dönecek hâlimiz yok."
+
+Bu noktada Conda der ki:
+"Naber Müdür." 😎
+
+İşte bu durumda Conda ve benzeri araçlar devreye girerek bize aynı anda birden fazla ortam oluşturma ve bunların üzerinde çalışma imkânı sağlar.
+
+Anlaşılacağı üzere sanal ortamlar, birbirinden farklı kütüphane ve versiyonlar çerçevesinde projelerin
+birbirini etkilemeden çalışmasına olanak tanır. Conda da bize bunun için yardımcı olan araçlardan sadece 1 tanesidir.
+
+###############################################
+
+Peki sadece Conda mı var?
+
+Hayır. Farklı araçlar da vardır:
+
+- venv
+- virtualenv
+- pipenv
+
+Bunlar da sanal ortam oluşturmak için kullanılan diğer araçlardır.
+
+Conda, sanal ortam (virtual environment) ve paket yönetimi aracıdır. Yani, Conda ile bilgisayarınızda bir işletim
+sistemi veya gerçek bir sanal makine çalıştırmazsınız. Onun yerine, Python veya diğer dilleri izole bir ortamda
+çalıştırmanızı sağlar; bu sayede farklı projelerde farklı kütüphane ve versiyonları birbirine karıştırmadan kullanabilirsiniz.

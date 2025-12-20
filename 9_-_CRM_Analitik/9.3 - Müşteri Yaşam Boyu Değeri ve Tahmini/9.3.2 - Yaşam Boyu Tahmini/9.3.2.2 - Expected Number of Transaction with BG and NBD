@@ -1,0 +1,186 @@
+##############################################################
+# BG/NBD MODEL (BUY 'TILL YOU DIE MODEL)
+##############################################################
+
+BG-NBD modeli, "Buy Till You Die" yani "Ölene Kadar Satın Al" modeli olarak da bilinir.
+Bu model, müşteri davranışlarını olasılıksal bir şekilde modelleyerek
+bir müşterinin gelecekte ne kadar sıklıkla alışveriş yapacağını tahmin etmeyi amaçlar.
+
+BG-NBD modeli, iki ayrı sürecin birleşiminden oluşur:
+1. Transaction Process (İşlem Süreci)
+2. Dropout Process (Terk Etme Süreci)
+
+Bu iki süreç birlikte çalışarak, bir müşterinin belirli bir zaman aralığında
+kaç kez alışveriş yapacağını ve o müşterinin hala aktif olup olmadığını modellememizi sağlar.
+
+
+##############################################################
+# 1. TRANSACTION PROCESS (İŞLEM SÜRECİ)
+##############################################################
+
+Transaction Process, müşterinin "alive" (yani hâlâ aktif) olduğu süre boyunca
+alışveriş yapma davranışını modelleyen süreçtir.
+
+Bu süreçte şu varsayımlar geçerlidir:
+
+- Bir müşteri "alive" olduğu sürece belirli bir zaman periyodunda yaptığı işlem sayısı
+  Poisson dağılımına uyar.
+- Poisson dağılımı, belirli bir zaman aralığında gerçekleşen olay sayısını modellemek için kullanılır.
+  Yani bir müşteri alive olduğu sürece kendi "transaction rate" (işlem oranı) etrafında
+  rastgele şekilde satın alma yapmaya devam eder.
+- Ancak her müşterinin işlem oranı (transaction rate) birbirinden farklıdır.
+  Bu nedenle müşteri kitlesindeki işlem oranlarının dağılımını modellemek için
+  Gamma dağılımı kullanılır.
+
+Bu durumda:
+    - Transaction rate parametresi = λ (lambda)
+    - Gamma dağılımının parametreleri = r ve α
+
+Yani:
+    λ ~ Gamma(r, α)
+
+Özetle:
+- Bir müşteri alive iken alışveriş davranışı Poisson(λ)
+- Tüm müşteriler arasındaki λ oranları Gamma(r, α) şeklinde dağılır.
+
+
+##############################################################
+# 2. DROPOUT PROCESS (TILL YOU DIE)
+##############################################################
+
+İkinci süreç, müşterinin alışverişi tamamen bırakma (dropout) davranışını modellemektedir.
+Bu nedenle "Till You Die" (Ölene Kadar) kısmı buradan gelir.
+
+Varsayımlar:
+- Her müşteri, yaptığı her alışverişten sonra belirli bir olasılıkla (p) drop olabilir,
+  yani markayla ilişiğini kesebilir.
+- Bu dropout olasılığı da müşteriden müşteriye değişir.
+- Tüm müşteri kitlesinin dropout olasılıklarının dağılımı Beta dağılımını takip eder.
+
+Bu durumda:
+    - Dropout probability parametresi = p
+    - Beta dağılımının parametreleri = a ve b
+
+Yani:
+    p ~ Beta(a, b)
+
+Özetle:
+- Her müşterinin markayı terk etme olasılığı p farklıdır.
+- p değerleri Beta(a, b) dağılımına uyar.
+
+
+##############################################################
+# MODELİN GENEL MANTIĞI
+##############################################################
+
+BG-NBD modeli, Transaction Process ve Dropout Process süreçlerini birleştirir.
+Bu iki süreci olasılıksal olarak bir araya getirerek
+müşterilerin gelecekte kaç kez alışveriş yapacağını tahmin eder.
+
+Basitçe:
+- Müşteri alive olduğu sürece, Poisson dağılımına göre alışveriş yapar.
+- Bir alışveriş yaptıktan sonra, belirli bir p olasılığıyla "ölür" (dropout olur).
+- Bu süreç, "Buy till you die" yani "Ölene kadar satın al" olarak adlandırılır.
+
+Model, gözlemlenen geçmiş işlem sayısı, işlem aralığı ve son alışveriş zamanına göre
+müşterinin alive olma olasılığını ve gelecekte beklenen işlem sayısını tahmin eder.
+
+
+##############################################################
+# EXPECTED NUMBER OF TRANSACTIONS (BEKLENEN İŞLEM SAYISI)
+##############################################################
+
+BG/NBD modelinde, bir müşterinin gelecekteki belirli bir zaman aralığında (t)
+yapması beklenen işlem sayısı E(Y(t)) formülü ile hesaplanır.
+
+Formül şu şekildedir:
+
+E(Y(t)|X=x,t_x,T,r,α,a,b) =
+((a + b + x - 1) / (a - 1)) *
+[
+  1 - ((α + T) / (α + T + t)) ** (r + x)
+      * ₂F₁(r + x, b + x; a + b + x - 1; t / (α + T + t))
+]
+/
+[
+  1 + δ(x>0) * (a / (b + x - 1)) * ((α + T) / (α + t_x)) ** (r + x)
+]
+
+Burada ₂F₁() Gauss hypergeometric fonksiyonunu temsil eder.
+
+##############################################################
+# FORMÜLDEKİ PARAMETRELERİN ANLAMLARI
+##############################################################
+
+x   : Gözlemlenen işlem sayısı (müşterinin geçmişte yaptığı alışveriş adedi)
+t_x : Son alışverişin gözlendiği süre (müşteri son alışverişini yaptıktan sonra geçen zaman)
+T   : Gözlem penceresinin toplam uzunluğu
+t   : Gelecekteki tahmin edilecek süre
+r   : Transaction rate için Gamma dağılımının shape parametresi
+α   : Transaction rate için Gamma dağılımının scale parametresi
+a   : Dropout olasılığı (p) için Beta dağılımının shape parametresi
+b   : Dropout olasılığı (p) için Beta dağılımının ikinci parametresi
+δ(x>0) : Müşterinin en az bir işlem yapıp yapmadığını kontrol eden gösterge fonksiyonu
+₂F₁ : Gauss Hypergeometric fonksiyonu (özel bir matematiksel seri)
+
+##############################################################
+# MATEMATİKSEL YORUM
+##############################################################
+
+Bu formül, iki süreci (transaction ve dropout) olasılıksal olarak birleştirir.
+
+- İlk kısım (a + b + x - 1) / (a - 1), Beta dağılımı kaynaklı dropout etkisini içerir.
+- (α + T) / (α + T + t) ** (r + x) terimi, müşterinin alive olma olasılığını temsil eder.
+- ₂F₁(...) kısmı, bu olasılığı belirli bir süre boyunca entegre eder (hipergeometrik etkiler).
+- Paydadaki δ(x>0) * ... kısmı, müşterinin zaten en az bir işlem yapmış olma durumuna göre
+  formülün normalize edilmesini sağlar.
+
+Bu birleşim sonucunda, model beklenen işlem sayısını (expected number of transactions)
+probabilistik olarak tahmin eder.
+
+##############################################################
+# EXPECTED VALUE (BEKLENEN DEĞER) KAVRAMI
+##############################################################
+
+"Expected" ifadesi, bir rassal değişkenin beklenen değerini (ortalamasını) ifade eder.
+
+Örneğin:
+- Eğer bir müşteri belirli bir zaman aralığında ortalama 5 kez alışveriş yapıyorsa,
+  "expected number of transactions = 5" denir.
+
+Matematiksel olarak beklenen değer, bir rassal değişkenin
+olasılık dağılımı altında ortalama değerini gösterir:
+    E[X] = ∑ [x * P(x)]
+Bu, rassal değişkenin olasılık ağırlıklı ortalamasıdır.
+
+
+##############################################################
+# RASSAL DEĞİŞKEN NEDİR?
+##############################################################
+
+Bir rassal değişken, değerlerini bir deneyin veya sürecin olası sonuçlarından alan değişkendir.
+
+Örneğin:
+- Bir müşterinin belirli bir ayda yaptığı alışveriş sayısı (0, 1, 2, 3, …) bir rassal değişkendir.
+- Çünkü her ay farklı sayıda alışveriş olabilir ve bu durum bir olasılık dağılımına uyar.
+
+Dolayısıyla:
+- Bir değişkenin belirli bir olasılık dağılımı izlediğini varsaydığımızda,
+  o değişkenin beklenen değeri (ortalaması) o dağılımın merkezi eğilimini temsil eder.
+
+
+##############################################################
+# SONUÇ
+##############################################################
+
+BG/NBD modeli, her bir müşterinin:
+1. Alive olduğu süredeki işlem sıklığını (Poisson + Gamma ile),
+2. Dropout olasılığını (Beta ile)
+modelleyerek, gelecekteki toplam işlem sayısını ve müşteri değerini tahmin eder.
+
+Ayrıca modelin beklenen değer formülü (E(Y(t))) aracılığıyla,
+müşterinin alive olma olasılığı ile beklenen alışveriş sıklığını probabilistik olarak birleştirir.
+
+Bu sayede CLTV (Customer Lifetime Value) tahminleri daha gerçekçi hale gelir,
+çünkü model müşterilerin farklı alışveriş hızlarını ve terk etme olasılıklarını
+olasılıksal bir biçimde hesaba katar.

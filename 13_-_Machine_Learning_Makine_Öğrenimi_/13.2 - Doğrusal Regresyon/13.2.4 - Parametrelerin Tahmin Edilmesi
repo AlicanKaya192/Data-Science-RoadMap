@@ -1,0 +1,107 @@
+BAŞLIK: PARAMETRELERİN TAHMİN EDİLMESİ (PARAMETER ESTIMATION)
+TÜR: İstatistiksel Öğrenme Teorisi ve Model Yapılandırması
+
+================================================================================
+1. GİRİŞ: PARAMETRE TAHMİNİ NEDİR?
+================================================================================
+Makine öğrenmesinde "öğrenme" dediğimiz süreç, aslında bir fonksiyonun bilinmeyen katsayılarını (parametrelerini) veriye bakarak tahmin etme sanatıdır.
+
+Bir modelin yapısı (Örn: Doğrusal Regresyon) bir "şablon"dur. Parametre tahmini ise bu şablonun içini en doğru sayılarla doldurmaktır.
+
+Temel Denklem: y = f(x; θ) + e
+- y: Hedef
+- x: Girdi
+- f: Model Fonksiyonu
+- θ (Theta): Tahmin etmemiz gereken PARAMETRELER (Ağırlıklar ve Bias).
+- e: Hata (Gürültü).
+
+Amaç: Gerçek hayattaki veriyi üreten o gizli $\theta$ değerlerine en çok yaklaşan $\hat{\theta}$ (şapkalı theta) değerini bulmaktır.
+
+================================================================================
+2. PARAMETRE VS. HİPERPARAMETRE (HAYATİ AYRIM)
+================================================================================
+Mülakatlarda en sık sorulan ve karıştırılan kavramdır.
+
+A. MODEL PARAMETRELERİ (PARAMETERS)
+- Tanım: Modelin eğitim verisinden kendi kendine öğrendiği, türettiği değerlerdir.
+- Kim Belirler?: Makine (Algoritma).
+- İnsan Müdahalesi: Yoktur. Biz elle giremeyiz.
+- Örnekler:
+  * Regresyondaki katsayılar (Ağırlıklar / Weights).
+  * Doğrunun kesim noktası (Bias / Intercept).
+  * Yapay Sinir Ağlarındaki nöron ağırlıkları.
+
+B. HİPERPARAMETRELER (HYPERPARAMETERS)
+- Tanım: Model eğitime başlamadan ÖNCE, insan (veri bilimci) tarafından manuel olarak ayarlanan yapısal ayarlardır.
+- Kim Belirler?: İnsan.
+- İnsan Müdahalesi: Tamamen bizim kontrolümüzdedir.
+- Örnekler:
+  * Öğrenme Oranı (Learning Rate - Alpha).
+  * K-NN algoritmasındaki "K" komşu sayısı.
+  * Karar ağacının maksimum derinliği (Max Depth).
+  * Gradyan İniş'teki tur sayısı (Epoch).
+
+Özet Analoji: Radyoyu tasarlayan mühendis "Hiperparametreleri" belirler (düğmeler nerede olacak, kapasite ne olacak). Kullanıcı ise sesi net duymak için düğmeyi çevirerek frekansı ayarlar; bu frekans ayarı "Parametre Tahmini"dir.
+
+================================================================================
+3. İSTATİSTİKSEL TAHMİN YÖNTEMLERİ
+================================================================================
+Parametreleri bulmak için iki ana istatistiksel yaklaşım kullanılır.
+
+A. EN KÜÇÜK KARELER (LEAST SQUARES ESTIMATION - LSE)
+- Mantık: Hataların karesinin toplamını minimize eden parametreleri seçer.
+- Kullanım: Genellikle Regresyon problemlerinde standarttır.
+- Varsayım: Hataların normal dağıldığını varsayar.
+
+B. EN ÇOK OLABİLİRLİK (MAXIMUM LIKELIHOOD ESTIMATION - MLE)
+- Mantık: "Elimizdeki bu veriyi görme ihtimalimizi (olasılığımızı) en yükseğe çıkaran parametreler nedir?" sorusunu sorar.
+- Felsefe: Veri sabit ise, parametreleri öyle ayarla ki, bu verinin oluşma olasılığı maksimize olsun.
+- Sonuç: Doğrusal Regresyon'da, eğer hatalar Normal Dağılım'a uyuyorsa, MLE ile LSE tamamen aynı sonucu verir. Ancak Lojistik Regresyon gibi sınıflandırma problemlerinde MLE kullanılır.
+
+================================================================================
+4. TAHMİN KALİTESİNİN ÖZELLİKLERİ
+================================================================================
+İyi bir parametre tahmin edicisi (Estimator) şu özelliklere sahip olmalıdır:
+
+1. Sapmasızlık (Unbiasedness):
+   Tahmin edilen parametrenin beklenen değeri, gerçek parametreye eşit olmalıdır. Yani "ortalama olarak" doğruyu tutturmalıdır.
+
+2. Tutarlılık (Consistency):
+   Veri sayısı arttıkça (n -> sonsuz), tahmin edilen parametre gerçek değere yakınsamalıdır. 10 veriyle bulduğumuz ağırlık ile 1 milyon veriyle bulduğumuz ağırlık arasında, milyonluk olan gerçeğe daha yakın olmalıdır.
+
+3. Etkinlik (Efficiency):
+   En düşük varyansa sahip tahmin edicidir. Yani aynı işlemi defalarca yapsak bile hep birbirine yakın sonuçlar üretmelidir.
+
+================================================================================
+5. UYGULAMA SÜRECİ (ADIM ADIM)
+================================================================================
+
+Adım 1: Başlatma (Initialization)
+Parametreler (Ağırlıklar) genellikle 0 veya 0'a yakın rastgele küçük sayılarla başlatılır.
+* Uyarı: Tüm ağırlıkları aynı sayı (Örn: 0) yaparsanız, Yapay Sinir Ağları öğrenemez (Simetri Problemi). Rastgelelik şarttır.
+
+Adım 2: Kestirim (Prediction)
+Mevcut parametrelerle bir tahmin üretilir.
+y_tahmin = w0 + w1*x
+
+Adım 3: Kayıp Hesaplama (Loss Computation)
+Tahmin ne kadar kötü? (Yitim Fonksiyonu).
+
+Adım 4: Güncelleme (Update - Optimization)
+Gradyan İniş (Gradient Descent) veya diğer algoritmalarla parametreler değiştirilir.
+
+Adım 5: Yakınsama (Convergence)
+Parametreler artık değişmemeye başladığında veya hata sıfıra yaklaştığında işlem durdurulur. Bulunan son değerler, "Tahmin Edilmiş Parametreler"dir.
+
+================================================================================
+ÖZET TABLO: PARAMETRE VS HİPERPARAMETRE
+================================================================================
+ÖZELLİK             | MODEL PARAMETRESİ ($w, b$)    | HİPERPARAMETRE ($\alpha, K$)
+------------------- | ----------------------------- | -----------------------------
+Kaynağı             | Veriden öğrenilir             | İnsan tarafından ayarlanır
+Değişimi            | Eğitim sırasında değişir      | Eğitim boyunca sabittir*
+Rolü                | Tahmin yapmayı sağlar         | Öğrenme sürecini yönetir
+Nasıl Bulunur?      | Optimizasyon (Gradyan İniş)   | Deneme-Yanılma (Grid Search)
+Veri Seti           | Eğitim Seti ile bulunur       | Doğrulama Seti ile ayarlanır
+
+*Not: Hiperparametreler eğitim başlamadan önce set edilir, eğitim sırasında model bunları kendi kendine değiştiremez.

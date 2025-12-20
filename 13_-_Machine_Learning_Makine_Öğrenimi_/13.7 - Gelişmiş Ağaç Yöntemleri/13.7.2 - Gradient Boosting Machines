@@ -1,0 +1,146 @@
+BAŞLIK: GRADIENT BOOSTING MACHINES (GBM) - KAPSAMLI REHBER
+TÜR: Topluluk Öğrenmesi (Ensemble), Boosting Algoritması, Sıralı İyileştirme
+
+================================================================================
+1. GİRİŞ: RANDOM FOREST'TAN FARKI NEDİR?
+================================================================================
+Random Forest "Demokrasi" ise, Gradient Boosting "Usta-Çırak" ilişkisidir.
+
+- Random Forest (Bagging): Ağaçlar birbirinden bağımsızdır. Hepsi aynı anda eğitilir, sonunda oylama yapılır. Hata (Varyans) düşürülür.
+- Gradient Boosting (Boosting): Ağaçlar birbirine bağımlıdır. Sırayla eğitilirler.
+  * 1. Ağaç tahmin yapar.
+  * 2. Ağaç, 1. ağacın YAPTIĞI HATAYI tahmin etmeye çalışır.
+  * 3. Ağaç, 2. ağacın kalan hatasını düzeltmeye çalışır.
+  
+Temel Felsefe: "Zayıf öğrenicileri (Weak Learners) bir araya getirerek güçlü bir öğrenici oluşturmak."
+
+================================================================================
+2. TEMEL MEKANİZMA: ARTIK DEĞER (RESIDUAL) MANTIĞI
+================================================================================
+GBM, hedef değişkeni (y) doğrudan tahmin etmeye çalışmaz. 
+GBM, bir önceki adımda yapılan **HATAYI (Residual)** tahmin etmeye çalışır.
+
+Formül Mantığı:
+Gerçek Değer = Tahmin + Hata
+Hata = Gerçek Değer - Tahmin
+
+GBM der ki: "Eğer ben hatayı (Residual) doğru tahmin edebilirsem, onu mevcut tahmine ekler ve gerçeği bulurum."
+
+--------------------------------------------------------------------------------
+GOLF ANALOJİSİ (EN İYİ ANLATIM)
+--------------------------------------------------------------------------------
+Amaç: Topu deliğe sokmak (Hedef).
+
+1. Vuruş (Model 1): Topa vurdun, deliğe yaklaştı ama 20 metre kısa kaldı.
+   - Hata (Residual): +20 metre.
+   
+2. Vuruş (Model 2): Artık hedef delik değildir. Hedef "20 metrelik mesafedir". 
+   Vuruş yapılır, 15 metre gider. 5 metre daha lazım.
+   - Yeni Hata (Residual): +5 metre.
+
+3. Vuruş (Model 3): Hedef artık "5 metredir".
+   Putter (kısa sopa) ile vurulur ve top deliğe girer.
+
+Sonuç: 1. Vuruş + 2. Vuruş + 3. Vuruş = Hedef.
+
+================================================================================
+3. ALGORİTMA ADIMLARI (ADIM ADIM MATEMATİKSEL SÜREÇ)
+================================================================================
+
+
+Süreç "iteratif" (döngüsel) işler.
+
+Adım 1: Başlangıç Tahmini (Base Prediction)
+Tüm verinin ortalamasını (Mean) alarak başlarız. Bu bizim "sabit" tahminimizdir ($F_0$).
+
+Adım 2: Hataların Hesaplanması (Pseudo-Residuals)
+Her veri noktası için: $r = (Gerçek - Tahmin)$
+
+Adım 3: Ağaç Oluşturma (Fit Tree to Residuals)
+Yeni bir Karar Ağacı kurulur. Ama bu ağacın hedefi "Ev Fiyatı" değil, "Fiyat Hatası"dır.
+
+Adım 4: Güncelleme (Update Rule)
+Eski Tahmin + (Öğrenme Oranı * Yeni Ağacın Tahmini)
+Formül: $F_{yeni}(x) = F_{eski}(x) + \eta \cdot h(x)$
+
+*Buradaki $\eta$ (Eta), Learning Rate'dir. Modelin ezberlemesini önleyen fren mekanizmasıdır.*
+
+================================================================================
+4. SAYISAL SENARYO: EV FİYATI TAHMİNİ
+================================================================================
+Senaryo: Bir evin gerçek fiyatı **1000 TL** olsun.
+Öğrenme Oranı (Learning Rate): **0.1** (Her adımda hatanın %10'unu düzelteceğiz).
+
+AŞAMA 0 (BAŞLANGIÇ):
+- Model tahmini: 700 TL (Veri setinin ortalaması).
+- Hata (Residual): 1000 - 700 = **300 TL**.
+
+AŞAMA 1 (1. AĞAÇ):
+- 1. Ağaç bu "300" değerini tahmin etmek için kurulur. Diyelim ki ağaç "300" dedi.
+- Güncelleme: 700 + (0.1 * 300) = 700 + 30 = **730 TL**.
+- Yeni Hata: 1000 - 730 = **270 TL**.
+
+AŞAMA 2 (2. AĞAÇ):
+- 2. Ağaç kalan "270" değerini tahmin etmeye çalışır. Diyelim ki "270" dedi.
+- Güncelleme: 730 + (0.1 * 270) = 730 + 27 = **757 TL**.
+- Yeni Hata: 1000 - 757 = **243 TL**.
+
+... (Bu işlem 100 veya 1000 kere tekrar eder) ...
+
+SONUÇ: Küçük adımlarla gerçeğe (1000) yaklaşılır. Random Forest gibi tek seferde büyük tahmin yapmaz, hatayı yontarak ilerler.
+
+================================================================================
+5. NEDEN ADI "GRADIENT" BOOSTING? (TEKNİK DETAY)
+================================================================================
+Burada devreye Türev (Calculus) girer.
+
+- Loss Function (Yitim Fonksiyonu): Hatayı ölçtüğümüz fonksiyondur (Genelde MSE: $1/2(y - Pred)^2$).
+- Gradient (Eğim/Türev): Yitim fonksiyonunun türevi bize hatanın yönünü gösterir.
+- Sürpriz Gerçek: MSE kullanıldığında, "Residual (y - Pred)" matematiksel olarak "Negatif Gradient"e eşittir.
+
+Yani biz "Residual'ı tahmin etmeye çalışıyorum" derken aslında matematiksel olarak "Gradient Descent (Gradyan İniş) yaparak Loss Fonksiyonunu minimize ediyorum" demiş oluyoruz. Bu yüzden adı Gradient Boosting'dir.
+
+================================================================================
+6. EVRİM: XGBOOST, LIGHTGBM VE CATBOOST
+================================================================================
+Klasik GBM yavaştır. Modern kütüphaneler bunu hızlandırmıştır.
+
+1. XGBoost (Extreme Gradient Boosting):
+   - Devrim niteliğindedir.
+   - Ağaçları budarken ve oluştururken "İkinci Türevi" de kullanır.
+   - Donanımı optimize eder, çok hızlıdır.
+
+2. LightGBM (Microsoft):
+   - Ağaçları derinlemesine (Leaf-wise) büyütür.
+   - Çok büyük veri setlerinde XGBoost'tan daha hızlıdır.
+
+3. CatBoost (Yandex):
+   - Kategorik verilerle (Marka, Renk, Şehir) otomatik başa çıkar.
+   - "One-hot encoding" yapmanıza gerek kalmaz.
+
+================================================================================
+7. AVANTAJLAR VE DEZAVANTAJLAR
+================================================================================
+
+AVANTAJLAR:
+1. Keskin Doğruluk: Yapısal verilerde (Tabular Data) şu an dünyanın en iyi algoritmasıdır (Deep Learning'den bile iyidir).
+2. Esneklik: Farklı Loss fonksiyonları ile çalışabilir.
+
+DEZAVANTAJLAR:
+1. Overfitting Riski: Hataları düzeltmeye o kadar odaklanır ki, gürültüyü (Noise) bile modellemeye çalışabilir.
+2. Parametre Ayarı Zordur: Learning Rate, Tree Depth, Subsample gibi çok fazla ayarı vardır. Random Forest gibi "kutudan çıktığı gibi" çalışmaz.
+3. Aykırı Değer (Outlier) Hassasiyeti: Aykırı değerler hatayı çok büyüttüğü için modelin kafasını karıştırabilir.
+
+================================================================================
+ÖZET TABLO: RANDOM FOREST vs GBM
+================================================================================
+ÖZELLİK             | RANDOM FOREST (RF)        | GRADIENT BOOSTING (GBM)
+------------------- | ------------------------- | ------------------------------
+Eğitim Şekli        | Paralel (Bağımsız Ağaçlar)| Seri (Bağımlı Ağaçlar)
+Odak Noktası        | Varyansı Düşürmek         | Bias'ı (Hatayı) Düşürmek
+Ağaç Yapısı         | Derin ve Karmaşık Ağaçlar | Sığ ve Basit Ağaçlar (Stumps)
+Hız                 | Hızlı (Paralel İşlem)     | Yavaş (Sıralı İşlem)*
+Parametre Hassasiyeti| Düşük (Kolay)            | Yüksek (Uzmanlık ister)
+Kullanım Yeri       | Genel Amaçlı / Hızlı Sonuç| Yarışmalar / Maksimum Performans
+
+*Not: XGBoost ve LightGBM gibi modern versiyonlar hız sorununu büyük ölçüde çözmüştür.*

@@ -1,0 +1,108 @@
+BAŞLIK: DOĞRUSAL REGRESYON (LINEAR REGRESSION)
+TÜR: Algoritma Analizi ve İstatistiksel Temeller
+
+================================================================================
+1. GİRİŞ: NEDİR VE NE İŞE YARAR?
+================================================================================
+Doğrusal Regresyon, bağımlı bir değişken (y) ile bir veya daha fazla bağımsız değişken (X) arasındaki ilişkiyi, "düz bir çizgi" (line) çizerek modellemeye çalışan gözetimli öğrenme algoritmasıdır.
+
+- Temel Amaç: Veri noktaları arasındaki ilişkiyi en iyi temsil eden doğruyu (Best Fit Line) bulmak ve bu doğruyu uzatarak geleceğe yönelik tahmin yapmaktır.
+- Problem Türü: Regresyon (Sayısal Tahmin).
+
+================================================================================
+2. MATEMATİKSEL MODEL (FORMÜLÜN ANATOMİSİ)
+================================================================================
+İlkokulda öğrendiğimiz "y = ax + b" formülünün aynısıdır, sadece harfler değişir.
+
+Formül: y = b0 + b1*x + e
+
+1. y (Bağımlı Değişken / Hedef): Tahmin etmeye çalıştığımız şey (Örn: Ev Fiyatı).
+2. x (Bağımsız Değişken / Girdi): Tahmin için kullandığımız veri (Örn: Evin m2'si).
+3. b0 (Sabit / Intercept / Bias): Doğrunun y eksenini kestiği nokta. (x=0 olduğunda y kaç olur? Örn: Hiç odası olmayan bir arsanın taban fiyatı).
+4. b1 (Eğim / Slope / Weight): x'teki 1 birimlik artışın y'yi ne kadar etkilediği. (Örn: m2 başına fiyat artışı).
+5. e (Hata / Error): Modelin açıklayamadığı rastgele gürültü.
+
+================================================================================
+3. TÜRLERİ
+================================================================================
+
+A. BASİT DOĞRUSAL REGRESYON (SIMPLE LINEAR REGRESSION)
+- Sadece TEK bir girdi değişkeni vardır.
+- Formül: y = b0 + b1*x
+- Örnek: Sadece "Deneyim Yılı"na bakarak "Maaş" tahmini.
+
+B. ÇOKLU DOĞRUSAL REGRESYON (MULTIPLE LINEAR REGRESSION)
+- BİRDEN FAZLA girdi değişkeni vardır.
+- Formül: y = b0 + b1*x1 + b2*x2 + ... + bn*xn
+- Örnek: "Maaş" tahmininde Deneyim, Eğitim Seviyesi, Şehir ve Yaş değişkenlerinin hepsini kullanmak.
+- Not: Gerçek hayattaki problemlerin %99'u bu türdedir.
+
+================================================================================
+4. MODEL NASIL ÖĞRENİR? (EN İYİ DOĞRUYU BULMAK)
+================================================================================
+Sonsuz sayıda doğru çizebiliriz. Hangisinin "en iyi" olduğunu nasıl anlarız?
+
+A. Kalıntılar (Residuals)
+Gerçek veri noktası ile çizdiğimiz doğru arasındaki dikey mesafedir.
+- Hata = Gerçek Değer - Tahmin Edilen Değer
+
+B. En Küçük Kareler Yöntemi (Ordinary Least Squares - OLS)
+Amaç, tüm veri noktaları için bu hataların karesinin toplamını (SSE) EN KÜÇÜK yapacak b0 ve b1 değerlerini bulmaktır.
+- Neden Kare Alıyoruz?: Negatif hatalar (doğrunun altındaki noktalar) ile pozitif hatalar birbirini götürmesin ve büyük hatalar daha çok cezalandırılsın diye.
+
+C. Optimizasyon (Gradyan İniş)
+Model, hatayı minimuma indiren katsayıları bulmak için ya matematiksel matris çözümü (Normal Equation) ya da iteratif deneme-yanılma yolu (Gradient Descent) kullanır.
+
+================================================================================
+5. DOĞRUSAL REGRESYON VARSAYIMLARI (KRİTİK BÖLÜM)
+================================================================================
+Modelin güvenilir olması için verinin şu 5 şarta uyması gerekir (Mülakat Sorusu):
+
+1. Doğrusallık (Linearity): Değişkenler arasında gerçekten doğrusal bir ilişki olmalıdır. (Veri parabolik ise bu model çalışmaz).
+2. Çoklu Bağlantı Sorunu Olmamalı (No Multicollinearity): Girdi değişkenleri (X1, X2) birbirleriyle yüksek korelasyonlu olmamalıdır. (Örn: Hem "Yaş" hem "Doğum Yılı"nı aynı anda modele koyarsanız model kafayı yer, çünkü ikisi aynı bilgiyi taşır).
+3. Hataların Normalliği: Hatalar (residuals) normal dağılım (çan eğrisi) göstermelidir.
+4. Eş Varyanslılık (Homoscedasticity): Hataların varyansı, tüm veri seti boyunca sabit olmalıdır. (Hata miktarı, sayı büyüdükçe artmamalıdır).
+5. Otokorelasyon Yokluğu: Hatalar birbirinden bağımsız olmalıdır. (Bir hata diğerini tetiklememeli).
+
+================================================================================
+6. AVANTAJLAR VE DEZAVANTAJLAR
+================================================================================
+
+AVANTAJLAR:
+- Basitlik: Anlaması, anlatması ve uygulanması en kolay algoritmadır.
+- Yorumlanabilirlik: Sonuçlar nettir. "Evin m2'si 1 birim artarsa fiyat 1000 TL artar" gibi kesin yargılar verir.
+- Hız: Eğitim süresi çok kısadır.
+
+DEZAVANTAJLAR:
+- Doğrusallık Kabulu: Gerçek hayatta ilişkiler nadiren dümdüzdür. Karmaşık ilişkileri (kıvrımlı verileri) modelleyemez.
+- Aykırı Değerlere (Outliers) Hassasiyet: Veri setinde tek bir uçuk değer (Örn: 100 m2 eve 100 Milyon dolar yazılmışsa) doğrunun eğimini tamamen bozabilir.
+
+================================================================================
+7. BAŞARI METRİKLERİ
+================================================================================
+Modelin ne kadar iyi olduğunu nasıl ölçeriz?
+
+1. R-Kare (R-Squared):
+   - Modelin varyansı açıklama gücüdür. 0 ile 1 arasındadır.
+   - 0.85 demek: "Fiyattaki değişimin %85'ini elimizdeki özelliklerle açıklayabiliyoruz."
+
+2. RMSE (Root Mean Squared Error):
+   - Ortalama hata payımız. "Tahminlerimiz ortalama ±50.000 TL sapıyor."
+
+================================================================================
+8. ÖRNEK SENARYO: MAAŞ TAHMİNİ
+================================================================================
+Veri:
+- 1 Yıl Deneyim -> 10.000 TL
+- 2 Yıl Deneyim -> 12.000 TL
+- 3 Yıl Deneyim -> 14.000 TL
+
+Model Denklemi (Eğitim Sonrası):
+Maaş = 8.000 + (2.000 * Deneyim Yılı)
+
+Yorum:
+- Sabit (b0 = 8000): İşe yeni başlayan (0 deneyim) birinin taban maaşı.
+- Eğim (b1 = 2000): Her 1 yıl deneyim maaşı 2.000 TL artırıyor.
+
+Tahmin (5 Yıl için):
+8.000 + (2.000 * 5) = 18.000 TL
