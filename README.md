@@ -23,7 +23,7 @@
 
 | | |
 |---|---|
-| 📦 **22 Modül** | Temel Python'dan Generative AI ve Reinforcement Learning'e kadar uçtan uca müfredat |
+| 📦 **23 Modül** | Temel Python'dan Generative AI, Reinforcement Learning ve API Geliştirmeye kadar uçtan uca müfredat |
 | 🧪 **50+ Uygulama & Proje** | Gerçek veri setleri ile uygulamalı çalışmalar |
 | 📓 **İnteraktif Notebook'lar** | Görselleştirme ağırlıklı modüllerde çalıştırılmış çıktılarıyla Jupyter Notebook |
 | 🤖 **267+ n8n Otomasyon** | Hazır AI workflow koleksiyonu |
@@ -80,6 +80,7 @@
 | 19 | [Natural Language Processing (NLP)](./19-Natural_Language_Processing_(NLP)/README.md) | Metin ön işleme, duygu analizi, sınıflandırma |
 | 20 | [Generative AI & Prompt Engineering](./20-Generative_AI_and_Prompt_Engineer/README.md) | LLM'ler, LangChain, RAG, otonom ajanlar, fine-tuning |
 | 21 | [Reinforcement Learning](./21-Reinforcement_Learning/README.md) | Q-Learning, Policy Gradient (REINFORCE), DQN kavramları, Gymnasium ortamları |
+| 22 | [API (Application Programming Interface)](./22-API/README.md) | HTTP, REST tasarımı, kimlik doğrulama/güvenlik, Python ile API tüketme, FastAPI ile API geliştirme, GraphQL/gRPC/Webhook |
 
 ---
 
@@ -102,7 +103,7 @@ Amacım, bu süreçte öğrendiklerimi organize bir şekilde belgelemek ve benze
 > Bu dosya, projenin ihtiyaç duyduğu Python kütüphanelerinin listesini içerir. İçeriğinde; **pandas**, **numpy**, **scikit-learn**, **matplotlib**, **seaborn**, **xgboost**, **lightgbm**, **catboost**, **streamlit**, **openai**, **google.generativeai** ve daha birçok veri bilimi, makine öğrenimi ve üretken AI kütüphanesi bulunmaktadır.
 >
 > `requirements.txt` artık geriye dönük uyumluluk amacıyla üç ayrı dosyayı bir arada kurar. Sadece belirli bir bölümle ilgileniyorsanız daha hafif/hızlı bir kurulum için ilgili dosyayı tek başına da kurabilirsiniz:
-> - **`requirements-core.txt`** — Modül 0-13, 16, 21 (Klasik Veri Bilimi, Makine Öğrenimi & Reinforcement Learning)
+> - **`requirements-core.txt`** — Modül 0-13, 16, 21, 22 (Klasik Veri Bilimi, Makine Öğrenimi, Reinforcement Learning & API Geliştirme)
 > - **`requirements-nlp.txt`** — Modül 19 (Doğal Dil İşleme)
 > - **`requirements-genai.txt`** — Modül 20 (Generative AI, LangChain, Ajanlar)
 >
@@ -570,7 +571,7 @@ Amacım, bu süreçte öğrendiklerimi organize bir şekilde belgelemek ve benze
 
 ![Progress](https://img.shields.io/badge/Tamamlanan-21%20%2F%2021%20Bölüm-brightgreen) ![Devam](https://img.shields.io/badge/Devam%20Eden-0-yellow) ![Planlanan](https://img.shields.io/badge/Planlanan-0-red)
 
-Yukarıdaki [Öğrenim Yol Haritası](#-öğrenim-yol-haritası-ve-i̇çerikler) tablosundaki **22 modülün tamamı tamamlanmış** durumdadır.
+Yukarıdaki [Öğrenim Yol Haritası](#-öğrenim-yol-haritası-ve-i̇çerikler) tablosundaki **23 modülün tamamı tamamlanmış** durumdadır.
 
 **Not:** 18, 19 ve 20. maddelerin sıralaması ihtiyaca göre değiştirilebilir. Gerekli görülen ek başlıklar ilave edilecektir. Ayrıca, bilinmesi gereken matematiksel konular da kapsama dahil edilecektir.
 

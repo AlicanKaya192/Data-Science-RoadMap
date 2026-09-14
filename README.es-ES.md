@@ -25,7 +25,7 @@
 
 | | |
 |---|---|
-| 📦 **22 Módulos** | Plan de estudios completo de Python básico a Generative AI y Reinforcement Learning |
+| 📦 **23 Módulos** | Plan de estudios completo de Python básico a Generative AI, Reinforcement Learning y Desarrollo de APIs |
 | 🧪 **50+ Aplicaciones & Proyectos** | Trabajos prácticos con conjuntos de datos reales |
 | 📓 **Notebooks Interactivos** | Jupyter Notebook con salidas ejecutadas en módulos centrados en visualización |
 | 🤖 **267+ Automatizaciones n8n** | Colección de flujos de trabajo de IA listos para usar |
@@ -82,6 +82,7 @@
 | 19 | [Procesamiento de Lenguaje Natural (NLP)](./19-Natural_Language_Processing_(NLP)/README.md) | Preprocesamiento de texto, análisis de sentimiento, clasificación |
 | 20 | [Generative AI & Prompt Engineering](./20-Generative_AI_and_Prompt_Engineer/README.md) | LLMs, LangChain, RAG, agentes autónomos, ajuste fino |
 | 21 | [Reinforcement Learning](./21-Reinforcement_Learning/README.md) | Q-Learning, Policy Gradient (REINFORCE), conceptos de DQN, entornos Gymnasium |
+| 22 | [API (Application Programming Interface)](./22-API/README.md) | HTTP, diseño REST, autenticación/seguridad, consumo de APIs con Python, creación de APIs con FastAPI, GraphQL/gRPC/Webhooks |
 
 ---
 
@@ -104,7 +105,7 @@ Mi objetivo es documentar lo que he aprendido de manera organizada y crear una g
 > Este archivo contiene la lista de bibliotecas de Python que el proyecto necesita. Incluye: **pandas**, **numpy**, **scikit-learn**, **matplotlib**, **seaborn**, **xgboost**, **lightgbm**, **catboost**, **streamlit**, **openai**, **google.generativeai** y muchas otras bibliotecas de ciencia de datos, aprendizaje automático e IA generativa.
 >
 > Actualmente, `requirements.txt` instala tres archivos separados en conjunto con fines de compatibilidad. Si solo está interesado en una sección específica, puede instalar el archivo correspondiente por separado para una instalación más ligera/rápida:
-> - **`requirements-core.txt`** — Módulos 0-13, 16, 21 (Ciencia de Datos Clásica, Aprendizaje Automático & Reinforcement Learning)
+> - **`requirements-core.txt`** — Módulos 0-13, 16, 21, 22 (Ciencia de Datos Clásica, Aprendizaje Automático, Reinforcement Learning & Desarrollo de APIs)
 > - **`requirements-nlp.txt`** — Módulo 19 (Procesamiento de Lenguaje Natural)
 > - **`requirements-genai.txt`** — Módulo 20 (Generative AI, LangChain, Agentes)
 >
@@ -572,7 +573,7 @@ Mi objetivo es documentar lo que he aprendido de manera organizada y crear una g
 
 ![Progress](https://img.shields.io/badge/Tamamlanan-21%20%2F%2021%20Bölüm-brightgreen) ![Devam](https://img.shields.io/badge/Devam%20Eden-0-yellow) ![Planlanan](https://img.shields.io/badge/Planlanan-0-red)
 
-Los **22 módulos** completos de la tabla de [Mapa de Aprendizaje](#-mapa-de-aprendizaje-y-contenidos) están en estado **finalizados**.
+Los **23 módulos** completos de la tabla de [Mapa de Aprendizaje](#-mapa-de-aprendizaje-y-contenidos) están en estado **finalizados**.
 
 **Nota:** El orden de los puntos 18, 19 y 20 puede cambiarse según sea necesario. Se agregarán encabezados adicionales si se considera necesario. Además, se incluirán los conceptos matemáticos que deben conocerse.
 
